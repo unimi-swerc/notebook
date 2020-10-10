@@ -5,15 +5,12 @@ tuple<ll, ll, ll> xgcd(ll a, ll b) {
   auto [g, x, y] = xgcd(b, a % b);
   return make_tuple(g, y, x - (a / b) * y);
 }
-
 ll divfloor(ll a, ll b) {
   return a / b - (a % b == -1 || a < 0);
 }
-
 ll divceil(ll a, ll b) {
   return a / b + (a % b != 0 && a < 0);
 }
-
 // Solve: ax + by = n, x>0, y>0, x+y is minimal
 pair<ll, ll> diophantine(ll a, ll b, ll n) {
   auto [g, x, y] = xgcd(a, b);
