@@ -1,0 +1,63 @@
+\documentclass[8pt,a4paper,landscape,oneside]{amsart}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[italian]{babel}
+\usepackage[scaled]{beramono}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage[top=3pt, bottom=1cm, left=0.3cm, right=0.3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[cache=false]{minted}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{titling}
+
+\newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-1em}}}
+
+% Minted
+\newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{cpp}{../data/#1}}
+
+% Header/Footer
+\pagestyle{fancy}
+\lhead{Università degli Studi di Milano}
+\rhead{\thepage}
+\cfoot{}
+\setlength{\headheight}{15.2pt}
+\setlength{\droptitle}{-20pt}
+\posttitle{\par\end{center}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Math and bit operators
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand*\BitAnd{\mathrel{\&}}
+\newcommand*\BitOr{\mathrel{|}}
+\newcommand*\ShiftLeft{\ll}
+\newcommand*\ShiftRight{\gg}
+\newcommand*\BitNeg{\ensuremath{\mathord{\sim}}}
+\DeclareRobustCommand{\stirling}{\genfrac\{\}{0pt}{}}
+
+% Title/Author
+\title{Università degli studi di Milano}
+\subtitle{Team Reference Document}
+\date{\ddmmyyyydate{\today{}}}
+
+\begin{document}
+\begin{multicols*}{3}
+\maketitle
+\thispagestyle{fancy}
+\vspace{-3em}
+\tableofcontents
+
+\input{code}
+
+\end{multicols*}
+\end{document}
