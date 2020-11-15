@@ -1,7 +1,7 @@
 constexpr int MAXN = 1 << 20, LOGN = 21;
 int table[LOGN][MAXN];
 void build(int N, int* V) {
-  copy(first, last, table[0]);
+  copy(V, V + N, table[0]);
   for (int j = 1; j < LOGN; j++) {
     for (int i = 0; i + (1 << j) <= N; i++) {
       table[j][i] = min(table[j - 1][i], table[j - 1][i + (1 << j) / 2]);
