@@ -1,4 +1,3 @@
-// Solve diophantine equation: ax + by = gcd(a,b)
 // Solution: (x + k*b/gcd(a,b),y - k*a/gcd(a,b))
 tuple<ll, ll, ll> xgcd(ll a, ll b) {
   ll s = 0, s2 = 1;

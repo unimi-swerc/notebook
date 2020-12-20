@@ -4,7 +4,7 @@ void build(int N, int* V) {
   copy(V, V + N, table[0]);
   for (int j = 1; j < LOGN; j++) {
     for (int i = 0; i + (1 << j) <= N; i++) {
-      table[j][i] = min(table[j - 1][i], table[j - 1][i + (1 << j) / 2]);
+      table[j][i]=min(table[j-1][i],table[j-1][i+(1<<j)/2]);
     }
   }
 }
