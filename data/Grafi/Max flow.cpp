@@ -1,8 +1,8 @@
 constexpr int MAXN = 1000, INF = 1e9;
-struct edge {
+struct Edge {
   int u, f, c, r;
 };
-vector<edge> grafo[MAXN];
+vector<Edge> grafo[MAXN];
 int level[MAXN];
 int cur[MAXN];
 bool levelGraph(int source, int sink) {
@@ -38,8 +38,8 @@ int sendFlow(int v, int flow, int sink) {
   return 0;
 }
 void addEdge(int from, int to, int cap) {
-  Edge a{to, 0, cap, grafo[to].size()};
-  Edge b{from, 0, 0, grafo[from].size()};
+  Edge a{to, 0, cap, (int)grafo[to].size()};
+  Edge b{from, 0, 0, (int)grafo[from].size()};
   grafo[from].push_back(a);
   grafo[to].push_back(b);
 }

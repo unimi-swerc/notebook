@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <random>
+#include <vector>
+#include <cassert>
+#include <cstdlib>
 using namespace std;
 
 #include "Sparse table.cpp"
@@ -17,6 +21,7 @@ int main() {
   for (int i = 0; i < Q; i++) {
     int l = rng() % N;
     int r = rng() % N;
+    if (l == r) continue;
     if (l > r) swap(l, r);
     int x = V[l];
     for (int j = l; j < r; j++) {
