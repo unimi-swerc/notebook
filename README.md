@@ -37,14 +37,17 @@
 
 - [ ] Ricorrenze lineari
 - [ ] Berlekamp-massey
-- [ ] Fast matrix multiplication
-- [ ] FFT/NTT
+- [x] FFT/NTT
+- [ ] Operazioni sui polinomi
 - [x] Euclide esteso
+- [ ] Operazioni sulle matrici
 - [ ] Gaussian elimination
 - [ ] Pollard's Rho
-- [ ] Teorema del resto cinese
 - [ ] Euler’s totient function
-- [ ] Floyd cycle detection
+- [ ] Delaunay triangulation (+ Voronoi)
+- [ ] (?) Teorema del resto cinese
+- [ ] (?) Fast matrix multiplication
+- [ ] (?) Floyd cycle detection
 
 ### 5. Grafi
 
@@ -53,7 +56,6 @@
 - [ ] Algoritmo ungherese
 - [ ] Blossom
 - [ ] Ponti e punti di articolazione
-- [ ] Hopcroft-Karp
 - [ ] (?) Eulerian tour
 
 ### 6. Altro
