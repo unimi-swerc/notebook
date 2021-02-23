@@ -20,6 +20,8 @@
 - [ ] Closest pair
 - [ ] Welzl (minimum enclosing circle)
 - [ ] Area del poligono
+- [X] Delaunay
+- [ ] Voronoi
 - [ ] (?) Punti all'interno del poligono
 - [ ] (?) Rotating caliper
 
@@ -44,7 +46,6 @@
 - [ ] Gaussian elimination
 - [ ] Pollard's Rho
 - [ ] Euler’s totient function
-- [ ] Delaunay triangulation (+ Voronoi)
 - [ ] (?) Teorema del resto cinese
 - [ ] (?) Fast matrix multiplication
 - [ ] (?) Floyd cycle detection
