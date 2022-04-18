@@ -1,3 +1,5 @@
+ll MOD;
+ll MOD1=104857601,MOD2=469762049,MOD3=998244353;
 int base = 1;
 vector<int> roots = {0, 1};
 vector<int> rev = {0, 1};
@@ -24,6 +26,10 @@ void init() {
     root++;
   }
   root = ipow(root, (MOD - 1) >> max_base);
+}
+void reset(){
+	max_base=root=-1;
+	base=1;
 }
 void ensure_base(int nbase) {
   if (max_base == -1) init();
