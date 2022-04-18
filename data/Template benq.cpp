@@ -9,6 +9,7 @@ using vi = V<int>;
 using vb = V<bool>;
 using vpi = V<pi>;
 
+#define ft front()
 #define sz(x) int((x).size())
 #define rsz resize
 #define pb push_back
@@ -21,3 +22,6 @@ using vpi = V<pi>;
 
 template<class T> bool ckmin(T& a, const T& b) {
   return b < a ? a = b, 1 : 0; } // set a = min(a,b)
+  
+template<class T> bool ckmax(T& a, const T& b) {
+  return a < b ? a = b, 1 : 0; } // set a = max(a,b)
