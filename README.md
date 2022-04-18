@@ -22,6 +22,7 @@
 - [ ] Area del poligono
 - [X] Delaunay
 - [ ] Voronoi
+- [X] Convex hull trick
 - [ ] (?) Punti all'interno del poligono
 - [ ] (?) Rotating caliper
 
