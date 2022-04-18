@@ -5,7 +5,7 @@
 ### 1. Strutture dati
 
 - [ ] Treap
-- [ ] Persistent segment tree
+- [x] Persistent segment tree
 - [ ] Heavy light decomposition (nodi & archi)
 - [x] Sparse table
 - [ ] (?) Pairing heap
