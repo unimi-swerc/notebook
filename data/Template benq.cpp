@@ -1,4 +1,6 @@
 using ll = long long;
+using db = long double;
+using ul = uint64_t;
 using pi = pair<int,int>;
 #define f first
 #define s second
