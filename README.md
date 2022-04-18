@@ -28,7 +28,7 @@
 
 ### 3. Stringhe
 
-- [ ] Aho-Corasick
+- [X] Aho-Corasick
 - [x] Z-algorithm
 - [x] Manacher
 - [x] Minima rotazione lessicografica
