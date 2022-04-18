@@ -50,7 +50,7 @@
 - [ ] Operazioni sulle matrici
 - [ ] Gaussian elimination
 - [x] Pollard's Rho
-- [ ] Euler’s totient function
+- [x] Euler’s totient function
 - [x] Teorema del resto cinese
 - [ ] (?) Fast matrix multiplication
 - [ ] (?) Floyd cycle detection
