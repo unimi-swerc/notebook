@@ -1,7 +1,8 @@
 const int maxn = 505;
  
 struct EdmondsStruct {
-    int vis[maxn], par[maxn], orig[maxn], match[maxn], aux[maxn], t, n;
+    int vis[maxn], par[maxn], orig[maxn];
+    int match[maxn], aux[maxn], t, n;
     vector <int> conn[maxn];
     queue <int> q;
     /// 1 based
@@ -56,7 +57,7 @@ struct EdmondsStruct {
                     if (!match[x]) return augment(u, x), 1;
                     q.push(match[x]); vis[match[x]] = 0;
                 }
-                else if (vis[x] == 0 && orig[v] != orig[x]) {
+                else if (vis[x] == 0 && orig[v] != orig[x]){
                     int a = lca(orig[v], orig[x]);
                     blossom(x, v, a); blossom(v, x, a);
                 }
@@ -75,7 +76,8 @@ struct EdmondsStruct {
                 ++ans; break;
             }
         }
-        for (int i = 1; i <= n; ++i) if (!match[i] && bfs(i)) ++ans;
+        for (int i = 1; i <= n; ++i) 
+        if (!match[i] && bfs(i)) ++ans;
         return ans;
     }
 };
