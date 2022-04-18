@@ -61,7 +61,7 @@
 - [ ] Algoritmo ungherese
 - [ ] Blossom
 - [ ] Ponti e punti di articolazione
-- [ ] (?) Eulerian tour
+- [x] Eulerian tour
 
 ### 6. Altro
 
