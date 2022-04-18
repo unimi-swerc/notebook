@@ -67,5 +67,5 @@
 
 ### 6. Altro
 
-- [ ] Gale-Shapley algorithm
+- [x] Gale-Shapley algorithm
 - [ ] Sat, hornsat, twosat, xorsat
