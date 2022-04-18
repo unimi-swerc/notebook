@@ -39,13 +39,13 @@ bool properInter(pt a, pt b, pt c, pt d, pt &out) {
          oc = orient(a,b,c), od = orient(a,b,d);
   // Proper intersection exists iff opposite signs
   if (oa*ob < 0 && oc*od < 0) {
-    out = (a*ob - b*oa) / (ob-oa);
+    out = (a*ob - b*oa) / (ob-oa); // requires floating-point
     return true;
   }
   return false;
 }
 // definire un struct comp per comparare i complessi
-set<pt, comp> intersection(pt a, pt b, pt c, pt d) {
+set<pt, comp> segIntersection(pt a, pt b, pt c, pt d) {
   pt out;
   if (properInter(a,b,c,d,out)) return {out};
   set<pt, comp> s;
@@ -100,5 +100,19 @@ struct line {
   line(ll a, ll b, ll c) : v({b,-a}), c(c) {}
   // From points P and Q
   line(pt p, pt q) : v(q-p), c(cross(v,p)) {}
+
+  ll side(pt p) { return cross(v,p)-c; }
+  ll dist(pt p) {return abs(side(p)) / abs(v);}
+  ll normDist(pt p) {return side(p)*side(p) / norm(v);}
+
+  line perpThrough(pt p) {return {p, p + perp(v)};}
+  line translate(pt t) {return {v, c + cross(v,t)};}
+  line shiftLeft(ll dist) {return {v, c + dist*abs(v)};}
 }
-// TODO
+
+bool lineIntersection(line l1, line l2, pt &out) {
+  ll d = cross(l1.v, l2.v);
+  if (d == 0) return false;
+  out = (l2.v*l1.c - l1.v*l2.c) / d; // requires floating-point
+  return true;
+}
