@@ -1,4 +1,5 @@
-// Solution: (x + k*b/gcd(a,b),y - k*a/gcd(a,b))
+// Soluzione: (x + k*b/gcd(a,b), y - k*a/gcd(a,b))
+// restituisce (x, y, gcd(a,b))
 tuple<ll, ll, ll> xgcd(ll a, ll b) {
   ll s = 0, s2 = 1;
   ll t = 1, t2 = 0;
