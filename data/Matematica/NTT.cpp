@@ -28,8 +28,8 @@ void init() {
   root = ipow(root, (MOD - 1) >> max_base);
 }
 void reset(){
-	max_base=root=-1;
-	base=1;
+  max_base=root=-1;
+  base=1;
 }
 void ensure_base(int nbase) {
   if (max_base == -1) init();
