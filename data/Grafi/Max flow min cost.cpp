@@ -1,24 +1,5 @@
 //Time: Ignoring first run of Dijkstra, $O(FM\log M)$ 
  //  * if caps are integers and $F$ is max flow.
-using ll = long long;
-using pi = pair<int,int>;
-#define f first
-#define s second
-template<class T> using V = vector<T>; 
-using vi = V<int>;
-using vb = V<bool>;
-using vpi = V<pi>;
-
-#define sz(x) int((x).size())
-#define rsz resize
-#define pb push_back
-#define FOR(i,a,b) for (int i = (a); i < (b); ++i)
-#define F0R(i,a) FOR(i,0,a)
-#define each(a,x) for (auto& a: x)
-
-template<class T> bool ckmin(T& a, const T& b) {
-  return b < a ? a = b, 1 : 0; } // set a = min(a,b)
-
 struct MCMF { 
   using F = ll; using C = ll; // flow type, cost type
   struct Edge { int to, rev; F flo, cap; C cost; };
