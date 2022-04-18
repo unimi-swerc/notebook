@@ -46,6 +46,7 @@
 - [x] FFT/NTT
 - [ ] Operazioni sui polinomi
 - [x] Euclide esteso
+- [x] Fattorizzazione veloce
 - [ ] Operazioni sulle matrici
 - [ ] Gaussian elimination
 - [ ] Pollard's Rho
