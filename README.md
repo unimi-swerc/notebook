@@ -49,7 +49,7 @@
 - [x] Fattorizzazione veloce
 - [ ] Operazioni sulle matrici
 - [ ] Gaussian elimination
-- [ ] Pollard's Rho
+- [x] Pollard's Rho
 - [ ] Euler’s totient function
 - [x] Teorema del resto cinese
 - [ ] (?) Fast matrix multiplication
