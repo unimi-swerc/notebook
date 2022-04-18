@@ -9,7 +9,8 @@ artpoints_bridges(vector<vector<size_t>>& adj) {
   size_t dfs_count, dfs_source, source_children;
 
   function<void(vector<vector<size_t>>&, size_t)> dfs =
-      [&dfs, &order, &low, &dfs_count, &dfs_source, &source_children, &parent,
+      [&dfs, &order, &low, &dfs_count, 
+       &dfs_source, &source_children, &parent,
        &ans](vector<vector<size_t>>& adj, size_t u) {
         bool is_art_point = false;
         order[u] = low[u] = dfs_count++;
@@ -39,7 +40,7 @@ artpoints_bridges(vector<vector<size_t>>& adj) {
           ans.first.push_back(u);
       };
 
-  for(dfs_source = 0; dfs_source < adj.size(); ++dfs_source) {
+  for(dfs_source=0; dfs_source<adj.size(); ++dfs_source){
     if(!order[dfs_source]) {
       dfs_count = 1;
       source_children = 0;
