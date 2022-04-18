@@ -20,15 +20,15 @@
 - [ ] Closest pair
 - [x] Welzl (minimum enclosing circle)
 - [x] Area del poligono
-- [X] Delaunay
+- [x] Delaunay
 - [ ] Voronoi
 - [x] Punti all'interno del poligono
 - [ ] (?) Rotating caliper
-- [X] Convex hull trick
+- [x] Convex hull trick
 
 ### 3. Stringhe
 
-- [X] Aho-Corasick
+- [x] Aho-Corasick
 - [x] Z-algorithm
 - [x] Manacher
 - [x] Minima rotazione lessicografica
@@ -47,14 +47,14 @@
 - [ ] Gaussian elimination
 - [ ] Pollard's Rho
 - [ ] Euler’s totient function
-- [X] Teorema del resto cinese
+- [x] Teorema del resto cinese
 - [ ] (?) Fast matrix multiplication
 - [ ] (?) Floyd cycle detection
 
 ### 5. Grafi
 
 - [x] Max flow
-- [ ] Min cost max flow
+- [x] Min cost max flow
 - [ ] Algoritmo ungherese
 - [ ] Blossom
 - [ ] Ponti e punti di articolazione
