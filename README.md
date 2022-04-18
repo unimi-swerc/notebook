@@ -61,7 +61,7 @@
 - [x] Min cost max flow
 - [ ] Algoritmo ungherese
 - [ ] Blossom
-- [ ] Ponti e punti di articolazione
+- [x] Ponti e punti di articolazione
 - [x] Eulerian tour
 
 ### 6. Altro
