@@ -31,3 +31,5 @@ int main() {
 
   return 0;
 }
+
+// E anche questo: https://judge.yosupo.jp/submission/86600
