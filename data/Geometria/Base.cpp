@@ -31,9 +31,12 @@ double orientedAngle(pt a, pt b, pt c) {
 
 // *** Segmenti ***
 bool above(pt a, pt p) { return p.y >= a.y; }
-bool inDisk(pt a, pt b, pt p) { return dot(a - p, b - p) <= 0; }
-bool onSegment(pt a, pt b, pt p) { return orient(a, b, p) == 0 && inDisk(a, b, p); }
-bool crossesRay(pt a, pt p, pt q) { return (above(a, q) - above(a, p)) * orient(a, p, q) > 0; }
+bool inDisk(pt a, pt b, pt p) { 
+  return dot(a - p, b - p) <= 0; }
+bool onSegment(pt a, pt b, pt p) { 
+  return orient(a, b, p) == 0 && inDisk(a, b, p); }
+bool crossesRay(pt a, pt p, pt q) { 
+  return (above(a,q)-above(a,p))*orient(a, p, q)>0;}
 bool properInter(pt a, pt b, pt c, pt d, pt &out) {
   double oa = orient(c,d,a), ob = orient(c,d,b),
          oc = orient(a,b,c), od = orient(a,b,d);
@@ -59,7 +62,7 @@ double segPointDistance(pt a, pt b, pt p) {
   if (a != b) {
     line l(a,b);
     // if closest to projection
-    if (dot(l.v, a) < dot(l.v, p) && dot(l.v, p) < dot(l.v, b)) {
+    if(dot(l.v, a)<dot(l.v, p) && dot(l.v, p)<dot(l.v, b)){
       return l.dist(p);
     }
   }
@@ -68,8 +71,10 @@ double segPointDistance(pt a, pt b, pt p) {
 double segSegDistance(pt a, pt b, pt c, pt d) {
   pt dummy;
   if (properInter(a,b,c,d,dummy)) return 0;
-  return min({segPointDistance(a,b,c), segPointDistance(a,b,d),
-              segPointDistance(c,d,a), segPointDistance(c,d,b)});
+  return min({segPointDistance(a,b,c), 
+              segPointDistance(a,b,d),
+              segPointDistance(c,d,a), 
+              segPointDistance(c,d,b)});
 }
 
 // *** Poligoni
@@ -93,7 +98,7 @@ int inPolygon(vector<pt> V, pt p) {
   int numCrossings = 0;
   for (int i = 0; i < V.size(); i++) {
     if (onSegment(V[i], V[(i + 1) % V.size()], p)) return 2;
-    numCrossings += crossesRay(p, V[i], V[(i + 1) % V.size()]);
+    numCrossings+=crossesRay(p, V[i], V[(i + 1) % V.size()]);
   }
   return numCrossings % 2;
 }
@@ -103,7 +108,7 @@ bool half(pt p) {
 }
 void polarSort(vector<pt> &v) {
   sort(v.begin(), v.end(), [](pt v, pt w) {
-    return make_tuple(half(v), 0) < make_tuple(half(w), cross(v,w));
+    return make_tuple(half(v),0)<make_tuple(half(w),cross(v,w));
   });
 }
 
@@ -129,6 +134,6 @@ struct line {
 bool lineIntersection(line l1, line l2, pt &out) {
   ll d = cross(l1.v, l2.v);
   if (d == 0) return false;
-  out = (l2.v*l1.c - l1.v*l2.c) / d; // requires floating-point
+  out = (l2.v*l1.c - l1.v*l2.c) / d; //requires floating-point
   return true;
 }
