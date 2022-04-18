@@ -18,7 +18,7 @@
 - [ ] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
 - [ ] Convex hull (2D e (?) 3D)
 - [ ] Closest pair
-- [ ] Welzl (minimum enclosing circle)
+- [x] Welzl (minimum enclosing circle)
 - [ ] Area del poligono
 - [X] Delaunay
 - [ ] Voronoi
