@@ -6,7 +6,7 @@ template<bool directed> struct Euler {
         adj[a].eb(b,M); if (!directed) adj[b].eb(a,M); }
     vpi solve(int src = 0) { 
         its.rsz(N); F0R(i,N) its[i] = begin(adj[i]);
-        vpi ans, s{{src,-1}}; // {{vert,prev vert},edge label}
+        vpi ans, s{{src,-1}};//{{vert,prev vert},edge label}
         int lst = -1; // ans generated in reverse order
         while (sz(s)) { 
             int x = s.bk.f; auto& it=its[x], en=end(adj[x]);
@@ -14,7 +14,8 @@ template<bool directed> struct Euler {
             if (it == en) { // no more edges out of vertex
                 if (lst != -1 && lst != x) return {};
                 // not a path, no tour exists
-                ans.pb(s.bk); s.pop_back(); if (sz(s)) lst=s.bk.f;
+                ans.pb(s.bk); s.pop_back(); 
+                if(sz(s))lst=s.bk.f;
             } else s.pb(*it), used[it->s] = 1;
         } // must use all edges
         if (sz(ans) != sz(used)+1) return {}; 
