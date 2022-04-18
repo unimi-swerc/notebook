@@ -34,7 +34,8 @@
 - [x] Z-algorithm
 - [x] Manacher
 - [x] Minima rotazione lessicografica
-- [ ] Suffix array & LCP array
+- [x] Suffix array
+- [ ] LCP array
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
 
