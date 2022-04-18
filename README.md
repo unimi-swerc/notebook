@@ -46,7 +46,7 @@
 - [ ] Gaussian elimination
 - [ ] Pollard's Rho
 - [ ] Euler’s totient function
-- [ ] (?) Teorema del resto cinese
+- [X] Teorema del resto cinese
 - [ ] (?) Fast matrix multiplication
 - [ ] (?) Floyd cycle detection
 
