@@ -5,5 +5,5 @@ authors = ["Alessandro Bortolin <bortolin.alessandro@outlook.it>"]
 edition = "2018"
 
 [dependencies]
-clap = "2.33.3"
-rayon = "1.5.0"
+clap = "2.34"
+rayon = "1.5"
