@@ -15,16 +15,16 @@
 
 ### 2. Geometria
 
-- [ ] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
+- [x] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
 - [ ] Convex hull (2D e (?) 3D)
 - [ ] Closest pair
 - [x] Welzl (minimum enclosing circle)
-- [ ] Area del poligono
+- [x] Area del poligono
 - [X] Delaunay
 - [ ] Voronoi
-- [X] Convex hull trick
-- [ ] (?) Punti all'interno del poligono
+- [x] Punti all'interno del poligono
 - [ ] (?) Rotating caliper
+- [X] Convex hull trick
 
 ### 3. Stringhe
 

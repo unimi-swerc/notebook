@@ -55,6 +55,22 @@ set<pt, comp> segIntersection(pt a, pt b, pt c, pt d) {
   if (onSegment(a,b,d)) s.insert(d);
   return s;
 }
+double segPointDistance(pt a, pt b, pt p) {
+  if (a != b) {
+    line l(a,b);
+    // if closest to projection
+    if (dot(l.v, a) < dot(l.v, p) && dot(l.v, p) < dot(l.v, b)) {
+      return l.dist(p);
+    }
+  }
+  return min(abs(p-a), abs(p-b));
+}
+double segSegDistance(pt a, pt b, pt c, pt d) {
+  pt dummy;
+  if (properInter(a,b,c,d,dummy)) return 0;
+  return min({segPointDistance(a,b,c), segPointDistance(a,b,d),
+              segPointDistance(c,d,a), segPointDistance(c,d,b)});
+}
 
 // *** Poligoni
 ll area(vector<pt> V) {
