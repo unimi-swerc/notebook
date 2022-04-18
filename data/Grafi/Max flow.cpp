@@ -1,4 +1,5 @@
-constexpr int MAXN = 1000, INF = 1e9;
+constexpr int MAXN = 6000;
+constexpr ll INF = 1e18;
 struct Edge {
   int u, r;
   ll f, c;
