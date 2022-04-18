@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 #include <cstdlib>
 using namespace std;

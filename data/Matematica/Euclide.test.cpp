@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <tuple>
 #include <vector>
 #include <cassert>
 #include <cstdlib>
