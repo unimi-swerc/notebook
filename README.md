@@ -16,6 +16,8 @@
 ### 2. Geometria
 
 - [x] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
+- [ ] Operazioni sui cerchi (intersezione, ...)
+- [ ] Geometria di base 3D
 - [ ] Convex hull (2D e (?) 3D)
 - [ ] Closest pair
 - [x] Welzl (minimum enclosing circle)
