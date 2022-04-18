@@ -1,6 +1,7 @@
 constexpr int MAXN = 1000, INF = 1e9;
 struct Edge {
-  int u, f, c, r;
+  int u, r;
+  ll f, c;
 };
 vector<Edge> grafo[MAXN];
 int level[MAXN];
@@ -23,12 +24,12 @@ bool levelGraph(int source, int sink) {
   }
   return level[sink];
 }
-int sendFlow(int v, int flow, int sink) {
+ll sendFlow(int v, ll flow, int sink) {
   if (v == sink) return flow;
   for (; cur[v] < grafo[v].size(); cur[v]++) {
     Edge& e = grafo[v][cur[v]];
     if (level[e.u] != level[v] + 1 || e.f == e.c) continue;
-    int nxtFlow = sendFlow(e.u, min(flow, e.c - e.f), sink);
+    ll nxtFlow = sendFlow(e.u, min(flow, e.c - e.f), sink);
     if (nxtFlow > 0) {
       e.f += nxtFlow;
       grafo[e.u][e.r].f -= nxtFlow;
@@ -37,17 +38,17 @@ int sendFlow(int v, int flow, int sink) {
   }
   return 0;
 }
-void addEdge(int from, int to, int cap) {
-  Edge a{to, 0, cap, (int)grafo[to].size()};
-  Edge b{from, 0, 0, (int)grafo[from].size()};
+void addEdge(int from, int to, ll cap) {
+  Edge a{to, (int)grafo[to].size(), 0, cap};
+  Edge b{from, (int)grafo[from].size(), 0, 0};
   grafo[from].push_back(a);
   grafo[to].push_back(b);
 }
-int maxFlow(int source, int sink) {
-  int flow = 0;
+ll maxFlow(int source, int sink) {
+  ll flow = 0;
   while (levelGraph(source, sink)) {
     while (true) {
-      int nxtFlow = sendFlow(source, INF, sink);
+      ll nxtFlow = sendFlow(source, INF, sink);
       if (nxtFlow == 0) break;
       flow += nxtFlow;
     }
