@@ -2,7 +2,7 @@ vector<pt> hull, vecs;
 
 void add_line(ll k, ll b) {
     pt nw = {k, b};
-    while(!vecs.empty() && dot(vecs.back(), nw - hull.back()) < 0) {
+    while(!vecs.empty()&&dot(vecs.back(),nw-hull.back())<0){
         hull.pop_back();
         vecs.pop_back();
     }
