@@ -1,0 +1,26 @@
+name: Compile
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate source files
+        run: python3 src/generate.py
+      - name: Compile
+        uses: xu-cheng/latex-action@v2
+        with:
+          compiler: latexmk_shell_escape
+          root_file: template.tex
+          working_directory: build/
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: swerc
+          path: build/swerc.pdf
+
