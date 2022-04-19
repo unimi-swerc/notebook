@@ -1,7 +1,9 @@
 #define X first
 #define Y second
 typedef pair<int, int> ipair;
-ipair conj(int v1, bool neg1, int v2, bool neg2) { return {v1 * 2 + neg1, v2 * 2 + neg2}; }
+ipair conj(int v1, bool neg1, int v2, bool neg2) { 
+  return {v1 * 2 + neg1, v2 * 2 + neg2}; 
+}
 
 const int N = 1000111;
 //0-based, X = 2*i, not(X) = 2*i+1
