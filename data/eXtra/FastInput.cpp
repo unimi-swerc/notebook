@@ -1,5 +1,5 @@
-/* Read an integer from stdin. Usage requires your program to pipe in
- * input from file.
+/* Read an integer from stdin. Usage requires your
+ * program to pipe in input from file.
  * Usage: ./a.out < input.txt
  * Time: About 5x as fast as cin/scanf.
  */
