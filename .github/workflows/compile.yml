@@ -15,7 +15,7 @@ jobs:
       - name: Compile
         uses: xu-cheng/latex-action@v2
         with:
-          compiler: latexmk_shell_escape
+          latexmk_shell_escape: true
           root_file: template.tex
           working_directory: build/
       - name: Upload
