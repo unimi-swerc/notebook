@@ -50,7 +50,7 @@
 - [x] Ricorrenze lineari
 - [x] Berlekamp-massey
 - [x] FFT/NTT
-- [ ] Operazioni sui polinomi
+- [x] Operazioni sui polinomi
 - [x] Euclide esteso
 - [x] Fattorizzazione veloce
 - [x] Operazioni sulle matrici
