@@ -47,10 +47,14 @@ class CompressedTree {
   Node* balance(Node* p) {
     p->update();
     if (p->factor() >= 2) {
-      if (p->right->factor() < 0) p->right = rotateRight(p->right);
+      if (p->right->factor() < 0) {
+        p->right = rotateRight(p->right);
+      }
       p = rotateLeft(p);
     } else if (p->factor() <= -2) {
-      if (p->left->factor() > 0) p->left = rotateLeft(p->left);
+      if (p->left->factor() > 0) {
+        p->left = rotateLeft(p->left);
+      }
       p = rotateRight(p);
     }
     return p;
@@ -62,10 +66,13 @@ class CompressedTree {
     if (excess <= 0) {
       r->left = insert(from, to, pos, r->left);
     } else if (excess >= r->to - r->from) {
-      r->right = insert(from, to, excess - (r->to - r->from), r->right);
+      r->right = insert(from, to, excess-(r->to-r->from),
+                        r->right);
     } else {
-      r->left = insert(r->from, r->from + excess, pos, r->left);
-      r->right = insert(r->from + excess, r->to, 0, r->right);
+      r->left = insert(r->from, r->from+excess, pos,
+                       r->left);
+      r->right = insert(r->from + excess, r->to, 0,
+                        r->right);
       r->from = from;
       r->to = to;
     }
@@ -89,7 +96,8 @@ class CompressedTree {
       r->left = ret.first;
       return make_pair(balance(r), ret.second);
     } else if (excess >= r->to - r->from) {
-      auto ret = erase(excess - (r->to - r->from), r->right);
+      auto ret = erase(excess - (r->to - r->from),
+                       r->right);
       r->right = ret.first;
       return make_pair(balance(r), ret.second);
     } else if (excess == 0 && r->to - r->from == 1) {
@@ -101,7 +109,8 @@ class CompressedTree {
         auto retLeft = eraseLeft(r->right);
         retLeft.second->left = r->left;
         retLeft.second->right = retLeft.first;
-        auto ret = make_pair(balance(retLeft.second), r->from);
+        auto ret = make_pair(balance(retLeft.second),
+                             r->from);
         delete r;
         return ret;
       }
@@ -112,7 +121,8 @@ class CompressedTree {
       r->to--;
       return make_pair(balance(r), r->to);
     } else {
-      r->right = insert(r->from + excess + 1, r->to, 0, r->right);
+      r->right = insert(r->from + excess + 1, r->to,
+                        0, r->right);
       r->to = r->from + excess;
       return make_pair(balance(r), r->to);
     }
@@ -123,7 +133,8 @@ class CompressedTree {
     if (excess < 0) {
       return find(pos, r->left);
     } else if (excess >= r->to - r->from) {
-      return find(excess - (r->to - r->from), r->right);
+      return find(excess - (r->to - r->from),
+                  r->right);
     } else {
       return r->from + excess;
     }
@@ -144,7 +155,9 @@ class CompressedTree {
     if (root != end) delete end;
   }
 
-  void insert(Val val, size_t pos) { insert(val, val + 1, pos); }
+  void insert(Val val, size_t pos) {
+    insert(val, val + 1, pos);
+  }
   void insert(Val from, Val to, size_t pos) {
     root = insert(from, to, pos, root);
   }
