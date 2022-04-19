@@ -57,6 +57,7 @@
 - [x] Pollard's Rho
 - [x] Euler’s totient function
 - [x] Teorema del resto cinese
+- [x] Fast subset convolution (or,and,xor)
 - [ ] (?) Fast matrix multiplication
 - [ ] (?) Floyd cycle detection
 
