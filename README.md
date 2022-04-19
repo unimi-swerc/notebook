@@ -71,6 +71,7 @@
 - [x] Ponti e punti di articolazione
 - [x] Eulerian tour
 - [x] Max Clique
+- [x] Edge Coloring 
 
 ### 6. Altro
 
