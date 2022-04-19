@@ -14,7 +14,7 @@
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
-- [ ] (?) Link-cut tree
+- [x] Link-cut tree
 
 ### 2. Geometria
 
