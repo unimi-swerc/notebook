@@ -23,6 +23,7 @@
 - [ ] Geometria di base 3D
 - [ ] Convex hull (2D e (?) 3D)
 - [ ] Closest pair
+- [ ] Poligon cut
 - [x] Welzl (minimum enclosing circle)
 - [x] Area del poligono
 - [x] Delaunay
