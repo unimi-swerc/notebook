@@ -79,4 +79,5 @@
 - [x] Gale-Shapley algorithm
 - [x] Simplesso
 - [x] Twosat
-- [ ] Sat, hornsat, xorsat
+- [x] XorSat 
+- [ ] Sat, hornsat
