@@ -1,4 +1,4 @@
-//1-based
+//1-based, tested with N<=500 (381 ms)
 template<int SZ> struct WeightedMatch { 
   struct edge { int u,v,w; }; edge g[SZ*2][SZ*2];
   void ae(int u, int v, int w){g[u][v].w = g[v][u].w = w;}
