@@ -65,7 +65,7 @@
 
 - [x] Max flow
 - [x] Min cost max flow
-- [ ] Algoritmo ungherese
+- [x] Algoritmo ungherese
 - [x] Blossom
 - [x] Blossom pesato
 - [x] Ponti e punti di articolazione
