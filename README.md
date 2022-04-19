@@ -72,6 +72,7 @@
 - [x] Eulerian tour
 - [x] Max Clique
 - [x] Edge Coloring 
+- [x] Biconnected Components 
 
 ### 6. Altro
 
