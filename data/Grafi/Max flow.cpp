@@ -1,3 +1,4 @@
+// with n<=5000, m<=30000 run in 0.20 sec
 constexpr int MAXN = 6000;
 constexpr ll INF = 1e18;
 struct Edge {
