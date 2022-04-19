@@ -98,7 +98,8 @@ void dfs(int nodo=0, int last=0, int p=0){
       dfs(x,nodo,p+1);
       siz[nodo]+=siz[x];
       
-      if(grafo[nodo][0]==last || siz[x]>siz[grafo[nodo][0]]){
+      if(grafo[nodo][0]==last || siz[x]>siz[grafo[nodo][0]])
+      {
         swap(x,grafo[nodo][0]);
       }
     }
