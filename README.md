@@ -4,17 +4,17 @@
 
 ### 1. Strutture dati
 
-- [ ] Treap
+- [x] Treap
 - [x] Persistent segment tree
 - [x] Heavy light decomposition (nodi & archi)
 - [x] Sparse table
 - [x] Line container
 - [x] Mo queries
-- [x] Li chao tree 
+- [x] Li chao tree
+- [x] Link-cut tree
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
-- [x] Link-cut tree
 
 ### 2. Geometria
 
@@ -30,8 +30,8 @@
 - [x] Delaunay
 - [ ] Voronoi
 - [x] Punti all'interno del poligono
-- [ ] (?) Rotating caliper
 - [x] Convex hull trick
+- [ ] (?) Rotating caliper
 
 ### 3. Stringhe
 
@@ -41,7 +41,7 @@
 - [x] Minima rotazione lessicografica
 - [x] Knuth Morris pratt
 - [x] Suffix array
-- [x] Hashing 
+- [x] Hashing
 - [ ] LCP array
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
@@ -60,8 +60,8 @@
 - [x] Euler’s totient function
 - [x] Teorema del resto cinese
 - [x] Fast subset convolution (or,and,xor)
-- [ ] Fast matrix multiplication
 - [x] Floyd cycle detection
+- [ ] Fast matrix multiplication
 
 ### 5. Grafi
 
@@ -73,15 +73,15 @@
 - [x] Ponti e punti di articolazione
 - [x] Eulerian tour
 - [x] Max Clique
-- [x] Edge Coloring 
-- [x] Biconnected Components 
+- [x] Edge Coloring
+- [x] Biconnected Components
 
 ### 6. Altro
 
 - [x] Gale-Shapley algorithm
 - [x] Simplesso
 - [x] Twosat
-- [x] XorSat 
+- [x] XorSat
 - [x] Sat
-- [ ] Hornsat
 - [x] Fast Input
+- [ ] Hornsat
