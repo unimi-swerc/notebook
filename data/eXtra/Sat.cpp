@@ -1,7 +1,7 @@
 using u32 = uint32_t;
 using u64 = uint32_t;
 //stesse convenzioni di xorsat
-//tested with N (variables), M (clauses)<=500000 (0.7 sec)
+
 vector<bool> sat(const vector<vector<u32>>& in) {
   u32 max_term = 0;
   for(const auto& v: in) {
