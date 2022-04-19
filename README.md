@@ -6,7 +6,7 @@
 
 - [ ] Treap
 - [x] Persistent segment tree
-- [ ] Heavy light decomposition (nodi & archi)
+- [x] Heavy light decomposition (nodi & archi)
 - [x] Sparse table
 - [x] Line container
 - [x] Mo queries
