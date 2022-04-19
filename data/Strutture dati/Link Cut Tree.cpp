@@ -15,6 +15,7 @@ const int MX = 2e5+5;
  * Use makeRoot for arbitrary path queries.
  * Time: O(log N)
  * Usage: FOR(i,1,N+1)LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
+ * tested with N,M<=200000 (0.8 sec)
  */
 
 typedef struct snode* sn;
