@@ -10,7 +10,8 @@ struct circle {
   double y;
   double r;
   circle() {}
-  circle(double x, double y, double r) : x(x), y(y), r(r) {}
+  circle(double x, double y, double r)
+    : x(x), y(y), r(r) {}
 };
 circle b_md(vector<point> R) {
   if (R.size() == 0) {
@@ -19,8 +20,8 @@ circle b_md(vector<point> R) {
     return circle(R[0].x, R[0].y, 0);
   } else if (R.size() == 2) {
     return circle(
-        (R[0].x + R[1].x) / 2.0, (R[0].y + R[1].y) / 2.0,
-        hypot(R[0].x - R[1].x, R[0].y - R[1].y) / 2.0);
+        (R[0].x+R[1].x) / 2.0, (R[0].y+R[1].y) / 2.0,
+        hypot(R[0].x-R[1].x, R[0].y-R[1].y) / 2.0);
   } else {
     double D = (R[0].x-R[2].x) * (R[1].y-R[2].y) -
                (R[1].x-R[2].x) * (R[0].y-R[2].y);
@@ -36,10 +37,11 @@ circle b_md(vector<point> R) {
                  ((R[0].x-R[2].x) * (R[0].x + R[2].x) +
                   (R[0].y-R[2].y) * (R[0].y + R[2].y)) /
                      2 * (R[1].x-R[2].x)) / D;
-    return circle(p0, p1, hypot(R[0].x - p0, R[0].y - p1));
+    return circle(p0, p1, hypot(R[0].x-p0, R[0].y-p1));
   }
 }
-circle b_minidisk(vector<point> &P, int i, vector<point> R) {
+circle b_minidisk(vector<point> &P, int i,
+                  vector<point> R) {
   if (i == P.size() || R.size() == 3) {
     return b_md(R);
   } else {
