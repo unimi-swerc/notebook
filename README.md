@@ -58,7 +58,7 @@
 - [x] Euler’s totient function
 - [x] Teorema del resto cinese
 - [x] Fast subset convolution (or,and,xor)
-- [ ] (?) Fast matrix multiplication
+- [ ] Fast matrix multiplication
 - [x] Floyd cycle detection
 
 ### 5. Grafi
