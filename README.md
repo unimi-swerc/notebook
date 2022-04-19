@@ -53,7 +53,7 @@
 - [ ] Operazioni sui polinomi
 - [x] Euclide esteso
 - [x] Fattorizzazione veloce
-- [ ] Operazioni sulle matrici
+- [x] Operazioni sulle matrici
 - [x] Gaussian elimination (Linear Solve)
 - [x] Pollard's Rho
 - [x] Euler’s totient function
