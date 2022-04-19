@@ -80,5 +80,6 @@
 - [x] Simplesso
 - [x] Twosat
 - [x] XorSat 
-- [ ] Sat, hornsat
+- [x] Sat
+- [ ] Hornsat
 - [x] Fast Input
