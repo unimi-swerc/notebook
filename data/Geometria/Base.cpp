@@ -45,7 +45,7 @@ bool properInter(pt a, pt b, pt c, pt d, pt &out) {
          oc = orient(a,b,c), od = orient(a,b,d);
   // Proper intersection exists iff opposite signs
   if (oa*ob < 0 && oc*od < 0) {
-    out = (a*ob - b*oa) / (ob-oa); // requires floating-point
+    out = (a*ob - b*oa) / (ob-oa); //requires floating-point
     return true;
   }
   return false;
@@ -100,8 +100,8 @@ bool isConvex(vector<pt> p) {
 int inPolygon(vector<pt> V, pt p) {
   int numCrossings = 0;
   for (int i = 0; i < V.size(); i++) {
-    if (onSegment(V[i], V[(i + 1) % V.size()], p)) return 2;
-    numCrossings+=crossesRay(p, V[i], V[(i + 1) % V.size()]);
+    if (onSegment(V[i], V[(i+1) V.size()], p)) return 2;
+    numCrossings+=crossesRay(p, V[i], V[(i+1)%V.size()]);
   }
   return numCrossings % 2;
 }
@@ -111,7 +111,8 @@ bool half(pt p) {
 }
 void polarSort(vector<pt> &v) {
   sort(v.begin(), v.end(), [](pt v, pt w) {
-    return make_tuple(half(v),0)<make_tuple(half(w),cross(v,w));
+    return make_tuple(half(v), 0) <
+           make_tuple(half(w), cross(v,w));
   });
 }
 
@@ -137,6 +138,7 @@ struct line {
 bool lineIntersection(line l1, line l2, pt &out) {
   ll d = cross(l1.v, l2.v);
   if (d == 0) return false;
-  out = (l2.v*l1.c - l1.v*l2.c) / d; //requires floating-point
+  //requires floating-point
+  out = (l2.v*l1.c - l1.v*l2.c) / d;
   return true;
 }

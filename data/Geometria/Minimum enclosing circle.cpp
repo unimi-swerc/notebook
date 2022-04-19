@@ -1,6 +1,6 @@
 // Welzl's algorithm: minimum enclosing circle in expected
-// linear time. If there are any duplicate points in the input,
-// be sure to remove them first.
+// linear time. If there are any duplicate points in the
+// input, be sure to remove them first.
 struct point {
   double x;
   double y;
