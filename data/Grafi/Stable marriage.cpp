@@ -3,7 +3,7 @@
 // fpref[i][j] is the rank woman i assigns to man j.
 // Returns a pair of vectors (mpart, fpart), where mpart[i]
 // gives the partner of man i, and fpart is analogous.
-//tested with n<=500
+//tested with n<=500 (0.04 sec)
 pair<vector<int>, vector<int>>
 stable_marriage(vector<vector<int>> &madj,
                 vector<vector<int>> &fpref) {
