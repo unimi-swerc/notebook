@@ -12,13 +12,15 @@ jobs:
       - uses: actions/checkout@v3
       - name: Generate source files
         run: python3 src/generate.py
-      - name: Compile
+      - name: Compile cheat sheet
         uses: xu-cheng/latex-action@v2
         with:
           latexmk_shell_escape: true
           root_file: template.tex
           working_directory: build/
-      - name: Upload
+      - name: Rename artifact
+        run: mv build/template.pdf build/swerc.pdf
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: swerc
