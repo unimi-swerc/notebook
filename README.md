@@ -24,13 +24,14 @@
 - [x] Convex hull (2D)
 - [ ] Convex hull (3D)
 - [x] Closest pair
-- [ ] Poligon cut
+- [x] Poligon cut
 - [x] Welzl (minimum enclosing circle)
 - [x] Area del poligono
-- [x] Delaunay
+- [x] slow delaunay
 - [ ] Voronoi
 - [x] Punti all'interno del poligono
 - [x] Convex hull trick
+- [x] Fast delaunay 
 - [ ] (?) Rotating caliper
 
 ### 3. Stringhe
