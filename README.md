@@ -59,7 +59,7 @@
 - [x] Teorema del resto cinese
 - [x] Fast subset convolution (or,and,xor)
 - [ ] (?) Fast matrix multiplication
-- [ ] (?) Floyd cycle detection
+- [x] Floyd cycle detection
 
 ### 5. Grafi
 
