@@ -4,7 +4,7 @@ using u64 = uint32_t;
 vector<bool> sat(const vector<vector<u32>>& in) {
   u32 max_term = 0;
   for(const auto& v: in) {
-    max_term = max(max_term, *max_element(v.begin(), v.end()));
+    max_term=max(max_term,*max_element(v.begin(),v.end()));
   }
   size_t n = (max_term >> 1) + 1;
   size_t n_clauses = in.size();
@@ -18,7 +18,8 @@ vector<bool> sat(const vector<vector<u32>>& in) {
   for(u64 mask = 0; mask < (1ULL << n); mask++) {
     bool valid = true;
     for(size_t i = 0; i < n_clauses && valid; i++) {
-      valid &= clause[i << 1] & mask || clause[(i << 1) + 1] & ~mask;
+      valid &= clause[i << 1] & mask 
+        || clause[(i << 1) + 1] & ~mask;
     }
     if(valid) {
       vector<bool> solution(n);
