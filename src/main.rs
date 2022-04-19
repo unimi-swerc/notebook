@@ -1,9 +1,11 @@
-use clap::{App, AppSettings, SubCommand};
-use rayon::prelude::*;
 use std::fs::{self, File};
 use std::io::{Error, ErrorKind, Write};
 use std::path::Path;
 use std::process::Command;
+
+use clap::{App, AppSettings, SubCommand};
+use rayon::prelude::*;
+use itertools::Itertools;
 
 fn generate_code() -> Result<(), Error> {
     let mut code_file = File::create("build/code.tex")?;
@@ -12,6 +14,7 @@ fn generate_code() -> Result<(), Error> {
         .filter_map(|d| d.ok())
         .map(|d| d.path())
         .filter(|p| p.is_dir())
+        .sorted()
         .map(|folder| {
             write!(
                 code_file,
@@ -27,6 +30,7 @@ fn generate_code() -> Result<(), Error> {
                         && p.extension().unwrap().to_string_lossy() == "cpp"
                         && !p.file_stem().unwrap().to_string_lossy().ends_with(".test")
                 })
+                .sorted()
                 .map(|file| {
                     write!(
                         code_file,

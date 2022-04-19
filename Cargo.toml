@@ -7,3 +7,4 @@ edition = "2018"
 [dependencies]
 clap = "2.34"
 rayon = "1.5"
+itertools = "0.10"
