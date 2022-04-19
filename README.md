@@ -70,6 +70,7 @@
 - [x] Blossom pesato
 - [x] Ponti e punti di articolazione
 - [x] Eulerian tour
+- [x] Max Clique
 
 ### 6. Altro
 
