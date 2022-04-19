@@ -4,8 +4,8 @@ using u32 = uint32_t;
 #define NSAT (512-1)
 #endif
 
-/* 0-based, esempio d'us (? = xor):
-    (a?c?d) ^ (b?¬c?d) ^ (a?b?¬d) ^ (a?¬b?¬c) 
+/* 0-based, esempio d'us:
+    (a XOR c XOR d) ^ (b XOR ¬c XOR d) ^ (a XOR b XOR ¬d)
   vector<vector<u32>> v = {{0, 4, 6}, {2, 5, 6}, 
                            {0, 2, 7}, {0, 3, 5}};
   auto r = xorsat(v);
