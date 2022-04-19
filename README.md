@@ -54,7 +54,7 @@
 - [x] Euclide esteso
 - [x] Fattorizzazione veloce
 - [ ] Operazioni sulle matrici
-- [ ] Gaussian elimination
+- [x] Gaussian elimination (Linear Solve)
 - [x] Pollard's Rho
 - [x] Euler’s totient function
 - [x] Teorema del resto cinese
