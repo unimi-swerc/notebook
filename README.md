@@ -8,6 +8,7 @@
 - [x] Persistent segment tree
 - [ ] Heavy light decomposition (nodi & archi)
 - [x] Sparse table
+- [x] Line container
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
