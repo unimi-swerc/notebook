@@ -21,7 +21,8 @@
 - [x] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
 - [ ] Operazioni sui cerchi (intersezione, ...)
 - [ ] Geometria di base 3D
-- [ ] Convex hull (2D e (?) 3D)
+- [x] Convex hull (2D)
+- [ ] Convex hull (3D)
 - [ ] Closest pair
 - [ ] Poligon cut
 - [x] Welzl (minimum enclosing circle)
