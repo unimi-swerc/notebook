@@ -4,6 +4,18 @@ using u32 = uint32_t;
 #define NSAT (512-1)
 #endif
 
+/* 0-based, esempio d'us (? = xor):
+    (a?c?d) ^ (b?¬c?d) ^ (a?b?¬d) ^ (a?¬b?¬c) 
+	vector<vector<u32>> v = {{0, 4, 6}, {2, 5, 6}, 
+	                         {0, 2, 7}, {0, 3, 5}};
+	auto r = xorsat(v);
+	cout << r.size() << endl;
+	for (auto b : r)
+		cout << b << " ";
+	cout << endl;
+	
+	se non c'è soluzione r.size()=0
+*/
 int gauss(vector<bitset<NSAT+1>> &a, int m, vector<bool> &ans) {
   int n = a.size();
     vector<int> where (m, -1);
