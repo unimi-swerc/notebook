@@ -1,17 +1,20 @@
-// If values are on tree edges, change \texttt{step} to add/remove 
-// the edge $(a, c)$ and remove the initial \texttt{add} call 
-// (but keep \texttt{in}). Time: O(N sqrt Q)
+// If values are on tree edges, change {step} to add/remove 
+// the edge $(a, c)$ and remove the initial {add} call 
+// (but keep {in}) Time: O(N sqrt Q)
 
-void add(int ind, int end) { return; } // add a[ind] (end = 0 or 1)
-void del(int ind, int end) { return; } // remove a[ind]
-int calc() { return 0; } // compute current answer
+// add a[ind] (end = 0 or 1)
+void add(int ind, int end) { return; } 
+// remove a[ind]
+void del(int ind, int end) { return; } 
+// compute current answer
+int calc() { return 0; } 
 
 vi mo(vector<pii> Q) {
   int L = 0, R = 0, blk = 350; // ~N/sqrt(Q)
   vi s(sz(Q)), res = s;
 #define K(x) pii(x.first/blk, x.second ^ -(x.first/blk & 1))
   iota(all(s), 0);
-  sort(all(s), [&](int s, int t){ return K(Q[s]) < K(Q[t]); });
+  sort(all(s), [&](int s, int t){ return K(Q[s])<K(Q[t]);});
   for (int qi : s) {
     pii q = Q[qi];
     while (L > q.first) add(--L, 0);
@@ -23,7 +26,7 @@ vi mo(vector<pii> Q) {
   return res;
 }
 
-vi moTree(vector<array<int, 2>> Q, vector<vi>& ed, int root=0){
+vi moTree(vector<array<int,2>> Q,vector<vi>& ed, int root=0){
   int N = sz(ed), pos[2] = {}, blk = 350; // ~N/sqrt(Q)
   vi s(sz(Q)), res = s, I(N), L(N), R(N), in(N), par(N);
   add(0, 0), in[0] = 1;
