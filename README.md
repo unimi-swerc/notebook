@@ -19,11 +19,11 @@
 ### 2. Geometria
 
 - [x] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
-- [ ] Operazioni sui cerchi (intersezione, ...)
+- [x] Operazioni sui cerchi (intersezione, ...)
 - [ ] Geometria di base 3D
 - [x] Convex hull (2D)
 - [ ] Convex hull (3D)
-- [ ] Closest pair
+- [x] Closest pair
 - [ ] Poligon cut
 - [x] Welzl (minimum enclosing circle)
 - [x] Area del poligono
