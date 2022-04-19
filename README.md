@@ -9,6 +9,7 @@
 - [ ] Heavy light decomposition (nodi & archi)
 - [x] Sparse table
 - [x] Line container
+- [x] Mo queries
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
@@ -35,6 +36,7 @@
 - [x] Z-algorithm
 - [x] Manacher
 - [x] Minima rotazione lessicografica
+- [x] Knuth Morris pratt
 - [x] Suffix array
 - [ ] LCP array
 - [ ] (?) Suffix tree
