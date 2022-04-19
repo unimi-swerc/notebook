@@ -27,12 +27,9 @@ def generate(out, data_dir):
 
 if __name__ == '__main__':
     build_dir = join(getcwd(), 'build')
-    data_dir = join(getcwd(), 'data')
-    src_dir = join(getcwd(), 'src')
-
     rmtree(build_dir, ignore_errors=True)
     mkdir(build_dir)
     with open(join(build_dir, 'code.tex'), 'w+') as out:
-        generate(out, data_dir)
-        copy(join(src_dir, 'template.tex'), build_dir)
+        generate(out, 'data')
+        copy('src/template.tex', build_dir)
 
