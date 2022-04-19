@@ -12,6 +12,7 @@
 - [x] Mo queries
 - [x] Li chao tree
 - [x] Link-cut tree
+- [ ] Centroid Decomposition
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
