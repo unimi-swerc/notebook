@@ -38,6 +38,7 @@
 - [x] Minima rotazione lessicografica
 - [x] Knuth Morris pratt
 - [x] Suffix array
+- [x] Hashing 
 - [ ] LCP array
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
