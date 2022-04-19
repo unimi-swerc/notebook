@@ -16,11 +16,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Compile
       run: cargo run --release compile
-    - uses: actions/upload-artifact@v2
-      name: Archive artifacts
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v2
       with:
         name: swerc
         path: build/swerc.pdf
