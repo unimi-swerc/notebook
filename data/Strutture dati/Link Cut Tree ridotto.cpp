@@ -4,7 +4,7 @@ using namespace std;
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5; 
-// link-cut tree senza subtree update, è il doppio più veloce
+// link-cut tree senza subtree update, Ã¨ il doppio piÃ¹ veloce
 /* Link-Cut Tree. Given a function $f(1\ldots N)\to 1\ldots N,$ 
  * evaluates $f^b(a)$ for any $a,b.$ sz is for path queries; 
  * sub, vsub are for subtree queries. x->access()
