@@ -4,20 +4,8 @@ using u32 = uint32_t;
 #define NSAT (512-1)
 #endif
 
-/* 0-based, esempio d'uso:
-    (a?c?d) ? (b?¬c?d) ? (a?b?¬d) ? (a?¬b?¬c) 
-	vector<vector<u32>> v = {{0, 4, 6}, {2, 5, 6}, 
-	                         {0, 2, 7}, {0, 3, 5}};
-	auto r = xorsat(v);
-	cout << r.size() << endl;
-	for (auto b : r)
-		cout << b << " ";
-	cout << endl;
-	
-	se non c'è soluzione r è vuoto
-*/
 int gauss(vector<bitset<NSAT+1>> &a, int m, vector<bool> &ans) {
-	int n = a.size();
+  int n = a.size();
     vector<int> where (m, -1);
     for (int col = 0, row = 0; col < m && row < n; ++col) {
         for (int i = row; i < n; ++i)
@@ -53,20 +41,20 @@ int gauss(vector<bitset<NSAT+1>> &a, int m, vector<bool> &ans) {
 }
 
 vector<bool> xorsat(const vector<vector<u32>> &f) {
-	vector<bitset<NSAT+1>> lines;
-	for (auto &p : f) {
-		bitset<NSAT+1> line;
-		bool disparity = 1;
-		for (u32 i : p) {
-			disparity ^= i & 1;
-			line[i >> 1] = 1;
-		}
-		line[NSAT] = disparity;
-		lines.push_back(line);
-	}
-	vector<bool> ans(NSAT+1);
-	int g = gauss(lines, NSAT, ans);
-	if (g != 0)
-		return ans;
-	return vector<bool>(0);
+  vector<bitset<NSAT+1>> lines;
+  for (auto &p : f) {
+    bitset<NSAT+1> line;
+    bool disparity = 1;
+    for (u32 i : p) {
+      disparity ^= i & 1;
+      line[i >> 1] = 1;
+    }
+    line[NSAT] = disparity;
+    lines.push_back(line);
+  }
+  vector<bool> ans(NSAT+1);
+  int g = gauss(lines, NSAT, ans);
+  if (g != 0)
+    return ans;
+  return vector<bool>(0);
 }

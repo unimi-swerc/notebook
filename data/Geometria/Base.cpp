@@ -5,11 +5,11 @@ typedef complex<ll> pt;
 // *** Punti ***
 ll dot(pt v, pt w) { return (conj(v) * w).x; }
 ll cross(pt v, pt w) { return (conj(v) * w).y; }
-ll orient(pt a, pt b, pt c) {return cross(b - a, c - a);}
+ll orient(pt a, pt b, pt c) { return cross(b - a, c - a); }
 pt translate(pt v, pt p) { return p+v; }
 pt perp(pt p) { return {-p.y, p.x}; }
-bool isPerp(pt v, pt w) {return dot(v,w) == 0;}
-pt scale(pt c, ll factor, pt p) { return c + (p-c)*factor;}
+bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
+pt scale(pt c, ll factor, pt p) { return c + (p-c)*factor; }
 pt rotate(pt p, double a) {
   return {p.x*cos(a)-p.y*sin(a), p.x*sin(a)+p.y*cos(a)};
 }
@@ -32,11 +32,14 @@ double orientedAngle(pt a, pt b, pt c) {
 // *** Segmenti ***
 bool above(pt a, pt p) { return p.y >= a.y; }
 bool inDisk(pt a, pt b, pt p) { 
-  return dot(a - p, b - p) <= 0; }
+  return dot(a - p, b - p) <= 0;
+}
 bool onSegment(pt a, pt b, pt p) { 
-  return orient(a, b, p) == 0 && inDisk(a, b, p); }
+  return orient(a, b, p) == 0 && inDisk(a, b, p);
+}
 bool crossesRay(pt a, pt p, pt q) { 
-  return (above(a,q)-above(a,p))*orient(a, p, q)>0;}
+  return (above(a,q)-above(a,p))*orient(a, p, q)>0;
+}
 bool properInter(pt a, pt b, pt c, pt d, pt &out) {
   double oa = orient(c,d,a), ob = orient(c,d,b),
          oc = orient(a,b,c), od = orient(a,b,d);

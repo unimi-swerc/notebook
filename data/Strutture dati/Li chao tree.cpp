@@ -12,8 +12,8 @@ struct line {
 };
 
 /* li chao tree per il minimo
-	esempio di utilizzo:
-	cords.emplace_back(-INF);
+  esempio di utilizzo:
+  cords.emplace_back(-INF);
     cords.emplace_back(INF);
     cords.emplace_back(coordinate x utilizzate)
     LiChaoTree T(cords);
