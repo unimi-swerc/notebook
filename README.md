@@ -10,6 +10,7 @@
 - [x] Sparse table
 - [x] Line container
 - [x] Mo queries
+- [x] Li chao tree 
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
