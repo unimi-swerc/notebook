@@ -1,8 +1,9 @@
 vector<pt> convexHullHalf(vector<pt>& v) {
   vector<pt> st;
   for (pt p: v) {
-    // >=0 se si considerano solo gli estremi del convex hull
-    while (st.size()>=2 && orient(st[st.size()-2],st.back(),p)>0) {
+    // >= 0 se si considerano solo gli estremi del ch
+    while (st.size() >= 2 &&
+                orient(st[st.size()-2],st.back(),p)>0) {
         st.pop_back();
     }
     st.push_back(p);
