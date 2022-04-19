@@ -46,8 +46,8 @@
 
 ### 4. Matematica
 
-- [ ] Ricorrenze lineari
-- [ ] Berlekamp-massey
+- [x] Ricorrenze lineari
+- [x] Berlekamp-massey
 - [x] FFT/NTT
 - [ ] Operazioni sui polinomi
 - [x] Euclide esteso
