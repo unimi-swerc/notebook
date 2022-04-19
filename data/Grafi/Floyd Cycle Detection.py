@@ -17,9 +17,9 @@ def floyd(f, x0):
     # and tortoise (reset to x0) moving towards the circle, will 
     # intersect at the beginning of the circle. Because the 
     # distance between them is constant at 2?, a multiple of ?,
-    # they will agree as soon as the tortoise reaches index µ.
+    # they will agree as soon as the tortoise reaches index ï¿½.
 
-    # Find the position µ of first repetition.    
+    # Find the position ï¿½ of first repetition.    
     mu = 0
     tortoise = x0
     while tortoise != hare:
@@ -27,7 +27,7 @@ def floyd(f, x0):
         hare = f(hare)   # Hare and tortoise move at same speed
         mu += 1
  
-    # Find the length of the shortest cycle starting from x_µ
+    # Find the length of the shortest cycle starting from x_ï¿½
     # The hare moves one step at a time while tortoise is still.
     # lam is incremented until ? is found.
     lam = 1

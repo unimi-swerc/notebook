@@ -9,8 +9,9 @@ struct MCMF {
   void ae(int u, int v, F cap, C cost) { assert(cap >= 0); 
     adj[u].pb({v,sz(adj[v]),0,cap,cost}); 
     adj[v].pb({u,sz(adj[u])-1,0,0,-cost});
-  } // use asserts, don't try smth dumb
-  bool path(int s, int t) { //send flow through lowest cost path
+  }
+  //send flow through lowest cost path
+  bool path(int s, int t) {
     const C inf = numeric_limits<C>::max(); 
     dist.assign(N,inf);
     using T = pair<C,int>;
@@ -19,10 +20,13 @@ struct MCMF {
     while (sz(todo)) { // Dijkstra
       T x = todo.top(); todo.pop(); 
       if (x.f > dist[x.s]) continue;
-      each(e,adj[x.s]) { //all weights should be non-negative
+      //all weights should be non-negative
+      each(e,adj[x.s]) {
         if (e.flo < e.cap && ckmin(dist[e.to],
-            x.f+e.cost+p[x.s]-p[e.to]))
-        pre[e.to]={x.s,e.rev},todo.push({dist[e.to],e.to});
+            x.f+e.cost+p[x.s]-p[e.to])) {
+          pre[e.to]={x.s,e.rev};
+          todo.push({dist[e.to],e.to});
+        }
       }
     } // if costs are doubles, add some EPS so you 
     // don't traverse ~0-weight cycle repeatedly
@@ -33,7 +37,7 @@ struct MCMF {
       if (e.cap) ckmin(p[e.to],p[i]+e.cost);
     F totFlow = 0; C totCost = 0;
     while (path(s,t)) { // p -> potentials for Dijkstra
-      F0R(i,N) p[i]+=dist[i];//don't matter for unreachable
+      F0R(i,N)p[i]+=dist[i];//don't matter for unreachable
       F df = numeric_limits<F>::max();
       for (int x = t; x != s; x = pre[x].f) {
         Edge& e = adj[pre[x].f][adj[x][pre[x].s].rev]; 

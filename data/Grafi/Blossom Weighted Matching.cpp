@@ -112,7 +112,7 @@ template<int SZ> struct WeightedMatch {
         ckmin(d,lab[b]/2); // decrease lab[b]
       FOR(x,1,NX+1) if (st[x] == x && slack[x]) {
         if (S[x] == -1) ckmin(d,eDelta(g[slack[x]][x]));
-        else if (S[x] == 0)ckmin(d,eDelta(g[slack[x]][x])/2);
+        else if(S[x]==0)ckmin(d,eDelta(g[slack[x]][x])/2);
       } // edge weights shouldn't go below 0
       FOR(u,1,N+1) {
         if (S[st[u]] == 0) {
@@ -123,7 +123,7 @@ template<int SZ> struct WeightedMatch {
       FOR(b,N+1,NX+1) if (st[b] == b && S[b] != -1) 
         lab[b] += (S[b] == 0 ? 1 : -1)*d*2;
       q = queue<int>();
-      FOR(x,1,NX+1)if(st[x]==x && slack[x] //new tight edge
+      FOR(x,1,NX+1)if(st[x]==x && slack[x]//new tight edge
         && st[slack[x]] != x && eDelta(g[slack[x]][x])==0)
           if (onFoundEdge(g[slack[x]][x])) return 1;
       FOR(b,N+1,NX+1) if (st[b]==b && S[b]==1 && lab[b]==0) 
@@ -137,7 +137,7 @@ template<int SZ> struct WeightedMatch {
     int wMax = 0;
     FOR(u,1,N+1) FOR(v,1,N+1)
       floFrom[u][v]=(u==v ? u : 0),ckmax(wMax,g[u][v].w);
-    FOR(u,1,N+1) lab[u] = wMax; // start high and decrease
+    FOR(u,1,N+1) lab[u] = wMax; //start high and decrease
     int num = 0; ll wei = 0; while (matching()) ++num;
     FOR(u,1,N+1) if (match[u] && match[u] < u) 
       wei += g[u][match[u]].w; // edges in matching

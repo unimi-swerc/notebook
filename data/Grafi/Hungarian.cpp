@@ -6,8 +6,8 @@
 // as MCMF.
 // Time: O(N^2M)
 // Matrix A is 1-based (sia sulle righe che sulle colonne)
-// riga x = lista dei costi di ciascun worker per il lavoro x
-// con N=1000,M=2000 impiega 1.6 sec
+// riga x = lista dei costi di ciascun worker per il lavoro
+// x con N=1000,M=2000 impiega 1.6 sec
 
 using C = ll;
 C hungarian(const V<V<C>>& a) { 

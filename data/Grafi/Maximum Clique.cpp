@@ -1,9 +1,9 @@
-/*Quickly finds a maximum clique of a graph (given as symmetric bitset
- * matrix; self-edges not allowed). Can be used to find a maximum independent
- * set by finding a clique of the complement graph.
- * Time: Runs in about 1s for n=155 and worst case random graphs (p=.90). Runs
- * faster for sparse graphs.
- */
+// Quickly finds a maximum clique of a graph (given as
+// symmetric bitset matrix; self-edges not allowed).
+// Can be used to find a maximum independent set by
+// finding a clique of the complement graph.
+// Time: Runs in about 1s for n=155 and worst case
+// random graphs (p=.90). Runs faster for sparse graphs.
 
 typedef vector<bitset<200>> vb;
 struct Maxclique {
@@ -28,10 +28,13 @@ struct Maxclique {
       if (sz(q) + R.back().d <= sz(qmax)) return;
       q.push_back(R.back().i);
       vv T;
-      for(auto v:R) if (e[R.back().i][v.i]) T.push_back({v.i});
+      for(auto v:R) {
+        if (e[R.back().i][v.i]) T.push_back({v.i});
+      }
       if (sz(T)) {
         if (S[lev]++ / ++pk < limit) init(T);
-        int j = 0, mxk = 1, mnk = max(sz(qmax) - sz(q) + 1, 1);
+        int j = 0, mxk = 1;
+        int mnk = max(sz(qmax) - sz(q) + 1, 1);
         C[1].clear(), C[2].clear();
         for (auto v : T) {
           int k = 1;
@@ -50,7 +53,8 @@ struct Maxclique {
     }
   }
   vi maxClique() { init(V), expand(V); return qmax; }
-  Maxclique(vb conn) : e(conn), C(sz(e)+1), S(sz(C)), old(S) {
+  Maxclique(vb conn) : e(conn), C(sz(e)+1), S(sz(C)),
+                                            old(S) {
     rep(i,0,sz(e)) V.push_back({i});
   }
 };
