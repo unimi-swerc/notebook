@@ -81,3 +81,4 @@
 - [x] Twosat
 - [x] XorSat 
 - [ ] Sat, hornsat
+- [x] Fast Input
