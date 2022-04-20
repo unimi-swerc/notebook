@@ -1,4 +1,5 @@
-template<typename T> bool ckmin(T& a, const T& b){return b<a?a=b,1:0;}
+template<typename T> bool ckmin(T& a, const T& b)
+{return b<a?a=b,1:0;}
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];
@@ -53,7 +54,7 @@ int main()
 {
 	scanf("%d%d", &N, &M);
 	for(int i=0,u,v;i+1<N;++i)
-		scanf("%d%d", &u, &v), a[u].push_back(v), a[v].push_back(u);
+		scanf("%d%d", &u, &v),a[u].push_back(v),a[v].push_back(u);
 	centroid();
 	memset(m, 0x3f, sizeof m);
 	for(int i=0,t=1,n=1;i<=M;++i)
@@ -66,7 +67,8 @@ int main()
 				if(x.d<q)
 				{
 					if(m[x.n][0]==q) m[x.n][0]=x.d;
-					else for(int i=0,u=x.d;i<2;++i) if(u<m[x.n][i]) std::swap(u, m[x.n][i]);
+					else for(int i=0,u=x.d;i<2;++i) 
+				        if(u<m[x.n][i]) std::swap(u, m[x.n][i]);
 					q=x.d;
 				}
 			}
@@ -77,8 +79,8 @@ int main()
 		{
 			int f=m[n][0];
 			for(auto x:g[n])
-				if(x.d)
-					ckmin(f, m[x.n][v[x.n][x.b]==m[x.n][0]]+x.d);
+			if(x.d)
+			ckmin(f, m[x.n][v[x.n][x.b]==m[x.n][0]]+x.d);
 			printf("%d\n", f);
 		}
 		if(i<M) scanf("%d%d", &t, &n);
