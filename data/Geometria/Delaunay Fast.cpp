@@ -1,16 +1,16 @@
 /* Fast Delaunay triangulation.
  * Each circumcircle contains none of the input points.
  * There must be no duplicate points.
- * If all points are on a line, no triangles will be returned.
- * Should work for doubles as well, though there may 
- * be precision issues in 'circ'.
+ * If all points are on a line, no triangles will be
+ * returned. Should work for doubles as well, though
+ * there may be precision issues in 'circ'.
  * Returns triangles in order {t[0][0], t[0][1], t[0][2],
  * t[1][0], ...}, all counter-clockwise.
  * Time: O(n log n)
  */
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)
-pt arb(LLONG_MAX,LLONG_MAX); // not equal to any other point
+pt arb(LLONG_MAX,LLONG_MAX);//not equal to any other point
 
 ll dist2(pt tmp){
   return tmp.xx*tmp.xx+tmp.yy*tmp.yy;
@@ -23,16 +23,19 @@ struct Quad {
   Q prev() { return rot->o->rot; }
   Q next() { return r()->prev(); }
 } *H;
-
-bool circ(pt p, pt a, pt b, pt c) { // is p in the circumcircle?
+// is p in the circumcircle?
+bool circ(pt p, pt a, pt b, pt c) { 
   lll p2 = dist2(p), A = dist2(a)-p2,
       B = dist2(b)-p2, C = dist2(c)-p2;
-  return cross(a-p,b-p)*C + cross(b-p,c-p)*A + cross(c-p,a-p)*B > 0;
+  return cross(a-p,b-p)*C + cross(b-p,c-p)*A
+                    + cross(c-p,a-p)*B > 0;
 }
 Q makeEdge(pt orig, pt dest) {
   Q r = H ? H : new Quad{new Quad{new Quad{new Quad{0}}}};
   H = r->o; r->r()->r() = r;
-  rep(i,0,4) r = r->rot, r->p = arb, r->o = i & 1 ? r : r->r();
+  rep(i,0,4) {
+    r = r->rot, r->p = arb, r->o = i & 1 ? r : r->r();
+  }
   r->p = orig; r->F() = dest;
   return r;
 }
@@ -48,22 +51,23 @@ Q connect(Q a, Q b) {
 
 pair<Q,Q> rec(const vector<pt>& s) {
   if (sz(s) <= 3) {
-    Q a = makeEdge(s[0], s[1]), b = makeEdge(s[1], s.back());
+    Q a=makeEdge(s[0], s[1]), b=makeEdge(s[1], s.back());
     if (sz(s) == 2) return { a, a->r() };
     splice(a->r(), b);
     auto side = cross(s[1]-s[0], s[2]-s[0]);
     Q c = side ? connect(b, a) : 0;
-    return {side < 0 ? c->r() : a, side < 0 ? c : b->r() };
+    return {side<0 ? c->r() : a, side<0 ? c : b->r() };
   }
 
 #define H(e) e->F(), e->p
-#define valid(e) (cross(base->F()-e->F(),base->p-e->F()) > 0)
+#define valid(e) (cross(base->F()-e->F(), \
+                  base->p-e->F()) > 0)
   Q A, B, ra, rb;
   int half = sz(s) / 2;
   tie(ra, A) = rec({all(s) - half});
   tie(B, rb) = rec({sz(s) - half + all(s)});
-  while ((cross(A->F()-B->p,A->p-B->p) < 0 && (A = A->next())) 
-      || (cross(B->F()-A->p,B->p-A->p) > 0 && (B = B->r()->o)));
+  while((cross(A->F()-B->p,A->p-B->p)<0 && (A=A->next())) 
+     || (cross(B->F()-A->p,B->p-A->p)>0 && (B=B->r()->o)));
   Q base = connect(B->r(), A);
   if (A->p == ra->p) ra = base->r();
   if (B->p == rb->p) rb = base;
@@ -91,14 +95,16 @@ bool comp(const pt& a,const pt& b){
 }
 
 vector<pt> triangulate(vector<pt> pts) {
-  sort(all(pts),comp);  assert(unique(all(pts)) == pts.end());
+  sort(all(pts),comp);
+  assert(unique(all(pts)) == pts.end());
   if (sz(pts) < 2) return {};
   Q e = rec(pts).first;
   vector<Q> q = {e};
   int qi = 0;
-  while (cross(e->F()-e->o->F(), e->p-e->o->F()) < 0) e = e->o;
-#define ADD { Q c = e; do { c->mark = 1; pts.push_back(c->p); \
-  q.push_back(c->r()); c = c->next(); } while (c != e); }
+  while (cross(e->F()-e->o->F(),e->p-e->o->F())<0) e=e->o;
+#define ADD { Q c = e; do { c->mark = 1; \
+  pts.push_back(c->p);  q.push_back(c->r()); \
+  c = c->next(); } while (c != e); }
   ADD; pts.clear();
   while (qi < sz(q)) if (!(e = q[qi++])->mark) ADD;
   return pts;

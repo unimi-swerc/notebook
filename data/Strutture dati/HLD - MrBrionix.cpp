@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 const long long mod=998244353ll, MAXN=200005, LOGN=18;
 //HLD 1-based
 struct fun{
