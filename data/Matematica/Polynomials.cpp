@@ -11,17 +11,17 @@ struct Poly {
   }
   void divroot(double x0) {
     double b = a.back(), c; a.back() = 0;
-    for(int i=sz(a)-1; i--;)c=a[i], a[i]=a[i+1]*x0+b, b=c;
+    for(int i=sz(a)-1; i--;)c=a[i],a[i]=a[i+1]*x0+b,b=c;
     a.pop_back();
   }
 };
 
 
 /* Finds the real roots to a polynomial.
- * Usage: polyRoots({{2,-3,1}},-1e9,1e9) // solve x^2-3x+2=0
+ * Usage: polyRoots({{2,-3,1}},-1e9,1e9) solve x^2-3x+2=0
  * Time: O(n^2 \log(1/\epsilon))
  */
-vector<double> polyRoots(Poly p, double xmin, double xmax){
+vector<double> polyRoots(Poly p,double xmin,double xmax){
   if (sz(p.a) == 2) { return {-p.a[0]/p.a[1]}; }
   vector<double> ret;
   Poly der = p;
