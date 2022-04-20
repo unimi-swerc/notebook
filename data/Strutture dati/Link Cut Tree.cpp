@@ -2,16 +2,19 @@ typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5; 
 
-/* Link-Cut Tree. Given a function $f(1\ldots N)\to 1\ldots N,$ 
- * evaluates $f^b(a)$ for any $a,b.$ sz is for path queries; 
+/* Link-Cut Tree. Given a function f(1...N) -> 1...N,
+ * evaluates f^b(a) for any a,b. sz is for path queries; 
  * sub, vsub are for subtree queries. x->access()
- * brings x to the top and propagates it; its left subtree will be 
- * the path from x to the root and its right subtree will be empty. 
- * Then sub will be the number of nodes in the connected component
- * of x and vsub will be the number of nodes under x.
+ * brings x to the top and propagates it; its left subtree
+ * will be the path from x to the root and its right
+ * subtree will be empty. Then sub will be the number of
+ * nodes in the connected component of x and vsub will be
+ * the number of nodes under x.
  * Use makeRoot for arbitrary path queries.
  * Time: O(log N)
- * Usage: FOR(i,1,N+1)LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
+ * Usage: FOR(i,1,N+1) {
+ *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
+ * }
  * tested with N,M<=200000 (0.8 sec)
  */
 
@@ -21,7 +24,7 @@ struct snode { //////// VARIABLES
   bool flip = 0; // subtree flipped or not
   int sz; // value in node, # nodes in current splay tree
   ll sub; // numero di nodi nella sua componente
-  ll vsub = 0; // numero di nodi nel suo sottoalbero (lui escluso)
+  ll vsub = 0; // nodi nel suo sottoalbero (lui escluso)
   ll val; // dato contenuto nel nodo
   ll sum; // somma dal nodo alla sua radice
   ll vsubSum = 0; //somma del suo sottoalbero (lui escluso)
@@ -103,7 +106,8 @@ struct snode { //////// VARIABLES
       }
       if (v->c[1]) {
         v->c[1]->prop();
-        v->vsub += v->c[1]->sub; v->vsubSum += v->c[1]->subSum;
+        v->vsub += v->c[1]->sub;
+        v->vsubSum += v->c[1]->subSum;
         v->c[1]->inc(-v->addVir);
       }
       v->c[1] = pre; v->calc(); pre = v;
@@ -111,12 +115,14 @@ struct snode { //////// VARIABLES
     splay(); assert(!c[1]); // right subtree is empty
   }
   void makeRoot() { 
-    access(); flip ^= 1; access(); assert(!c[0] && !c[1]); }
+    access(); flip ^= 1; access();
+    assert(!c[0] && !c[1]); }
   //////// QUERIES
   friend sn lca(sn x, sn y) {
     if (x == y) return x;
     x->access(), y->access(); if (!x->p) return NULL;
-    x->splay(); return x->p?:x; // y was below x in latter case
+    x->splay();
+    return x->p?:x; // y was below x in latter case
   } // access at y did not affect x -> not connected
   friend bool connected(sn x, sn y) { return lca(x,y); } 
   // # nodes above
@@ -143,7 +149,8 @@ struct snode { //////// VARIABLES
     y->c[0]->p = NULL; y->c[0] = NULL; y->calc(); }
   friend void cut(sn x, sn y) { // if x, y adj in tree
     x->makeRoot(); y->access(); 
-    assert(y->c[0] == x && !x->c[0] && !x->c[1]); cut(y); }
+    assert(y->c[0] == x && !x->c[0] && !x->c[1]);
+    cut(y); }
 };
 sn LCT[MX];
 
@@ -192,7 +199,8 @@ int main() {
       cout<<(LCT[v]->sum)<<"\n";
       */
       
-      //subtree query (v=radice, query sul sottoalbero di u)
+      //subtree query
+      // (v=radice, query sul sottoalbero di u)
       LCT[v]->makeRoot();
       LCT[u]->access();
       cout<<(LCT[u]->vsubSum + LCT[u]->val)<<"\n";
