@@ -1,4 +1,6 @@
-friend T getFunc(sn a, int b) { return a?a->func[b]:T{1,0}; }
+friend T getFunc(sn a, int b) {
+  return a?a->func[b]:T{1,0};
+}
 void prop() { // lazy prop
   if (!flip) return;
   swap(c[0],c[1]); swap(func[0],func[1]);

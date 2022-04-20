@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 const int MAXN=100005, LOGN=18;
 
 struct SegmentTree{

@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 const int MAXN=100005, MAXM=5005, MAXA=2000000010;
 const int LOGA=32, GAP = 1000000005;
 
