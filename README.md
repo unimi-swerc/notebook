@@ -86,4 +86,6 @@
 - [x] XorSat
 - [x] Sat
 - [x] Fast Input
+- [x] Knuth optimization Dp
+- [x] Divide and conquer Dp
 - [ ] Hornsat
