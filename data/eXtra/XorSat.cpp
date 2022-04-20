@@ -16,7 +16,8 @@ using u32 = uint32_t;
   
   se non c'è soluzione r.size()=0
 */
-int gauss(vector<bitset<NSAT+1>> &a,int m,vector<bool> &ans){
+int gauss(vector<bitset<NSAT+1>> &a, int m,
+          vector<bool> &ans){
   int n = a.size();
   vector<int> where (m, -1);
   for (int col = 0, row = 0; col<m && row<n; ++col){
