@@ -18,38 +18,37 @@ using u32 = uint32_t;
 */
 int gauss(vector<bitset<NSAT+1>> &a,int m,vector<bool> &ans){
   int n = a.size();
-    vector<int> where (m, -1);
-    for (int col = 0, row = 0; col<m && row<n; ++col){
-        for (int i = row; i < n; ++i)
-            if (a[i][col]) {
-                swap (a[i], a[row]);
-                break;
-            }
-        if (!a[row][col])
-            continue;
-        where[col] = row;
+  vector<int> where (m, -1);
+  for (int col = 0, row = 0; col<m && row<n; ++col){
+    for (int i = row; i < n; ++i)
+      if (a[i][col]) {
+        swap (a[i], a[row]);
+        break;
+      }
+    if (!a[row][col]) continue;
+    where[col] = row;
 
-        for (int i = 0; i < n; ++i)
-            if (i != row && a[i][col])
-                a[i] ^= a[row];
-        ++row;
-    }
-    ans.assign(m, 0);
-    for (int i = 0; i < m; ++i)
-        if (where[i] != -1)
-            ans[i] = a[where[i]][m] / a[where[i]][i];
-    for (int i = 0; i < n; ++i) {
-        int sum = 0;
-        for (int j = 0; j < m; ++j)
-            sum += ans[j] * a[i][j];
-        if (sum != a[i][m])
-            return 0;
-    }
+    for (int i = 0; i < n; ++i)
+      if (i != row && a[i][col])
+        a[i] ^= a[row];
+    ++row;
+  }
+  ans.assign(m, 0);
+  for (int i = 0; i < m; ++i)
+    if (where[i] != -1)
+      ans[i] = a[where[i]][m] / a[where[i]][i];
+  for (int i = 0; i < n; ++i) {
+    int sum = 0;
+    for (int j = 0; j < m; ++j)
+      sum += ans[j] * a[i][j];
+    if (sum != a[i][m])
+      return 0;
+  }
 
-    for (int i = 0; i < m; ++i)
-        if (where[i] == -1)
-            return -1;
-    return 1;
+  for (int i = 0; i < m; ++i)
+    if (where[i] == -1)
+      return -1;
+  return 1;
 }
 
 vector<bool> xorsat(const vector<vector<u32>> &f) {
