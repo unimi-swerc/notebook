@@ -133,7 +133,7 @@ struct line {
   line perpThrough(pt p) {return {p, p + perp(v)};}
   line translate(pt t) {return {v, c + cross(v,t)};}
   line shiftLeft(ll dist) {return {v, c + dist*abs(v)};}
-}
+};
 
 bool lineIntersection(line l1, line l2, pt &out) {
   ll d = cross(l1.v, l2.v);
