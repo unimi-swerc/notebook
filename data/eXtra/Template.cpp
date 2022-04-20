@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
@@ -31,6 +29,5 @@ using vpi = V<pi>;
 
 template<class T> bool ckmin(T& a, const T& b) {
   return b < a ? a = b, 1 : 0; } // set a = min(a,b)
-  
 template<class T> bool ckmax(T& a, const T& b) {
   return a < b ? a = b, 1 : 0; } // set a = max(a,b)
