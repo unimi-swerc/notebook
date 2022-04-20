@@ -23,7 +23,7 @@
 - [x] Operazioni sui cerchi (intersezione, ...)
 - [ ] Geometria di base 3D
 - [x] Convex hull (2D)
-- [ ] Convex hull (3D)
+- [x] Convex hull (3D)
 - [x] Closest pair
 - [x] Poligon cut
 - [x] Welzl (minimum enclosing circle)
