@@ -10,7 +10,8 @@ struct node {
     size_t prior;
     node *left, *right;
 
-    node(T v) : val(v), mi(v), sum(v), lazy1(1), lazy2(0), size(1), rot(0), prior(rng()), left(0), right(0) {}
+    node(T v) : val(v), mi(v), sum(v), lazy1(1), lazy2(0),
+	 size(1), rot(0), prior(rng()), left(0), right(0) {}
 
 	static inline void combine(T a, T b, T &c, T &d){
 		c=(a*c)%mod;
@@ -23,14 +24,16 @@ struct node {
         if (left) {
         	left->rot ^= rot;
             mi = min(mi, left->mi);
-            sum += (left->sum*left->lazy1+left->size*left->lazy2);
+            sum+=(left->sum*left->lazy1+
+			      left->size*left->lazy2);
             combine(lazy1,lazy2,left->lazy1,left->lazy2);
             size += left->size;
         }
         if (right) {
         	right->rot ^= rot;
             mi = min(mi, right->mi);
-            sum += (right->sum*right->lazy1+right->size*right->lazy2);
+            sum+=(right->sum*right->lazy1+
+			      right->size*right->lazy2);
             combine(lazy1,lazy2,right->lazy1,right->lazy2);
             size += right->size;
         }
