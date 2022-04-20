@@ -29,11 +29,11 @@ for (int i = 0; i <= m + 1; i++) {
     dp[j][j + i] = 1ll << 60;
 
     // optimal place to cut
-    for (int k = mid[j][i + j - 1]; k <= mid[j + 1][i + j]; k++) {
-      long long next = dp[j][k] + dp[k][j + i] + pos[j + i] - pos[j];
-      if (next < dp[j][j + i]) {
-        dp[j][j + i] = next;
-        mid[j][j + i] = k;
+    for (int k=mid[j][i+j-1]; k<=mid[j+1][i+j]; k++) {
+      long long next = dp[j][k] + dp[k][j+i]
+                         + pos[j+i] - pos[j];
+      if (next < dp[j][j+i]) {
+        dp[j][j+i] = next, mid[j][j+i] = k;
       }
     }
   }

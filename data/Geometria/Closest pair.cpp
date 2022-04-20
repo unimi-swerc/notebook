@@ -18,7 +18,7 @@ ll mindist = LLONG_MAX;
 pair<int, int> best_pair;
 
 void upd_ans(const pt& a, const pt& b) {
-  ll dist = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+  ll dist = (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y);
   if (dist < mindist) {
     mindist = dist;
     best_pair = {a.id, b.id};
@@ -32,7 +32,7 @@ void rec(int l, int r) {
         upd_ans(a[i], a[j]);
       }
     }
-    sort(a.begin() + l, a.begin() + r, cmp_y());
+    sort(a.begin()+l, a.begin()+r, cmp_y());
     return;
   }
   
@@ -41,13 +41,15 @@ void rec(int l, int r) {
   rec(l, m);
   rec(m, r);
 
-  merge(a.begin() + l, a.begin() + m, a.begin() + m, a.begin() + r, t.begin(), cmp_y());
-  copy(t.begin(), t.begin() + r - l, a.begin() + l);
+  merge(a.begin()+ l, a.begin()+m, a.begin()+m,
+            a.begin()+r, t.begin(), cmp_y());
+  copy(t.begin(), t.begin()+r-l, a.begin()+l);
 
   int tsz = 0;
   for (int i = l; i < r; ++i) {
     if (abs(a[i].x - midx) < mindist) {
-      for (int j = tsz - 1; j >= 0 && a[i].y - t[j].y < mindist; --j)
+      for (int j=tsz-1; j>=0 && 
+              a[i].y-t[j].y<mindist; --j)
         upd_ans(a[i], t[j]);
       t[tsz++] = a[i];
     }
