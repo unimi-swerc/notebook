@@ -4,7 +4,7 @@
 
 ### 1. Strutture dati
 
-- [x] Treap
+- [x] Treap (+ lazy propagation)
 - [x] Persistent segment tree
 - [x] Heavy light decomposition (nodi & archi)
 - [x] Sparse table
