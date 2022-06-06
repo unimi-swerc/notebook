@@ -1,13 +1,14 @@
 //1-based, tested with N<=500 (381 ms)
 template<int SZ> struct WeightedMatch { 
-  struct edge { int u,v,w; }; edge g[SZ*2][SZ*2];
-  void ae(int u, int v, int w){g[u][v].w = g[v][u].w = w;}
-  int N,NX,lab[SZ*2],match[SZ*2],slack[SZ*2],st[SZ*2];
+  struct edge { int u,v;long long w; }; edge g[SZ*2][SZ*2];
+  void ae(int u, int v, long long w){g[u][v].w = g[v][u].w = w;}
+  int N,NX,match[SZ*2],slack[SZ*2],st[SZ*2];
+  long long lab[SZ*2];
   int par[SZ*2],floFrom[SZ*2][SZ],S[SZ*2],aux[SZ*2]; 
   vi flo[SZ*2]; queue<int> q;
   void init(int _N) { N = _N; // init all edges
     FOR(u,1,N+1) FOR(v,1,N+1) g[u][v] = {u,v,0}; }
-  int eDelta(edge e) { // >= 0 at all times
+  long long eDelta(edge e) { // >= 0 at all times
     return lab[e.u]+lab[e.v]-g[e.u][e.v].w*2; } 
   void updSlack(int u, int x) { // smallest edge -> blossom x
     if (!slack[x] || eDelta(g[u][x])<eDelta(g[slack[x]][x])) 
@@ -107,7 +108,7 @@ template<int SZ> struct WeightedMatch {
           } else updSlack(u,st[v]);
         }
       }
-      int d = INT_MAX; 
+      long long d = LLONG_MAX; 
       FOR(b,N+1,NX+1) if (st[b] == b && S[b] == 1) 
         ckmin(d,lab[b]/2); // decrease lab[b]
       FOR(x,1,NX+1) if (st[x] == x && slack[x]) {
@@ -134,7 +135,7 @@ template<int SZ> struct WeightedMatch {
   pair<ll,int> calc() {
     NX = N; st[0] = 0; FOR(i,1,2*N+1) aux[i] = 0;
     FOR(i,1,N+1) match[i] = 0, st[i] = i, flo[i].clear();
-    int wMax = 0;
+    long long wMax = 0;
     FOR(u,1,N+1) FOR(v,1,N+1)
       floFrom[u][v]=(u==v ? u : 0),ckmax(wMax,g[u][v].w);
     FOR(u,1,N+1) lab[u] = wMax; //start high and decrease
