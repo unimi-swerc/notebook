@@ -11,7 +11,7 @@ struct query_tree{
       if(qr <= l || r <= ql) return;
       if(ql <= l && r <= qr) queues[u].push_back(e);
       else{
-        int m = l + (r - l >> 1), v = u + 1, w = u + (m - l << 1);
+        int m=l+(r - l >> 1), v=u+1, w=u+(m - l << 1);
         self(self, v, l, m), self(self, w, m, r);
       }
     };
@@ -26,7 +26,7 @@ struct query_tree{
       if(r - l == 1) answer(l);
       else{
         int m = l + (r - l >> 1);
-        self(self, u + 1, l, m), self(self, u + (m - l << 1), m, r);
+        self(self,u+1,l,m), self(self,u+(m - l << 1),m,r);
       }
       reverse_to(timer);
     };
