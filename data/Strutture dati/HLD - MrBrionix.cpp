@@ -1,23 +1,19 @@
 const long long mod=998244353ll, MAXN=200005, LOGN=18;
 //HLD 1-based
 struct fun{
-  long long a,b;
-  
+  long long a,b;  
   fun(){
     a=1;
     b=0;
   }
-  
   fun(long long x,long long y){
     a=x;
     b=y;
   }
-  
   fun operator^(const fun& other) const {
     fun res(a*other.a%mod,(b*other.a+other.b)%mod);
     return res;
   }
-  
   long long eval(long long x){
     return (a*x+b)%mod;
   }
@@ -32,15 +28,13 @@ struct SegmentTree{
     _l=l;
     _r=r;
     
-    if(l==r)return;
-    
+    if(l==r)return;  
     left = new SegmentTree(l,(l+r)/2);
     right = new SegmentTree((l+r)/2+1,r);
   }
   
   void build(fun *v,int *ind,int l,int r){
     if(_r<l || _l>r)return;
-    
     if(_l==_r){
       f=revf=v[ind[_l]];
       return;
@@ -178,16 +172,13 @@ fun query(int u){
 */
 
 int main(){
-
   ios::sync_with_stdio(false);
   cin.tie(0);
 
   cin>>n>>q;
-  
   for(int i=1;i<=n;i++){
     cin>>v[i].a>>v[i].b;
   }
-  
   for(int i=0;i<n-1;i++){
     int u,v;
     cin>>u>>v;
@@ -200,19 +191,16 @@ int main(){
   grafo[0].push_back(1);
   dfs();
   dfs_hld();
-  
   for(int j=1;j<LOGN;j++){
     for(int i=0;i<MAXN;i++){
       par[i][j]=par[par[i][j-1]][j-1];
     }
   }
-  
   rt.build(v,rin,1,n);
   
   for(int i=0;i<q;i++){
     int t,a,b,c;
-    cin>>t>>a>>b>>c;
-    
+    cin>>t>>a>>b>>c; 
     if(t==0){
       a++;
       update(a,fun(b,c));
@@ -222,7 +210,5 @@ int main(){
       cout<<query(a,b).eval(c)<<"\n";
     }
   }
-
   return 0;
 }
-
