@@ -19,4 +19,3 @@ void totient() {
       pr[i] = true;
     }
 }
-
