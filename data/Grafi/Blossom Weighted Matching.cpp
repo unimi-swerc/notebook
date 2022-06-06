@@ -1,7 +1,7 @@
 //1-based, tested with N<=500 (381 ms)
 template<int SZ> struct WeightedMatch { 
   struct edge { int u,v;long long w; }; edge g[SZ*2][SZ*2];
-  void ae(int u, int v, long long w){g[u][v].w = g[v][u].w = w;}
+  void ae(int u, int v, long long w){g[u][v].w=g[v][u].w=w;}
   int N,NX,match[SZ*2],slack[SZ*2],st[SZ*2];
   long long lab[SZ*2];
   int par[SZ*2],floFrom[SZ*2][SZ],S[SZ*2],aux[SZ*2]; 
@@ -10,7 +10,7 @@ template<int SZ> struct WeightedMatch {
     FOR(u,1,N+1) FOR(v,1,N+1) g[u][v] = {u,v,0}; }
   long long eDelta(edge e) { // >= 0 at all times
     return lab[e.u]+lab[e.v]-g[e.u][e.v].w*2; } 
-  void updSlack(int u, int x) { // smallest edge -> blossom x
+  void updSlack(int u, int x) { //smallest edge -> blossom x
     if (!slack[x] || eDelta(g[u][x])<eDelta(g[slack[x]][x])) 
       slack[x] = u; }
   void setSlack(int x) {
