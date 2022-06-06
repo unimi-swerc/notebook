@@ -78,6 +78,7 @@
 - [x] Max Clique
 - [x] Edge Coloring
 - [x] Biconnected Components
+- [x] Stable Marriage 
 
 ### 6. Altro
 
