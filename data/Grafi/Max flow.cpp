@@ -1,4 +1,4 @@
-// with n<=5000, m<=30000 run in 0.19 sec
+// 0-based, with n<=5000, m<=30000 run in 0.19 sec
 using pi = pair<int,int>;
 #define f first
 #define s second
