@@ -37,4 +37,3 @@ vector<triple> delaunay(vector<T> &x, vector<T> &y) {
   }
   return ret;
 }
-
