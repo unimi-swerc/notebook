@@ -102,5 +102,5 @@
 - [x] Stirling del secondo tipo
 
 ### 2. Vario
-- [x] somma potenze quarta
-- [x] primi grandi 
+- [x] Somma potenze quarte
+- [x] Numeri primi grandi 
