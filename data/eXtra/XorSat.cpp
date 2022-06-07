@@ -1,19 +1,16 @@
 using u32 = uint32_t;
-
 #ifndef NSAT
 #define NSAT (512-1)
 #endif
 
-/* 0-based, esempio d'us:
+/* 0-based, esempio d'uso:
     (a XOR c XOR d) ^ (b XOR ¬c XOR d) ^ (a XOR b XOR ¬d)
   vector<vector<u32>> v = {{0, 4, 6}, {2, 5, 6}, 
-                           {0, 2, 7}, {0, 3, 5}};
+                           {0, 2, 7}};
   auto r = xorsat(v);
   cout << r.size() << endl;
-  for (auto b : r)
-    cout << b << " ";
+  for (auto b : r) cout << b << " ";
   cout << endl;
-  
   se non c'è soluzione r.size()=0
 */
 int gauss(vector<bitset<NSAT+1>> &a, int m,
