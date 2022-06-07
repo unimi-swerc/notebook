@@ -78,11 +78,10 @@
 - [x] Max Clique
 - [x] Edge Coloring
 - [x] Biconnected Components
-- [x] Stable Marriage 
+- [x] Stable Marriage (Gale-Shapley algorithm)
 
 ### 6. Altro
 
-- [x] Gale-Shapley algorithm
 - [x] Simplesso
 - [x] Twosat
 - [x] XorSat
@@ -90,4 +89,18 @@
 - [x] Fast Input
 - [x] Knuth optimization Dp
 - [x] Divide and conquer Dp
+- [x] Template
 - [ ] Hornsat
+
+## Teoria
+
+### 1. Combinatoria
+
+- [x] Derangement
+- [x] Catalan
+- [x] Stirling del primo tipo
+- [x] Stirling del secondo tipo
+
+### 2. Vario
+- [x] somma potenze quarta
+- [x] primi grandi 
