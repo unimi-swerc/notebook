@@ -2,21 +2,7 @@ typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5; 
 // senza subtree update, è il doppio più veloce
-
-/* Link-Cut Tree. Given a function f(1...N)\to 1...N,
- * evaluates f^b(a) for any a,b. sz is for path queries; 
- * sub, vsub are for subtree queries. x->access()
- * brings x to the top and propagates it; its left
- * subtree will be the path from x to the root and its
- * right subtree will be empty. Then sub will be the
- * number of nodes in the connected component
- * of x and vsub will be the number of nodes under x.
- * Use makeRoot for arbitrary path queries.
- * Time: O(log N)
- * Usage: FOR(i,1,N+1) {
- *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
- * }
- */
+// per ulteriori info vedere link cut tree completo
 
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
