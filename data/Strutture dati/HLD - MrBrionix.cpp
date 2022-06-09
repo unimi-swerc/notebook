@@ -68,7 +68,8 @@ struct SegmentTree{
       return f;
     }
     
-    if(flag)return right->query(l,r,flag)^left->query(l,r,flag);
+    if(flag)
+      return right->query(l,r,flag)^left->query(l,r,flag);
     return left->query(l,r,flag)^right->query(l,r,flag);
   }
 } rt(0,MAXN);
