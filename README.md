@@ -89,7 +89,7 @@
 - [x] Fast Input
 - [x] Knuth optimization Dp
 - [x] Divide and conquer Dp
-- [x] Template
+- [x] Template (con pbds e rope)
 - [ ] Hornsat
 
 ## Teoria
