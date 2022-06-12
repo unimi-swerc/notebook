@@ -1,3 +1,11 @@
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+typedef tree<int,null_type,less<int>,rb_tree_tag, 
+tree_order_statistics_node_update> ordered_set;
+#include <ext/rope>
+using namespace __gnu_cxx;
+//------------------------------------------------
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
