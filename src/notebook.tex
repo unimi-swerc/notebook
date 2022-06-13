@@ -19,11 +19,12 @@
 \usepackage{multicol}
 \usepackage{subcaption}
 \usepackage{titling}
+\usepackage{luacode}
 
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-1em}}}
 
 % Minted
-\newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{cpp}{../#1}}
+\newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{cpp}{#1}}
 
 % Header/Footer
 \pagestyle{fancy}
@@ -57,7 +58,25 @@
 \vspace{-3em}
 \tableofcontents
 
-\input{code}
+\begin{luacode*}
+
+current_dir = lfs.currentdir() .. "/src"
+for section in lfs.dir(current_dir) do
+    if not section:find("%.") then
+        section_dir = current_dir .. "/" .. section
+        tex.print("\\section{" .. section .. "}")
+        for subsection in lfs.dir(section_dir) do
+            if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
+                subsection_dir = section_dir .. "/" .. subsection
+                tex.print("\\subsection{" .. subsection .. "}")
+                tex.print("\\code{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
+            end
+        end
+    end
+end
+
+\end{luacode*}
+
 \section{Teoria}
 $1^4+...+n^4=n(n+1)(2n+1)(3n^2+3n-1)/30 \\
 970592641(31), 31443539979727(45), 3006703054056749(52)\\

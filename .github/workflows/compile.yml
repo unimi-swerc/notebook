@@ -10,19 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Generate source files
-        run: python3 src/generate.py
       - name: Compile notebook
         uses: xu-cheng/latex-action@v2
         with:
           latexmk_shell_escape: true
-          root_file: template.tex
-          working_directory: build/
-      - name: Rename notebook
-        run: mv build/template.pdf build/swerc.pdf
+          latexmk_use_lualatex: true
+          root_file: src/notebook.tex
       - name: Upload notebook
         uses: actions/upload-artifact@v3
         with:
           name: swerc
-          path: build/swerc.pdf
+          path: notebook.pdf
 
