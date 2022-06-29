@@ -27,7 +27,7 @@ void init() {
   }
   root = ipow(root, (MOD - 1) >> max_base);
 }
-void reset(){
+void reset(){ //for changing the MOD
   max_base=root=-1;
   base=1;
 }
