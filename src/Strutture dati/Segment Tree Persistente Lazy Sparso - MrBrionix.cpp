@@ -17,6 +17,7 @@ struct SegmentTree{
       sum=v[_l];
       return;
     }
+    checkcopy(_l,_r);
     left->build(v,l,r,_l,(_l+_r)/2);
     right->build(v,l,r,(_l+_r)/2+1,_r);   
     sum=left->sum+right->sum;
@@ -121,6 +122,7 @@ signed main(){
     cin>>n;
     cc=0;
     rt[0] = SegmentTree::newSeg(1,(n+1)*GAP,0);
+    rt[0]->build(v,1,n,1,(n+1)*GAP);
     cont=1;
     cont1=0;
     cin>>q;
