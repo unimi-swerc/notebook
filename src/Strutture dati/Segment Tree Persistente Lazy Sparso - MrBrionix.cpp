@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
 const int MAXN=100005, LOGN=42;
 const long long GAP = 10000004;
 struct SegmentTree{
@@ -9,9 +10,9 @@ struct SegmentTree{
   long long lazy;
   int lvl;
   static SegmentTree* newSeg();
-  static SegmentTree* newSeg(long long l,long long r,int _lvl);
+  static SegmentTree* newSeg(ll l,ll r,int _lvl);
   
-  void build(long long *v,long long l,long long r,long long _l,long long _r){
+  void build(ll *v,ll l,ll r,ll _l,ll _r){
     if(_r<l || _l>r)return;  
     if(_l==_r){
       sum=v[_l];
@@ -54,7 +55,7 @@ struct SegmentTree{
     }
   }
   
-  void update(long long l,long long r,long long val,long long _l,long long _r){
+  void update(ll l,ll r,ll val,ll _l,ll _r){
     if(l>r || r<_l || l>_r)return;
     if(_l>=l && _r<=r){
       lazy+=val;
@@ -68,7 +69,7 @@ struct SegmentTree{
     sum=left->sum+right->sum;
   }
   
-  void pointupdate(long long pos,long long val,long long _l,long long _r){
+  void pointupdate(ll pos,ll val,ll _l,ll _r){
     if(pos<_l || pos>_r)return;
     if(_l==_r){
       sum+=val;
@@ -81,12 +82,13 @@ struct SegmentTree{
     sum = left->sum+right->sum;
   }
   
-  __int128 query(long long l,long long r,long long _l,long long _r){
+  __int128 query(ll l,ll r,ll _l,ll _r){
     if(_r<l || _l>r)return 0;
     if(_l>=l && _r<=r)return sum;
     checkcopy(_l,_r);
     checklazy(_l,_r);
-    return left->query(l,r,_l,(_l+_r)/2)+right->query(l,r,(_l+_r)/2+1,_r);
+    return left->query(l,r,_l,(_l+_r)/2)+
+	  right->query(l,r,(_l+_r)/2+1,_r);
   }
 };
 
@@ -95,7 +97,7 @@ int cc=0;
 SegmentTree* SegmentTree::newSeg(){
   return &vett[cc++];
 }
-SegmentTree* SegmentTree::newSeg(long long l,long long r,int _lvl){
+SegmentTree* SegmentTree::newSeg(ll l,ll r,int _lvl){
   int ind=cc++; 
   vett[ind].sum=0;
   vett[ind].lazy=0;
@@ -145,16 +147,16 @@ signed main(){
       if(off.size()>20){
         random_shuffle(off.begin(),off.end());
         for(auto &[id,tempo,l,r] : off){
-          ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);
+    ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);
         }
         off.clear();
       }
     }
     random_shuffle(off.begin(),off.end());
     for(auto &[id,tempo,l,r] : off){
-      ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);
+    ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);
     }
-    for(int i=0;i<cont1;i++)cout<<(long long)(ans[i]/GAP)<<"\n";
+    for(int i=0;i<cont1;i++)cout<<(ll)(ans[i]/GAP)<<"\n";
   }
   return 0;
 }
