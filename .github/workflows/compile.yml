@@ -9,7 +9,8 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Compile notebook
         uses: xu-cheng/latex-action@v2
         with:
