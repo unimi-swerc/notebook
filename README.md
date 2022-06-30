@@ -5,8 +5,8 @@
 ### 1. Strutture dati
 
 - [x] Treap (+ lazy propagation)
-- [x] Persistent segment tree
-- [x] Heavy light decomposition (nodi & archi)
+- [x] Persistent segment tree (normale oppure sparso + lazy)
+- [x] Heavy light decomposition (nodi & archi) (+ LCA)
 - [x] Sparse table
 - [x] Line container
 - [x] Mo queries
