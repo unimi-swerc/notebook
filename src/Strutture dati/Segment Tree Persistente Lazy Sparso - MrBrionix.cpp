@@ -32,15 +32,15 @@ struct SegmentTree{
   }
   
   void checkcopy(long long _l,long long _r){   
-  	if(left == nullptr){
-  	  left = newSeg(_l,(_l+_r)/2,lvl);
-	} else if(left->lvl != lvl){
+    if(left == nullptr){
+      left = newSeg(_l,(_l+_r)/2,lvl);
+    } else if(left->lvl != lvl){
       left = left->copy(lvl);
     }
 	
-	if(right == nullptr){
-	  right = newSeg((_l+_r)/2+1,_r,lvl);
-	}else if(right->lvl != lvl){
+    if(right == nullptr){
+      right = newSeg((_l+_r)/2+1,_r,lvl);
+    }else if(right->lvl != lvl){
       right = right->copy(lvl);
     }
   }
