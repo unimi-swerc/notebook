@@ -65,7 +65,12 @@ for section in lfs.dir(current_dir) do
     if not section:find("%.") then
         section_dir = current_dir .. "/" .. section
         tex.print("\\section{" .. section .. "}")
+        sorted_section = {}
         for subsection in lfs.dir(section_dir) do
+          table.insert(sorted_section, subsection)
+        end
+        table.sort(sorted_section)
+        for ind, subsection in ipairs(sorted_section) do
             if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
                 subsection_dir = section_dir .. "/" .. subsection
                 tex.print("\\subsection{" .. subsection .. "}")
