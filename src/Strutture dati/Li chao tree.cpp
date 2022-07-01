@@ -3,14 +3,14 @@ const ll INF = (ll)4e18;
 const ll C = (ll)1e9 + 7;
 
 struct Line {
-	ll k, b;
+  ll k, b;
 
-	Line() : k(), b(INF) {}
-	Line(ll _k, ll _b) : k(_k), b(_b) {}
+  Line() : k(), b(INF) {}
+  Line(ll _k, ll _b) : k(_k), b(_b) {}
 
-	ll eval(const ll &x) const {
-		return -(x-k)*(x-k) - b*b;
-	}
+  ll eval(const ll &x) const {
+    return k * x + b;
+  }
 };
 
 /*
@@ -21,52 +21,52 @@ struct Line {
 */
 
 struct Node {
-	int l, r;
-	Line L;
+  int l, r;
+  Line L;
 
-	Node() : l(-1), r(-1), L() {}
+  Node() : l(-1), r(-1), L() {}
 };
 const int S = (int)8e6;
 Node tree[S];
 int treeSz;
 
 int getNewNode() {
-	tree[treeSz] = Node();
-	return treeSz++;
+  tree[treeSz] = Node();
+  return treeSz++;
 }
 int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
-	if (l >= qr || ql >= r) return v;
-	if (v == -1) {
-		v = getNewNode();
-		if (ql <= l && r <= qr) {
-			tree[v].L = L;
-			return v;
-		}
-	}
-	ll m = l + (r - l) / 2;
-	if (ql <= l && r <= qr) {
-		if (L.eval(m) < tree[v].L.eval(m))
-			swap(L, tree[v].L);
-		if (L.eval(l) >= tree[v].L.eval(l) && L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
-		if (L.k < tree[v].L.k)
-			tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
-		else
-			tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
-		return v;
-	}
-	if (L.eval(max(l, ql)) >= tree[v].L.eval(max(l, ql))
-		&& L.eval(min(r, qr) - 1) >= tree[v].L.eval(min(r, qr) - 1)) return v;
-	tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
-	tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
-	return v;
+  if (l >= qr || ql >= r) return v;
+  if (v == -1) {
+    v = getNewNode();
+    if (ql <= l && r <= qr) {
+      tree[v].L = L;
+      return v;
+    }
+  }
+  ll m = l + (r - l) / 2;
+  if (ql <= l && r <= qr) {
+    if (L.eval(m) < tree[v].L.eval(m))
+      swap(L, tree[v].L);
+    if (L.eval(l) >= tree[v].L.eval(l) && L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
+    if (L.k < tree[v].L.k)
+      tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
+    else
+      tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
+    return v;
+  }
+  if (L.eval(max(l, ql)) >= tree[v].L.eval(max(l, ql))
+    && L.eval(min(r, qr) - 1) >= tree[v].L.eval(min(r, qr) - 1)) return v;
+  tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
+  tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
+  return v;
 }
 
 ll getMinPoint(int v, ll l, ll r, ll x) {
-	if (v == -1) return INF;
-	if (x < l || x >= r) return INF;
-	ll m = l + (r - l) / 2;
-	ll ans = tree[v].L.eval(x);
-	ans = min(ans, getMinPoint(tree[v].l, l, m, x));
-	ans = min(ans, getMinPoint(tree[v].r, m, r, x));
-	return ans;
+  if (v == -1) return INF;
+  if (x < l || x >= r) return INF;
+  ll m = l + (r - l) / 2;
+  ll ans = tree[v].L.eval(x);
+  ans = min(ans, getMinPoint(tree[v].l, l, m, x));
+  ans = min(ans, getMinPoint(tree[v].r, m, r, x));
+  return ans;
 }
