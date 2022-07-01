@@ -1,4 +1,4 @@
-# SWERC cheat sheets
+# SWERC cheat sheet
 
 ## Algoritmi
 
