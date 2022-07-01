@@ -47,7 +47,8 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
   if (ql <= l && r <= qr) {
     if (L.eval(m) < tree[v].L.eval(m))
       swap(L, tree[v].L);
-    if (L.eval(l) >= tree[v].L.eval(l) && L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
+    if (L.eval(l) >= tree[v].L.eval(l) && 
+      L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
     if (L.k < tree[v].L.k)
       tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
     else
@@ -55,7 +56,8 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
     return v;
   }
   if (L.eval(max(l, ql)) >= tree[v].L.eval(max(l, ql))
-    && L.eval(min(r, qr) - 1) >= tree[v].L.eval(min(r, qr) - 1)) return v;
+    && L.eval(min(r, qr)-1)>=tree[v].L.eval(min(r, qr)-1)) 
+    return v;
   tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
   tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
   return v;
