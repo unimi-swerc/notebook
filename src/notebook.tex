@@ -61,16 +61,21 @@
 \begin{luacode*}
 
 current_dir = lfs.currentdir() .. "/src"
+sorted_section = {}
 for section in lfs.dir(current_dir) do
+  table.insert(sorted_section, section)
+end
+table.sort(sorted_section)
+for ind1, section in ipairs(sorted_section) do
     if not section:find("%.") then
         section_dir = current_dir .. "/" .. section
         tex.print("\\section{" .. section .. "}")
-        sorted_section = {}
+        sorted_subsection = {}
         for subsection in lfs.dir(section_dir) do
-          table.insert(sorted_section, subsection)
+          table.insert(sorted_subsection, subsection)
         end
-        table.sort(sorted_section)
-        for ind, subsection in ipairs(sorted_section) do
+        table.sort(sorted_subsection)
+        for ind2, subsection in ipairs(sorted_subsection) do
             if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
                 subsection_dir = section_dir .. "/" .. subsection
                 tex.print("\\subsection{" .. subsection .. "}")
