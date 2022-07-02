@@ -79,7 +79,7 @@ for ind1, section in ipairs(sorted_section) do
         for ind2, subsection in ipairs(sorted_subsection) do
             if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
                 subsection_dir = section_dir .. "/" .. subsection
-                tex.print("\\subsection{" .. subsection .. "}")
+                tex.print("\\subsection{" .. subsection:sub(1,subsection:len()-4) .. "}")
                 tex.print("\\code{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
             end
             if subsection:find("%.tex$") then
