@@ -13,11 +13,12 @@ struct Line {
   }
 };
 
-/*
-  lichao tree per il minimo. Utilizzo:
+/*lichao tree per il minimo. Utilizzo:
   int root = -1; //creo un nuovo lichao tree
-  root = insertLine(root, -C, C, l, r, Line(k, b)); //update
-  ll res = getMinPoint(root, -C, C, x); //query
+  //update: aggiungo k*x+b in [l,r)
+  root = insertLine(root, -C, C, l, r, Line(k, b));
+  //query: trovo il min in x (se non c'è ritorna INF)
+  ll res = getMinPoint(root, -C, C, x); 
 */
 
 struct Node {
