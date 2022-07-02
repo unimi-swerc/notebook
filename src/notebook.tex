@@ -85,6 +85,8 @@ for ind1, section in ipairs(sorted_section) do
             if subsection:find("%.tex$") then
                 subsection_dir = section_dir .. "/" .. subsection
                 tex.print("\\subsection{" .. subsection .. "}")
+                gg = io.open(subsection_dir, "r")
+                tex.print(string.split(gg:read("*a"),"\n"))
             end
         end
     end
