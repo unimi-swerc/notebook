@@ -62,37 +62,35 @@
 
 \begin{luacode*}
 
-current_dir = lfs.currentdir() .. "/src"
-sorted_section = {}
-for section in lfs.dir(current_dir) do
-  table.insert(sorted_section, section)
+function ls(dir)
+    local files = {}
+    for file in lfs.dir(dir) do
+        table.insert(files, file)
+    end
+    table.sort(files)
+    return ipairs(files)
 end
-table.sort(sorted_section)
-for ind1, section in ipairs(sorted_section) do
+
+current_dir = lfs.currentdir() .. "/src"
+for _, section in ls(current_dir) do
     if not section:find("%.") then
         section_dir = current_dir .. "/" .. section
         tex.print("\\section{" .. section .. "}")
-        sorted_subsection = {}
-        for subsection in lfs.dir(section_dir) do
-          table.insert(sorted_subsection, subsection)
-        end
-        table.sort(sorted_subsection)
-        for ind2, subsection in ipairs(sorted_subsection) do
+        for _, subsection in ls(section_dir) do
+            subsection_file = section_dir .. "/" .. subsection
+            subsection_file_escaped = subsection_file:gsub("%s", "\\%1")
+            subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
-                subsection_dir = section_dir .. "/" .. subsection
-                tex.print("\\subsection{" .. subsection:sub(1,subsection:len()-4) .. "}")
-                tex.print("\\codecpp{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
+                tex.print("\\subsection{" .. subsection_name .. "}")
+                tex.print("\\codecpp{" .. subsection_file_escaped .. "}")
             end
             if subsection:find("%.py$") then
-                subsection_dir = section_dir .. "/" .. subsection
-                tex.print("\\subsection{" .. subsection:sub(1,subsection:len()-3) .. "}")
-                tex.print("\\codepy{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
+                tex.print("\\subsection{" .. subsection_name .. "}")
+                tex.print("\\codepy{" .. subsection_file_escaped .. "}")
             end
             if subsection:find("%.tex$") then
-                subsection_dir = section_dir .. "/" .. subsection
-                tex.print("\\subsection{" .. subsection:sub(1,subsection:len()-4) .. "}")
-                gg = io.open(subsection_dir, "r")
-                tex.print(string.split(gg:read("*a"),"\n"))
+                tex.print("\\subsection{" .. subsection_name .. "}")
+                tex.print("\\input{" .. subsection_file .. "}")
             end
         end
     end
