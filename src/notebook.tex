@@ -24,7 +24,8 @@
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-1em}}}
 
 % Minted
-\newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{cpp}{#1}}
+\newcommand{\codecpp}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{cpp}{#1}}
+\newcommand{\codepy}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{python}{#1}}
 
 % Header/Footer
 \pagestyle{fancy}
@@ -80,7 +81,12 @@ for ind1, section in ipairs(sorted_section) do
             if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
                 subsection_dir = section_dir .. "/" .. subsection
                 tex.print("\\subsection{" .. subsection:sub(1,subsection:len()-4) .. "}")
-                tex.print("\\code{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
+                tex.print("\\codecpp{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
+            end
+            if subsection:find("%.py$") then
+                subsection_dir = section_dir .. "/" .. subsection
+                tex.print("\\subsection{" .. subsection:sub(1,subsection:len()-3) .. "}")
+                tex.print("\\codepy{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
             end
             if subsection:find("%.tex$") then
                 subsection_dir = section_dir .. "/" .. subsection
