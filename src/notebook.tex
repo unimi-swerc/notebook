@@ -87,7 +87,6 @@ for ind1, section in ipairs(sorted_section) do
                 tex.print("\\subsection{" .. subsection .. "}")
                 file = io.open(subsection_dir, "r")
                 text = file:read("*all")
-                tex.print(text)
             end
         end
     end
