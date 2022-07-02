@@ -82,24 +82,19 @@ for ind1, section in ipairs(sorted_section) do
                 tex.print("\\subsection{" .. subsection .. "}")
                 tex.print("\\code{" .. subsection_dir:gsub("%s", "\\%1") .. "}")
             end
+            if subsection:find("%.tex$") then
+                subsection_dir = section_dir .. "/" .. subsection
+                tex.print("\\subsection{" .. subsection .. "}")
+                file = io.open(subsection_dir, "r")
+                text = file:read("*all")
+                tex.print(text)
+            end
         end
     end
 end
 
 \end{luacode*}
 
-\section{Teoria}
-\subsection{Combinatoria}
-\begin{center}
-$c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1 $
-$S(n,k) = S(n-1,k-1) + k S(n-1,k),\ S(n,1) = S(n,n) = 1 $
-$D(n)=nD(n-1)+(-1)^n$
-$C(n)=\binom{2n}{n}-\binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}{n}$
-\end{center}
-\subsection{Vario}
-\begin{center}
-$1^4+...+n^4=\frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} $
-\end{center}
-Generare numeri primi: \verb|openssl prime -generate -bits 60|
+
 \end{multicols*}
 \end{document}
