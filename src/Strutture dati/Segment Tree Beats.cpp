@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 const int N = 200005;
 const long long INF = 1E16;
 long long a[N];
@@ -40,7 +37,7 @@ struct node {
     return ans;
   }
 };
-
+// 1-based. Estremi degli intervalli inclusi: [l,r]
 // 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD
 struct segment_tree {
 #define m (l + r) / 2
@@ -146,10 +143,6 @@ struct segment_tree {
       return query(l,m, lc, L, R)+query(m+1,r, rc, L, R);
     }
   }
-
-#undef m
-#undef lc
-#undef rc
 } seg;
 
 int n, q, t, l, r;
