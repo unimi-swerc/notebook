@@ -13,7 +13,8 @@
 - [x] Li chao tree
 - [x] Link-cut tree
 - [x] Centroid Decomposition
-- [x] T(n)Log(n) Deletion Offline 
+- [x] T(n)Log(n) Deletion Offline
+- [x] Segment Tree Beats
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
