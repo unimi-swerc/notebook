@@ -121,10 +121,11 @@ struct segment_tree {
     }
   }
 
-  void update(int l, int r, int i, int L, int R, long long v, int typ) {
+  void update(int l,int r,int i,int L,int R,long long v,
+                                                int typ){
     if (l > R || r < L || break_condition(i, v, typ)) {
       return;
-    } else if (L <= l && r <= R && apply_condition(i, v, typ)) {
+    } else if(L<=l && r<=R && apply_condition(i, v, typ)){
       apply(i, l, r, v, typ);
       return;
     } else {
@@ -142,7 +143,7 @@ struct segment_tree {
       return tr[i].sum;
     } else {
       push(i, l, r);
-      return query(l, m, lc, L, R) + query(m + 1, r, rc, L, R);
+      return query(l,m, lc, L, R)+query(m+1,r, rc, L, R);
     }
   }
 
