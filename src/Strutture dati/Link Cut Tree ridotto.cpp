@@ -145,7 +145,6 @@ int main() {
       LCT[v]->makeRoot();
       LCT[u]->access();
       cout<<(LCT[u]->vsub + LCT[u]->val)<<"\n";
-      
     }
   }
 }
