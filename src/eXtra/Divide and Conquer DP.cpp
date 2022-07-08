@@ -1,5 +1,4 @@
-/*
-This optimization for dynamic programming solutions uses
+/*This optimization for dynamic programming solutions uses
 the  concept of divide and conquer. It is only applicable
 for the following recurrence:
 dp[i][j] = min_{k < j}(dp[i-1][k] + C[k][j])
