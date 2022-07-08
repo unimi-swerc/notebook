@@ -1,6 +1,5 @@
 // It took less than 0.5s to calculate with MAX=10^7
 #define MAX 10000000
-
 int phi[MAX];
 bool pr[MAX];
 
