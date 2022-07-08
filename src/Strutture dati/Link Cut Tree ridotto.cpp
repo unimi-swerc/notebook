@@ -139,8 +139,7 @@ int main() {
       LCT[u]->makeRoot();
       LCT[v]->access();
       cout<<(LCT[v]->sum)<<"\n";
-      */
-      
+      */      
       //subtree query (v=radice)
       LCT[v]->makeRoot();
       LCT[u]->access();
