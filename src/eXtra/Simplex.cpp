@@ -17,11 +17,9 @@
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
-
 typedef double T;
 typedef vector<T> vd;
 typedef vector<vd> vvd;
-
 const T eps = 1e-8, inf = 1/.0;
 #define MP make_pair
 #define ltj(X) if(s == -1 || \
