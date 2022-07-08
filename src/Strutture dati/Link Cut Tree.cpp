@@ -181,7 +181,6 @@ int main() {
       LCT[p]->val += x;
       LCT[p]->calc();
       */
-      
       //subtree update 
       // (radice=p, aggiungi x al sottoalbero di v)
       int v,p,x; cin>>v>>p>>x;
@@ -189,7 +188,6 @@ int main() {
       cut(LCT[v]);
       LCT[v]->inc(x);
       link(LCT[p],LCT[v],1);
-      
     } else {
       int u,v; cin>>u>>v;
       /*
@@ -197,8 +195,7 @@ int main() {
       LCT[u]->makeRoot();
       LCT[v]->access();
       cout<<(LCT[v]->sum)<<"\n";
-      */
-      
+      */      
       //subtree query
       // (v=radice, query sul sottoalbero di u)
       LCT[v]->makeRoot();
