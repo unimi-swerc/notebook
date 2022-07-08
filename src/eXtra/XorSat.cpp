@@ -4,8 +4,7 @@ using u32 = uint32_t;
 #endif
 /* 0-based, esempio d'uso:
     (a XOR c XOR d) ^ (b XOR ¬c XOR d) ^ (a XOR b XOR ¬d)
-  vector<vector<u32>> v = {{0, 4, 6}, {2, 5, 6}, 
-                           {0, 2, 7}};
+  vector<vector<u32>> v={{0, 4, 6},{2, 5, 6},{0, 2, 7}};
   auto r = xorsat(v);
   cout << r.size() << endl;
   for (auto b : r) cout << b << " ";
