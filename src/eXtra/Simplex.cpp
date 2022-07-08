@@ -11,9 +11,6 @@
 // T val = LPSolver(A, b, c).solve(x);
 // Time: O(NM * \#pivots), where a pivot may be e.g. 
 // an edge relaxation. O(2^n) in the general case.
-
-#include<bits/stdc++.h>
-using namespace std;
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
