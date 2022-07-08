@@ -6,7 +6,7 @@
  * p = polygonCut(p, pt{0,0}, pt{1,0});
  * pt e tutto il resto devono essere complex<double>
  */
-vector<pt> polygonCut(const vector<pt>& poly pt s, pt e){
+vector<pt> polygonCut(const vector<pt>& poly, pt s, pt e){
   vector<pt> res;
   rep(i,0,sz(poly)) {
     pt cur = poly[i], prev = i ? poly[i-1] : poly.back();
