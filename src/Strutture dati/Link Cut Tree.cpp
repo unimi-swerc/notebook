@@ -204,7 +204,6 @@ int main() {
       LCT[v]->makeRoot();
       LCT[u]->access();
       cout<<(LCT[u]->vsubSum + LCT[u]->val)<<"\n";
-      
     }
   }
 }
