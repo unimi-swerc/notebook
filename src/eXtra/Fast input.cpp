@@ -3,7 +3,6 @@
  * Usage: ./a.out < input.txt
  * Time: About 5x as fast as cin/scanf.
  */
-
 inline char gc() { // like getchar()
   static char buf[1 << 16];
   static size_t bc, be;
