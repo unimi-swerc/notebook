@@ -1,6 +1,6 @@
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
-const int MX = 2e5+5; 
+const int MX = 2e5+5;
 
 /* Link-Cut Tree. Given a function f(1...N) -> 1...N,
  * evaluates f^b(a) for any a,b. sz is for path queries; 
@@ -17,7 +17,6 @@ const int MX = 2e5+5;
  * }
  * tested with N,M<=200000 (0.8 sec)
  */
-
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
   sn p, c[2]; // parent, children
