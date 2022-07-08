@@ -141,13 +141,6 @@ signed main(){
         off.push_back({cont1,cont-1,p,q});
         cont1++;
       }
-      if(off.size()>20){
-        random_shuffle(off.begin(),off.end());
-        for(auto &[id,tempo,l,r] : off){
-    ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);
-        }
-        off.clear();
-      }
     }
     random_shuffle(off.begin(),off.end());
     for(auto &[id,tempo,l,r] : off){
