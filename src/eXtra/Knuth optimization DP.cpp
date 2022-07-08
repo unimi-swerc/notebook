@@ -1,5 +1,4 @@
-/*
-Knuth's Optimization in dynamic programming 
+/* Knuth's Optimization in dynamic programming 
 specifically applies for optimal tree problems. 
 It is only applicable for the following recurrence:
 
