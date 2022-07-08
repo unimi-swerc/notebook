@@ -1,5 +1,4 @@
-/*
- * Description: Generates the k'th term of an n-order
+/* Description: Generates the k'th term of an n-order
  * linear recurrence S[i] = sum(S[i-j-1] * tr[j]),
  * given S[0...n-1] and tr[0...n-1].
  * Faster than matrix multiplication.
@@ -7,7 +6,6 @@
  * Usage: linearRec({0, 1}, {1, 1}, k) // Fibonacci
  * Time: O(n^2 log k)
  */
-
 typedef vector<ll> Poly;
 ll linearRec(Poly S, Poly tr, ll k) {
   int n = sz(tr);
