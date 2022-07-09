@@ -80,6 +80,7 @@
 - [x] Edge Coloring
 - [x] Biconnected Components
 - [x] Stable Marriage (Gale-Shapley algorithm)
+- [x] Global Min Cut (Stoer–Wagner algorithm)
 
 ### 6. Altro
 
