@@ -100,7 +100,7 @@ bool isConvex(vector<pt> p) {
 int inPolygon(vector<pt> V, pt p) {
   int numCrossings = 0;
   for (int i = 0; i < V.size(); i++) {
-    if (onSegment(V[i], V[(i+1) V.size()], p)) return 2;
+    if (onSegment(V[i], V[(i+1) % V.size()], p)) return 2;
     numCrossings+=crossesRay(p, V[i], V[(i+1)%V.size()]);
   }
   return numCrossings % 2;
