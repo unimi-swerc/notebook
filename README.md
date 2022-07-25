@@ -67,6 +67,7 @@
 - [x] Floyd cycle detection
 - [x] Dirichlet Convolution Trick
 - [ ] Fast matrix multiplication
+- [ ] Nimber Product
 
 ### 5. Grafi
 
