@@ -65,6 +65,7 @@
 - [x] Teorema del resto cinese
 - [x] Fast subset convolution (or,and,xor)
 - [x] Floyd cycle detection
+- [x] Dirichlet Convolution
 - [ ] Fast matrix multiplication
 
 ### 5. Grafi
