@@ -25,16 +25,17 @@
 - [x] Operazioni sui cerchi (intersezione, ...)
 - [x] Geometria di base 3D
 - [x] Convex hull (2D)
-- [ ] Convex hull (3D)
 - [x] Closest pair
 - [x] Poligon cut
 - [x] Welzl (minimum enclosing circle)
 - [x] Area del poligono
-- [x] slow delaunay
-- [ ] Voronoi
+- [x] Slow delaunay
 - [x] Punti all'interno del poligono
 - [x] Convex hull trick
 - [x] Fast delaunay 
+- [ ] Convex hull (3D)
+- [ ] Voronoi
+- [ ] Polygon Union
 - [ ] (?) Rotating caliper
 
 ### 3. Stringhe
