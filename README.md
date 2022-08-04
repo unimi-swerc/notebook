@@ -79,7 +79,7 @@
 - [x] Blossom
 - [x] Blossom pesato
 - [x] Ponti e punti di articolazione
-- [x] Eulerian tour
+- [x] Eulerian tour (su grafo diretto e non diretto)
 - [x] Max Clique
 - [x] Edge Coloring
 - [x] Biconnected Components
