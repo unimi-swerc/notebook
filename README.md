@@ -15,6 +15,7 @@
 - [x] Centroid Decomposition
 - [x] T(n)Log(n) Deletion Offline
 - [x] Segment Tree Beats
+- [x] Compressed BBST
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
