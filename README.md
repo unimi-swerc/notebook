@@ -9,7 +9,7 @@
 - [x] Heavy light decomposition (nodi & archi) (+ LCA)
 - [x] Sparse table
 - [x] Line container
-- [x] Mo queries
+- [x] Mo queries (su Array e su Albero)
 - [x] Li chao tree
 - [x] Link-cut tree
 - [x] Centroid Decomposition
