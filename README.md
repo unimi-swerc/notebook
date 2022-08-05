@@ -22,16 +22,14 @@
 
 ### 2. Geometria
 
-- [x] Geometria di base (rotazioni, traslazioni, dot/cross product, ...)
-- [x] Operazioni sui cerchi (intersezione, ...)
-- [x] Geometria di base 3D
+- [x] Geometria di base (rotazioni, traslazioni, dot/cross product, area del poligono, punti all'interno del poligono, linee, segmenti, polar sort)
+- [x] Operazioni sui cerchi (circocentro, intersezioni, tangenti)
+- [x] Geometria di base 3D (punti, dot/cross product, piani)
 - [x] Convex hull (2D)
 - [x] Closest pair
 - [x] Poligon cut
 - [x] Welzl (minimum enclosing circle)
-- [x] Area del poligono
 - [x] Slow delaunay
-- [x] Punti all'interno del poligono
 - [x] Convex hull trick
 - [x] Fast delaunay 
 - [ ] Convex hull (3D)
@@ -57,10 +55,10 @@
 - [x] Ricorrenze lineari
 - [x] Berlekamp-massey
 - [x] FFT/NTT
-- [x] Operazioni sui polinomi
+- [x] Operazioni sui polinomi (radici reali, interpolazione)
 - [x] Euclide esteso
 - [x] Fattorizzazione veloce
-- [x] Operazioni sulle matrici
+- [x] Operazioni sulle matrici (Determinante, Determinante mod, Inversa, Inversa mod)
 - [x] Gaussian elimination (Linear Solve)
 - [x] Pollard's Rho
 - [x] Euler’s totient function
@@ -76,10 +74,10 @@
 - [x] Max flow
 - [x] Min cost max flow
 - [x] Algoritmo ungherese
-- [x] Blossom
-- [x] Blossom pesato
+- [x] Blossom (Matching)
+- [x] Blossom pesato (Matching pesato)
 - [x] Ponti e punti di articolazione
-- [x] Eulerian tour (su grafo diretto e non diretto)
+- [x] Eulerian path (su grafo diretto e non diretto)
 - [x] Max clique
 - [x] Edge coloring
 - [x] Biconnected components
@@ -92,7 +90,7 @@
 - [x] Twosat
 - [x] XorSat
 - [x] Sat
-- [x] Fast input
+- [x] Fast input (per lettura interi)
 - [x] Knuth optimization dp
 - [x] Divide and conquer dp
 - [x] Template (con pbds e rope)
