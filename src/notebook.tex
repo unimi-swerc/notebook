@@ -1,9 +1,8 @@
 \documentclass[8pt,a4paper,landscape,oneside]{amsart}
-\usepackage[utf8]{inputenc}
+% \usepackage[utf8]{inputenc} -- lualatex uses utf8 by default
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[italian]{babel}
-\usepackage[scaled]{beramono}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{color}
@@ -20,6 +19,8 @@
 \usepackage{subcaption}
 \usepackage{titling}
 \usepackage{luacode}
+\usepackage{fontspec}
+\setmonofont[Scale=MatchUppercase]{DejaVuSansMono}
 
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-2em}}}
 
