@@ -1,7 +1,6 @@
 pair<vector<int>, vector<int>> manacher(string S) {
   int N = S.size();
-  vector<int> even(N);
-  vector<int> odd(N);
+  vector<int> even(N), odd(N);
   for (int i=0, l=0, r=-1; i<N; i++) {
     int k = (i>r) ? 0 : min(even[l+r-i+1], r-i+1);
     while (0 <= i-k-1 && i+k<N && S[i-k-1] == S[i+k])
