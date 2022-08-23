@@ -2,7 +2,7 @@
 pt circumCenter(pt a, pt b, pt c) {
   b = b-a, c = c-a;
   assert(cross(b,c) != 0);
-  return a + perp(b*sq(c) - c*sq(b))/cross(b,c)/2;
+  return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/2;
 }
 // intersezione tra il cerchio (o,r) e la linea l
 int circleLine(pt o, double r, line l, pair<pt,pt> &out) {
@@ -32,7 +32,7 @@ int tangents(pt o1, double r1, pt o2, double r2,
               bool inner, vector<pair<pt,pt>> &out) {
   if (inner) r2 = -r2;
   pt d = o2-o1;
-  double dr = r1-r2, d2 = sq(d), h2 = d2-dr*dr;
+  double dr = r1-r2, d2 = norm(d), h2 = d2-dr*dr;
   if (d2 == 0 || h2 < 0) {assert(h2 != 0); return 0;}
   for (double sign : {-1,1}) {
     pt v = (d*dr + perp(d)*sqrt(h2)*sign)/d2;
