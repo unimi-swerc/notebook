@@ -24,7 +24,7 @@ T norm(p3 v) {return v|v;}
 double abs(p3 v) {return sqrt(norm(v));}
 p3 unit(p3 v) {return v/abs(v);}
 double angle(p3 v, p3 w) {
-  double cosTheta = (v|w) / abs(v) / abs(w);
+  double cosTheta = 1.0 * (v|w) / abs(v) / abs(w);
   return acos(max(-1.0, min(1.0, cosTheta)));
 }
 
