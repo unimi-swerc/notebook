@@ -14,7 +14,7 @@ pt rotate(pt p, double a) {
   return {p.x*cos(a)-p.y*sin(a), p.x*sin(a)+p.y*cos(a)};
 }
 double angle(pt v, pt w) {
-  return acos(clamp(dot(v,w) / abs(v) / abs(w), -1.0, 1.0));
+  return acos(clamp(1.0*dot(v,w)/abs(v)/abs(w), -1.0, 1.0));
 }
 bool inAngle(pt a, pt b, pt c, pt p) {
   assert(orient(a,b,c) != 0);
