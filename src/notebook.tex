@@ -82,7 +82,7 @@ for _, section in ls(current_dir) do
             subsection_file = section_dir .. "/" .. subsection
             subsection_file_escaped = subsection_file:gsub("%s", "\\%1")
             subsection_name = subsection:gsub("^(.*)%..*$", "%1")
-            if subsection:find("%.cpp$") and not subsection:find("%.test%.cpp$") then
+            if subsection:find("%.cpp$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
                 tex.print("\\codecpp{" .. subsection_file_escaped .. "}")
             end

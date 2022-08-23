@@ -1,4 +1,5 @@
 // 0-based, with n<=5000, m<=30000 run in 0.19 sec
+// per i grafi bipartiti N<=100000
 using pi = pair<int,int>;
 #define f first
 #define s second
