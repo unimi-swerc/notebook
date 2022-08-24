@@ -9,8 +9,8 @@ vector<int> suffix_array(int N, const string& S) {
     });
     tmp[ret[0]] = 1;
     for (int i = 1; i < N; i++) {
-       tmp[ret[i]] = tmp[ret[i-1]] + (rnk[ret[i]] !=
-         rnk[ret[i-1]] || rnk[ret[i]+k] != rnk[ret[i-1]+k]);
+      tmp[ret[i]] = tmp[ret[i-1]] + (rnk[ret[i]] !=
+        rnk[ret[i-1]] || rnk[ret[i]+k] != rnk[ret[i-1]+k]);
     }
     copy(tmp.begin(), tmp.end(), rnk.begin());
     if (rnk[ret.back()] == N) break;
