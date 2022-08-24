@@ -1,3 +1,4 @@
+int sgn(double x) { return (x > 1e-10) - (x < -1e-10); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
   b = b-a, c = c-a;
