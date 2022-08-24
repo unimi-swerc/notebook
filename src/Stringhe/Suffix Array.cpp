@@ -1,19 +1,26 @@
-vector<int> suffix_array(int N, const string& S) {
-  vector<int> ret(N), rnk(2 * N), tmp(N);
+int sa[MAXN], rnk[2*MAXN], lcp[MAXN], tmp[MAXN];
+void suffix_array(int N, const string& S) {
   for (int i = 0; i < N; i++) {
-    ret[i] = i, rnk[i] = S[i];
+    sa[i] = i, rnk[i] = S[i];
   }
   for (int k = 1; k < N; k *= 2) {
-    sort(ret.begin(), ret.end(), [&](int a, int b) {
+    sort(sa, sa + N, [&](int a, int b) {
       return tie(rnk[a],rnk[a+k]) < tie(rnk[b],rnk[b+k]);
     });
-    tmp[ret[0]] = 1;
+    tmp[sa[0]] = 1;
     for (int i = 1; i < N; i++) {
-      tmp[ret[i]] = tmp[ret[i-1]] + (rnk[ret[i]] !=
-        rnk[ret[i-1]] || rnk[ret[i]+k] != rnk[ret[i-1]+k]);
+      tmp[sa[i]] = tmp[sa[i-1]] + (rnk[sa[i]] !=
+        rnk[sa[i-1]] || rnk[sa[i]+k] != rnk[sa[i-1]+k]);
     }
-    copy(tmp.begin(), tmp.end(), rnk.begin());
-    if (rnk[ret.back()] == N) break;
+    copy(tmp, tmp + N, rnk);
+    if (rnk[sa[N - 1]] == N) break;
   }
-  return ret;
+}
+void lcp_array(int N, const string& S) {
+  for (int i = 0, k = 0; i < N; i++) {
+    int j = sa[rnk[i]];
+    while (i+k < N && j+k < N && S[i+k] == S[j+k]) k++;
+    lcp[rnk[i]] = k;
+    k = max(k - 1, 0);
+  }
 }
