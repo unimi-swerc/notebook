@@ -77,7 +77,7 @@ current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
         section_dir = current_dir .. "/" .. section
-        tex.print("\\section{" .. section .. "}")
+        tex.print("\\section{" .. section:gsub("^%l", string.upper) .. "}")
         for _, subsection in ls(section_dir) do
             subsection_file = section_dir .. "/" .. subsection
             subsection_file_escaped = subsection_file:gsub("%s", "\\%1")
