@@ -24,18 +24,17 @@ T norm(p3 v) {return v|v;}
 double abs(p3 v) {return sqrt(norm(v));}
 p3 unit(p3 v) {return v/abs(v);}
 double angle(p3 v, p3 w) {
-  double cosTheta = 1.0 * (v|w) / abs(v) / abs(w);
-  return acos(max(-1.0, min(1.0, cosTheta)));
+  return acos(clamp(1.*(v|w)/abs(v)/abs(w), -1., 1.));
 }
 
 // positivo se s è sopra il piano tra p, q, r
 T orient(p3 p, p3 q, p3 r, p3 s) {
-  return (q-p)*(r-p)|(s-p);
+  return (q-p )* (r-p) | (s-p);
 }
 // orientamento 2D delle proiezioni di p, q, r
 // rispetto al piano perpendicolare a n
 T orientByNormal(p3 p, p3 q, p3 r, p3 n) {
-  return (q-p)*(r-p)|n;
+  return (q-p) * (r-p) | n;
 }
 
 struct plane {
@@ -52,7 +51,7 @@ struct plane {
   plane translate(p3 t) {return {n, d+(n|t)};}
 
   // requires double
-  plane shiftUp(double dist) {return {n, d + dist*abs(n)};}
+  plane shiftUp(double dist) {return {n, d+dist*abs(n)};}
   p3 proj(p3 p) {return p - n*side(p)/norm(n);}
   p3 refl(p3 p) {return p - n*2*side(p)/norm(n);}
 };
