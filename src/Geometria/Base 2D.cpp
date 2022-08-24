@@ -5,16 +5,16 @@ typedef complex<ll> pt;
 // *** Punti ***
 ll dot(pt v, pt w) { return (conj(v) * w).x; }
 ll cross(pt v, pt w) { return (conj(v) * w).y; }
-ll orient(pt a, pt b, pt c) { return cross(b - a, c - a); }
+ll orient(pt a, pt b, pt c) { return cross(b-a, c-a); }
 pt translate(pt v, pt p) { return p+v; }
 pt perp(pt p) { return {-p.y, p.x}; }
 bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
-pt scale(pt c, ll factor, pt p) { return c + (p-c)*factor; }
+pt scale(pt c, ll factor, pt p) { return c+(p-c)*factor; }
 pt rotate(pt p, double a) {
   return {p.x*cos(a)-p.y*sin(a), p.x*sin(a)+p.y*cos(a)};
 }
 double angle(pt v, pt w) {
-  return acos(clamp(1.0*dot(v,w)/abs(v)/abs(w), -1.0, 1.0));
+  return acos(clamp(1.*dot(v,w)/abs(v)/abs(w), -1., 1.));
 }
 bool inAngle(pt a, pt b, pt c, pt p) {
   assert(orient(a,b,c) != 0);
@@ -68,11 +68,11 @@ bool crossesRay(pt a, pt p, pt q) {
   return (above(a,q)-above(a,p))*orient(a, p, q)>0;
 }
 bool properInter(pt a, pt b, pt c, pt d, pt &out) {
-  double oa = orient(c,d,a), ob = orient(c,d,b),
-         oc = orient(a,b,c), od = orient(a,b,d);
+  ll oa = orient(c,d,a), ob = orient(c,d,b),
+     oc = orient(a,b,c), od = orient(a,b,d);
   // Proper intersection exists iff opposite signs
   if (oa*ob < 0 && oc*od < 0) {
-    out = (a*ob - b*oa) / (ob-oa); //requires floating-point
+    out = (a*ob - b*oa) / (ob-oa); // requires floats
     return true;
   }
   return false;
