@@ -5,8 +5,8 @@ pt circumCenter(pt a, pt b, pt c) {
   return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/2;
 }
 // intersezione tra il cerchio (o,r) e la linea l
-int circleLine(pt o, double r, line l, pair<pt,pt> &out) {
-  double h2 = r*r - l.sqDist(o);
+int circleLine(pt o, double r, line l, pair<pt,pt>& out){
+  double h2 = r*r - l.normDist(o);
   if (h2 >= 0) {
     pt p = o - perp(l.v) * l.size(p) / norm(l.v);
     pt h = l.v * sqrt(h2) / abs(l.v);
