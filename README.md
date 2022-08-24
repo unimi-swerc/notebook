@@ -46,7 +46,7 @@
 - [x] Knuth Morris Pratt
 - [x] Suffix array
 - [x] Hashing
-- [ ] LCP array
+- [x] LCP array
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
 
