@@ -10,9 +10,7 @@ pt translate(pt v, pt p) { return p+v; }
 pt perp(pt p) { return {-p.y, p.x}; }
 bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
 pt scale(pt c, ll factor, pt p) { return c+(p-c)*factor; }
-pt rotate(pt p, double a) {
-  return {p.x*cos(a)-p.y*sin(a), p.x*sin(a)+p.y*cos(a)};
-}
+pt rotate(pt p, double a) { return p * polar(1.0, a); }
 double angle(pt v, pt w) {
   return acos(clamp(1.*dot(v,w)/abs(v)/abs(w), -1., 1.));
 }
