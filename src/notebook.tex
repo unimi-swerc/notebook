@@ -25,8 +25,16 @@
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-2em}}}
 
 % Minted
-\newcommand{\codecpp}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{cpp}{#1}}
-\newcommand{\codepy}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1,xleftmargin=2.5em,linenos]{python}{#1}}
+\renewcommand{\theFancyVerbLine}{\ttfamily{\footnotesize\arabic{FancyVerbLine}}\hspace{-8pt}} % mono line numbers
+\setminted{
+    fontsize=\normalsize,
+    baselinestretch=1,
+    xleftmargin=2.0em,
+    linenos,
+    % breaklines,
+}
+\newcommand{\codecpp}[1]{\inputminted{cpp}{#1}}
+\newcommand{\codepy}[1]{\inputminted{python}{#1}}
 
 % Header/Footer
 \pagestyle{fancy}
