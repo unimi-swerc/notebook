@@ -11,8 +11,8 @@ struct prefix_mul {
   long long n, th, inv;
   std::unordered_map <long long, long long> mem;
 
-  prefix_mul (func p_f, func p_g, func p_c) : p_f (p_f), p_g (p_g), p_c (p_c) {}
-
+  prefix_mul (func p_f, func p_g, func p_c) : 
+    p_f (p_f), p_g (p_g), p_c (p_c) {}
   long long calc (long long x) {
     if (x <= th) return p_f (x);
     auto d = mem.find (x);
@@ -20,10 +20,11 @@ struct prefix_mul {
     long long ans = 0;
     for (long long i = 2, la; i <= x; i = la + 1) {
       la = x / (x / i);
-      ans = ans + ((p_g (la) - p_g (i - 1) + mod) %mod) * calc (x / i) % mod;
+      ans=ans+((p_g(la)-p_g(i-1)+mod)%mod)*calc(x/i)%mod;
       ans %= mod;
     }
-    ans = p_c (x) - ans; ans = ans / inv; //use mutiplicative inverse
+    ans = p_c (x) - ans; 
+    ans = ans / inv; //use mutiplicative inverse
     ans %= mod;
     return mem[x] = ans;
   }
