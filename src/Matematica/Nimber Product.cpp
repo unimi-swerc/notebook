@@ -18,7 +18,7 @@ struct Precalc {
     ul& u = tmp[i][j]; if (u) return u;
     if (!(i&j)) return u = 1ULL<<(i|j);
     int a = (i&j)&-(i&j); // a=2^k, consider 2^{2^k}
-    return u=prod2(i^a,j)^prod2((i^a)|(a-1),(j^a)|(i&(a-1)));
+   return u=prod2(i^a,j)^prod2((i^a)|(a-1),(j^a)|(i&(a-1)));
     // 2^{2^k}*2^{2^k} = 2^{2^k}+2^{2^k-1}
   } // 2^{2^i}*2^{2^j} = 2^{2^i+2^j} if i<j
   template<int L> ul mult(ul a, ul b) {
