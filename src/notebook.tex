@@ -103,6 +103,27 @@ for _, section in ls(current_dir) do
                 tex.print("\\subsection{" .. subsection_name .. "}")
                 tex.print("\\input{" .. subsection_file .. "}")
             end
+            if not subsection:find("%.") then
+                subsection_dir = section_dir .. "/" .. subsection
+                tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}")
+                for _, subsubsection in ls(subsection_dir) do
+                    subsubsection_file = subsection_dir .. "/" .. subsubsection
+                    subsubsection_file_escaped = subsubsection_file:gsub("%s", "\\%1")
+                    subsubsection_name = subsubsection:gsub("^(.*)%..*$", "%1")
+                    if subsubsection:find("%.cpp$") then
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}")
+                        tex.print("\\codecpp{" .. subsubsection_file_escaped .. "}")
+                    end
+                    if subsubsection:find("%.py$") then
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}")
+                        tex.print("\\codepy{" .. subsubsection_file_escaped .. "}")
+                    end
+                    if subsubsection:find("%.tex$") then
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}")
+                        tex.print("\\input{" .. subsubsection_file .. "}")
+                    end
+                end
+            end
         end
     end
 end
