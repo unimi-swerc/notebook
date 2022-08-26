@@ -1,5 +1,5 @@
 /* Calculates determinant using modular arithmetics.
- * Modulos can also be removed to get a pure-integer version.
+ * Modulo can also be removed to get a pure-integer version
  * Time: $O(N^3)$
  */
 const ll mod = 12345;
