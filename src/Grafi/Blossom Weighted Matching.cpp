@@ -11,7 +11,7 @@ template<int SZ> struct WeightedMatch {
   long long eDelta(edge e) { // >= 0 at all times
     return lab[e.u]+lab[e.v]-g[e.u][e.v].w*2; } 
   void updSlack(int u, int x) { //smallest edge -> blossom x
-    if (!slack[x] || eDelta(g[u][x])<eDelta(g[slack[x]][x])) 
+    if (!slack[x] || eDelta(g[u][x])<eDelta(g[slack[x]][x]))
       slack[x] = u; }
   void setSlack(int x) {
     slack[x] = 0; FOR(u,1,N+1) if (g[u][x].w > 0
@@ -23,7 +23,7 @@ template<int SZ> struct WeightedMatch {
     st[x] = b; if (x > N) each(t,flo[x]) setSt(t,b); }
   int getPr(int b, int xr) { // get even position of xr
     int pr = find(all(flo[b]),xr)-begin(flo[b]);
-    if (pr&1) {reverse(1+all(flo[b])); return sz(flo[b])-pr;} 
+    if(pr&1){reverse(1+all(flo[b])); return sz(flo[b])-pr;} 
     return pr; }
   void setMatch(int u, int v) { // rearrange flo[u], matches
     edge e = g[u][v]; match[u] = e.v; if (u <= N) return;
@@ -56,14 +56,14 @@ template<int SZ> struct WeightedMatch {
       for (int y; x != anc; x = st[par[y]]) 
         flo[b].pb(x), flo[b].pb(y = st[match[x]]), qPush(y);
     };
-    blossom(u);reverse(1+all(flo[b]));blossom(v);setSt(b,b); 
+    blossom(u);reverse(1+all(flo[b]));blossom(v);setSt(b,b);
     // identify all nodes in current blossom
     FOR(x,1,NX+1) g[b][x].w = g[x][b].w = 0;
     FOR(x,1,N+1) floFrom[b][x] = 0;
     each(xs,flo[b]) { // find tightest constraints
       FOR(x,1,NX+1) if (g[b][x].w == 0 || eDelta(g[xs][x])< 
-        eDelta(g[b][x])) g[b][x]=g[xs][x], g[x][b]=g[x][xs]; 
-      FOR(x,1,N+1) if (floFrom[xs][x]) floFrom[b][x] = xs; 
+        eDelta(g[b][x])) g[b][x]=g[xs][x], g[x][b]=g[x][xs];
+      FOR(x,1,N+1) if (floFrom[xs][x]) floFrom[b][x] = xs;
     } // floFrom to deconstruct blossom
     setSlack(b); // since didn't qPush everything
   }
