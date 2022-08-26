@@ -60,7 +60,7 @@
 - [x] Knuth-Morris-Pratt
 - [x] Manacher
 - [x] Minima rotazione lessicografica
-- [x] Suffix array + Lcp array
+- [x] Suffix array + lcp array
 - [x] Z-algorithm
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
@@ -70,7 +70,7 @@
 - [x] Centroid decomposition
 - [x] Compressed BBST
 - [x] Fast hash table
-- [x] Heavy light decomposition (nodi & archi) (+ LCA)
+- [x] Heavy light decomposition (nodi & archi) (+ lca)
 - [x] Li chao tree
 - [x] Line container
 - [x] Link-cut tree (completo, ridotto, modifica per path non commutativi)
