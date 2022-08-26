@@ -1,5 +1,9 @@
 # SWERC cheat sheet
 
+## TODO:
+
+- fixare l'hashing
+
 ## Algoritmi
 
 ### 1. Geometria
