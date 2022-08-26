@@ -7,7 +7,7 @@ struct query_tree{
   query_tree(int n): n(n), queues(n << 1){ }
   void insert(E e, int ql, int qr){
     assert(0 <= ql && ql <= qr && qr <= n);
-    auto recurse = [&](auto self, int u, int l, int r)->void{
+    auto recurse =[&](auto self, int u, int l, int r)->void{
       if(qr <= l || r <= ql) return;
       if(ql <= l && r <= qr) queues[u].push_back(e);
       else{
