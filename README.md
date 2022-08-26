@@ -45,9 +45,8 @@
 - [x] Manacher
 - [x] Minima rotazione lessicografica
 - [x] Knuth Morris Pratt
-- [x] Suffix array
+- [x] Suffix array + LCP array
 - [x] Hashing
-- [x] LCP array
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
 
