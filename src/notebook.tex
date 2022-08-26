@@ -34,8 +34,8 @@
     linenos,
     breaklines,
 }
-\newcommand{\codecpp}[1]{\inputminted{cpp}{#1}}
-\newcommand{\codepy}[1]{\inputminted{python}{#1}}
+\newcommand{\codecpp}[1]{\inputminted{cpp}{'\detokenize{#1}'}}
+\newcommand{\codepy}[1]{\inputminted{python}{'\detokenize{#1}'}}
 
 % Header/Footer
 \pagestyle{fancy}
@@ -89,15 +89,14 @@ for _, section in ls(current_dir) do
         tex.print("\\section{" .. section:gsub("^%l", string.upper) .. "}")
         for _, subsection in ls(section_dir) do
             subsection_file = section_dir .. "/" .. subsection
-            subsection_file_escaped = subsection_file:gsub("%s", "\\%1")
             subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
-                tex.print("\\codecpp{" .. subsection_file_escaped .. "}")
+                tex.print("\\codecpp{" .. subsection_file .. "}")
             end
             if subsection:find("%.py$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
-                tex.print("\\codepy{" .. subsection_file_escaped .. "}")
+                tex.print("\\codepy{" .. subsection_file .. "}")
             end
             if subsection:find("%.tex$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
@@ -108,15 +107,14 @@ for _, section in ls(current_dir) do
                 tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}")
                 for _, subsubsection in ls(subsection_dir) do
                     subsubsection_file = subsection_dir .. "/" .. subsubsection
-                    subsubsection_file_escaped = subsubsection_file:gsub("%s", "\\%1")
                     subsubsection_name = subsubsection:gsub("^(.*)%..*$", "%1")
                     if subsubsection:find("%.cpp$") then
                         tex.print("\\subsubsection{" .. subsubsection_name .. "}")
-                        tex.print("\\codecpp{" .. subsubsection_file_escaped .. "}")
+                        tex.print("\\codecpp{" .. subsubsection_file .. "}")
                     end
                     if subsubsection:find("%.py$") then
                         tex.print("\\subsubsection{" .. subsubsection_name .. "}")
-                        tex.print("\\codepy{" .. subsubsection_file_escaped .. "}")
+                        tex.print("\\codepy{" .. subsubsection_file .. "}")
                     end
                     if subsubsection:find("%.tex$") then
                         tex.print("\\subsubsection{" .. subsubsection_name .. "}")
