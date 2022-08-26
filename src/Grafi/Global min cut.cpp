@@ -1,5 +1,5 @@
 /* Find a global minimum cut in an undirected graph, 
- * as represented by an adjacency matrix. Time: O(V^3)
+ * as represented by an adjacency matrix. Time: $O(V^3)$
  */
 pair<int, vi> globalMinCut(vector<vi> mat) {
   pair<int, vi> best = {INT_MAX, {}};
@@ -9,7 +9,7 @@ pair<int, vi> globalMinCut(vector<vi> mat) {
   rep(ph,1,n) {
     vi w = mat[0];
     size_t s = 0, t = 0;
-    rep(it,0,n-ph) { //O(V^2) -> O(E log V) with prio queue
+    rep(it,0,n-ph) { // $O(V^2)$ -> $O(E \log V)$ with prio queue
       w[t] = INT_MIN;
       s = t, t = max_element(all(w)) - w.begin();
       rep(i,0,n) w[i] += mat[t][i];

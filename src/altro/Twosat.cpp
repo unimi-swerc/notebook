@@ -10,7 +10,7 @@ const int N = 1000111;
 //ritorna un vector vuoto se non c'è soluzione
 //altrimenti ritorna un vector V tale che V[i] = true
 //se la variabile i deve valere true
-//tested with N (variables), M (clauses)<=500000 (0.7 sec)
+//tested with $N \text{(variables)}, M \text{(clauses)} \le 500000$ (0.7 sec)
 vector<char> twoSat(int n, vector<ipair> const& cc) {
   n *= 2;
   static vector<int> e[N], eb[N];

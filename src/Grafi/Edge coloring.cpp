@@ -1,9 +1,9 @@
 // Description: Given a simple, undirected graph with max 
-// degree D, computes a (D + 1)-coloring of the edges such
+// degree $D$, computes a ($D + 1$)-coloring of the edges such
 // that no neighboring edges share a color.
-// (D-coloring is NP-hard, but can be done for bipartite
+// ($D$-coloring is NP-hard, but can be done for bipartite
 // graphs by repeated matchings of max-degree nodes.)
-// Time: O(NM)
+// Time: $O(NM)$
 
 vi edgeColoring(int N, vector<pii> eds) {
   vi cc(N + 1), ret(sz(eds)), fan(N), free(N), loc;

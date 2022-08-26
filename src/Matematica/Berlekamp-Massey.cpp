@@ -5,7 +5,7 @@
 // but numerical stability for floats is not guaranteed.
 // Output will have size < n.
 // Usage: berlekampMassey({0, 1, 1, 3, 5, 11}) // {1, 2}
-// Time: O(N^2)
+// Time: $O(N^2)$
 
 const ll mod = 1000000007; // faster if const
 ll modpow(ll b, ll e) {

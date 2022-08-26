@@ -86,14 +86,14 @@ fun path_query(int u,int v,bool flag){
   return res;
 }
 
-// con N,Q <= 200000 impiega 800 ms
+// con $N,Q \le 200000$ impiega 800 ms
 fun query(int u,int v){
   int z = lca(u,v);
   return path_query(par[z][0],u,1)^path_query(z,v,0);
 }
 
 /* subtree query
-// con N,Q <= 500000 impiega 961 ms
+// con $N,Q \le 500000$ impiega 961 ms
 fun query(int u){
   return rt.query(in[u],out[u]-1);
 }

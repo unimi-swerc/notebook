@@ -1,13 +1,13 @@
 // Description: Given array of (possibly negative) costs
-// to complete each of N (1-indexed) jobs with each of M
-// workers (N < M), finds min cost to complete all jobs
+// to complete each of $N$ (1-indexed) jobs with each of $M$
+// workers ($N$ < $M$), finds min cost to complete all jobs
 // such that each worker is assigned to at most one job.
 // Dijkstra with potentials works in almost the same way
 // as MCMF.
-// Time: O(N^2M)
+// Time: $O(N^2M)$
 // Matrix A is 1-based (sia sulle righe che sulle colonne)
 // riga x = lista dei costi di ciascun worker per il lavoro
-// x con N=1000,M=2000 impiega 1.6 sec
+// x con $N=1000,M=2000$ impiega 1.6 sec
 
 using C = ll;
 C hungarian(const V<V<C>>& a) { 

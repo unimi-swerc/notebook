@@ -1,16 +1,16 @@
 // Description: Solves a general linear maximization
-// problem: maximize c^T x subject to Ax<=b, x>=0.
+// problem: maximize $c^T x$ subject to $Ax\le b, x\ge 0$.
 // Returns -inf if there is no solution, inf if there
 // are arbitrarily good solutions,  or the maximum value
-// of c^T x otherwise. The input vector is set to an
-// optimal x (or in the unbounded case, an arbitrary
+// of $c^T x$ otherwise. The input vector is set to an
+// optimal $x$ (or in the unbounded case, an arbitrary
 // solution fulfilling the constraints).
 // Usage:
 // vvd A = {{1,-1}, {-1,1}, {-1,-2}};
 // vd b = {1,1,-4}, c = {-1,-1}, x;
 // T val = LPSolver(A, b, c).solve(x);
-// Time: O(NM * \#pivots), where a pivot may be e.g. 
-// an edge relaxation. O(2^n) in the general case.
+// Time: $O(NM \cdot \#pivots)$, where a pivot may be e.g. 
+// an edge relaxation. $O(2^N)$ in the general case.
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()

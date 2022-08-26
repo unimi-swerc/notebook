@@ -1,5 +1,5 @@
 // The size of a must be a power of two.
-// Time: O(N log N)
+// Time: $O(N \log N)$
 typedef pair<__int128, __int128> pii;
 typedef vector<__int128> vi;
 void FST(vi& a, bool inv) {

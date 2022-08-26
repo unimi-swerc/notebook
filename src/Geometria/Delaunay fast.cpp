@@ -6,7 +6,7 @@
  * there may be precision issues in 'circ'.
  * Returns triangles in order {t[0][0], t[0][1], t[0][2],
  * t[1][0], ...}, all counter-clockwise.
- * Time: O(n log n)
+ * Time: $O(n \log n)$
  */
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)

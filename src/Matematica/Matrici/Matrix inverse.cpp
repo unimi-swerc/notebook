@@ -2,10 +2,10 @@
  * in $A$ unless singular (rank < n).
  * Can easily be extended to prime moduli; for 
  * prime powers, repeatedly
- * set $A^{-1} = A^{-1} (2I - AA^{-1})\  
- * (\text{mod }p^k)$ where $A^{-1}$ starts as
+ * set $A^{-1} = A^{-1} (2I - AA^{-1}) (\text{mod }p^k)$
+ * where $A^{-1}$ starts as
  * the inverse of A mod p, and k is doubled in each step.
- * Time: O(n^3)
+ * Time: $O(n^3)$
  */
 int matInv(vector<vector<double>>& A) {
   int n = sz(A); vi col(n);

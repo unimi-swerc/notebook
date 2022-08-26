@@ -5,7 +5,7 @@ dp[i][j] = min_{k < j}(dp[i-1][k] + C[k][j])
 min[i][j] <= min[i][j+1]
 min[i][j] is the smallest k that gives the optimal answer
 This optimization reduces the time complexity 
-from O(KN^2) to O(KNlogN)
+from $O(KN^2)$ to $O(KN\log N)$
 */
 int m, n;
 vector<long long> dp_before(n), dp_cur(n);

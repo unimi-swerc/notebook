@@ -1,6 +1,6 @@
 // Slow but simple Delaunay triangulation. Does not handle
 // degenerate cases (from O'Rourke, Computational Geometry
-// in C), running time: O(n^4)
+// in C), running time: $O(n^4)$
 // INPUT: x[] = x-coordinates, y[] = y-coordinates
 // OUTPUT:   triples = a vector containing m triples of
 // indices corresponding to triangle vertices

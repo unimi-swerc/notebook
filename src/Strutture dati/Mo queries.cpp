@@ -1,6 +1,6 @@
 // If values are on tree edges, change {step} to add/remove 
 // the edge $(a, c)$ and remove the initial {add} call 
-// (but keep {in}) Time: O(N sqrt Q)
+// (but keep {in}) Time: $O(N \sqrt{Q})$
 
 // add a[ind] (end = 0 or 1)
 void add(int ind, int end) { return; } 
@@ -10,7 +10,7 @@ void del(int ind, int end) { return; }
 int calc() { return 0; } 
 
 vi mo(vector<pii> Q) {
-  int L = 0, R = 0, blk = 350; // ~N/sqrt(Q)
+  int L = 0, R = 0, blk = 350; // $\approx N / \sqrt(Q)$
   vi s(sz(Q)), res = s;
 #define K(x) pii(x.first/blk, x.second ^ -(x.first/blk & 1))
   iota(all(s), 0);

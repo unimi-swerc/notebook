@@ -10,7 +10,7 @@
 //    ed[a].emplace_back(b, eid);
 //    ed[b].emplace_back(a, eid++); }
 //  bicomps([\&](const vi\& edgelist) {...});
-// Time: O(E + V)
+// Time: $O(E + V)$
 
 vi num, st;
 vector<vector<pii>> ed;

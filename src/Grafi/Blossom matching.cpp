@@ -1,4 +1,4 @@
-const int maxn = 505; //with N=500 run in 8 ms
+const int maxn = 505; //with $N=500$ run in 8 ms
  
 struct EdmondsStruct {
   int vis[maxn], par[maxn], orig[maxn];

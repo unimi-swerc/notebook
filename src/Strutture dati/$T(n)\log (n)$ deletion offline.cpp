@@ -1,5 +1,5 @@
-// For a commutative data structure supporting true O(T(n)) 
-// insertion, support deletion in O(T(n) log n) offline.
+// For a commutative data structure supporting true $O(T(n))$
+// insertion, support deletion in $O(T(n)\log n)$ offline.
 template<class E>
 struct query_tree{
   int n; // max query range
@@ -17,7 +17,7 @@ struct query_tree{
     };
     recurse(recurse, 0, 0, n);
   }
-  // O(q log n) insert calls and O(n) answer calls
+  // $O(q \log n)$ insert calls and $O(n)$ answer calls
   template<class I, class T, class R, class A>
   void solve(I insert, T time, R reverse_to, A answer){
     auto dfs = [&](auto self, int u, int l, int r)->void{

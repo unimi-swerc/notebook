@@ -2,8 +2,8 @@ typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5;
 
-/* Link-Cut Tree. Given a function f(1...N) -> 1...N,
- * evaluates f^b(a) for any a,b. sz is for path queries; 
+/* Link-Cut Tree. Given a function $f(1 \ldots N) \rightarrow 1 \ldots N$,
+ * evaluates $f^b(a)$ for any $a,b$. sz is for path queries; 
  * sub, vsub are for subtree queries. x->access()
  * brings x to the top and propagates it; its left subtree
  * will be the path from x to the root and its right
@@ -11,11 +11,11 @@ const int MX = 2e5+5;
  * nodes in the connected component of x and vsub will be
  * the number of nodes under x.
  * Use makeRoot for arbitrary path queries.
- * Time: O(log N)
+ * Time: $O(\log N)$
  * Usage: FOR(i,1,N+1) {
  *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
  * }
- * tested with N,M<=200000 (0.8 sec)
+ * tested with $N,M<=200000$ (0.8 sec)
  */
 typedef struct snode* sn;
 struct snode { //////// VARIABLES

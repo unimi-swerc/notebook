@@ -1,6 +1,6 @@
-//Container where you can add lines of the form kx+m, 
-// and query maximum values at points x. Time: O(log N)
-// tested with N,q<=200000 (296 ms)
+//Container where you can add lines of the form $kx+m$, 
+// and query maximum values at points x. Time: $O(\log N)$
+// tested with $N,Q\le 200000$ (296 ms)
 struct Line {
   mutable ll k, m, p;
   bool operator<(const Line& o) const { return k < o.k; }

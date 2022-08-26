@@ -4,7 +4,7 @@
  * Faster than matrix multiplication.
  * Useful together with Berlekamp--Massey.
  * Usage: linearRec({0, 1}, {1, 1}, k) // Fibonacci
- * Time: O(n^2 log k)
+ * Time: $O(n^2 \log k)$
  */
 typedef vector<ll> Poly;
 ll linearRec(Poly S, Poly tr, ll k) {

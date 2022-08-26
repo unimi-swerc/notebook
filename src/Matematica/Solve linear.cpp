@@ -1,8 +1,8 @@
-/* Solves A * x = b. If there are multiple solutions, 
+/* Solves $Ax = b$. If there are multiple solutions, 
  * an arbitrary one is returned.
  * Returns rank, or -1 if no solutions. 
  * Data in A and b is lost.
- * Time: O(n^2 m)
+ * Time: $O(n^2 m)$
  */
 typedef vector<double> vd;
 const double eps = 1e-12;
