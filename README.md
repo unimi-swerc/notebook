@@ -4,16 +4,16 @@
 
 ### 1. Geometria
 
-- [x] Geometria di base (rotazioni, traslazioni, dot/cross product, area del poligono, punti all'interno del poligono, linee, segmenti, polar sort)
-- [x] Operazioni sui cerchi (circocentro, intersezioni, tangenti)
+- [x] Geometria di base 2D (rotazioni, traslazioni, dot/cross product, area del poligono, punti all'interno del poligono, linee, segmenti, polar sort)
 - [x] Geometria di base 3D (punti, dot/cross product, piani)
-- [x] Convex hull (2D)
+- [x] Operazioni sui cerchi (circocentro, intersezioni, tangenti)
 - [x] Closest pair
-- [x] Poligon cut
-- [x] Welzl (minimum enclosing circle)
-- [x] Slow delaunay
 - [x] Convex hull trick
+- [x] Convex hull (2D)
 - [x] Fast delaunay 
+- [x] Slow delaunay
+- [x] Welzl (minimum enclosing circle)
+- [x] Poligon cut
 - [ ] Convex hull (3D)
 - [ ] Voronoi
 - [ ] Polygon Union
@@ -21,88 +21,89 @@
 
 ### 2. Grafi
 
-- [x] Max flow
-- [x] Min cost max flow
-- [x] Algoritmo ungherese
+- [x] Ponti e punti di articolazione
+- [x] Biconnected components
 - [x] Blossom (Matching)
 - [x] Blossom pesato (Matching pesato)
-- [x] Ponti e punti di articolazione
-- [x] Eulerian path (su grafo diretto e non diretto)
-- [x] Max clique
 - [x] Edge coloring
-- [x] Biconnected components
-- [x] Stable marriage (Gale-Shapley algorithm)
+- [x] Eulerian path (su grafo diretto e non diretto)
 - [x] Global min cut (Stoer–Wagner algorithm)
+- [x] Algoritmo ungherese
+- [x] Min cost max flow
+- [x] Max flow
+- [x] Max clique
+- [x] Stable marriage (Gale-Shapley algorithm)
 
 ### 3. Matematica
 
-- [x] Ricorrenze lineari
 - [x] Berlekamp-massey
-- [x] FFT/NTT
-- [x] Operazioni sui polinomi (radici reali, interpolazione)
-- [x] Euclide esteso
-- [x] Fattorizzazione veloce (Pollard's Rho)
 - [x] Operazioni sulle matrici (Determinante, Determinante mod, Inversa, Inversa mod)
-- [x] Gaussian elimination (Linear Solve)
-- [x] Euler’s totient function
-- [x] Teorema del resto cinese
-- [x] Fast subset convolution (or,and,xor)
-- [x] Floyd cycle detection
 - [x] Dirichlet convolution trick
+- [x] Euclide esteso
+- [x] FFT
+- [x] Fast subset convolution (or,and,xor)
+- [x] Fattorizzazione veloce (Pollard's Rho)
+- [x] Floyd cycle detection
+- [x] Ricorrenze lineari
+- [x] NTT
 - [x] Nimber Product
+- [x] Operazioni sui polinomi (radici reali, interpolazione)
+- [x] Gaussian elimination (Linear Solve)
+- [x] Teorema del resto cinese
+- [x] Euler’s totient function
 - [ ] Fast matrix multiplication
 
 ### 4. Stringhe
 
 - [x] Aho-Corasick
-- [x] Z-algorithm
+- [x] Hashing
+- [x] Knuth Morris Pratt
 - [x] Manacher
 - [x] Minima rotazione lessicografica
-- [x] Knuth Morris Pratt
 - [x] Suffix array + LCP array
-- [x] Hashing
+- [x] Z-algorithm
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
 
 ### 5. Strutture dati
 
-- [x] Treap (+ lazy propagation)
-- [x] Persistent segment tree (normale oppure sparso + lazy)
-- [x] Heavy light decomposition (nodi & archi) (+ LCA)
-- [x] Sparse table
-- [x] Line container
-- [x] Mo queries (su array e su albero)
-- [x] Li chao tree
-- [x] Link-cut tree (completo, ridotto, modifica per path non commutativi)
 - [x] Centroid Decomposition
-- [x] T(n)Log(n) deletion offline
-- [x] Segment tree beats
 - [x] Compressed BBST
 - [x] Fast hash table
+- [x] Heavy light decomposition (nodi & archi) (+ LCA)
+- [x] Li chao tree
+- [x] Line container
+- [x] Link-cut tree (completo, ridotto, modifica per path non commutativi)
+- [x] Mo queries (su array e su albero)
+- [x] Segment tree beats
+- [x] Persistent segment tree (normale oppure sparso + lazy)
+- [x] Sparse table
+- [x] T(n)Log(n) deletion offline
+- [x] Treap (+ lazy propagation)
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
 
 ### 6. Altro
 
-- [x] Simplesso
-- [x] Twosat
-- [x] XorSat
-- [x] Sat
+- [x] Divide and conquer dp
 - [x] Fast input (per lettura interi)
 - [x] Knuth optimization dp
-- [x] Divide and conquer dp
+- [x] Sat
+- [x] Simplesso
 - [x] Template (con pbds e rope)
+- [x] Twosat
+- [x] XorSat
 - [ ] Hornsat
 
 ## Teoria
 
 ### 1. Combinatoria
 
-- [x] Derangement
-- [x] Catalan
 - [x] Stirling del primo tipo
 - [x] Stirling del secondo tipo
+- [x] Derangement
+- [x] Catalan
 
 ### 2. Vario
 - [x] Somma potenze quarte
