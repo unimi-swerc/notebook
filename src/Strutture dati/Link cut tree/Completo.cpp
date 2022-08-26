@@ -3,14 +3,14 @@ typedef long long ll;
 const int MX = 2e5+5;
 
 /* Link-Cut Tree. Given a function $f(1 \ldots N) \rightarrow 1 \ldots N$,
- * evaluates $f^b(a)$ for any $a,b$. sz is for path queries; 
- * sub, vsub are for subtree queries. \texttt{x->access()}
- * brings \texttt{x} to the top and propagates it; its left subtree
- * will be the path from \texttt{x} to the root and its right
- * subtree will be empty. Then \texttt{sub} will be the number of
- * nodes in the connected component of \texttt{x} and \texttt{vsub} will be
- * the number of nodes under \texttt{x}.
- * Use \texttt{makeRoot} for arbitrary path queries.
+ * evaluates $f^b(a)$ for any $a,b$. $\texttt{sz}$ is for path queries; 
+ * $\texttt{sub}$, $\texttt{vsub}$ are for subtree queries. $\texttt{x->access()}$
+ * brings $\texttt{x}$ to the top and propagates it; its left subtree
+ * will be the path from $\texttt{x}$ to the root and its right
+ * subtree will be empty. Then $\texttt{sub}$ will be the number of
+ * nodes in the connected component of $\texttt{x}$ and $\texttt{vsub}$ will be
+ * the number of nodes under $\texttt{x}$.
+ * Use $\texttt{makeRoot}$ for arbitrary path queries.
  * Time: $O(\log N)$
  * Usage: FOR(i,1,N+1) {
  *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
