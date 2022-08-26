@@ -18,7 +18,7 @@ vi edgeColoring(int N, vector<pii> eds) {
     while (d = free[v], !loc[d] && (v = adj[u][d]) != -1)
       loc[d] = ++ind, cc[ind] = d, fan[ind] = v;
     cc[loc[d]] = c;
-    for (int cd = d; at != -1; cd ^= c ^ d, at = adj[at][cd])
+    for(int cd = d; at != -1; cd ^= c ^ d, at = adj[at][cd])
       swap(adj[at][cd], adj[end = at][cd ^ c ^ d]);
     while (adj[fan[i]][d] != -1) {
       int left = fan[i], right = fan[++i], e = cc[i];
