@@ -16,6 +16,7 @@
 - [x] T(n)Log(n) deletion offline
 - [x] Segment tree beats
 - [x] Compressed BBST
+- [x] Fast hash table
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
@@ -57,16 +58,14 @@
 - [x] FFT/NTT
 - [x] Operazioni sui polinomi (radici reali, interpolazione)
 - [x] Euclide esteso
-- [x] Fattorizzazione veloce
+- [x] Fattorizzazione veloce (Pollard's Rho)
 - [x] Operazioni sulle matrici (Determinante, Determinante mod, Inversa, Inversa mod)
 - [x] Gaussian elimination (Linear Solve)
-- [x] Pollard's Rho
 - [x] Euler’s totient function
 - [x] Teorema del resto cinese
 - [x] Fast subset convolution (or,and,xor)
 - [x] Floyd cycle detection
 - [x] Dirichlet convolution trick
-- [x] Fast hash table
 - [x] Nimber Product
 - [ ] Fast matrix multiplication
 
