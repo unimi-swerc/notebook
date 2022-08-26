@@ -2,26 +2,7 @@
 
 ## Algoritmi
 
-### 1. Strutture dati
-
-- [x] Treap (+ lazy propagation)
-- [x] Persistent segment tree (normale oppure sparso + lazy)
-- [x] Heavy light decomposition (nodi & archi) (+ LCA)
-- [x] Sparse table
-- [x] Line container
-- [x] Mo queries (su array e su albero)
-- [x] Li chao tree
-- [x] Link-cut tree (completo, ridotto, modifica per path non commutativi)
-- [x] Centroid Decomposition
-- [x] T(n)Log(n) deletion offline
-- [x] Segment tree beats
-- [x] Compressed BBST
-- [x] Fast hash table
-- [ ] (?) Pairing heap
-- [ ] (?) Lower bound su fenwick
-- [ ] (?) KD-tree
-
-### 2. Geometria
+### 1. Geometria
 
 - [x] Geometria di base (rotazioni, traslazioni, dot/cross product, area del poligono, punti all'interno del poligono, linee, segmenti, polar sort)
 - [x] Operazioni sui cerchi (circocentro, intersezioni, tangenti)
@@ -38,19 +19,22 @@
 - [ ] Polygon Union
 - [ ] (?) Rotating caliper
 
-### 3. Stringhe
+### 2. Grafi
 
-- [x] Aho-Corasick
-- [x] Z-algorithm
-- [x] Manacher
-- [x] Minima rotazione lessicografica
-- [x] Knuth Morris Pratt
-- [x] Suffix array + LCP array
-- [x] Hashing
-- [ ] (?) Suffix tree
-- [ ] (?) Dictionary of basic factors
+- [x] Max flow
+- [x] Min cost max flow
+- [x] Algoritmo ungherese
+- [x] Blossom (Matching)
+- [x] Blossom pesato (Matching pesato)
+- [x] Ponti e punti di articolazione
+- [x] Eulerian path (su grafo diretto e non diretto)
+- [x] Max clique
+- [x] Edge coloring
+- [x] Biconnected components
+- [x] Stable marriage (Gale-Shapley algorithm)
+- [x] Global min cut (Stoer–Wagner algorithm)
 
-### 4. Matematica
+### 3. Matematica
 
 - [x] Ricorrenze lineari
 - [x] Berlekamp-massey
@@ -68,20 +52,36 @@
 - [x] Nimber Product
 - [ ] Fast matrix multiplication
 
-### 5. Grafi
+### 4. Stringhe
 
-- [x] Max flow
-- [x] Min cost max flow
-- [x] Algoritmo ungherese
-- [x] Blossom (Matching)
-- [x] Blossom pesato (Matching pesato)
-- [x] Ponti e punti di articolazione
-- [x] Eulerian path (su grafo diretto e non diretto)
-- [x] Max clique
-- [x] Edge coloring
-- [x] Biconnected components
-- [x] Stable marriage (Gale-Shapley algorithm)
-- [x] Global min cut (Stoer–Wagner algorithm)
+- [x] Aho-Corasick
+- [x] Z-algorithm
+- [x] Manacher
+- [x] Minima rotazione lessicografica
+- [x] Knuth Morris Pratt
+- [x] Suffix array + LCP array
+- [x] Hashing
+- [ ] (?) Suffix tree
+- [ ] (?) Dictionary of basic factors
+
+### 5. Strutture dati
+
+- [x] Treap (+ lazy propagation)
+- [x] Persistent segment tree (normale oppure sparso + lazy)
+- [x] Heavy light decomposition (nodi & archi) (+ LCA)
+- [x] Sparse table
+- [x] Line container
+- [x] Mo queries (su array e su albero)
+- [x] Li chao tree
+- [x] Link-cut tree (completo, ridotto, modifica per path non commutativi)
+- [x] Centroid Decomposition
+- [x] T(n)Log(n) deletion offline
+- [x] Segment tree beats
+- [x] Compressed BBST
+- [x] Fast hash table
+- [ ] (?) Pairing heap
+- [ ] (?) Lower bound su fenwick
+- [ ] (?) KD-tree
 
 ### 6. Altro
 
