@@ -16,15 +16,15 @@
 - [x] Poligon cut
 - [ ] Convex hull (3D)
 - [ ] Voronoi
-- [ ] Polygon Union
+- [ ] Polygon union
 - [ ] (?) Rotating caliper
 
 ### 2. Grafi
 
 - [x] Ponti e punti di articolazione
 - [x] Biconnected components
-- [x] Blossom (Matching)
-- [x] Blossom pesato (Matching pesato)
+- [x] Blossom (matching)
+- [x] Blossom pesato (matching pesato)
 - [x] Edge coloring
 - [x] Eulerian path (su grafo diretto e non diretto)
 - [x] Global min cut (Stoer–Wagner algorithm)
@@ -36,19 +36,19 @@
 
 ### 3. Matematica
 
-- [x] Berlekamp-massey
+- [x] Berlekamp-Massey
 - [x] Dirichlet convolution trick
 - [x] Euclide esteso
 - [x] FFT
-- [x] Fast subset convolution (or,and,xor)
 - [x] Fattorizzazione veloce (Pollard's Rho)
+- [x] Fast subset convolution (or,and,xor)
 - [x] Floyd cycle detection
 - [x] Ricorrenze lineari
-- [x] Operazioni sulle matrici (Determinante, Determinante mod, Inversa, Inversa mod)
+- [x] Operazioni sulle matrici (determinante, determinante mod, inversa, inversa mod)
 - [x] NTT
-- [x] Nimber Product
+- [x] Nimber product
 - [x] Operazioni sui polinomi (radici reali, interpolazione)
-- [x] Gaussian elimination (Linear Solve)
+- [x] Gaussian elimination (linear solve)
 - [x] Teorema del resto cinese
 - [x] Euler’s totient function
 - [ ] Fast matrix multiplication
@@ -57,17 +57,17 @@
 
 - [x] Aho-Corasick
 - [x] Hashing
-- [x] Knuth Morris Pratt
+- [x] Knuth-Morris-Pratt
 - [x] Manacher
 - [x] Minima rotazione lessicografica
-- [x] Suffix array + LCP array
+- [x] Suffix array + Lcp array
 - [x] Z-algorithm
 - [ ] (?) Suffix tree
 - [ ] (?) Dictionary of basic factors
 
 ### 5. Strutture dati
 
-- [x] Centroid Decomposition
+- [x] Centroid decomposition
 - [x] Compressed BBST
 - [x] Fast hash table
 - [x] Heavy light decomposition (nodi & archi) (+ LCA)
@@ -86,9 +86,9 @@
 
 ### 6. Altro
 
-- [x] Divide and conquer dp
+- [x] Divide and conquer DP
 - [x] Fast input (per lettura interi)
-- [x] Knuth optimization dp
+- [x] Knuth optimization DP
 - [x] Sat
 - [x] Simplesso
 - [x] Template (con pbds e rope)
