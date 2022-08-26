@@ -1,8 +1,8 @@
-/**
- * Product of nimbers is associative, commutative, and distributive 
- * over addition (xor). Forms finite field of size 2^(2^k).
+/* Product of nimbers is associative, 
+ * commutative, and distributive over addition (xor). 
+ * Forms finite field of size 2^(2^k).
  * Defined by ab=mex({a'b+ab'+a'b':a'<a,b'<b}).
- * Time: $64^2$ xors per multiplication, memorize to speed up.
+ * Time: 64^2 xors per multiplication, memorize to speed up.
  */
 
 using ul = uint64_t; 
@@ -29,7 +29,7 @@ struct Precalc {
   // 2^{8*i}*(a>>(8*i)&255) * 2^{8*j}*(b>>(8*j)&255)
   // -> (2^{8*i}*2^{8*j})*((a>>(8*i)&255)*(b>>(8*j)&255))
   ul multFast(ul a, ul b) const { // faster nim product
-    ul res = 0; auto f=[](ul c,int d) {return c>>(8*d)&255;};
+    ul res = 0; auto f=[](ul c,int d){return c>>(8*d)&255;};
     F0R(i,8) {
       F0R(j,i) res ^= y[i][j][x[f(a,i)][f(b,j)]
               ^x[f(a,j)][f(b,i)]];
