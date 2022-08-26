@@ -37,7 +37,6 @@
 ### 3. Matematica
 
 - [x] Berlekamp-massey
-- [x] Operazioni sulle matrici (Determinante, Determinante mod, Inversa, Inversa mod)
 - [x] Dirichlet convolution trick
 - [x] Euclide esteso
 - [x] FFT
@@ -45,6 +44,7 @@
 - [x] Fattorizzazione veloce (Pollard's Rho)
 - [x] Floyd cycle detection
 - [x] Ricorrenze lineari
+- [x] Operazioni sulle matrici (Determinante, Determinante mod, Inversa, Inversa mod)
 - [x] NTT
 - [x] Nimber Product
 - [x] Operazioni sui polinomi (radici reali, interpolazione)
