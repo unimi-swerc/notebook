@@ -19,8 +19,8 @@
 - [x] Welzl (minimum enclosing circle)
 - [x] Poligon cut
 - [ ] Convex hull (3D)
-- [ ] Voronoi
-- [ ] Polygon union
+- [ ] (?) Voronoi
+- [ ] (?) Polygon union
 - [ ] (?) Rotating caliper
 
 ### 2. Grafi
@@ -65,8 +65,8 @@
 - [x] Manacher
 - [x] Minima rotazione lessicografica
 - [x] Suffix array + lcp array
+- [x] Suffix tree
 - [x] Z-algorithm
-- [ ] Suffix tree
 - [ ] Palindromic tree
 - [ ] (?) Dictionary of basic factors
 
@@ -99,7 +99,7 @@
 - [x] Template (con pbds e rope)
 - [x] Twosat
 - [x] XorSat
-- [ ] Hornsat
+- [ ] (?) Hornsat
 
 ## Teoria
 
