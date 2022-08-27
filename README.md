@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- fixare l'hashing
+- testare tutto
 
 ## Algoritmi
 
