@@ -18,11 +18,11 @@ struct PalTree {
   void updAns() { // serial path has O(log n) vertices
     ans.pb({MOD,MOD});
     for (int v = last; d[v].len > 0; v = d[v].slink) {
-      d[v].seriesAns=ans[sz(s)-1-d[d[v].slink].len-d[v].diff];
+   d[v].seriesAns=ans[sz(s)-1-d[d[v].slink].len-d[v].diff];
       if (d[v].diff == d[d[v].link].diff) 
         F0R(i,2) ckmin(d[v].seriesAns[i],
               d[d[v].link].seriesAns[i]);
-      // start of previous oc of link[v]=start of last oc of v
+ //start of previous oc of link[v]=start of last oc of v
       F0R(i,2) ckmin(ans.bk[i],d[v].seriesAns[i^1]+1);
     }
   }
@@ -38,7 +38,7 @@ struct PalTree {
     last = d[last].to[c]; ++d[last].oc;
     updAns();
   }
-  long long numOc() { //total # of palindromes (with repetitions)
+  long long numOc() {//# of palindromes with repetitions
     long long ans=0;
     for (int i = (sz(d))-1; i >= (2); --i){
       d[d[i].link].oc += d[i].oc;
