@@ -1,44 +1,42 @@
-// Arithmetic mod $2^{64}-1$. 2x slower than mod $2^{64}$ and
-// more code, but works on evil test data (e.g. Thue-Morse,
-// where ABBA... and BAAB... of length $2^{10}$ hash the same
-// mod $2^{64}$). "typedef ull H;" instead if you think test
-// data is random, or work mod $10^9+7$ if the Birthday
-// paradox is not a problem.
-struct H {
-  typedef uint64_t ull;
-  ull x; H(ull x=0) : x(x) {}
-  H operator-(H o) { return *this + ~o.x; }
-  ull get() const { return x + !~x; }
-  bool operator==(H o) const { return get() == o.get(); }
-  bool operator<(H o) const { return get() < o.get(); }
-};
-static const H C = (ll)1e11+3;//(order~3e9; random also ok)
+// Polynomial hash for substrings with two bases
+mt19937 rng((uint64_t) chrono::duration_cast<chrono::nanoseconds>
+(chrono::high_resolution_clock::now().time_since_epoch()).count());
 
-struct HashInterval {
-  vector<H> ha, pw;
-  HashInterval(string& str) : ha(sz(str)+1), pw(ha) {
-    pw[0] = 1;
-    rep(i,0,sz(str))
-      ha[i+1] = ha[i] * C + str[i],
-      pw[i+1] = pw[i] * C;
-  }
-  H hashInterval(int a, int b) { // hash [a, b)
-    return ha[b] - ha[a] * pw[b - a];
-  }
-};
-
-vector<H> getHashes(string& str, int length) {
-  if (sz(str) < length) return {};
-  H h = 0, pw = 1;
-  rep(i,0,length)
-    h = h * C + str[i], pw = pw * C;
-  vector<H> ret = {h};
-  rep(i,length,sz(str)) {
-    ret.push_back(h = h*C + str[i] - pw*str[i-length]);
-  }
-  return ret;
+constexpr uint64_t MOD = (1ull<<61) - 1; //1e9+7ll;
+uint64_t modmul(uint64_t a, uint64_t b){ //funziona solo con $2^{61}-1$
+	uint64_t l1 = (uint32_t)a, h1 = a>>32, l2 = (uint32_t)b, h2 = b>>32;
+	uint64_t l = l1*l2, m = l1*h2 + l2*h1, h = h1*h2;
+	uint64_t ret = (l&MOD)+(l>>61)+(h << 3)+(m >> 29)+(m << 35 >> 3)+1;
+	ret = (ret & MOD) + (ret>>61);
+	ret = (ret & MOD) + (ret>>61);
+	return ret-1;
 }
 
-H hashString(string& s) {
-  H h{}; for(char c:s) h=h*C+c;return h;
-}
+using H = array<long long,2>; //array<int,2>;
+H makeH(char c) { return {c,c}; }
+uniform_int_distribution<long long> BDIST(0.1*MOD,0.9*MOD); //<int>
+const H base{BDIST(rng),BDIST(rng)};
+
+H operator+(H l, H r) { 
+	F0R(i,2) if ((l[i] += r[i]) >= MOD) l[i] -= MOD;
+	return l; }
+H operator-(H l, H r) { 
+	F0R(i,2) if ((l[i] -= r[i]) < 0) l[i] += MOD;
+	return l; }
+H operator*(H l, H r) { 
+	F0R(i,2) l[i] = modmul(l[i],r[i]); //(ll)l[i]*r[i]%MOD;
+	return l; }
+/// H& operator+=(H& l, H r) { return l = l+r; }
+/// H& operator-=(H& l, H r) { return l = l-r; }
+/// H& operator*=(H& l, H r) { return l = l*r; }
+
+V<H> pows{{1,1}};
+struct HashRange {
+	string S; V<H> cum{{}};
+	void add(char c) { S += c; cum.pb(base*cum.bk+makeH(c)); }
+	void add(string s) { each(c,s) add(c); }
+	void extend(int len) { while (sz(pows) <= len) 
+		pows.pb(base*pows.bk); }
+	H hash(int l, int r) { int len = r+1-l; extend(len);
+		return cum[r+1]-pows[len]*cum[l]; }
+};
