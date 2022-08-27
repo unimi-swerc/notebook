@@ -5,11 +5,11 @@ struct EdmondsStruct {
   int match[maxn], aux[maxn], t, n;
   vector <int> conn[maxn];
   queue <int> q;
-  /// 1 based
+  // 1 based
   void add(int u, int v) {
     conn[u].push_back(v), conn[v].push_back(u);
   }
-  /// total number of nodes
+  // total number of nodes
   void init(int _n) {
     n = _n, t = 0;
     for (int i = 0; i <= n; ++i) {
@@ -69,7 +69,7 @@ struct EdmondsStruct {
     int ans = 0;
     vector <int> V(n - 1);
     iota(V.begin(), V.end(), 1);
-    /// shuffle(V.begin(), V.end(), mt19937(1007050321));
+    // shuffle(V.begin(), V.end(), mt19937(1007050321));
     for (auto x: V) if (!match[x]) {
       for (auto y: conn[x]) if (!match[y]) {
         match[x] = y, match[y] = x;

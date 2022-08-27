@@ -1,5 +1,5 @@
 using wedge_t = pair<size_t, size_t>;
-/// Returns (articulation points, bridges)
+// Returns (articulation points, bridges)
 pair<vector<size_t>, vector<wedge_t>>
 artpoints_bridges(vector<vector<size_t>>& adj) {
   pair<vector<size_t>, vector<wedge_t>> ans;

@@ -34,8 +34,9 @@
     linenos,
     breaklines,
     mathescape,
+    firstnumber=1
 }
-\newcommand{\codecpp}[1]{\inputminted{cpp}{'\detokenize{#1}'}}
+\newcommand{\codecpp}[2]{\inputminted[firstline=#2]{cpp}{'\detokenize{#1}'}}
 \newcommand{\codepy}[1]{\inputminted{python}{'\detokenize{#1}'}}
 
 % Header/Footer
@@ -83,6 +84,16 @@ function ls(dir)
     return ipairs(files)
 end
 
+function codecpp(filename)
+    f = io.open(filename, "r")
+    skipped_lines = 1
+    while (f:read():match("^///"))
+    do
+        skipped_lines = skipped_lines + 1
+    end
+    tex.print("\\codecpp{" .. filename .. "}{" .. skipped_lines .. "}")
+end
+
 current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
@@ -93,7 +104,7 @@ for _, section in ls(current_dir) do
             subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
-                tex.print("\\codecpp{" .. subsection_file .. "}")
+                codecpp(subsection_file)
             end
             if subsection:find("%.py$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
@@ -111,7 +122,7 @@ for _, section in ls(current_dir) do
                     subsubsection_name = subsubsection:gsub("^(.*)%..*$", "%1")
                     if subsubsection:find("%.cpp$") then
                         tex.print("\\subsubsection{" .. subsubsection_name .. "}")
-                        tex.print("\\codecpp{" .. subsubsection_file .. "}")
+                        codecpp(subsubsection_file)
                     end
                     if subsubsection:find("%.py$") then
                         tex.print("\\subsubsection{" .. subsubsection_name .. "}")

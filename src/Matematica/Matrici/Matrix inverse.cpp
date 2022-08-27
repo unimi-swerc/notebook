@@ -33,7 +33,7 @@ int matInv(vector<vector<double>>& A) {
     A[i][i] = 1;
   }
 
-  /// forget A at this point, just eliminate tmp backward
+  // forget A at this point, just eliminate tmp backward
   for (int i = n-1; i > 0; --i) rep(j,0,i) {
     double v = A[j][i];
     rep(k,0,n) tmp[j][k] -= v*tmp[i][k];
