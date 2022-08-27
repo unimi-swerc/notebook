@@ -63,11 +63,11 @@
 - [x] Hashing
 - [x] Knuth-Morris-Pratt
 - [x] Manacher
-- [x] Minima rotazione lessicografica
+- [x] Palindrome tree
+- [x] Rotazione minima lessicografica
 - [x] Suffix array + lcp array
 - [x] Suffix tree
 - [x] Z-algorithm
-- [ ] Palindromic tree
 - [ ] (?) Dictionary of basic factors
 
 ### 5. Strutture dati
