@@ -1,4 +1,4 @@
-// Soluzione: $\left( x + k\cdot b / \gcd (a,b), y - k\cdot a / \gcd (a,b) \right)$
+// Soluzione: $\left( x + k b / \gcd (a,b), \ y - k a / \gcd (a,b) \right)$
 // restituisce $\left( x, y, \gcd(a,b) \right)$
 tuple<ll, ll, ll> xgcd(ll a, ll b) {
   ll s = 0, s2 = 1, t = 1, t2 = 0;
