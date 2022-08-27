@@ -1,16 +1,13 @@
 using u32 = uint32_t;
-#ifndef NSAT
 #define NSAT (512-1)
-#endif
 /* 0-based, esempio d'uso:
-    (a XOR c XOR d) ^ (b XOR ¬c XOR d) ^ (a XOR b XOR ¬d)
-  vector<vector<u32>> v={{0, 4, 6},{2, 5, 6},{0, 2, 7}};
-  auto r = xorsat(v);
-  cout << r.size() << endl;
-  for (auto b : r) cout << b << " ";
-  cout << endl;
-  se non c'è soluzione r.size()=0
-*/
+ * $(a \oplus c \oplus d) \wedge (b \oplus \neg c \oplus d) \wedge (a \oplus b \oplus \neg d)$
+ * $a = 0, \ \neg a = 1, \ b = 2, \ \neg b = 3, \ \ldots$
+ * vector<vector<u32>> v={{0, 4, 6},{2, 5, 6},{0, 2, 7}};
+ * auto r = xorsat(v);
+ * for (auto b : r) cout << b << " "; cout << endl;
+ * se non c'è soluzione r.size()=0
+ */
 int gauss(vector<bitset<NSAT+1>> &a, int m,
           vector<bool> &ans){
   int n = a.size();
