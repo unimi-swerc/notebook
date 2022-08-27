@@ -66,7 +66,8 @@
 - [x] Minima rotazione lessicografica
 - [x] Suffix array + lcp array
 - [x] Z-algorithm
-- [ ] (?) Suffix tree
+- [ ] Suffix tree
+- [ ] Palindromic tree
 - [ ] (?) Dictionary of basic factors
 
 ### 5. Strutture dati
