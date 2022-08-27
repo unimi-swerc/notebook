@@ -85,23 +85,22 @@ function ls(dir)
 end
 
 function codecpp(filename)
-    f = io.open(filename, "r")
-    skipped_lines = 1
-    while (f:read():match("^///"))
-    do
+    local file = io.open(filename, "r")
+    local skipped_lines = 1
+    while (file:read():match("^///")) do
         skipped_lines = skipped_lines + 1
     end
     tex.print("\\codecpp{" .. filename .. "}{" .. skipped_lines .. "}")
 end
 
-current_dir = lfs.currentdir() .. "/src"
+local current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
-        section_dir = current_dir .. "/" .. section
+        local section_dir = current_dir .. "/" .. section
         tex.print("\\section{" .. section:gsub("^%l", string.upper) .. "}")
         for _, subsection in ls(section_dir) do
-            subsection_file = section_dir .. "/" .. subsection
-            subsection_name = subsection:gsub("^(.*)%..*$", "%1")
+            local subsection_file = section_dir .. "/" .. subsection
+            local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") then
                 tex.print("\\subsection{" .. subsection_name .. "}")
                 codecpp(subsection_file)
@@ -115,7 +114,7 @@ for _, section in ls(current_dir) do
                 tex.print("\\input{" .. subsection_file .. "}")
             end
             if not subsection:find("%.") then
-                subsection_dir = section_dir .. "/" .. subsection
+                local subsection_dir = section_dir .. "/" .. subsection
                 tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}")
                 for _, subsubsection in ls(subsection_dir) do
                     subsubsection_file = subsection_dir .. "/" .. subsubsection
