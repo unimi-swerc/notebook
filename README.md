@@ -85,7 +85,7 @@
 - [x] Segment tree beats
 - [x] Persistent segment tree (normale oppure sparso + lazy)
 - [x] Sparse table
-- [x] T(n)Log(n) deletion offline
+- [x] $T(n)\log(n)$ deletion offline
 - [x] Treap (+ lazy propagation)
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
