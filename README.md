@@ -3,6 +3,8 @@
 ## TODO:
 
 - testare tutto
+- togliere xor sat
+- aggiungere linear solve mod extended
 
 ## Algoritmi
 
