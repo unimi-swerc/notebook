@@ -1,11 +1,4 @@
-/* Invert matrix $A$. Returns rank; result is stored in
- * $A$ unless singular (rank < n).
- * for prime powers, repeatedly set 
- * $A^{-1} = A^{-1} (2I - AA^{-1}) (\text{mod } p^k)$
- * where $A^{-1}$ starts as the inverse of $A \text{mod } p$,
- * and $k$ is doubled in each step.
- * Time: $O(n^3)$
- */
+// come Matrix inverse mod ma senza modulo
 int matInv(vector<vector<double>>& A) {
   int n = sz(A); vi col(n);
   vector<vector<double>> tmp(n, vector<double>(n));
