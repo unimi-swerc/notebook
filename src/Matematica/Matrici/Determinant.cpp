@@ -1,7 +1,4 @@
-/* Description: Calculates determinant of a matrix. 
- * Destroys the matrix.
- * Time: $O(N^3)$
- */
+// uguale a Determinant mod ma senza modulo
 double det(vector<vector<double>>& a) {
   int n = sz(a); double res = 1;
   rep(i,0,n) {
