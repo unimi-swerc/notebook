@@ -1,4 +1,5 @@
 /* Calculates determinant using modular arithmetics
+ * Destroys the matrix.
  * Time: $O(N^3)$
  */
 const ll mod = 12345;
