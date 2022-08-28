@@ -3,8 +3,6 @@
 ## TODO:
 
 - testare tutto
-- togliere xor sat
-- aggiungere linear solve mod extended
 
 ## Algoritmi
 
@@ -54,7 +52,7 @@
 - [x] NTT
 - [x] Nimber product
 - [x] Operazioni sui polinomi (radici reali, interpolazione)
-- [x] Gaussian elimination (linear solve)
+- [x] Gaussian elimination (linear solve con mod e senza mod)
 - [x] Teorema del resto cinese
 - [x] Euler’s totient function
 - [ ] Fast matrix multiplication
