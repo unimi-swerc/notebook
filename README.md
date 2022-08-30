@@ -29,6 +29,7 @@
 - [x] Biconnected components
 - [x] Blossom (matching)
 - [x] Blossom pesato (matching pesato)
+- [x] Dominator tree
 - [x] Edge coloring
 - [x] Eulerian path (su grafo diretto e non diretto)
 - [x] Global min cut (Stoer–Wagner algorithm)
@@ -37,7 +38,6 @@
 - [x] Max flow
 - [x] Max clique
 - [x] Stable marriage (Gale-Shapley algorithm)
-- [ ] Dominator tree
 - [ ] Componenti fortemente connesse
 
 ### 3. Matematica
