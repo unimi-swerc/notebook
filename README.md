@@ -37,6 +37,7 @@
 - [x] Max flow
 - [x] Max clique
 - [x] Stable marriage (Gale-Shapley algorithm)
+- [ ] Componenti fortemente connesse
 
 ### 3. Matematica
 
