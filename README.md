@@ -3,6 +3,7 @@
 ## TODO:
 
 - testare tutto
+- sistemare dominator tree
 
 ## Algoritmi
 
