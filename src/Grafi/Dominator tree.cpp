@@ -2,15 +2,14 @@
 /// Verification: 
 /// https://codeforces.com/gym/100513/problem/L
 /// https://open.kattis.com/problems/skiresort
-/**
- * Assuming that all nodes are 
+/* Assuming that all nodes are 
  * reachable from $root,$ $a$ dominates $b$ iff every path from 
  * $root$ to $b$ passes through $a.$
- * Time: O(M\log N)
+ * Time: $O(M\log N)$
  */
 
 template<int SZ> struct Dominator {
-  vi adj[SZ], ans[SZ]; // input edges, edges of dominator tree
+  vi adj[SZ], ans[SZ]; //input edges, dominator tree edges
   vi radj[SZ], child[SZ], sdomChild[SZ];
   int label[SZ], rlabel[SZ], sdom[SZ], dom[SZ], co = 0;
   int par[SZ], bes[SZ]; 
