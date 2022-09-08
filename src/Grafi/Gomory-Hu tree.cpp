@@ -1,4 +1,4 @@
-/*Returns edges of Gomory-Hu tree (second element is weight) 
+/*Returns edges of Gomory-Hu tree (second element is weight)
 * Max flow between pair of vertices of undirected graph 
 * is given by min edge weight along tree path. 
 * Uses the fact that for any $i,j,k,$ $\lambda_{ik}\ge \min(\lambda_{ij},\lambda_{jk}),$ 
