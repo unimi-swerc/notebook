@@ -33,6 +33,7 @@
 - [x] Edge coloring
 - [x] Eulerian path (su grafo diretto e non diretto)
 - [x] Global min cut (Stoer–Wagner algorithm)
+- [x] Gomory-Hu tree 
 - [x] Algoritmo ungherese
 - [x] Min cost max flow
 - [x] Max flow
