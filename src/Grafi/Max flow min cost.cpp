@@ -1,6 +1,6 @@
 //Time: Ignoring first run of Dijkstra, $O(FM\log M)$ 
- //  * if caps are integers and $F$ is max flow.
-// tested with $N\le 250, M\le 5000, \text{cap}\le 10K, W\le 1000$ (0.4 sec)
+// if caps are integers and $F$ is max flow. Tested
+// with $N\le 250, M\le 5000, \text{cap}\le 10K, W\le 1000$ (0.4 sec)
 struct MCMF { 
   using F = ll; using C = ll; // flow type, cost type
   struct Edge { int to, rev; F flo, cap; C cost; };
