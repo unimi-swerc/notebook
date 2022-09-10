@@ -14,4 +14,4 @@ chrono::steady_clock::now().time_since_epoch().count();
         return splitmix64(x + FIXED_RANDOM);
     }
 };
-gp_hash_table<int, int, custom_hash> best;
+gp_hash_table<int, int, custom_hash> best; //2x faster
