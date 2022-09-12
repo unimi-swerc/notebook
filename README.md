@@ -102,6 +102,7 @@
 - [x] Template (con pbds e rope)
 - [x] Twosat
 - [x] XorSat
+- [x] SMAWK
 - [ ] (?) Hornsat
 
 ## Teoria
