@@ -10,16 +10,13 @@ class CompressedTree {
                          to(b), left(l), right(r) {
       update();
     }
-
     void update() {
       height = max(left->height, right->height) + 1;
       size = left->size + right->size + to - from;
     }
-
     ll factor() { return right->height-left->height; }
   };
   Node *root, *end;
-
   Node* rotateLeft(Node* p) {
     Node* q = p->right;
     p->right = q->left;
@@ -28,7 +25,6 @@ class CompressedTree {
     q->update();
     return q;
   }
-
   Node* rotateRight(Node* p) {
     Node* q = p->left;
     p->left = q->right;
@@ -37,7 +33,6 @@ class CompressedTree {
     q->update();
     return q;
   }
-
   Node* balance(Node* p) {
     p->update();
     if (p->factor() >= 2) {
@@ -51,7 +46,6 @@ class CompressedTree {
     }
     return p;
   }
-
   Node* insert(ll from, ll to, size_t pos, Node* r) {
     if (r == end) return new Node(from, to, end, end);
     ll excess = pos - r->left->size;
@@ -69,7 +63,6 @@ class CompressedTree {
     }
     return balance(r);
   }
-
   pair<Node*, Node*> eraseLeft(Node* r) {
     if (r->left == end) {
       Node* q = r->right;
@@ -79,7 +72,6 @@ class CompressedTree {
     r->left = ret.first;
     return {balance(r), ret.second};
   }
-
   pair<Node*, ll> erase(size_t pos, Node* r) {
     ll excess = pos - r->left->size;
     if (excess < 0) {
@@ -113,7 +105,6 @@ class CompressedTree {
       return {balance(r), r->to};
     }
   }
-
   ll find(size_t pos, Node* r) {
     ll excess = pos - r->left->size;
     if (excess < 0) {
@@ -125,7 +116,6 @@ class CompressedTree {
       return r->from + excess;
     }
   }
-
  public:
   CompressedTree() { root = end = new Node(); }
   void insert(ll val, size_t pos) {
