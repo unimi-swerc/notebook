@@ -98,7 +98,7 @@ local current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
         local section_dir = current_dir .. "/" .. section
-        tex.print("\\section{" .. section:gsub("^%l", string.upper) .. "}")
+        tex.print("\\section{" .. section:gsub("^%l", string.upper) .. "}" .. "\\vspace{-1em}")
         for _, subsection in ls(section_dir) do
             local subsection_file = section_dir .. "/" .. subsection
             local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
