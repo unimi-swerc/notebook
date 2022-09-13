@@ -22,12 +22,14 @@ struct Info{
   }
 };
 Info& operator+=(Info& a,Info& b){
-  a.sz+=b.sz; a.sum+=b.sum; a.mi=min(a.mi,b.mi); a.ma=max(a.ma,b.ma);
+  a.sz+=b.sz; a.sum+=b.sum; a.mi=min(a.mi,b.mi); 
+  a.ma=max(a.ma,b.ma);
   return a;
 }
 Info operator+=(Info& a,lazy& b){
   if(!a.sz) return a;
-  a.sum=a.sum*b.a+a.sz*b.b; a.mi=a.mi*b.a+b.b; a.ma=a.ma*b.a+b.b;
+  a.sum=a.sum*b.a+a.sz*b.b; a.mi=a.mi*b.a+b.b; 
+  a.ma=a.ma*b.a+b.b;
   return a;
 }
 int operator +=(int& a,lazy& b){
@@ -87,7 +89,8 @@ struct node{
   }
   void rot(){
     int d = dir(); sp x=p;
-    connect(x->p,this,x->dir()); connect(x,c[d^1],d); connect(this,x,d^1);
+    connect(x->p,this,x->dir()); connect(x,c[d^1],d); 
+    connect(this,x,d^1);
     x->pull(); pull();
   }
 };
@@ -99,10 +102,12 @@ void splay(sp x){
     x->dir()==y->dir()? y->rot(): x->rot();
     x->rot();
   }
-  if(x->dir()<2&&x->p->dir()<2) x->p->push(), x->push(), x->rot();
+  if(x->dir()<2&&x->p->dir()<2) x->p->push(), x->push(), 
+  x->rot(); //attento: alla linea sopra c'è una virgola
   if(x->dir()<2) {
     x->p->push(), x->push();
-    fori(2,4) if(x->p->c[i]) connect(x,x->p->c[i],i), x->p->c[i]=nullptr;
+    fori(2,4) if(x->p->c[i]) connect(x,x->p->c[i],i), 
+    x->p->c[i]=nullptr; //alla linea sopra c'è una virgola
     x->rot();
   }
   while(x->dir()<4){
