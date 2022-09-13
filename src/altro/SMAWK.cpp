@@ -18,7 +18,7 @@ vector<int> smawck(F f, const vector<int> &rows, const vector<int> &cols) {
         if(st.empty()) {
           st.push_back(j);
           break;
-        } else if(f(rows[(int) st.size() - 1], st.back(), j)) {
+        }else if(f(rows[(int)st.size()-1], st.back(), j)){
           st.pop_back();
         } else if(st.size() < rows.size()) {
           st.push_back(j);
@@ -38,7 +38,7 @@ vector<int> smawck(F f, const vector<int> &rows, const vector<int> &cols) {
     for(int i = 0; i < (int) newRows.size(); i++) {
       ans[2*i+1] = otherAns[i];
     }
-    for(int i = 0, l = 0, r = 0; i < (int) rows.size(); i += 2) {
+    for(int i = 0, l = 0, r = 0; i < (int)rows.size(); i+=2){
       while(l && cols[l-1] >= ans[i-1]) l--;
       if(i+1 == (int) rows.size()) r = (int) cols.size();
       while(r < (int) cols.size() && r <= ans[i+1]) r++;
@@ -56,12 +56,12 @@ vector<int> smawck(F f, const vector<int> &rows, const vector<int> &cols) {
 
 // max smawck
 // F(i, j, k) checks if M[i][j] <= M[i][k]
-// another interpretations is: 
-// F(i, j, k) checks if M[i][k] is at least as good as M[i][j]
+// another interpretations is: F(i, j, k) checks
+// if M[i][k] is at least as good as M[i][j]
 // higher == better
-// when comparing 2 columns as vectors
-// for j < k, column j can start better than column k
-// as soon as column k is at least as good, it's always at least as good
+// when comparing 2 columns as vectors for j < k, 
+// column j can start better than column k. as soon as column
+// k is at least as good, it's always at least as good
 template<class F>
 vector<int> smawck(F f, int n, int m) {
   vector<int> rows(n), cols(m);
@@ -74,7 +74,7 @@ template<class T>
 vector<T> MaxConvolutionWithConvexShape(vector<T> anyShape, const vector<T> &convexShape) {
   if((int) convexShape.size() <= 1) return anyShape;
   if(anyShape.empty()) anyShape.push_back(0);
-  int n = (int) anyShape.size(), m = (int) convexShape.size();
+  int n = (int)anyShape.size(), m = (int)convexShape.size();
   auto function = [&](int i, int j) {
     return anyShape[j] + convexShape[i-j];
   };
