@@ -4,7 +4,6 @@ const ll C = (ll)1e9 + 7;
 
 struct Line {
   ll k, b;
-
   Line() : k(), b(INF) {}
   Line(ll _k, ll _b) : k(_k), b(_b) {}
 
@@ -20,11 +19,9 @@ struct Line {
   //query: trovo il min in x (se non c'è ritorna INF)
   ll res = getMinPoint(root, -C, C, x); 
 */
-
 struct Node {
   int l, r;
   Line L;
-
   Node() : l(-1), r(-1), L() {}
 };
 const int S = (int)8e6;
