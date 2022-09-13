@@ -1,6 +1,5 @@
 typedef long long ll;
-const int MAXN=100005, LOGN=42;
-const long long GAP = 10000004;
+const ll MAXN=100005, LOGN=42, GAP = 10000004;
 struct SegmentTree{
   __int128 sum;
   SegmentTree *left,*right;
@@ -103,47 +102,12 @@ SegmentTree* SegmentTree::newSeg(ll l,ll r,int _lvl){
   vett[ind].right=nullptr; 
   return &vett[ind];
 }
-
-struct que{
-  int id,tempo,l,r;
-};
-SegmentTree *rt[MAXN];
-long long t,n,q,v[MAXN],cont,cont1;
-__int128 ans[MAXN];
-vector<que> off;
-
-signed main(){
-  cin>>t;
-  while(t--){
-    off.clear();
-    cin>>n;
-    cc=0;
-    rt[0] = SegmentTree::newSeg(1,(n+1)*GAP,0);
-    rt[0]->build(v,1,n,1,(n+1)*GAP);
-    cont=1;
-    cont1=0;
-    cin>>q;
-    for(int i=0;i<q;i++){
-      int a;
-      cin>>a;
-      if(a==0){
-        int b,c,d;
-        cin>>b>>c>>d;
-        rt[cont]=rt[cont-1]->copy(cont);
-        rt[cont]->update(b*GAP,c*GAP+GAP,d,1,(n+1)*GAP);
-        rt[cont]->pointupdate(c*GAP+GAP,-d,1,(n+1)*GAP);
-        cont++;
-      }else{
-        int p,q;
-        cin>>p>>q;
-        off.push_back({cont1,cont-1,p,q});
-        cont1++;
-      }
-    }
-    random_shuffle(off.begin(),off.end());
-    for(auto &[id,tempo,l,r] : off){
-    ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);
-    }
-    for(int i=0;i<cont1;i++)cout<<(ll)(ans[i]/GAP)<<"\n";
-  }
-}
+/* building:
+  rt[0] = SegmentTree::newSeg(1,(n+1)*GAP,0);
+  rt[0]->build(v,1,n,1,(n+1)*GAP);
+  update:
+  rt[cont]=rt[cont-1]->copy(cont);
+  rt[cont]->update(b*GAP,c*GAP+GAP,d,1,(n+1)*GAP);
+  rt[cont]->pointupdate(c*GAP+GAP,-d,1,(n+1)*GAP);
+  query:
+  ans[id]=rt[tempo]->query(l*GAP,r*GAP+GAP-1,1,(n+1)*GAP);*/
