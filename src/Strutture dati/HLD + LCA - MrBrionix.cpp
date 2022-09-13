@@ -98,11 +98,7 @@ fun query(int u){
   return rt.query(in[u],out[u]-1);
 }
 */
-
 int main(){
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-
   cin>>n>>q;
   for(int i=1;i<=n;i++){
     cin>>v[i].a>>v[i].b;
@@ -138,5 +134,4 @@ int main(){
       cout<<query(a,b).eval(c)<<"\n";
     }
   }
-  return 0;
 }
