@@ -73,12 +73,10 @@ int main() {
       m[n][0]=0;
     } else {
       int f=m[n][0];
-      for(auto x:g[n])
-      if(x.d)
+      for(auto x:g[n])if(x.d)
       ckmin(f, m[x.n][v[x.n][x.b]==m[x.n][0]]+x.d);
       printf("%d\n", f);
     }
     if(i<M) scanf("%d%d", &t, &n);
   }
-  return 0;
 }
