@@ -55,12 +55,10 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
   }
   return rank; // (multiple solutions if rank < m)
 }
-
 /*per ottenere il sottospazio vettoriale:
   auto cop = p;
   auto co = tmp;
   int xx=solveLinear(p,tmp,ans);
-  
   if(xx==-1){
     cout<<xx<<"\n";
     return 0;
@@ -80,5 +78,4 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
     for(int i=xx-1;i>=0;i--){
       d[j-xx][col[i]]=-cop[i][j];
     }
-  }
-*/
+  }*/
