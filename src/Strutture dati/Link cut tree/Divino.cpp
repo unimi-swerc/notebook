@@ -215,5 +215,4 @@ int main(){
       cut(lct[a]); link(lct[a],lct[b]);
     }
   }
-  return 0;
 }
