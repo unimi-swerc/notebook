@@ -3,7 +3,6 @@ typedef long long ll;
 const int MX = 2e5+5; 
 // senza subtree update, è il doppio più veloce
 // per ulteriori info vedere link cut tree completo
-
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
   sn p, c[2]; // parent, children
@@ -107,41 +106,8 @@ struct snode { //////// VARIABLES
     cut(y); }
 };
 sn LCT[MX];
-
-int N,Q;
-int main() {
-  cin>>N>>Q;
-  vector<int> A(N);
-  for(int i=0;i<N;i++)cin>>A[i];
-  F0R(i,N) LCT[i] = new snode(A[i]);
-  F0R(i,N-1) {
-    int u,v;
-    cin>>u>>v;
-    link(LCT[u],LCT[v],1);
-  }
-  F0R(i,Q) {
-    int t; cin>>t;
-    if (t == 0) {
-      int u,v,w,x; cin>>u>>v>>w>>x;
-      cut(LCT[u],LCT[v]);
-      link(LCT[w],LCT[x],1);
-    } else if (t == 1) {
-      int p,x; cin>>p>>x;
-      LCT[p]->access();
-      LCT[p]->val += x;
-      LCT[p]->calc();
-    } else {
-      int u,v; cin>>u>>v;
-      /*
-      //path query
-      LCT[u]->makeRoot();
-      LCT[v]->access();
-      cout<<(LCT[v]->sum)<<"\n";
-      */      
-      //subtree query (v=radice)
-      LCT[v]->makeRoot();
-      LCT[u]->access();
-      cout<<(LCT[u]->vsub + LCT[u]->val)<<"\n";
-    }
-  }
-}
+/*subtree query (v=radice) è leggermente diverso:
+LCT[v]->makeRoot();
+LCT[u]->access();
+cout<<(LCT[u]->vsub + LCT[u]->val)<<"\n";
+tutto il resto è uguale al link cut tree completo*/
