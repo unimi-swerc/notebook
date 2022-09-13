@@ -7,7 +7,6 @@
  *  otherwise it may contain an incomplete path (still 
  *  useful for substring matching, though). Time: $O(26N)$
  */
-
 struct SuffixTree {
   enum { N = 200010, ALPHA = 26 }; // N ~ 2*maxlen+10
   int toi(char c) { return c - 'a'; }
