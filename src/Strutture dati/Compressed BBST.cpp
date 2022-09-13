@@ -4,7 +4,6 @@ class CompressedTree {
     ll height, size;
     ll from, to;
     Node *left, *right;
-
     Node() : height(0), size(0), from(0), to(0),
                                left(0), right(0) {}
     Node(ll a, ll b, Node* l, Node* r) : from(a),
@@ -19,7 +18,6 @@ class CompressedTree {
 
     ll factor() { return right->height-left->height; }
   };
-
   Node *root, *end;
 
   Node* rotateLeft(Node* p) {
