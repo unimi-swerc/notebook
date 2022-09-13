@@ -6,7 +6,6 @@
 */
 struct prefix_mul {
   typedef long long (*func) (__int128);
-
   func p_f, p_g, p_c;
   long long n, th, inv;
   std::unordered_map <long long, long long> mem;
