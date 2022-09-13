@@ -4,7 +4,6 @@ long long a[N];
 struct node {
   long long mi, mx, mis, mxs, sum, lz;
   int mic, mxc;
-
   node(long long _n = 0) {
     mi = mx = _n; mic = mxc = 1;
     mis = INF; mxs = -INF;
@@ -148,8 +147,6 @@ struct segment_tree {
 int n, q, t, l, r;
 long long v;
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(nullptr);
   cin >> n >> q;
   for (int i = 1; i <= n; i++) {
     cin >> a[i];
