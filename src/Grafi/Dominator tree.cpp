@@ -7,7 +7,6 @@
  * $root$ to $b$ passes through $a.$
  * Time: $O(M\log N)$
  */
-
 template<int SZ> struct Dominator {
   vi adj[SZ], ans[SZ]; //input edges, dominator tree edges
   vi radj[SZ], child[SZ], sdomChild[SZ];
