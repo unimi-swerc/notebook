@@ -54,12 +54,9 @@ vector<int> smawck(F f, const vector<int> &rows,
   }
   return ans;
 }
-
-// max smawck
 // F(i, j, k) checks if M[i][j] <= M[i][k]
-// another interpretations is: F(i, j, k) checks
-// if M[i][k] is at least as good as M[i][j]
-// higher == better
+// another interpretations is: F(i, j, k) checks if
+// M[i][k] is at least as good as M[i][j] (higher == better)
 // when comparing 2 columns as vectors for j < k, 
 //column j can start better than column k. as soon as column
 // k is at least as good, it's always at least as good
