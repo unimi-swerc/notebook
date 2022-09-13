@@ -35,8 +35,6 @@ struct query_tree{
 };
 //example
 int main(){
-  cin.tie(0)->sync_with_stdio(0);
-  cin.exceptions(ios::badbit | ios::failbit);
   int n;
   cin >> n;
   vector<vector<array<int, 2>>> edge(n);
@@ -70,5 +68,4 @@ int main(){
   };
   qt.solve(insert, time, reverse_to, answer);
   cout << res << "\n";
-  return 0;
 }
