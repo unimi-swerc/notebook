@@ -1,7 +1,6 @@
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5;
-
 /* Link-Cut Tree. Given a function $f(1 \ldots N) \rightarrow 1 \ldots N$,
  * evaluates $f^b(a)$ for any $a,b$. $\texttt{sz}$ is for path queries; 
  * $\texttt{sub}$, $\texttt{vsub}$ are for subtree queries. $\texttt{x->access()}$
@@ -155,8 +154,6 @@ sn LCT[MX];
 
 int N,Q;
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
   cin>>N>>Q;
   vector<int> A(N);
   for(int i=0;i<N;i++)cin>>A[i];
