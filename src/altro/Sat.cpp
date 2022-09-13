@@ -8,7 +8,6 @@ using u64 = uint32_t;
  * for (auto b : r) cout << b << " "; cout << endl;
  * se non c'è soluzione r.size()=0
  */
-
 vector<bool> sat(const vector<vector<u32>>& in) {
   u32 max_term = 0;
   for(const auto& v: in) {
