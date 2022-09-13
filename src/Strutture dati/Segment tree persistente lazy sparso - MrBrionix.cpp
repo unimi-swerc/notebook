@@ -113,8 +113,6 @@ __int128 ans[MAXN];
 vector<que> off;
 
 signed main(){
-  ios::sync_with_stdio(false);
-  cin.tie(0);
   cin>>t;
   while(t--){
     off.clear();
@@ -148,5 +146,4 @@ signed main(){
     }
     for(int i=0;i<cont1;i++)cout<<(ll)(ans[i]/GAP)<<"\n";
   }
-  return 0;
 }
