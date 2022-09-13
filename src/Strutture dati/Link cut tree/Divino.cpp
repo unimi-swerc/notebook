@@ -172,13 +172,8 @@ Info ans;
 int main(){
   cin>>n>>q;
   fori(1,n) cin>>e[i].first>>e[i].second;
-  fori(1,n+1){
-    cin>>a; lct[i]=new node(i,a);
-  }
-  fori(1,n){
-    tie(a,b)=e[i];
-    link(lct[a],lct[b]);
-  }
+  fori(1,n+1){ cin>>a; lct[i]=new node(i,a); }
+  fori(1,n){ tie(a,b)=e[i]; link(lct[a],lct[b]); }
   cin>>rt;
   fori(0,q){
     cin>>t;
