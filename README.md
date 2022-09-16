@@ -100,9 +100,12 @@
 - [x] Simplesso
 - [x] Template (con pbds e rope)
 - [x] Twosat
-- [x] XorSat
 - [x] SMAWK
 - [ ] (?) Hornsat
+
+### 7. Scarti
+- [x] XorSat
+- [x] Characteristic polynomial (of a matrix)
 
 ## Teoria
 
