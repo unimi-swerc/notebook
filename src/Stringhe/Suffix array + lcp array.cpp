@@ -1,5 +1,6 @@
 int sa[MAXN], rnk[2*MAXN], lcp[MAXN], tmp[MAXN];
 void suffix_array(int N, const string& S) {
+  //se usi suffix_array() più di una volta azzera rnk qua
   for (int i = 0; i < N; i++) {
     sa[i] = i, rnk[i] = S[i];
   }
@@ -20,7 +21,7 @@ void lcp_array(int N, const string& S) {
   for (int i = 0, k = 0; i < N; i++) {
     int j = sa[rnk[i]];
     while (i+k < N && j+k < N && S[i+k] == S[j+k]) k++;
-    lcp[rnk[i]] = k;
+    lcp[rnk[i] - 1] = k;
     k = max(k - 1, 0);
   }
 }
