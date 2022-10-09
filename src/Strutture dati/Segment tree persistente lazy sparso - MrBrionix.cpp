@@ -2,6 +2,7 @@
 /// Verification:
 /// https://www.spoj.com/problems/HORRIBLE/ (id: 29751795)
 /// https://training.olinfo.it/#/task/ois_police7 (id: da cercare, cms non funziona ora)
+/// https://www.spoj.com/problems/MKTHNUM/ (id: 30173882)
 typedef long long ll;//$n,q\leq 10^5$,t ignoto->0.89sec
 const ll MAXN=100005, LOGN=42, GAP = 10000004;
 struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
