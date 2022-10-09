@@ -6,7 +6,7 @@
 /// https://judge.yosupo.jp/submission/86787
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
-const int MX = 2e5+5; //tested with $N,M \leq 2\cdot 10^5$ (0.9/1.1 sec)
+const int MX = 2e5+5;//con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec
 /* Link-Cut Tree. Given a function $f(1 \ldots N) \rightarrow 1 \ldots N$,
  * evaluates $f^b(a)$ for any $a,b$. $\texttt{sz}$ is for path queries; 
  * $\texttt{sub}$, $\texttt{vsub}$ are for subtree queries. $\texttt{x->access()}$
