@@ -4,7 +4,7 @@
 /// https://judge.yosupo.jp/submission/86705
 /// https://judge.yosupo.jp/submission/86706
 // The size of a must be a power of two.
-// Time: $\mathcal{O}(N \log N)$ (con $N\leq 2^20$ impiega 0.75 sec)
+// Time: $\mathcal{O}(N \log N)$ (con $N\leq 2^{20}$ impiega 0.75 sec)
 typedef pair<__int128, __int128> pii;
 typedef vector<__int128> vi;
 void FST(vi& a, bool inv) {
