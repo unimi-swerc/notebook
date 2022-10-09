@@ -1,6 +1,9 @@
+/// Source:
+/// https://usaco.guide/adv/link-cut-tree?lang=cpp#problem-dmoj-DynamicTreeTest
+/// Verification:
+/// https://dmoj.ca/submission/4836281
 //link cut tree degli dei
 #define fori(a,b) for(int i=(a);i<(b);i++)
-
 //0.687 s con $n,q \leq 10^5$ (e ios_sync_with_stdio=false)
 const int N=100010;
 typedef struct node* sp; //sp=splay tree
@@ -177,17 +180,17 @@ int main(){
   cin>>rt;
   fori(0,q){
     cin>>t;
-    if(t==1){
+    if(t==1){ //change root
       cin>>a; rt=a;
     }
-    else if(t==0||t==5){
+    else if(t==0||t==5){//subtree set, increment (val=b)
       cin>>a>>b;
       evert(lct[rt]); access(lct[a]);
       lazy temp={t==5,b}; auto c=lct[a]->c[4];
       if(c) c->upd(temp), c->upd2(temp);
       lct[a]->val+=temp;
     }
-    else if(t==3||t==4||t==11){
+    else if(t==3||t==4||t==11){//subtree min, max, sum
       cin>>a;
       evert(lct[rt]); access(lct[a]);
       ans=Info(lct[a]->val); auto c=lct[a]->c[4];
@@ -196,19 +199,19 @@ int main(){
       else if(t==4) cout<<ans.ma<<"\n";
       else if(t==11) cout<<ans.sum<<"\n";
     }
-    else if(t==2||t==6){
+    else if(t==2||t==6){//path set, increment (a->b,val=c)
       cin>>a>>b>>c;
       evert(lct[a]); access(lct[b]);
       lct[b]->upd({t==6,c});
     }
-    else if(t==7||t==8||t==10){
+    else if(t==7||t==8||t==10){//path min, max, sum
       cin>>a>>b;
       evert(lct[a]); access(lct[b]); ans=lct[b]->info[0];
       if(t==7) cout<<ans.mi<<"\n";
       else if(t==8) cout<<ans.ma<<"\n";
       else if(t==10) cout<<ans.sum<<"\n";
     }
-    else if(t==9){
+    else if(t==9){//change parent of a to b
       cin>>a>>b;
       evert(lct[rt]);
       if(lca(lct[a],lct[b])==lct[a]) continue;
