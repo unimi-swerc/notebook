@@ -1,5 +1,11 @@
-// 0-based, with $N\le 5000, M\le 30000$ run in 0.19 sec
-// per i grafi bipartiti $N\le 100000$
+/// Source: 
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/Dinic.h
+/// Verification:
+/// https://dmoj.ca/src/4598761
+/// https://www.spoj.com/problems/FASTFLOW/ (id: 29654114)
+/// https://www.spoj.com/problems/MATCHING/ (id: 29654075)
+// 0-based, with $N\leq 5000, M\leq 30000$ run in 0.19 sec
+// Time: $\mathcal{O}(N^2M)$, con grafi bipartiti $N\leq 10^5,M\leq 10^5$ (0.77 sec)
 using pi = pair<int,int>;
 #define f first
 #define s second
