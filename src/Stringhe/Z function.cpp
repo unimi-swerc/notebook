@@ -1,4 +1,7 @@
-vector<int> z_function(string str) {
+/// Source: own
+/// Verification:
+/// https://www.codechef.com/viewsolution/64779959
+vector<int> z_function(string str) { //$\mathcal{O}(N)$
   vector<int> ret(str.size());
   int l=0, r=0;
   for (int i=1; i<str.size(); i++) {
