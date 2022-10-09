@@ -1,4 +1,4 @@
-/// Source: own
+/// Source: MrBrionix
 /// Verification:
 /// https://www.spoj.com/problems/HORRIBLE/ (id: 29751795)
 /// https://training.olinfo.it/#/task/ois_police7 (id: da cercare, cms non funziona ora)
