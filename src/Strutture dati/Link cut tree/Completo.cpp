@@ -1,6 +1,12 @@
+/// Source:
+/// https://judge.yosupo.jp/submission/13926
+/// Verification:
+/// https://judge.yosupo.jp/submission/86785
+/// https://judge.yosupo.jp/submission/86786
+/// https://judge.yosupo.jp/submission/86787
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
-const int MX = 2e5+5;
+const int MX = 2e5+5; //tested with $N,M \leq 200000$ (0.9/1.1 sec)
 /* Link-Cut Tree. Given a function $f(1 \ldots N) \rightarrow 1 \ldots N$,
  * evaluates $f^b(a)$ for any $a,b$. $\texttt{sz}$ is for path queries; 
  * $\texttt{sub}$, $\texttt{vsub}$ are for subtree queries. $\texttt{x->access()}$
@@ -10,11 +16,10 @@ const int MX = 2e5+5;
  * nodes in the connected component of $\texttt{x}$ and $\texttt{vsub}$ will be
  * the number of nodes under $\texttt{x}$.
  * Use $\texttt{makeRoot}$ for arbitrary path queries.
- * Time: $O(\log N)$
+ * Time: $\mathcal{O}(\log{N})$
  * Usage: FOR(i,1,N+1) {
  *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
  * }
- * tested with $N,M<=200000$ (0.8 sec)
  */
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
@@ -22,7 +27,7 @@ struct snode { //////// VARIABLES
   bool flip = 0; // subtree flipped or not
   int sz; // value in node, # nodes in current splay tree
   ll sub; // numero di nodi nella sua componente
-  ll vsub = 0; // nodi nel suo sottoalbero (lui escluso)
+  ll vsub = 0; //num nodi nel suo sottoalbero (lui escluso)
   ll val; // dato contenuto nel nodo
   ll sum; // somma dal nodo alla sua radice
   ll vsubSum = 0; //somma del suo sottoalbero (lui escluso)
