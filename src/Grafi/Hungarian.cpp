@@ -1,13 +1,17 @@
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/Dinic.h
+/// Verification:
+/// https://codingcompetitions.withgoogle.com/codejam/round/00000000008778ec/0000000000b158f8#problem (attempt 6)
+/// https://open.kattis.com/submissions/8830096
 // Description: Given array of (possibly negative) costs
 // to complete each of $N$ (1-indexed) jobs with each of $M$
 // workers ($N$ < $M$), finds min cost to complete all jobs
 // such that each worker is assigned to at most one job.
 // Dijkstra with potentials works in almost the same way
 // as MCMF.
-// Time: $O(N^2M)$
+// Time: $\mathcal{O}(N^2M)$ (con $N\leq 1000,M\leq 2000$ impiega 1.6 sec)
 // Matrix A is 1-based (sia sulle righe che sulle colonne)
-// riga x = lista dei costi di ciascun worker per il lavoro
-// x con $N=1000,M=2000$ impiega 1.6 sec
+//riga x= lista dei costi di ciascun worker per il lavoro x
 
 using C = ll;
 C hungarian(const V<V<C>>& a) { 
