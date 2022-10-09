@@ -1,4 +1,4 @@
-/// Source: own
+/// Source: Bortoz
 /// Verification:
 /// https://www.codechef.com/viewsolution/64779959
 vector<int> z_function(string str) { //$\mathcal{O}(N)$
