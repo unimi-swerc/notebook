@@ -1,3 +1,9 @@
+/// Source: MrBrionix
+/// Verification:
+/// https://www.hackerearth.com/submission/72603015/ (è un po modificato perchè andava aggiunto un trick)
+/// https://judge.yosupo.jp/submission/86744
+/// https://judge.yosupo.jp/submission/85907
+/// https://judge.yosupo.jp/submission/85911
 const long long mod=998244353ll, MAXN=200005, LOGN=18;
 // HLD 1-based (si supponga rt un segment
 // e ^ l'operazione di merge di due segmenti)
@@ -41,7 +47,7 @@ void dfs_hld(int nodo=0, int last=0){
   out[nodo]=cont;
 }
 
-int lca(int x,int y){
+int lca(int x,int y){ //$\mathcal{O}(\log{N})$
   
   if(prof[x]>prof[y])swap(x,y);
   
@@ -87,14 +93,14 @@ fun path_query(int u,int v,bool flag){
 }
 
 // con $N,Q \le 200000$ impiega 800 ms
-fun query(int u,int v){
+fun query(int u,int v){ //$\mathcal{O}(\log^2 N)$
   int z = lca(u,v);
   return path_query(par[z][0],u,1)^path_query(z,v,0);
 }
 
 /* subtree query
 // con $N,Q \le 500000$ impiega 961 ms
-fun query(int u){
+fun query(int u){ //$\mathcal{O}(\log{N})$
   return rt.query(in[u],out[u]-1);
 }
 */
