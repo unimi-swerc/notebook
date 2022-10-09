@@ -1,5 +1,7 @@
-friend T getFunc(sn a, int b) {
-  return a?a->func[b]:T{1,0};
+/// Source e Verification:
+/// https://judge.yosupo.jp/submission/13922
+friend T getFunc(sn a, int b) { //func[2] anzichè sum
+  return a?a->func[b]:T{1,0}; //negli attributi di snode
 }
 void prop() { // lazy prop
   if (!flip) return;
