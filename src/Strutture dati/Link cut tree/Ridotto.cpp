@@ -1,7 +1,13 @@
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Advanced/LCT.h
+/// Verification:
+/// https://codeforces.com/contest/1681/submission/158192173
+/// https://judge.yosupo.jp/submission/86789
+/// https://judge.yosupo.jp/submission/86788
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
-const int MX = 2e5+5; 
-// senza subtree update, è il doppio più veloce
+const int MX = 2e5+5; //con $N,M\leq 200000$ impiega 539 ms
+// senza subtree update, è il doppio più veloce 
 // per ulteriori info vedere link cut tree completo
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
