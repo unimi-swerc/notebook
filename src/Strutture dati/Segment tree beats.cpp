@@ -1,3 +1,7 @@
+/// Source:
+/// https://judge.yosupo.jp/submission/35587
+/// Verification:
+/// https://judge.yosupo.jp/submission/94863
 const int N = 200005;
 const long long INF = 1E16;
 long long a[N];
@@ -38,6 +42,8 @@ struct node {
 };
 // 1-based. Estremi degli intervalli inclusi: [l,r]
 // 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD
+// $\mathcal{O}(\log{(N)})$ per query/update
+// con $n,q \leq 2\cdot*10^5$ impiega 600 ms
 struct segment_tree {
 #define m (l + r) / 2
 #define lc i * 2
@@ -131,7 +137,7 @@ struct segment_tree {
       tr[i] = tr[lc] + tr[rc];
     }
   }
-
+  //ritorna la somma in [L,R]
   long long query(int l, int r, int i, int L, int R) {
     if (l > R || r < L) {
       return 0;
@@ -144,21 +150,10 @@ struct segment_tree {
   }
 } seg;
 
-int n, q, t, l, r;
-long long v;
-int main() {
-  cin >> n >> q;
-  for (int i = 1; i <= n; i++) {
-    cin >> a[i];
-  }
-  seg.build(1, n, 1);
-  while (q--) {
-    cin >> t >> l >> r; ++l; ++t;
-    if (t <= 3) {
-      cin >> v;
-      seg.update(1, n, 1, l, r, v, t);
-    } else {
-      cout << seg.query(1, n, 1, l, r) << '\n';
-    }
-  }
-}
+/*uso:
+cin >> n >> q;
+for (int i = 1; i <= n; i++) cin >> a[i];
+seg.build(1, n, 1);
+seg.update(1, n, 1, l, r, v, t);
+cout << seg.query(1, n, 1, l, r) << '\n';
+*/
