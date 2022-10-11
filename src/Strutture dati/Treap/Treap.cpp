@@ -1,5 +1,11 @@
+/// Source: Bortoz
+/// Verification:
+/// https://evaluator.hsin.hr/events/ceoi22_1mirror/tasks/SC2022CEOI11abracadabra/ (submission 10)
+/// https://codeforces.com/contest/1725/submission/171655308
+/// https://evaluator.hsin.hr/events/ceoi22_2mirror/tasks/SC2022CEOI22measures/ (submission 5)
 mt19937 rng(time(nullptr));
-
+// Time: randomized $\mathcal{O}(\log{N})$
+// per $\approx 1.2\cdot 10^6$ operazioni impiega 1.2 sec
 struct node {
     T val, mi;
     int size, rot;
@@ -38,7 +44,8 @@ node* merge(node* a, node* b) {
         return b->fix();
     }
 }
-
+//taglio subito dopo k elementi (1-based)
+//es. k=1, divido il primo elemento dagli altri
 pair<node*, node*> split(node* p, int k) {
     if (!p) return {nullptr, nullptr};
     p->fix();
