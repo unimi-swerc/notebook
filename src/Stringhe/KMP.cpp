@@ -1,3 +1,7 @@
+/// Source
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/strings/KMP.h
+/// Verification:
+/// https://www.facebook.com/codingcompetitions/hacker-cup/2022/round-1/problems/A2/my-submissions
 // pi[x] computes the length of the longest
 // prefix of s that ends at x, other than
 // s[0...x] itself (abacaba -> 0010123).
@@ -10,7 +14,7 @@ vi pi(const string& s) {
   }
   return p;
 }
-
+// Time: $\mathcal{O}(N)$
 vi match(const string& s, const string& pat) {
   vi p = pi(pat + '\0' + s), res;
   rep(i,sz(p)-sz(s),sz(p))
