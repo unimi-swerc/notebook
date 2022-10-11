@@ -1,15 +1,20 @@
-// If values are on tree edges, change {step} to add/remove 
-// the edge $(a, c)$ and remove the initial {add} call 
-// (but keep {in}) Time: $O(N \sqrt{Q})$
-
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/MoQueries.h
+/// Verification:
+/// https://www.hackerearth.com/submission/72640530/ (moTree)
+/// https://www.spoj.com/problems/DQUERY/ (mo, id: 30185129)
+// If values are on tree edges, change \texttt{{step} to add/remove 
+// the edge $(a, c)$ and remove the initial \texttt{{add} call 
+// (but keep \texttt{{in}) Time: $\mathcal{O}(N \sqrt{Q})$
 // add a[ind] (end = 0 or 1)
 void add(int ind, int end) { return; } 
 // remove a[ind]
 void del(int ind, int end) { return; } 
 // compute current answer
 int calc() { return 0; } 
-
-vi mo(vector<pii> Q) {
+// Q[i] = [l,r) query, 0-based
+//con $n \leq 3\cdot 10^4, q \leq 2\cdot 10^5$, O(1) add/del/calc impiega 0.39 sec
+vi mo(vector<pii> Q) { 
   int L = 0, R = 0, blk = 350; // $\approx N / \sqrt(Q)$
   vi s(sz(Q)), res = s;
 #define K(x) pii(x.first/blk, x.second ^ -(x.first/blk & 1))
@@ -25,9 +30,9 @@ vi mo(vector<pii> Q) {
   }
   return res;
 }
-
+// Q[i] = [l,r] query, 0-based
 vi moTree(vector<array<int,2>> Q,vector<vi>& ed,int root=0){
-  int N = sz(ed), pos[2] = {}, blk = 350; // ~N/sqrt(Q)
+  int N = sz(ed), pos[2] = {}, blk = 350; // $\approx N / \sqrt(Q)$
   vi s(sz(Q)), res = s, I(N), L(N), R(N), in(N), par(N);
   add(0, 0), in[0] = 1;
   auto dfs = [&](int x, int p, int dep, auto& f) -> void {
