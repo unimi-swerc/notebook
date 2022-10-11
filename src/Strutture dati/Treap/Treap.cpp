@@ -6,7 +6,7 @@
 /// https://www.spoj.com/problems/CERC07S/ (id: 29460126)
 mt19937 rng(time(nullptr));
 // Time: randomized $\mathcal{O}(\log{N})$
-// per $\approx 1.2\cdot 10^6$ operazioni impiega 1.2 sec
+// per $\approx 1.2\cdot 10^6$ split/merge impiega 1.2 sec
 struct node {
     T val, mi;
     int size, rot;
