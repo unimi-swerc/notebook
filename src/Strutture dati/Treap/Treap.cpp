@@ -3,6 +3,7 @@
 /// https://evaluator.hsin.hr/events/ceoi22_1mirror/tasks/SC2022CEOI11abracadabra/ (submission 10)
 /// https://codeforces.com/contest/1725/submission/171655308
 /// https://evaluator.hsin.hr/events/ceoi22_2mirror/tasks/SC2022CEOI22measures/ (submission 5)
+/// https://www.spoj.com/problems/CERC07S/ (id: 29460126)
 mt19937 rng(time(nullptr));
 // Time: randomized $\mathcal{O}(\log{N})$
 // per $\approx 1.2\cdot 10^6$ operazioni impiega 1.2 sec
