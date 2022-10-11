@@ -1,3 +1,6 @@
+/// Source: MrBrionix (partendo da quello senza laazy propagation)
+/// Verification:
+/// https://judge.yosupo.jp/submission/86871
 typedef long long T;
 mt19937 rng(time(NULL));
 constexpr long long mod = 998244353;
@@ -17,7 +20,8 @@ struct node {
     c=(a*c)%mod;
     d=(a*d+b)%mod;
   }
-
+  //push lazy e calcolo info a partire dai figli
+  //convenzione: info vere = info + lazy
   node* fix() {
     mi = val, size = 1, sum = val;
     
