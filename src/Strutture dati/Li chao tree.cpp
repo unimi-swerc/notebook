@@ -1,3 +1,7 @@
+/// Source (e verification):
+/// https://judge.yosupo.jp/submission/61173
+/// Verification:
+/// https://www.hackerearth.com/submission/72625594/
 using ll = long long;
 const ll INF = (ll)4e18;
 const ll C = (ll)1e9 + 7;
