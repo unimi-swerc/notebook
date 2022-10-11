@@ -1,5 +1,4 @@
 const int K = 26;
- 
 struct Vertex {
   int next[K];
   bool leaf = false;
