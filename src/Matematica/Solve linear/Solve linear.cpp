@@ -1,8 +1,14 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/SolveLinear.h
+/// Verification:
+/// https://open.kattis.com/submissions/8830663
 /* Solves $Ax = b$. If there are multiple solutions, 
  * an arbitrary one is returned.
  * Returns rank, or -1 if no solutions. 
  * Data in A and b is lost.
- * Time: $O(n^2 m)$
+ * Time: $\mathcal{O}(n^2 m)$
+ * con $n,m \leq 100$, t ignoto impiega 0.03 sec
+ * con una precisione di almeno $10^{-3}$
  */
 typedef vector<double> vd;
 const double eps = 1e-12;
