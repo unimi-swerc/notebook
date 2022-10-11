@@ -1,8 +1,12 @@
+/// Source:
+/// https://codeforces.com/blog/entry/54150
+/// Verification:
+/// https://dmoj.ca/submission/4720699
 /*  Prefix sum of multiplicative functions :
-    p_f : the prefix sum of f (x) (1 <= x <= th).
-    p_g : the prefix sum of g (x) (0 <= x <= N).
-    p_c : the prefix sum of f * g (x) (0 <= x <= N).
-    th : the thereshold, generally should be n ^ (2 / 3).
+    $p_f$ : the prefix sum of $f(x)$ ($1 \leq x \leq th$).
+    $p_g$ : the prefix sum of $g(x)$ ($0 \leq x \leq N$).
+    $p_c$ : the prefix sum of $f*g(x)$ ($0 \leq x \leq N$).
+    th : the thereshold, generally should be $n^{\frac{2}{3}}$.
 */
 struct prefix_mul {
   typedef long long (*func) (__int128);
@@ -23,11 +27,11 @@ struct prefix_mul {
       ans %= mod;
     }
     ans = p_c (x) - ans; 
-    ans = ans / inv; //use mutiplicative inverse
+    ans=ans/inv;//if inv!=1, use multiplicative inverse
     ans %= mod;
     return mem[x] = ans;
   }
-
+  // Time: $\mathcal{O}(n^{\frac{2}{3}})$
   long long solve (long long n, long long th) {
     if (n <= 0) return 0;
     prefix_mul::n = n; prefix_mul::th = th;
