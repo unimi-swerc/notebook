@@ -1,3 +1,7 @@
+/// Source: Bortoz
+/// Verification:
+/// https://training.olinfo.it/#/task/vasi2/submissions (id: 825432)
+// $\mathcal{O}(\log{N})$ query/update, 0-based
 class CompressedTree {
  private:
   struct Node {
@@ -118,6 +122,7 @@ class CompressedTree {
   }
  public:
   CompressedTree() { root = end = new Node(); }
+  //gli elementi con indice >=pos scalano a dx
   void insert(ll val, size_t pos) {
     insert(val, val + 1, pos);
   }
