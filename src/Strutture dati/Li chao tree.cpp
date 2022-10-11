@@ -14,13 +14,12 @@ struct Line {
     return k * x + b;
   }
 };
-
 /*lichao tree per il minimo. Utilizzo:
   int root = -1; //creo un nuovo lichao tree
   //update: aggiungo k*x+b in [l,r) ($\mathcal{O}(\log{n})$)
   root = insertLine(root, -C, C, l, r, Line(k, b));
-  //query: trovo il min in x (se non c'è ritorna INF, $\mathcal{O}(\log{n})$)
-  ll res = getMinPoint(root, -C, C, x); 
+  //query: trovo il min in x (se non c'è ritorna INF)
+  ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$)
   con $n,q \leq 2\cdot 10^5$ impiega 613 ms
 */
 struct Node {
