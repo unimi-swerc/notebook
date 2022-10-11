@@ -1,7 +1,12 @@
+/// Source: MrBrionix (ricavato dalla versione senza modulo)
+/// Verification:
+/// https://dmoj.ca/submission/4727287
+/// https://judge.yosupo.jp/submission/97080
+/// https://dmoj.ca/submission/4716163
 // come solve linear ma con il modulo
 typedef vector<ll> vd;
 vi col; //globale per ricavare il sottospazio
-
+// con $n,m\leq 500$ impiega 302 ms
 int solveLinear(vector<vd>& A, vd& b, vd& x) {
   int n = sz(A), m = sz(x), rank = 0, br, bc;
   if (n) assert(sz(A[0]) == m);
@@ -38,14 +43,14 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
   for (int i = rank; i--;) {
     b[i] *= inv(A[i][i]);//inverso
     b[i] %= mod;
-    rep(z,i+1,m){ //per ricavare il sottospazio
+    rep(z,i+1,m){ //*per ricavare il sottospazio
       A[i][z] *= inv(A[i][i]);//inverso
       A[i][z] %= mod;
     }
     
     x[col[i]] = b[i];
     rep(j,0,i) {
-      rep(z,i+1,m){ //per ricavare il sottospazio
+      rep(z,i+1,m){ //*per ricavare il sottospazio
         A[j][z] -= A[j][i] * A[i][z];
         A[j][z] %= mod;
       }
@@ -55,7 +60,9 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
   }
   return rank; // (multiple solutions if rank < m)
 }
-/*per ottenere il sottospazio vettoriale:
+/* se non serve il sottospazio eliminare
+   i 2 for segnati sopra (*)
+   per ottenere il sottospazio vettoriale:
   auto cop = p;
   auto co = tmp;
   int xx=solveLinear(p,tmp,ans);
