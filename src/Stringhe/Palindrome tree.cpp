@@ -1,5 +1,11 @@
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/strings%20(14)/Heavy/PalTree.h
+/// Verification:
+/// https://www.spoj.com/problems/MSUBSTR/ (id: 29983707)
+/// https://www.spoj.com/problems/NUMOFPAL/ (id: 29983667)
+/// https://acm.timus.ru/problem.aspx?space=1&num=2058 (id: 9970737)
 constexpr long long MOD = 1e9+7ll; //inf
-struct PalTree {
+struct PalTree{//Time: $O(N\sum)$ for addChar,$O(N\log N)$ for updAns
   static const int ASZ = 26;
   struct node {
     array<int,ASZ> to = array<int,ASZ>();
@@ -8,7 +14,7 @@ struct PalTree {
     array<int,2> seriesAns;
     node(int _len, int _link) : len(_len), link(_link) {}
   };
-  string s = "@"; V<array<int,2>> ans = {{0,MOD}};
+  string s="@";V<array<int,2>> ans={{0,MOD}};//acmtimus ans
   V<node> d = {{0,1},{-1,0}}; // dummy pals of len 0,-1
   int last = 1;
   int getLink(int v) {
