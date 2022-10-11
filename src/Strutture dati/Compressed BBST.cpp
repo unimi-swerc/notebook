@@ -122,7 +122,7 @@ class CompressedTree {
   }
  public:
   CompressedTree() { root = end = new Node(); }
-  //gli elementi con indice >=pos scalano a dx
+  //gli elementi con indice >=pos scalano a dx (0-based)
   void insert(ll val, size_t pos) {
     insert(val, val + 1, pos);
   }
