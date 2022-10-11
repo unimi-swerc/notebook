@@ -1,3 +1,7 @@
+///Source:
+///https://github.com/bqi343/USACO/blob/master/Implementations/content/number-theory%20(11.1)/Primality/MillerRabin.h
+///Verification:
+///https://dmoj.ca/submission/4706327 (solo prime())
 ul modMul(ul a, ul b, const ul mod) {
   ll ret = a*b-mod*(ul)((db)a*b/mod);
   return ret+((ret<0)-(ret>=(ll)mod))*mod; }
@@ -6,7 +10,7 @@ ul modPow(ul a, ul b, const ul mod) {
   ul res = modPow(a,b/2,mod); res = modMul(res,res,mod);
   return b&1 ? modMul(res,a,mod) : res;
 }
-
+// Deterministic primality test (up to $2^{64}$)
 bool prime(ul n) { // not ll!
   if (n < 2 || n % 6 % 4 != 1) return n-2 < 2;
   ul A[]={2,325,9375,28178,450775,9780504,1795265022},
@@ -20,7 +24,7 @@ bool prime(ul n) { // not ll!
   }
   return 1;
 }
-
+// Time: $\mathcal{O}(N^{1/4})$, less for numbers with small factors
 ul pollard(ul n) { // return some nontrivial factor of n
   auto f = [n](ul x) { return modMul(x, x, n) + 1; };
   ul x = 0, y = 0, t = 30, prd = 2, i = 1, q;
