@@ -1,12 +1,17 @@
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/DFS/EulerPath%20(12.2).h
+/// Verification:
+/// https://open.kattis.com/submissions/8825463 (archi diretti)
+/// https://toph.co/s/889639 (archi non diretti)
 template<bool directed> struct Euler {
     int N; V<vpi> adj; V<vpi::iterator> its; vb used;
-    void init(int _N) { N = _N; adj.rsz(N); }
-    void ae(int a, int b) {
+    void init(int _N) { N = _N; adj.rsz(N); } //0-based
+    void ae(int a, int b) {//funziona anche con archi doppi
         int M = sz(used); used.pb(0); 
         adj[a].eb(b,M); if (!directed) adj[b].eb(a,M); }
-    vpi solve(int src = 0) { 
+    vpi solve(int src = 0) {  //Time: $\mathcal{O}(N+M)$
         its.rsz(N); F0R(i,N) its[i] = begin(adj[i]);
-        vpi ans, s{{src,-1}};//{{vert,prev vert},edge label}
+        vpi ans, s{{src,-1}};//{vertex,edge label to vertex}
         int lst = -1; // ans generated in reverse order
         while (sz(s)) { 
             int x = s.bk.f; auto& it=its[x], en=end(adj[x]);
