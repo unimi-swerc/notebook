@@ -1,3 +1,4 @@
+/// Source: Dariost (Booklet swerc 2019-2020 LaStatale Blue)
 using u32 = uint32_t;
 #define NSAT (512-1)
 /* 0-based, esempio d'uso:
