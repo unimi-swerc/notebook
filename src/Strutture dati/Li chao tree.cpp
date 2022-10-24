@@ -2,6 +2,7 @@
 /// https://judge.yosupo.jp/submission/61173
 /// Verification:
 /// https://www.hackerearth.com/submission/72625594/
+/// https://dmoj.ca/submission/4967284
 const ll INF = (ll)4e18;
 const ll C = (ll)1e9 + 7;
 
@@ -9,9 +10,9 @@ struct Line {
   ll k, b;
   Line() : k(), b(INF) {}
   Line(ll _k, ll _b) : k(_k), b(_b) {}
-
+  //se non è una linea modificare il commento nell'insert
   ll eval(const ll &x) const {
-    return k * x + b;
+    return k * x + b; //e modificare anche qua
   }
 };
 /*lichao tree per il minimo. Utilizzo:
@@ -50,7 +51,7 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
       swap(L, tree[v].L);
     if (L.eval(l) >= tree[v].L.eval(l) && 
       L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
-    if (L.k < tree[v].L.k)
+    if (L.k < tree[v].L.k) // $\lim_{x\to -\infty} L < \lim_{x\to -\infty} \mathit{tree[v]}.L$
       tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
     else
       tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
