@@ -1,10 +1,14 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/MatrixInverse-mod.h
+/// Verification:
+/// https://judge.yosupo.jp/submission/109704
 /* Invert matrix $A$ modulo a prime. Returns rank; result
  * is stored in $A$ unless singular (rank < n).
  * For prime powers, repeatedly set
  * $A^{-1} = A^{-1} (2I - AA^{-1}) (\text{mod } p^k)$
  * where $A^{-1}$ starts as the inverse of $A \text{mod } p$,
  * and $k$ is doubled in each step.
- * Time: $O(n^3)$
+ * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 253 ms)
  */
 const ll mod = 998244353;//1000000007; // faster if const
 ll modpow(ll b, ll e) {
