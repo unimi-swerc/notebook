@@ -2,7 +2,8 @@
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/DFS/EulerPath%20(12.2).h
 /// Verification:
 /// https://open.kattis.com/submissions/8825463 (archi diretti)
-/// https://toph.co/s/889639 (archi non diretti)
+/// https://toph.co/s/889639 (archi non diretti, doppi archi)
+/// https://dmoj.ca/submission/4966969 (archi non diretti, grafo quasi completo)
 template<bool directed> struct Euler {
     int N; V<vpi> adj; V<vpi::iterator> its; vb used;
     void init(int _N) { N = _N; adj.rsz(N); } //0-based
