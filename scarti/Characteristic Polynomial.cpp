@@ -1,3 +1,7 @@
+/// Source:
+/// https://judge.yosupo.jp/submission/67748 (modificato da MrBrionix sostituendo gli array con vector>
+/// Verification:
+/// https://judge.yosupo.jp/submission/104549
 //a è 1-based (f invece va da 0 a n)
 using ll = long long;
 constexpr int N=105, p=1e9+7ll;
