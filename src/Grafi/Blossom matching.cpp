@@ -1,3 +1,7 @@
+/// Source: Dariost (booklet swerc 2019-2020 LaStatale Blue)
+/// https://github.com/dariost/swerc/blob/master/src/Graphs/edmonds_blossom.hpp
+/// Verification:
+/// https://judge.yosupo.jp/submission/86633
 const int maxn = 505; //with $N=500$ run in 8 ms
  
 struct EdmondsStruct {
