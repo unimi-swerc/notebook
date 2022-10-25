@@ -2,7 +2,7 @@
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Matching/WeightedMatch.h (l'ho sistemato per non farlo andare in overflow)
 /// Verification:
 /// https://judge.yosupo.jp/submission/91592
-/// https://training.olinfo.it/#/task/ois_marathon2 (id: da cercare, ora cms non funziona)
+/// https://training.olinfo.it/#/task/ois_marathon2 (id: 736626)
 //1-based, tested with $N\leq 500,M\leq \frac{N(N-1)}{2},W \leq 10^6$ (394 ms)
 template<int SZ> struct WeightedMatch { //Time: $\mathcal{O}(N^3)$?
   struct edge { int u,v;long long w; }; edge g[SZ*2][SZ*2];
