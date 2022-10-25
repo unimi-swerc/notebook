@@ -1,9 +1,9 @@
-/// Source: Dariost (booklet swerc 2019-2020 LaStatale Blue)
+/// Source: Dariost (booklet SWERC 2019-2020 LaStatale Blue)
 /// https://github.com/dariost/swerc/blob/master/src/Graphs/edmonds_blossom.hpp
 /// Verification:
 /// https://judge.yosupo.jp/submission/86633
-const int maxn = 505; //with $N=500$ run in 8 ms
- 
+const int maxn = 505; //with $N\leq 500$ run in 8 ms
+// Complexity: $\mathcal{O}(VE)$?
 struct EdmondsStruct {
   int vis[maxn], par[maxn], orig[maxn];
   int match[maxn], aux[maxn], t, n;
