@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/combinatorial%20(11.2)/NimProduct.h
+/// Verification:
+/// https://judge.yosupo.jp/submission/13893
 /* Product of nimbers is associative, 
  * commutative, and distributive over addition (xor). 
  * Forms finite field of size $2^{2^k}$.
@@ -38,7 +42,7 @@ struct Precalc {
   }
 };
 const Precalc P;
-
+//tested with $T\leq 10^6, 0\leq A,B \le 2^{64}$ (543 ms)
 struct nb { // nimber
   ul x; nb() { x = 0; }
   nb(ul _x): x(_x) {}
