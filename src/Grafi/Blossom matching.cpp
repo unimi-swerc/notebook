@@ -9,8 +9,7 @@ struct EdmondsStruct {
   int match[maxn], aux[maxn], t, n;
   vector <int> conn[maxn];
   queue <int> q;
-  // 1 based
-  void add(int u, int v) {
+  void add(int u, int v) { // 1 based
     conn[u].push_back(v), conn[v].push_back(u);
   }
   // total number of nodes
@@ -69,7 +68,7 @@ struct EdmondsStruct {
     }
     return 0;
   }
-  int max_match() {
+  int max_match() { //match[i]=0 -> not matched
     int ans = 0;
     vector <int> V(n - 1);
     iota(V.begin(), V.end(), 1);
