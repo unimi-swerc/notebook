@@ -1,6 +1,7 @@
 /// Source: Bortoz
 /// Verification:
 /// https://codeforces.com/contest/1728/submission/171410592
+/// https://open.kattis.com/submissions/8824728 (come subroutine di CRT)
 // Soluzione: $\left( x + k b / \gcd (a,b), \ y - k a / \gcd (a,b) \right)$
 // restituisce $\left( x, \ y, \ \gcd(a,b) \right)$
 tuple<ll, ll, ll> xgcd(ll a, ll b) {
