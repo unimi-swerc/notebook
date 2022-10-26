@@ -1,10 +1,14 @@
+/// Source: Dariost (booklet SWERC 2019-2020 LaStatale Blue)
+/// https://github.com/dariost/swerc/blob/master/src/Graphs/tarjan_artpoints_bridges.hpp
+/// Verification:
+/// https://www.spoj.com/problems/EC_P/ (id: 29457276, bridges)
+/// https://www.spoj.com/problems/SUBMERGE/ (id: 29457270, articulation points)
 using wedge_t = pair<size_t, size_t>;
-// Returns (articulation points, bridges)
+// Returns (articulation points, bridges) ($\mathcal{O}(N+M)$)
 pair<vector<size_t>, vector<wedge_t>>
 artpoints_bridges(vector<vector<size_t>>& adj) {
   pair<vector<size_t>, vector<wedge_t>> ans;
   vector<size_t> parent(adj.size());
-
   vector<size_t> order(adj.size()), low(adj.size());
   size_t dfs_count, dfs_source, source_children;
 
@@ -50,6 +54,5 @@ artpoints_bridges(vector<vector<size_t>>& adj) {
       }
     }
   }
-
   return ans;
 }
