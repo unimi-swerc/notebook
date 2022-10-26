@@ -1,3 +1,9 @@
+/// Source:
+/// https://cp-algorithms.com/string/aho_corasick.html#construction-of-an-automaton (con aggiunte di MrBrionix)
+/// Verification:
+/// https://codeforces.com/contest/1437/submission/99256058
+/// https://codeforces.com/contest/1252/submission/99909522
+/// https://codeforces.com/gym/101741/submission/142825783
 const int K = 26;
 struct Vertex {
   int next[K];
@@ -16,7 +22,7 @@ struct Vertex {
 };
  
 vector<Vertex> t(1);
- 
+//Total time:$\mathcal{O}(mk)$ (k=alphabet,m=total strings lengths)
 void add_string(string const& s, int num) {
   int v = 0;
   for (char ch : s) {
