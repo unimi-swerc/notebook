@@ -1,3 +1,8 @@
+/// Source:
+/// https://codeforces.com/blog/entry/60737
+/// https://codeforces.com/blog/entry/61587
+/// Verification:
+/// https://codeforces.com/contest/1720/submission/169527899
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
 struct custom_hash {
