@@ -2,6 +2,7 @@
 ///https://github.com/bqi343/USACO/blob/master/Implementations/content/number-theory%20(11.1)/Primality/MillerRabin.h
 ///Verification:
 ///https://dmoj.ca/submission/4706327 (solo prime())
+///https://www.spoj.com/problems/FACT0/ (id: 29454595, testa anche factor_rec())
 ul modMul(ul a, ul b, const ul mod) {
   ll ret = a*b-mod*(ul)((db)a*b/mod);
   return ret+((ret<0)-(ret>=(ll)mod))*mod; }
