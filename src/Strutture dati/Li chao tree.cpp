@@ -1,8 +1,9 @@
 /// Source (e verification):
-/// https://judge.yosupo.jp/submission/61173
+/// https://judge.yosupo.jp/submission/61173 (poi MrBrionix ha modificato un pezzo per farlo funzionare con funzioni generiche che si intersecano al più una volta)
 /// Verification:
-/// https://www.hackerearth.com/submission/72625594/
-/// https://dmoj.ca/submission/4967284
+/// https://judge.yosupo.jp/submission/109983
+/// https://www.hackerearth.com/submission/76633561/
+/// https://dmoj.ca/submission/4972352
 const ll INF = (ll)4e18;
 const ll C = (ll)1e9 + 7;
 
@@ -21,7 +22,7 @@ struct Line {
   root = insertLine(root, -C, C, l, r, Line(k, b));
   //query: trovo il min in x (se non c'è ritorna INF)
   ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$)
-  con $n,q \leq 2\cdot 10^5$ impiega 613 ms
+  con $n,q \leq 2\cdot 10^5$ impiega 651 ms
 */
 struct Node {
   int l, r;
@@ -51,7 +52,7 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
       swap(L, tree[v].L);
     if (L.eval(l) >= tree[v].L.eval(l) && 
       L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
-    if (L.k < tree[v].L.k) // $\lim_{x\to -\infty} L < \lim_{x\to -\infty} \mathit{tree[v]}.L$
+    if (L.eval(r - 1) < tree[v].L.eval(r - 1))
       tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
     else
       tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
