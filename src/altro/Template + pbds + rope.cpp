@@ -1,3 +1,8 @@
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/contest/TemplateShort.cpp
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/contest/template.cpp
+/// https://codeforces.com/blog/entry/11080
+/// https://www.geeksforgeeks.org/stl-ropes-in-c/
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
