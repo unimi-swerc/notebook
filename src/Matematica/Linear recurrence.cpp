@@ -1,15 +1,18 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/LinearRecurrence.h
+/// Verification:
+/// https://www.spoj.com/problems/FIBPWSUM/ (solo con N piccolo)
 /* Description: Generates the k'th term of an n-order
  * linear recurrence S[i] = sum(S[i-j-1] * tr[j]),
  * given S[0...n-1] and tr[0...n-1].
  * Faster than matrix multiplication.
  * Useful together with Berlekamp--Massey.
  * Usage: linearRec({0, 1}, {1, 1}, k) // Fibonacci
- * Time: $O(n^2 \log k)$
+ * Time: $\mathcal{O}(n^2 \log k)$
  */
 typedef vector<ll> Poly;
 ll linearRec(Poly S, Poly tr, ll k) {
   int n = sz(tr);
-
   auto combine = [&](Poly a, Poly b) {
     Poly res(n * 2 + 1);
     rep(i,0,n+1) rep(j,0,n+1)
@@ -22,7 +25,6 @@ ll linearRec(Poly S, Poly tr, ll k) {
 
   Poly pol(n + 1), e(pol);
   pol[0] = e[1] = 1;
-
   for (++k; k; k /= 2) {
     if (k % 2) pol = combine(pol, e);
     e = combine(e, e);
