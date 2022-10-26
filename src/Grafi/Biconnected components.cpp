@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/BiconnectedComponents.h
+/// Verification:
+/// https://judge.yosupo.jp/submission/110010
 // Finds all biconnected components in an undirected graph,
 // and runs a callback for the edges in each. In a
 // biconnected component there are at least two distinct
@@ -5,13 +9,13 @@
 // several components. An edge which is not in a component
 // is a bridge, i.e., not part of any cycle.
 // Usage:
-//  int eid = 0; ed.resize(N);
+//  int eid = 0; ed.resize(N); 0-based
 //  for each edge (a,b) {
 //    ed[a].emplace_back(b, eid);
 //    ed[b].emplace_back(a, eid++); }
 //  bicomps([\&](const vi\& edgelist) {...});
-// Time: $O(E + V)$
-
+// Time: $\mathcal{O}(E + V)$ 
+// tested with $N,M \leq 500000$ (728 ms)
 vi num, st;
 vector<vector<pii>> ed;
 int Time;
@@ -34,7 +38,7 @@ int dfs(int at, int par, F& f) {
         st.resize(si);
       }
       else if (up < me) st.push_back(e);
-      else { /* e is a bridge */ }
+      else{/*e is a bridge,call f(vi(1,e)) if you want*/}
     }
   }
   return top;
