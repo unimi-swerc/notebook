@@ -1,8 +1,8 @@
 /// Source:
 /// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/FastSubsetTransform.h
 /// Verification:
-/// https://judge.yosupo.jp/submission/86705
-/// https://judge.yosupo.jp/submission/86706
+/// https://judge.yosupo.jp/submission/86705 (and)
+/// https://judge.yosupo.jp/submission/86706 (xor)
 // The size of a must be a power of two.
 // Time: $\mathcal{O}(N \log N)$ (con $N\leq 2^{20}$ impiega 0.75 sec)
 typedef pair<__int128, __int128> pii;
