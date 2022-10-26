@@ -1,15 +1,19 @@
+/// Source:
+/// https://judge.yosupo.jp/submission/64812
+/// Verification:
+/// https://judge.yosupo.jp/submission/86644
 #define X first
 #define Y second
 typedef pair<int, int> ipair;
 ipair conj(int v1, bool neg1, int v2, bool neg2) { 
   return {v1 * 2 + neg1, v2 * 2 + neg2}; 
 }
-
+// Time: $\mathcal{O}(N+M)$
 const int N = 1000111;
 //0-based, X = 2*i, not(X) = 2*i+1
 //ritorna un vector vuoto se non c'è soluzione
 //altrimenti ritorna un vector V tale che V[i] = true
-//se la variabile i deve valere true
+//se la variabile i deve valere true (V.size()=N)
 //tested with $N \text{(variables)}, M \text{(clauses)} \le 500000$ (0.7 sec)
 vector<char> twoSat(int n, vector<ipair> const& cc) {
   n *= 2;
