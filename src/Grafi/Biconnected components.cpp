@@ -9,13 +9,13 @@
 // several components. An edge which is not in a component
 // is a bridge, i.e., not part of any cycle.
 // Usage:
-//  int eid = 0; ed.resize(N); 0-based
+//  int eid = 0; ed.resize(N);
 //  for each edge (a,b) {
 //    ed[a].emplace_back(b, eid);
 //    ed[b].emplace_back(a, eid++); }
-//  bicomps([\&](const vi\& edgelist) {...});
+//  bicomps([&](const vi& edgelist) {...});
 // Time: $\mathcal{O}(E + V)$ 
-// tested with $N,M \leq 500000$ (728 ms)
+// tested with $N,M \leq 500000$ (728 ms), 0-based
 // it works also with multiple edges (but no self-loops)
 vi num, st;
 vector<vector<pii>> ed;
@@ -39,7 +39,8 @@ int dfs(int at, int par, F& f) {
         st.resize(si);
       }
       else if (up < me) st.push_back(e);
-      else{/*e is a bridge,call f(vi(1,e)) if you want*/}
+      else{/*e is a bridge,call f(vi(1,e)) 
+            for obtaining 2-vertex components*/}
     }
   }
   return top;
@@ -48,4 +49,4 @@ template<class F>
 void bicomps(F f) {
   num.assign(sz(ed), 0);
   rep(i,0,sz(ed)) if (!num[i]) dfs(i, -1, f);
-}
+} //don't forget single-vertex components (if needed)
