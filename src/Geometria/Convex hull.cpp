@@ -1,3 +1,6 @@
+/// Source: Bortoz
+/// Verification:
+/// https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=6958898#1
 vector<pt> convexHullHalf(vector<pt>& v) {
   vector<pt> st;
   for (pt p: v) {
@@ -10,10 +13,11 @@ vector<pt> convexHullHalf(vector<pt>& v) {
   }
   return st;
 }
-vector<pt> convexHull(vector<pt> v) {
+//return clockwise Hull starting from lefmost point
+vector<pt> convexHull(vector<pt> v) { //$\mathcal{O}(n\log{n})$
   sort(v.begin(), v.end(), [](pt a, pt b) {
     return make_pair(a.x, a.y) < make_pair(b.x, b.y);
-  });
+  }); //in case of tie start from the lowest point
   auto up = convexHullHalf(v);
   reverse(v.begin(), v.end());
   auto down = convexHullHalf(v);
