@@ -1,5 +1,10 @@
+/// Source: Bortoz (suffix array)
+/// https://cp-algorithms.com/string/suffix-array.html#on-log-n-approach (lcp array) 
+/// Verification:
+/// https://oj.uz/submission/648808
 int sa[MAXN], rnk[2*MAXN], lcp[MAXN], tmp[MAXN];
-void suffix_array(int N, const string& S) {
+// build suffix array of $S_0,\cdots,S_{N-1}$
+void suffix_array(int N, const string& S){//$\mathcal{O}(N\log^2N)$
   //se usi suffix_array() più di una volta azzera rnk qua
   for (int i = 0; i < N; i++) {
     sa[i] = i, rnk[i] = S[i];
@@ -17,7 +22,7 @@ void suffix_array(int N, const string& S) {
     if (rnk[sa[N - 1]] == N) break;
   }
 }
-void lcp_array(int N, const string& S) {
+void lcp_array(int N, const string& S) { //$\mathcal{O}(N)$
   for (int i = 0, k = 0; i < N; i++) {
     int j = sa[rnk[i]];
     while (i+k < N && j+k < N && S[i+k] == S[j+k]) k++;
