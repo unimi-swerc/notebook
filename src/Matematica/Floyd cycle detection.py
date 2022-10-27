@@ -1,4 +1,4 @@
-def floyd(f, x0):
+def floyd(f, x0): #Source: wikipedia
   #Main phase of algorithm: finding a repetition x_i = x_2i
   tortoise = f(x0) #f(x0) is the element/node next to x0
   hare = f(f(x0))
