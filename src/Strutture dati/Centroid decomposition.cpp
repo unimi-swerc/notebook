@@ -1,3 +1,7 @@
+/// Source:
+/// https://usaco.guide/plat/centroid?lang=cpp
+/// Verification:
+/// https://codeforces.com/contest/342/submission/154195909
 template<typename T> bool ckmin(T& a, const T& b)
 {return b<a?a=b,1:0;}
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
@@ -10,7 +14,6 @@ struct info
     int n,b,d;
 };
 std::vector<info> g[MN];
-
 int dfs(int n, int p=0)
 {
   s[n]=1;
@@ -49,7 +52,7 @@ void centroid(int n=1)
     if(!r[x])
       centroid(x);
 }
-
+// tested with $N,M \leq 10^5$ (639 ms)
 int main() {
   scanf("%d%d", &N, &M);
   for(int i=0,u,v;i+1<N;++i) {
