@@ -1,5 +1,8 @@
-int least_rotation(string S) {
-  S += S;
+/// Source: Bortoz
+/// Verification:
+/// https://cses.fi/problemset/view/1110/
+int least_rotation(string S) { //$\mathcal{O}(n)$
+  S+=S;//tested with $n\leq 10^6$ (0.10 sec)
   vector<int> F(S.size(), -1);
   int k=0;
   for (int j=1; j<S.size(); j++) {
