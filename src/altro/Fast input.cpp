@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/various/FastInput.h
+/// Verification:
+/// davvero serve?
 /* Read an integer from stdin. Usage requires your
  * program to pipe in input from file.
  * Usage: ./a.out < input.txt
