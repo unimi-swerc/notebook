@@ -15,7 +15,6 @@ struct Poly {
     a.pop_back();
   }
 };
-
 /* Finds the real roots to a polynomial.
  * Usage: polyRoots({{2,-3,1}},-1e9,1e9) solve x^2-3x+2=0
  * Time: $O(n^2 \log(1/\epsilon))$
@@ -43,7 +42,6 @@ vector<double> polyRoots(Poly p,double xmin,double xmax){
   }
   return ret;
 }
-
 /* Given $n$ points (x[i], y[i]), computes 
  * an n-1-degree polynomial $p$ that
  * passes through them: $p(x) = a[0]*x^0 + \ldots + a[n-1]*x^{n-1}$
