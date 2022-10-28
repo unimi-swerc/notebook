@@ -5,7 +5,7 @@
 /// https://www.spoj.com/problems/NUMOFPAL/ (id: 29983667)
 /// https://acm.timus.ru/problem.aspx?space=1&num=2058 (id: 9970737)
 constexpr long long MOD = 1e9+7ll; //inf
-struct PalTree{//Time:$O(N\Sigma)$ for addChar,$O(N\log{N})$ for updAns
+struct PalTree{//Time:$O(N\Sigma)$ 4 addChar,$O(N\log{N})$ 4 updAns
   static const int ASZ = 26;
   struct node {
     array<int,ASZ> to = array<int,ASZ>();
