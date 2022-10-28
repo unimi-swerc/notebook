@@ -44,6 +44,6 @@ template<int SZ> struct Dominator { //0-based
     FOR(i,2,co+1) {
       if (dom[i] != sdom[i]) dom[i] = dom[dom[i]];
       ans[rlabel[dom[i]]].pb(rlabel[i]);
-    }//ans[i]=children of i in the directed tree rooted in root
+    }//ans[i]=children of i in the tree rooted in root
   }
 };
