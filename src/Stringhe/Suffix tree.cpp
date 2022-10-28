@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/strings/SuffixTree.h
+/// Verification:
+/// https://www.spoj.com/problems/LCS/ (id: 30319688)
 /* Ukkonen's algorithm for online suffix tree construction.
  *  Each node contains indices [l, r) into the string, and 
  *  a list of child nodes. Suffixes are given by traversals 
@@ -5,10 +9,10 @@
  *  (has l = -1, r = 0), non-existent children are -1.
  *  To get a complete tree, append a dummy symbol -- 
  *  otherwise it may contain an incomplete path (still 
- *  useful for substring matching, though). Time: $O(26N)$
+ *  useful for substring matching, though). Time: $\mathcal{O}(26N)$
  */
 struct SuffixTree {
-  enum { N = 200010, ALPHA = 26 }; // N ~ 2*maxlen+10
+  enum { N = 200010, ALPHA = 26 }; // $N \approx 2\cdot\text{maxlen}+10$
   int toi(char c) { return c - 'a'; }
   string a; // v = cur node, q = cur position
   int t[N][ALPHA],l[N],r[N],p[N],s[N],v=0,q=0,m=2;
@@ -29,7 +33,6 @@ struct SuffixTree {
       q=r[v]-(q-r[m]);  m+=2;  goto suff;
     }
   }
-
   SuffixTree(string a) : a(a) {
     fill(r,r+N,sz(a));
     memset(s, 0, sizeof s);
@@ -40,7 +43,7 @@ struct SuffixTree {
   }
 
   // example: find longest common substring (uses ALPHA=28)
-  pii best;
+  pii best; //tested with $N,M\leq 250000$ (0.21 sec)
   int lcs(int node, int i1, int i2, int olen) {
     if (l[node] <= i1 && i1 < r[node]) return 1;
     if (l[node] <= i2 && i2 < r[node]) return 2;
@@ -54,6 +57,6 @@ struct SuffixTree {
   static pii LCS(string s, string t) {
     SuffixTree st(s + (char)('z'+1) + t + (char)('z'+2));
     st.lcs(0, sz(s), sz(s) + 1 + sz(t), 0);
-    return st.best;
+    return st.best; //{length,start index of the lcs in S}
   }
 };
