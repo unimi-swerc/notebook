@@ -1,5 +1,5 @@
 /// Source:
-/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/MatrixInverse.h
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/Determinant.h
 /// Verification:
 /// boh non esiste nulla per testarlo online
 // uguale a Determinant mod ma senza modulo
