@@ -2,7 +2,7 @@
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/MCMF.h
 /// Verification:
 /// https://open.kattis.com/submissions/9740395
-/*Minimum-cost maximum flow, assumes no negative cycles. It is
+/*Minimum-cost maximum flow, assumes no negative cycles. It's
 *possible to choose negative edge costs such that the first 
 *run of Dijkstra is slow, but this hasn't been an issue 
 * Time: Ignoring first run of Dijkstra, $\mathcal{O}(FM\log M)$ 
