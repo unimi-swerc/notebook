@@ -1,13 +1,12 @@
-/// Source: https://tanujkhattar.wordpress.com/2016/01/11/dominator-tree-of-a-directed-graph/
-/// Verification: 
-/// https://codeforces.com/gym/100513/problem/L
-/// https://open.kattis.com/problems/skiresort
-/* Assuming that all nodes are 
- * reachable from $root,$ $a$ dominates $b$ iff every path from 
- * $root$ to $b$ passes through $a.$
- * Time: $O(M\log N)$
- */
-template<int SZ> struct Dominator {
+/// Source:
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Advanced/DominatorTree.h
+/// Verification:
+/// https://judge.yosupo.jp/submission/110351
+/*Assuming that all nodes are reachable from $root,$ $a$
+*dominates $b$ iff every path from $root$ to $b$ passes through
+*$a.$ Time:$\mathcal{O}(M\log N)$, tested with $N,M\leq 200000$ (153 ms)*/
+#define ROF(i,a,b) for (int i = (b)-1; i >= (a); --i)
+template<int SZ> struct Dominator { //0-based
   vi adj[SZ], ans[SZ]; //input edges, dominator tree edges
   vi radj[SZ], child[SZ], sdomChild[SZ];
   int label[SZ], rlabel[SZ], sdom[SZ], dom[SZ], co = 0;
@@ -45,6 +44,6 @@ template<int SZ> struct Dominator {
     FOR(i,2,co+1) {
       if (dom[i] != sdom[i]) dom[i] = dom[dom[i]];
       ans[rlabel[dom[i]]].pb(rlabel[i]);
-    }
+    }//ans[i]=children of i in the directed tree rooted in root
   }
 };
