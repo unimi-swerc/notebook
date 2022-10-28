@@ -74,5 +74,5 @@ vector<int> multiply(vector<int> &a, vector<int> &b) {
   for (int i = 0; i < need; i++) {
     res[i] = real(fa[i]) + 0.5;
   }
-  return res;
+  return res; //be careful with int overflow
 }
