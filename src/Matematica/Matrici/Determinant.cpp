@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/MatrixInverse.h
+/// Verification:
+/// boh non esiste nulla per testarlo online
 // uguale a Determinant mod ma senza modulo
 double det(vector<vector<double>>& a) {
   int n = sz(a); double res = 1;
