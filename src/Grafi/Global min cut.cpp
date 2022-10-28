@@ -7,7 +7,7 @@
  * tested with $V \leq 1400$ (12.22 sec)*/
 pair<int, vi> globalMinCut(vector<vi> mat) { //0-based
   pair<int, vi> best = {INT_MAX, {}};
-  int n = sz(mat); //mat[i][j]=0 means that there is no arc (i->j)
+  int n = sz(mat);//mat[i][j]=0 means there is no arc (i->j)
   vector<vi> co(n); //mat must be symmetric
   rep(i,0,n) co[i] = {i};
   rep(ph,1,n) {
@@ -24,5 +24,5 @@ pair<int, vi> globalMinCut(vector<vi> mat) { //0-based
     rep(i,0,n) mat[i][s] = mat[s][i];
     mat[0][t] = INT_MIN;
   }
-  return best; //return {cost,list of nodes in one of the 2 sets}
+  return best;//return {cost,node list of one of the 2 sets}
 }
