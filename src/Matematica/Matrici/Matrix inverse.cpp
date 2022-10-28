@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/MatrixInverse.h
+/// Verification:
+/// boh non esiste nulla online
 // come Matrix inverse mod ma senza modulo
 int matInv(vector<vector<double>>& A) {
   int n = sz(A); vi col(n);
