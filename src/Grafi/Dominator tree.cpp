@@ -45,5 +45,5 @@ template<int SZ> struct Dominator { //0-based
       if (dom[i] != sdom[i]) dom[i] = dom[dom[i]];
       ans[rlabel[dom[i]]].pb(rlabel[i]);
     }//ans[i]=children of i in the tree rooted in root
-  }
-};
+  } //note that if a node isn't reachable...
+};  //... it will not be in the tree (but init() works)
