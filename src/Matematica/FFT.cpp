@@ -1,5 +1,8 @@
+/// Source: Bortoz
+/// Verification:
+/// https://www.spoj.com/problems/POLYMUL/ (id: 30318108)
 typedef complex<double> cpx;
-int base = 1;
+int base=1;//tested with $T\leq 10,N\leq 10^5,a_i,b_i\leq 10^3$ (0.07 sec)
 vector<cpx> roots = {{0, 0}, {1, 0}};
 vector<int> rev = {0, 1};
 const double PI = acosl(-1.0);
@@ -41,7 +44,7 @@ void fft(vector<cpx> &a) {
     }
   }
 }
-vector<cpx> fa, fb;
+vector<cpx> fa, fb; // Time: $\mathcal{O}(N\log{N})$
 vector<int> multiply(vector<int> &a, vector<int> &b) {
   int need = a.size() + b.size() - 1;
   int nbase = 0;
