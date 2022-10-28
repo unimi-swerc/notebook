@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare tutto
+- testare polynomials, SAT, SMAWK, simplex e (quasi) tutta geometria
 
 ## Algoritmi
 
