@@ -1,7 +1,7 @@
 /// Source:
 /// https://github.com/kth-competitive-programming/kactl/blob/main/content/various/FastInput.h
 /// Verification:
-/// davvero serve?
+/// https://codeforces.com/gym/101620/submission/178418728
 /* Read an integer from stdin. Usage requires your
  * program to pipe in input from file.
  * Usage: ./a.out < input.txt
@@ -15,7 +15,7 @@ inline char gc() { // like getchar()
   }
   return buf[bc++]; // returns 0 on EOF
 }
-int readInt() {
+int readInt(){//con $2\cdot 10^6$ interi è più veloce di 200 ms
   int a, c;
   while ((a = gc()) < 40);
   if (a == '-') return -readInt();
