@@ -7,8 +7,8 @@
 * is given by min edge weight along tree path. 
 * Uses the fact that for any $i,j,k,$ $\lambda_{ik}\ge \min(\lambda_{ij},\lambda_{jk}),$ 
 * where $\lambda_{ij}$ denotes the flow between $i$ and $j.$
-* Time: $N-1$ calls to Dinic (use Max flow code)
-* tested with $T\leq 10,N \leq 150,M \leq 3000,\text{edgeweight}\leq 10^6$(0.10 s)*/
+* Time: $N-1$ calls to Dinic (use Max flow code), tested
+* with $T\leq 10,N \leq 150,M \leq 3000,\text{edgeweight}\leq 10^6$(0.10 s)*/
 template<class F> V<pair<pi,F>> gomoryHu(int N, 
     const V<pair<pi,F>>& ed) { //nodes 0-based
   vi par(N); Dinic<F> D; D.init(N);
