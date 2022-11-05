@@ -40,7 +40,6 @@ void dfs_hld(int nodo=0, int last=0){
     if(x!=last){
       if(x==grafo[nodo][0])nex[x]=nex[nodo];
       else nex[x]=x;
-      
       dfs_hld(x,nodo);
     }
   }
@@ -49,9 +48,7 @@ void dfs_hld(int nodo=0, int last=0){
 }
 
 int lca(int x,int y){ //$\mathcal{O}(\log{N})$
-  
   if(prof[x]>prof[y])swap(x,y);
-  
   for(int i=LOGN-1;i>=0;i--){
     if(prof[par[y][i]]>=prof[x]){
       y=par[y][i];
@@ -59,14 +56,12 @@ int lca(int x,int y){ //$\mathcal{O}(\log{N})$
   }
   
   if(x==y)return x;
-  
   for(int i=LOGN-1;i>=0;i--){
     if(par[x][i]!=par[y][i]){
       x=par[x][i];
       y=par[y][i];
     }
   }
-  
   return par[x][0];
 }
 
@@ -83,7 +78,6 @@ fun path_query(int u,int v,bool flag){
   while(prof[nex[v]]>prof[u]){
     if(flag)res = res ^ rt.query(in[nex[v]],in[v],1);
     else res = rt.query(in[nex[v]],in[v],0) ^ res;
-    
     v=par[nex[v]][0];
   }
   
@@ -136,8 +130,7 @@ int main(){
       a++;
       update(a,fun(b,c));
     }else{
-      a++;
-      b++;
+      a++;b++;
       cout<<query(a,b).eval(c)<<"\n";
     }
   }
