@@ -3,6 +3,7 @@
 ///Verification:
 ///https://dmoj.ca/submission/4706327 (solo prime())
 ///https://www.spoj.com/problems/FACT0/ (id: 29454595, testa anche factor_rec())
+///https://www.codechef.com/viewsolution/80813902
 ul modMul(ul a, ul b, const ul mod) {
   ll ret = a*b-mod*(ul)((db)a*b/mod);
   return ret+((ret<0)-(ret>=(ll)mod))*mod; }
