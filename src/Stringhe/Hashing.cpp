@@ -3,6 +3,7 @@
 /// https://codeforces.com/blog/entry/60442
 /// Verification:
 /// https://www.facebook.com/codingcompetitions/hacker-cup/2022/round-3/problems/C/my-submissions
+/// https://itacpc22.kattis.com/submissions/9997431
 // Polynomial hash for substrings with two bases
 mt19937 rng((uint64_t) chrono::duration_cast<chrono::
     nanoseconds>(chrono::high_resolution_clock::now()
