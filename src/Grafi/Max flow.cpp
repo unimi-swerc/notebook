@@ -9,10 +9,10 @@
 //$\mathcal{O}(N^2M)$, con grafi bipartiti $N\leq 10^5,M\leq 10^5$ (0.77 sec)
 using pi = pair<int,int>;
 #define sz(x) int((x).size())
-template<class F> struct Dinic { //0-based
+template<class F> struct Dinic {
     struct Edge { int to, rev; F cap; };
     int N; vector<vector<Edge>> adj;
-    void init(int _N) { N = _N; adj.resize(N); }
+    void init(int _N) { N = _N; adj.resize(N); } //0-based
     pi ae(int a, int b, F cap, F rcap = 0) { 
         assert(min(cap,rcap) >= 0); // saved me > once
         adj[a].push_back({b,sz(adj[b]),cap});
