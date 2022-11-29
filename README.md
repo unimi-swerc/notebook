@@ -116,6 +116,18 @@
 - [x] Derangement
 - [x] Catalan
 
-### 2. Vario
+### 2. Grafi
+
+- [x] Relazione generale tra max indipendent set e minimum vertex cover
+- [x] Max-flow min-cut theorem
+- [x] Konig Theorem: max matching e min vertex cover (anche pesato) su grafo bipartito
+- [x] Hall Theorem: matching perfetto su grafo bipartito
+- [x] Dilworth Theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene
+- [x] Archi o nodi obbligati in un matching
+- [x] Max matching, in caso di parità scelgo min/max cost
+- [x] Max matching pesato e min matching pesato
+- [x] Min/Max cost ma non per forza max flow
+
+### 3. Vario
 - [x] Somma potenze quarte
 - [x] Numeri primi grandi 
