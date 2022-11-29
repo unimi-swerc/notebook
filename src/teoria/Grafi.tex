@@ -1,6 +1,30 @@
-\subsubsection{Konig Theorem}
+\subsubsection{Relazione generale tra max indipendent set e minimum vertex cover}
+In un grafo qualsiasi, se si considera un qualsiasi max indipendent set $S$ allora l'insieme dei nodi che non appartengono a $S$ formano un minimum vertex cover. In generale il complemento di un indipendent set (non per forza massimo) è sempre un vertex cover (non per forza minimo).
 
-\subsubsection{Hall Theorem}
+\subsubsection{Max-flow min-cut theorem}
+Dato un grafo pesato diretto (se gli archi non sono direzionati, basta scomporre ciascun arco bidirezionale in due archi direzionati e tutto funziona) il flusso massimo tra un nodo $u$ e un nodo $v$ è uguale al taglio minimo, ovvero il costo minimo di archi da rimuovere (costo di rimozione = peso dell'arco) in modo tale da disconnettere $u$ da $v$. Per trovare il taglio minimo quindi basta trovare il flusso massimo da $u$ a $v$, dopodichè fare una visita partendo da $u$ del grafo residuo e tutti gli archi del grafo originale che collegano un nodo visitato con un nodo non visitato fanno parte del taglio minimo.
 
-\subsubsection{DilWorth Theorem}
+\subsubsection{Konig Theorem: max matching e min vertex cover (anche pesato) su grafo bipartito}
+In un grafo bipartito la cardinalità del max matching è uguale a quella del minimum vertex cover. Per trovare il max matching, creare una sorgente $u$ e 
+degli archi di peso $1$ dalla sorgente verso tutti i nodi della prima metà del grafo bipartito, dopodichè per ogni arco $(a,b)$ del grafo bipartito creare un arco $a$->$b$ di peso $\infty$ 
+(va bene anche di peso 1, ma se si tratta di min vertex cover pesato devono essere di peso infinito), infine creare un pozzo $v$ e degli archi di peso $1$ da tutti i nodi della 
+seconda metà del grafo bipartito verso il pozzo. Il flusso massimo sarà uguale al max matching, inoltre il flusso massimo è uguale anche al taglio minimo e in questo caso il taglio 
+minimo rappresenta il minimum vertex cover (per ogni arco del grafo bipartito originale, almeno uno dei due estremi deve essere preso/tagliato via da $u$ o $v$). Per min vertex cover pesato, modificare gli archi che partono dalla sorgente o arrivano verso il pozzo con il peso corrispettivo del nodo.
 
+\subsubsection{Hall Theorem: matching perfetto su grafo bipartito}
+Dato un insieme $W$ di nodi appartenenti al lato sinistro di un grafo bipartito $G$, sia $N_G(W)$ l'insieme dei vicini di $W$. $G$ ammette un matching perfetto per il lato sinistro (ovvero in cui ogni nodo del lato sinistro è matchato) se e solo se per ogni sottoinsieme $W$ (dei nodi del lato sinistro) vale $|W|\leq|N_G(W)|$.
+
+\subsubsection{Dilworth Theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene}
+In un insieme parzialmente ordinato, la cardinalità del più piccolo partizionamento in catene (le catene non devono avere elementi in comune, ma anche se li hanno 
+non è un problema perchè essendo un ordinamento parziale si può modificare una catena  "saltando" alcuni oggetti facendo in modo che non abbia più elementi in comune con le altre) è
+uguale alla cardinalità massima di una anti-catena. Una anti-catena è un insieme di elementi in cui nessuna coppia di elementi è confrontabile, una catena è un insieme di elementi 
+tutte le coppie di elementi sono  confrontabili tra loro. Duale: la cardinalità massima di una catena è uguale alla cardinalità del più piccolo partizionamento in anti-catene (qua 
+ovviamente non ha senso che due anti-catene abbiano elementi in comune, perchè se li hanno allora è possibile rimuovere tali elementi da uno dei due insiemi). Per trovare il
+partizionamento minimo in catene (ogni elemento appartiene a una sola catena) in un insieme parzialmente ordinato: basta creare per ogni elemento $x$ un nodo $x'$ e $x''$, dopodichè creare un arco $x'$<->$y''$ se e solo se $x>y$ e trovare il max matching. Se
+$x'$<->$y''$ appartiene al matching allora $x$ e $y$ sono nella stessa catena. Per trovare il numero minimo di cammini ricoprenti (possono avere nodi in comune, altrimenti non si può fare) in un dag: trasformo il dag in un insieme parzialmente ordinato aggiungendo gli archi per creare la transitività e poi faccio come prima, ricordandomi di aggiustare le catene che ottengo perchè potrebbero fare dei "salti".
+Per trovare la cardinalità massima di una catena: banale, è il cammino massimo in un dag. Trovare la cardinalità massima di una anti-catena e il partizionamento minimo in anti-catene: 
+TO DO. 
+
+
+\subsubsection{Archi o nodi obbligati in un matching}
+Dato un grafo residuo, un arco del max flow appartiene a tutti i max flow possibili se ha gli estremi in due componenti fortemente connesse diverse. Nel gioco su grafo bipartito in cui ogni nodo può venire visitato massimo una volta, i nodi che appartengono a tutti i max matching sono tutti e i soli nodi di partenza vincenti. Stesso gioco ma visitando ogni arco al massimo una volta: gaussin elimination per trovare l'insieme di archi su cui dirigere l'avversario.
