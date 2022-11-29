@@ -24,7 +24,7 @@ template<class F> struct Dinic {
         return adj.at(e.to).at(e.rev).cap;
     }
     vector<int> lev, ptr;
-    bool bfs(int s, int t) {//level=shortest dist from source
+    bool bfs(int s,int t){//level=shortest dist from source
         lev = ptr = vector<int>(N);
         lev[s] = 1; queue<int> q({s});
         while (sz(q)) { int u = q.front(); q.pop();
