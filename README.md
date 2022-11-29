@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare polynomials, SAT, SMAWK, simplex e (quasi) tutta geometria
+- testare polynomials, SMAWK, simplex e (quasi) tutta geometria
 
 ## Algoritmi
 
@@ -96,7 +96,6 @@
 - [x] Divide and conquer DP
 - [x] Fast input (per lettura interi)
 - [x] Knuth optimization DP
-- [x] Sat
 - [x] Simplesso
 - [x] Template (con pbds e rope)
 - [x] Twosat
@@ -106,6 +105,7 @@
 ### 7. Scarti
 - [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
+- [x] Sat (bruteforce O(2^variables*clauses))
 
 ## Teoria
 
