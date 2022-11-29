@@ -22,8 +22,9 @@ tutte le coppie di elementi sono  confrontabili tra loro. Duale: la cardinalità
 ovviamente non ha senso che due anti-catene abbiano elementi in comune, perchè se li hanno allora è possibile rimuovere tali elementi da uno dei due insiemi). Per trovare il
 partizionamento minimo in catene (ogni elemento appartiene a una sola catena) in un insieme parzialmente ordinato: basta creare per ogni elemento $x$ un nodo $x'$ e $x''$, dopodichè creare un arco $x'$<->$y''$ se e solo se $x>y$ e trovare il max matching. Se
 $x'$<->$y''$ appartiene al matching allora $x$ e $y$ sono nella stessa catena. Per trovare il numero minimo di cammini ricoprenti (possono avere nodi in comune, altrimenti non si può fare) in un dag: trasformo il dag in un insieme parzialmente ordinato aggiungendo gli archi per creare la transitività e poi faccio come prima, ricordandomi di aggiustare le catene che ottengo perchè potrebbero fare dei "salti".
-Per trovare la cardinalità massima di una catena: banale, è il cammino massimo in un dag. Trovare la cardinalità massima di una anti-catena e il partizionamento minimo in anti-catene: 
-TO DO. 
+Per trovare la catena di cardinalità massima: banale, è il cammino massimo in un dag. Trovare l'anti-catena di cardinalità massima: prima trova il partizionamento
+minimo in catene, prendi tutti i nodi di partenza della catene e finchè c'è una coppia di nodi comparabili fai avanzare la testa del nodo più grande finchè sono tutti incomparabili (lca style).
+Trovare il partizionamento minimo in anti-catene: TO DO. 
 
 \subsubsection{Archi o nodi obbligati in un matching}
 Dato un grafo residuo, un arco del max flow appartiene a tutti i max flow possibili se ha gli estremi in due componenti fortemente connesse diverse. Nel gioco su grafo bipartito in cui ogni nodo può venire visitato massimo una volta, i nodi che appartengono a tutti i max matching sono tutti e i soli nodi di partenza vincenti. Stesso gioco ma visitando ogni arco al massimo una volta: gaussin elimination per trovare l'insieme di archi su cui dirigere l'avversario.
