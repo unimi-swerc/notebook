@@ -38,7 +38,7 @@ H operator*(H l, H r) {
 // H& operator*=(H& l, H r) { return l = l*r; }
 
 V<H> pows{{1,1}};
-struct HashRange {
+struct HashRange { // 0-based, estremi l e r sono inclusi
   string S; V<H> cum{{}};
   void add(char c){ S += c; cum.pb(base*cum.bk+makeH(c));}
   void add(string s) { each(c,s) add(c); }
