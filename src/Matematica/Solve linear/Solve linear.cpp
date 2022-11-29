@@ -8,7 +8,7 @@
  * Data in A and b is lost.
  * Time: $\mathcal{O}(n^2 m)$
  * con $n,m \leq 100$, t ignoto impiega 0.03 sec
- * con una precisione di almeno $10^{-3}$
+ * con precisione di almeno $10^{-3} (ma eps=1e-12)$
  */
 typedef vector<double> vd;
 const double eps = 1e-12;
