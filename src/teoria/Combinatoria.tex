@@ -1,11 +1,18 @@
 \subsubsection{Numeri di Stirling del primo tipo}
+Numero di modi per partizionare $n$ oggetti (diversi) in $k$ sottoinsiemi non vuoti.
 $$ c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1 $$
 
 \subsubsection{Numeri di Stirling del secondo tipo}
+Numero di permutazioni di $n$ elementi con $k$ cicli. I punti fissi sono considerati come cicli di lunghezza 1.
 $$ S(n,k) = S(n-1,k-1) + k S(n-1,k),\ S(n,1) = S(n,n) = 1 $$
 
 \subsubsection{Derangement}
+Numero di permutazioni di $n$ elementi senza punti fissi.
 $$ D(n)=nD(n-1)+(-1)^n $$
 
 \subsubsection{Numeri di Catalan}
+Numero di alberi binari pieni (ogni nodo padre ha esattamente due figli) con $n$ nodi padre.
+Numero di alberi non isomorfi con $n+1$ nodi, in cui però conta la posizione dei figli (sottoalbero sx con 3 nodi e sottoalbero dx con 5 nodi è diverso da sottoalbero sx con 5 nodi e sottoalbero dx con 3 nodi).
+Numero di parole di Dyck di lunghezza $2n$ e tasselazioni di una scala con $n$ gradini con $n$ rettangoli.
+Numero di permutazioni $\{1,\dots,n\}$ ordinabili tramite stack e numero di matrici $2\times n$ con righe e colonne ordinate.
 $$ C(n)=\binom{2n}{n}-\binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}{n} $$
