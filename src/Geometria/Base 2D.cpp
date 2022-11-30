@@ -1,7 +1,6 @@
 typedef complex<ll> pt;
 #define x real()
 #define y imag()
- 
 // *** Punti ***
 ll dot(pt v, pt w) { return (conj(v) * w).x; }
 ll cross(pt v, pt w) { return (conj(v) * w).y; }
