@@ -1,14 +1,9 @@
 // Welzl's algorithm: minimum enclosing circle in expected
 // linear time. If there are any duplicate points in the
 // input, be sure to remove them first.
-struct point {
-  double x;
-  double y;
-};
+struct point{ double x,y;};
 struct circle {
-  double x;
-  double y;
-  double r;
+  double x,y,r;
   circle() {}
   circle(double x, double y, double r)
     : x(x), y(y), r(r) {}
