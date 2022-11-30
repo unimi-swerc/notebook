@@ -22,15 +22,12 @@ struct Precalc {
     if (!(i&j)) return u = 1ULL<<(i|j);
     int a = (i&j)&-(i&j); // a=2^k, consider 2^{2^k}
    return u=prod2(i^a,j)^prod2((i^a)|(a-1),(j^a)|(i&(a-1)));
-    // 2^{2^k}*2^{2^k} = 2^{2^k}+2^{2^k-1}
-  } // 2^{2^i}*2^{2^j} = 2^{2^i+2^j} if i<j
+  }
   template<int L> ul mult(ul a, ul b) {
     ul c = 0; F0R(i,L) if (a>>i&1) 
       F0R(j,L) if (b>>j&1) c ^= prod2(i,j);
     return c;
   }
-  // 2^{8*i}*(a>>(8*i)&255) * 2^{8*j}*(b>>(8*j)&255)
-  // -> (2^{8*i}*2^{8*j})*((a>>(8*i)&255)*(b>>(8*j)&255))
   ul multFast(ul a, ul b) const { // faster nim product
     ul res = 0; auto f=[](ul c,int d){return c>>(8*d)&255;};
     F0R(i,8) {
