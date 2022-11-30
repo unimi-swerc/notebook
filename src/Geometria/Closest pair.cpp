@@ -1,6 +1,4 @@
-struct pt {
-  ll x, y, id;
-};
+struct pt { ll x, y, id; };
 struct cmp_x {
   bool operator()(const pt& a, const pt& b) const {
     return make_pair(a.x, a.y) < make_pair(b.x, b.y);
@@ -61,6 +59,5 @@ void closestPair(vector<pt> v) {
   a = v;
   t.resize(v.size());
   rec(0, v.size());
-  // return best_pair;
-  // return sqrt(min_dist);
+  // return {best_pair,sqrt(min_dist)};
 }
