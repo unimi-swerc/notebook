@@ -10,9 +10,7 @@ This optimization reduces the time complexity
 from $O(N^3$)to $O(N^2)$
 */
 long long dp[SIZE][SIZE];
-int mid[SIZE][SIZE];
-int pos[SIZE];
-int n, m;
+int mid[SIZE][SIZE],pos[SIZE],n,m;
 cin>>p[1]>>p[2]>>...>>p[m];
 pos[0] = 0;
 pos[m + 1] = n;
@@ -27,7 +25,6 @@ for (int i = 0; i <= m + 1; i++) {
       continue;
     }
     dp[j][j + i] = 1ll << 60;
-
     // optimal place to cut
     for (int k=mid[j][i+j-1]; k<=mid[j+1][i+j]; k++) {
       long long next = dp[j][k] + dp[k][j+i]
