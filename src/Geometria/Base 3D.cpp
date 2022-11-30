@@ -10,7 +10,6 @@ struct p3 {
   bool operator!=(p3 p) {return !operator==(p);}
 };
 
-
 T operator|(p3 v, p3 w) { // dot product
   return v.x*w.x + v.y*w.y + v.z*w.z;
 }
