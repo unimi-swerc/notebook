@@ -11,11 +11,9 @@
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)
 pt arb(LLONG_MAX,LLONG_MAX);//not equal to any other point
-
 ll dist2(pt tmp){
   return tmp.xx*tmp.xx+tmp.yy*tmp.yy;
 }
-
 struct Quad {
   Q rot, o; pt p = arb; bool mark;
   pt& F() { return r()->p; }
@@ -48,7 +46,6 @@ Q connect(Q a, Q b) {
   splice(q->r(), b);
   return q;
 }
-
 pair<Q,Q> rec(const vector<pt>& s) {
   if (sz(s) <= 3) {
     Q a=makeEdge(s[0], s[1]), b=makeEdge(s[1], s.back());
@@ -58,7 +55,6 @@ pair<Q,Q> rec(const vector<pt>& s) {
     Q c = side ? connect(b, a) : 0;
     return {side<0 ? c->r() : a, side<0 ? c : b->r() };
   }
-
 #define H(e) e->F(), e->p
 #define valid(e) (cross(base->F()-e->F(), \
                   base->p-e->F()) > 0)
@@ -71,7 +67,6 @@ pair<Q,Q> rec(const vector<pt>& s) {
   Q base = connect(B->r(), A);
   if (A->p == ra->p) ra = base->r();
   if (B->p == rb->p) rb = base;
-
 #define DEL(e, init, dir) Q e = init->dir; if (valid(e)) \
     while (circ(e->dir->F(), H(base), e->F())) { \
       Q t = e->dir; \
@@ -89,11 +84,9 @@ pair<Q,Q> rec(const vector<pt>& s) {
   }
   return { ra, rb };
 }
-
 bool comp(const pt& a,const pt& b){
   return pair<ll,ll>(a.xx,a.yy) < pair<ll,ll>(b.xx,b.yy);
 }
-
 vector<pt> triangulate(vector<pt> pts) {
   sort(all(pts),comp);
   assert(unique(all(pts)) == pts.end());
