@@ -1,10 +1,11 @@
 \subsubsection{Numeri di Stirling del primo tipo}
-Numero di modi per partizionare $n$ oggetti (diversi) in $k$ sottoinsiemi non vuoti.
-$$ c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1 $$
+Numero di permutazioni di $n$ elementi con $k$ cicli. I punti fissi sono considerati come cicli di lunghezza 1.
+$$ \stirling{n}{k} = \stirling{n-1}{k-1} + (n-1)\stirling{n-1}{k}, \ \stirling{0}{0}=1, \ \stirling{n}{0}=\stirling{0}{n}=0$$
+%$$ c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1, \ c(n,0)=c(0,n)=0$$
 
 \subsubsection{Numeri di Stirling del secondo tipo}
-Numero di permutazioni di $n$ elementi con $k$ cicli. I punti fissi sono considerati come cicli di lunghezza 1.
-$$ S(n,k) = S(n-1,k-1) + k S(n-1,k),\ S(n,1) = S(n,n) = 1 $$
+Numero di modi per partizionare $n$ oggetti (diversi) in $k$ sottoinsiemi non vuoti.
+$$ \Stirling{n}{k} = \Stirling{n-1}{k-1} + k\Stirling{n-1}{k}, \ \Stirling{0}{0}=1,\ \Stirling{n}{0}=\Stirling{0}{n}=0 $$
 
 \subsubsection{Derangement}
 Numero di permutazioni di $n$ elementi senza punti fissi.
