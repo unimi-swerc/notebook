@@ -11,12 +11,6 @@
 // T val = LPSolver(A, b, c).solve(x);
 // Time: $O(NM \cdot \#pivots)$, where a pivot may be e.g. 
 // an edge relaxation. $O(2^N)$ in the general case.
-#define rep(i, a, b) for(int i = a; i < (b); ++i)
-#define all(x) begin(x), end(x)
-#define sz(x) (int)(x).size()
-typedef long long ll;
-typedef pair<int, int> pii;
-typedef vector<int> vi;
 typedef double T;
 typedef vector<T> vd;
 typedef vector<vd> vvd;
@@ -26,9 +20,7 @@ const T eps = 1e-8, inf = 1/.0;
   MP(X[j],N[j]) < MP(X[s],N[s])) s=j
 
 struct LPSolver {
-  int m, n;
-  vi N, B;
-  vvd D;
+  int m, n; vi N, B; vvd D;
 
   LPSolver(const vvd& A, const vd& b, const vd& c) :
     m(sz(b)), n(sz(c)), N(n+1), B(m), D(m+2, vd(n+2)) {
