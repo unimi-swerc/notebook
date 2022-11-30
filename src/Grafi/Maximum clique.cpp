@@ -13,10 +13,7 @@ struct Maxclique { //0-based
   double limit=0.025, pk=0;
   struct Vertex { int i, d=0; };
   typedef vector<Vertex> vv;
-  vb e;
-  vv V;
-  vector<vi> C;
-  vi qmax, q, S, old;
+  vb e; vv V; vector<vi> C; vi qmax, q, S, old;
   void init(vv& r) {
     for (auto& v : r) v.d = 0;
     for (auto& v : r) for (auto j : r) v.d += e[v.i][j.i];
@@ -56,8 +53,7 @@ struct Maxclique { //0-based
     }
   }
   vi maxClique() { init(V), expand(V); return qmax; }
-  Maxclique(vb conn) : e(conn), C(sz(e)+1), S(sz(C)),
-                                            old(S) {
+  Maxclique(vb conn): e(conn),C(sz(e)+1),S(sz(C)),old(S){
     rep(i,0,sz(e)) V.push_back({i});
   }
 };
