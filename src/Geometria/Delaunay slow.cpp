@@ -4,15 +4,12 @@
 // INPUT: x[] = x-coordinates, y[] = y-coordinates
 // OUTPUT:   triples = a vector containing m triples of
 // indices corresponding to triangle vertices
-
 typedef double T;
 typedef tuple<int, int, int> triple;
-
 vector<triple> delaunay(vector<T> &x, vector<T> &y) {
   int n = x.size();
   vector<T> z(n);
   vector<triple> ret;
-
   for (int i = 0; i < n; i++)
     z[i] = x[i] * x[i] + y[i] * y[i];
 
