@@ -11,9 +11,8 @@ struct Line {
   ll k, b;
   Line() : k(), b(INF) {}
   Line(ll _k, ll _b) : k(_k), b(_b) {}
-  //se non è una linea modificare il commento nell'insert
-  ll eval(const ll &x) const {
-    return k * x + b; //e modificare anche qua
+  ll eval(const ll &x) const { //se non è una linea...
+    return k * x + b; //modificare qua
   }
 };
 /*lichao tree per il minimo. Utilizzo:
