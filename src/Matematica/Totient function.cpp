@@ -6,7 +6,6 @@
 #define MAX 10000000
 int phi[MAX];
 bool pr[MAX];
-
 void totient() {
   for (int i = 0; i < MAX; i++) {
     phi[i] = i;
