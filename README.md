@@ -103,18 +103,20 @@
 - [ ] (?) Hornsat
 
 ### 7. Scarti
+
 - [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
 - [x] Sat (bruteforce O(2^variables*clauses))
 
 ## Teoria
 
-### 1. Combinatoria
+### 1. Conteggi
 
 - [x] Stirling del primo tipo
 - [x] Stirling del secondo tipo
 - [x] Derangement
 - [x] Catalan
+- [x] Burnside's lemma
 
 ### 2. Grafi
 
@@ -127,7 +129,12 @@
 - [x] Max matching, in caso di parità scelgo min/max cost
 - [x] Max matching pesato e min matching pesato
 - [x] Min/Max cost ma non per forza max flow
+- [x] Number of Spanning Trees
+- [x] Erdős–Gallai theorem
+- [x] BEST theorem: number of eulerian circuits
 
 ### 3. Vario
+
 - [x] Somma potenze quarte
+- [x] Pythagorean Triples
 - [x] Numeri primi grandi 
