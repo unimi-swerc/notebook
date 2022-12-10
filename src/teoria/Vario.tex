@@ -1,3 +1,7 @@
+\subsubsection{Varianti del Nim}
+\textbf{Miserè nim}: chi fa l'ultima mossa perde. Per determinare il vincitore di procede come il nim normale (facendo lo xor dell'altezza di tutte le pile e si guarda se è zero), ma con una sola eccezione: se le altezze sono tutte 1, allora il vincitore è quello che nel nim normale perderebbe. Invece tutti gli altri casi è come il nim classico.
+\textbf{K-nim}: ogni giocatore in un turno può diminuire l'altezza da $1$ pila fino a $k$ pile (se $k=1$ è il nim classico). Per determinare chi vince scrivere tutte le altezze delle pile in base 2, poi sommare questi numeri però supponendo che siano in base $k+1$ senza effetuare riporti (quindi come uno xor bit a bit ma modulo $k+1$ anzichè il classico modulo 2). Se il risultato è zero il giocatore di turno perde, altrimenti vince.
+
 \subsubsection{Somma potenze quarte}
 $$ 1^4+...+n^4=\frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} $$
 
