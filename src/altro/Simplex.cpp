@@ -9,8 +9,8 @@
 // vvd A = {{1,-1}, {-1,1}, {-1,-2}};
 // vd b = {1,1,-4}, c = {-1,-1}, x;
 // T val = LPSolver(A, b, c).solve(x);
-// Time: $O(NM \cdot \#pivots)$, where a pivot may be e.g. 
-// an edge relaxation. $O(2^N)$ in the general case.
+// Time: $\mathcal{O}(NM \cdot \#pivots)$, where a pivot may be e.g. 
+// an edge relaxation. $\mathcal{O}(2^N)$ in the general case.
 typedef double T;
 typedef vector<T> vd;
 typedef vector<vd> vvd;
