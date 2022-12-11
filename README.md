@@ -15,7 +15,6 @@
 - [x] Convex hull trick
 - [x] Convex hull (2D)
 - [x] Fast delaunay 
-- [x] Slow delaunay
 - [x] Welzl (minimum enclosing circle)
 - [x] Poligon cut
 - [ ] Convex hull (3D)
@@ -50,7 +49,7 @@
 - [x] Fast subset convolution (or,and,xor)
 - [x] Floyd cycle detection
 - [x] Ricorrenze lineari
-- [x] Operazioni sulle matrici (determinante, determinante mod, inversa, inversa mod)
+- [x] Operazioni sulle matrici (determinante, determinante mod, inversa mod)
 - [x] NTT
 - [x] Nimber product
 - [x] Operazioni sui polinomi (radici reali, interpolazione)
@@ -107,6 +106,8 @@
 - [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
 - [x] Sat (bruteforce O(2^variables*clauses))
+- [x] Slow delaunay
+- [x] Matrix Inverse (senza mod)
 
 ## Teoria
 
@@ -137,4 +138,4 @@
 
 - [x] Somma potenze quarte
 - [x] Pythagorean Triples
-- [x] Numeri primi grandi 
+- [x] Numeri primi grandi
