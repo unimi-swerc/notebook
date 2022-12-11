@@ -30,13 +30,21 @@ Trovare il partizionamento minimo in anti-catene: TO DO.
 Dato un grafo residuo, un arco del max flow appartiene a tutti i max flow possibili se ha gli estremi in due componenti fortemente connesse diverse. Nel gioco su grafo bipartito in cui ogni nodo può venire visitato massimo una volta, i nodi che appartengono a tutti i max matching sono tutti e i soli nodi di partenza vincenti. Stesso gioco ma visitando ogni arco al massimo una volta: gaussin elimination per trovare l'insieme di archi su cui dirigere l'avversario.
 
 \subsubsection{Max matching, in caso di parità scelgo min/max cost}
+\,
+
 \textbf{Min cost, grafo generale}: dare peso $\infty - w_i$ agli archi ($w_i$ è il costo dell'arco). Prima la priorità verrà data a trovare il max matching ovviamente, a parità di matching verrà scelto il costo minimo.
+
 \textbf{Min cost, grafo bipartito}: max flow min cost.
+
 \textbf{Per max cost}: uguale a min cost ma prima negare i $w_i$.
 
 \subsubsection{Max matching pesato e min matching pesato}
+\,
+
 \textbf{Max matching, grafo generale}: weighted blossom algorithm. (se ci sono archi con peso negativo li butti perchè non ha senso prenderli)
+
 \textbf{Max matching, grafo bipartito}: algoritmo ungherese, invertendo il valore dei $w_i$ ($w_i=-\infty$ se non esiste l'arco, poi negandolo diventerà $+\infty$) e aggiungendo eventuali nodi dummy (dalla parte dei lavoratori) che verrano matchati con i nodi che non appartengono al max match pesato.
+
 \textbf{Min matching}: uguale a max matching ma pima negare i $w_i$.
 
 
@@ -63,3 +71,5 @@ The BEST theorem states that the number ec$(G)$ of Eulerian circuits in a connec
 $$\text{ec}(G)=t_w(G)\prod_{v\in V}(\text{deg}(v)-1)!$$
 Here $t_w(G)$ is the number of arborescences, which are trees directed towards the root at a fixed vertex w in G (If we reverse the edges we obtain an oriented spanning tree, we can count the number of oriented spanning tree with a determinant as explained in the section above).
 It is a property of Eulerian graphs that $t_v(G) = t_w(G)$ for every two vertices $v$ and $w$ in a connected Eulerian graph $G$. Counting eulerian circuit in a undirected graphs is at least as hard as NP-complete problem.
+
+\,

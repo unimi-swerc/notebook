@@ -1,11 +1,16 @@
-\subsubsection{Varianti del Nim}
+\subsubsection{Varianti del Nim} 
+\,
+
 \textbf{Miserè nim}: chi fa l'ultima mossa perde. Per determinare il vincitore si procede come il nim normale (facendo lo xor dell'altezza di tutte le pile e si guarda se è zero), ma con una sola eccezione: se le altezze sono tutte 1, allora il vincitore è quello che nel nim normale perderebbe. Invece tutti gli altri casi è come il nim classico.
+
 \textbf{K-nim}: ogni giocatore in un turno può diminuire l'altezza da $1$ pila fino a $k$ pile (se $k=1$ è il nim classico). Per determinare chi vince scrivere tutte le altezze delle pile in base 2, poi sommare questi numeri però supponendo che siano in base $k+1$ senza effetuare riporti (quindi come uno xor bit a bit ma modulo $k+1$ anzichè il classico modulo 2). Se il risultato è zero il giocatore di turno perde, altrimenti vince.
 
 \subsubsection{Rango matrice}
 è il numero di linee (o colonne, è equivalente) linearmente indipendenti. Per calcolarlo: gaussian elimination (se ogni vettore ha al massimo 2 componenti non nulle si può velocizzare con una dsu).
 
-\subsubsection{Prodotto scalare (dot) e vettoriale (cross)}
+\subsubsection{Prodotto scalare (dot) e vettoriale (cross)} 
+\,
+
 \textbf{Dot product}: $a\cdot b = |a| \cos \theta \cdot |b| = x_1 x_2 + y_1 y_2 + z_1 z_2$
 
 \textbf{Cross product}:  $|a\times b| = |a| \cdot |b| \sin \theta = (y_1 z_2 - z_1 y_2) + (z_1 x_2 - x_1 z_2) + (x_1 y_2 - y_1 x_2)$ (verso e direzione: regola della mano destra, $\theta$ nel cross product 3d originale è sempre minore di 180 gradi, ma se si usa lo pseudo-scalar product in 2d $\theta$ è l'angolo da $a$ a $b$ in senso antiorario).
