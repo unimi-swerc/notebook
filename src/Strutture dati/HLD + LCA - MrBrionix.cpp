@@ -6,8 +6,9 @@
 /// https://judge.yosupo.jp/submission/85911
 /// https://codeforces.com/gym/101669/submission/179461930 (solo LCA)
 const long long mod=998244353ll, MAXN=200005, LOGN=18;
-// HLD 1-based (si supponga rt un segment
+// HLD 1-based (si supponga rt un segment 
 // e ^ l'operazione di merge di due segmenti)
+// gli estremi di query e update del segment sono inclusi
 long long n,q;
 fun v[MAXN];
 vector<int> grafo[MAXN];
@@ -70,17 +71,17 @@ void update(int pos,fun x){
 }
 
 //query sul percorso u->v (u escluso)
-//flag = 1 il percorso viene fatto al
+//se flag = 1 il percorso viene fatto al
 //contrario: v->u (u escluso)
 fun path_query(int u,int v,bool flag){
   fun res=fun();
-  
+  //u deve essere antenato di v (u=v va bene)
   while(prof[nex[v]]>prof[u]){
     if(flag)res = res ^ rt.query(in[nex[v]],in[v],1);
     else res = rt.query(in[nex[v]],in[v],0) ^ res;
     v=par[nex[v]][0];
   }
-  
+  //il segment deve gestire il caso l>r (ovvero u=v)
   if(flag)res = res ^ rt.query(in[u]+1,in[v],1);
   else res = rt.query(in[u]+1,in[v],0) ^ res;
   
