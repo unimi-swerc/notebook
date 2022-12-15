@@ -1,3 +1,4 @@
+/// Source: Bortoz (cp-algorithm)
 struct pt { ll x, y, id; };
 struct cmp_x {
   bool operator()(const pt& a, const pt& b) const {
