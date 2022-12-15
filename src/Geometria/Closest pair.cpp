@@ -53,7 +53,7 @@ void rec(int l, int r) {
     }
   }
 }
-
+// Complexity: $\mathcal{O}(n\log n)$
 void closestPair(vector<pt> v) {
   sort(v.begin(), v.end(), cmp_x());
   a = v;
