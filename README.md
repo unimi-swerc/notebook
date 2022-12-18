@@ -135,6 +135,11 @@
 
 ### 3. Vario
 
+- [x] Varianti del nim
+- [x] Rango matrice
+- [x] Prodotto scalare e vettoriale
 - [x] Somma potenze quarte
-- [x] Pythagorean Triples
+- [x] Pick's theorem
+- [x] Minkowski sum
+- [x] Pythagorean triples
 - [x] Numeri primi grandi
