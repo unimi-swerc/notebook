@@ -29,4 +29,4 @@ void lcp_array(int N, const string& S) { //$\mathcal{O}(N)$
     lcp[rnk[i] - 1] = k;
     k = max(k - 1, 0);
   }
-} //lcp[i]= lcp tra sa[i] e sa[i+1] ($0\leq i \leq N-2)
+} //lcp[i]= lcp tra sa[i] e sa[i+1] ($0\leq i \leq N-2$)
