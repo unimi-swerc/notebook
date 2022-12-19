@@ -10,7 +10,7 @@ void build(int N, int* V) { //$\mathcal{O}(N\log{N})$
       table[j][i]=min(table[j-1][i],
                       table[j-1][i+(1<<j)/2]);
     }
-  }
+  } //0-based (indici di V da 0 a N-1)
 }
 int query(int l, int r) { //[l, r) ($\mathcal{O}(1)$)
   int k = 31 - __builtin_clz(r - l);
