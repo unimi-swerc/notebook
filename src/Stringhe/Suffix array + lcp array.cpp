@@ -21,7 +21,7 @@ void suffix_array(int N, const string& S){//$\mathcal{O}(N\log^2N)$
     copy(tmp, tmp + N, rnk);
     if (rnk[sa[N - 1]] == N) break;
   }
-}
+} //sa[i]= indice di inizio i-esimo prefisso più piccolo
 void lcp_array(int N, const string& S) { //$\mathcal{O}(N)$
   for (int i = 0, k = 0; i < N; i++) {
     int j = sa[rnk[i]];
@@ -29,4 +29,4 @@ void lcp_array(int N, const string& S) { //$\mathcal{O}(N)$
     lcp[rnk[i] - 1] = k;
     k = max(k - 1, 0);
   }
-}
+} //lcp[i]= lcp tra sa[i] e sa[i+1] ($0\leq i \leq N-2)
