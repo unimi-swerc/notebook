@@ -2,6 +2,7 @@
 /// https://cp-algorithms.com/string/suffix-array.html#on-log-n-approach (lcp array) 
 /// Verification:
 /// https://oj.uz/submission/648808
+/// https://codeforces.com/gym/102428/problem/G
 int sa[MAXN], rnk[2*MAXN], lcp[MAXN], tmp[MAXN];
 // build suffix array of $S_0,\cdots,S_{N-1}$
 void suffix_array(int N, const string& S){//$\mathcal{O}(N\log^2N)$
