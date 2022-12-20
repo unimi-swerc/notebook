@@ -1,7 +1,7 @@
 /// Source: Bortoz
 /// Verification:
 /// https://oj.uz/submission/648808
-/// https://codeforces.com/gym/102428/problem/G
+/// https://codeforces.com/gym/102428/submission/185955879
 constexpr int MAXN = 1 << 20, LOGN = 21;
 int table[LOGN][MAXN];
 void build(int N, int* V) { //$\mathcal{O}(N\log{N})$
