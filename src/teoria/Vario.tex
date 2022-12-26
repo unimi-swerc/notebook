@@ -1,3 +1,14 @@
+\subsubsection{Subset Sum Speedup for small weights}
+There are $N$ items. The $i$-th item has weight $w_i\leq D$. Can we find a set $S$ such that $\sum_{i\in S}w_i=C$?
+We will solve this in $\mathcal{O}(ND)$. Firstly, if $\sum w_i<C$, the answer is obviously no, so we will ignore that case.
+Let us find the maximal $k$ such that $\sum_{i=1}^{k}w_i<C$. The basic idea is that we initially have an answer of $w_1+w_2+\dots+w_k$, then we can either subtract $w_i$ for $i\leq k$ or add $w_i$ for $i>k$ in some order such that the cost of our items is in the range $[C-D,C+D]$. The proof sketch is just: if the current weight is more than $C$, remove something, otherwise add something.
+Let us define $\mathit{can}(\mathit{total},l,r)$ as a dp function that returns true iff there exists $\lambda_l,\lambda_{l+1},\dots,\lambda_r \in [0,1]$ such that $\sum_{i=1}^{l-1}w_i+\sum_{i=l}^{r}\lambda_i w_i=\mathit{total}$, where $\mathit{total}\in[C-D,C+D]$.
+Notice that $\mathit{can}(\mathit{total},l,r)=\mathit{true}$ implies that $\mathit{can}(\mathit{total},l-1,r)=\mathit{true}$, this means that $\mathit{can}$ is monotone on the dimension $l$. Therefore, let us define a new dp function $\mathit{dp}(\mathit{total},r)$ that stores the maximal $l$ such that $\mathit{can}(\mathit{total},l,r)=\mathit{true}$.
+Furthermore, can is monotone on the dimension $r$, so $\mathit{dp}(\mathit{total},r)\leq \mathit{dp}(\mathit{total},r+1)$.
+Let us consider the transitions.
+From $\mathit{dp}(\mathit{total},r)=l$, we can extend $r$, transitioning to $\mathit{dp}(\mathit{total}+w_{r+1},r+1)$ or $\mathit{dp}(\mathit{total},r+1)$. We can also extend $l$ and transition to $\mathit{dp}(\mathit{total}-w_{l'},r)=l'$ for $l'<l$. However, this transition would be $\mathcal{O}(N)$ per state, which is quite bad.
+However, it would only make sense to transition to $\mathit{dp}(\mathit{total}-w_{l'},r)=l'$ for $\mathit{dp}(\mathit{total},r-1)\leq l'<\mathit{dp}(\mathit{total},r)=l$, otherwise this case would have been covered by another state and there would be no need for this transition. Since $\mathit{dp}(\mathit{total},r)\leq \mathit{dp}(\mathit{total},r+1)$, the total number of transitions by extending $l$ is actually bounded by $\mathcal{O}(ND)$ using amortized analysis.
+
 \subsubsection{Varianti del Nim} 
 \,
 
