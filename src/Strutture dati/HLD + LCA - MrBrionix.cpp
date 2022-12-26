@@ -117,7 +117,7 @@ int main(){
   grafo[0].push_back(1);
   dfs();
   dfs_hld();
-  for(int j=1;j<LOGN;j++){
+  for(int j=1;j<LOGN;j++){ //build LCA (1-based)
     for(int i=0;i<MAXN;i++){
       par[i][j]=par[par[i][j-1]][j-1];
     }
