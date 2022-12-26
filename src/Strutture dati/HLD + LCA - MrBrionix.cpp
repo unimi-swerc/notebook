@@ -113,7 +113,7 @@ int main(){
     grafo[u].push_back(v);
     grafo[v].push_back(u);
   }
-  
+  //add dummy vertex 0, necessary for LCA and HLD
   grafo[0].push_back(1);
   dfs();
   dfs_hld();
