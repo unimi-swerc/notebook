@@ -1,6 +1,7 @@
 /// Source: MrBrionix (partendo da quello senza laazy propagation)
 /// Verification:
-/// https://judge.yosupo.jp/submission/86871
+/// https://judge.yosupo.jp/submission/118051 (senza get_pos)
+/// https://judge.yosupo.jp/submission/118056 (cont get_pos)
 typedef long long T;
 mt19937 rng(time(NULL));
 constexpr long long mod = 998244353;
