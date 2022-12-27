@@ -1,33 +1,48 @@
-/// Source: Bortoz (suffix array)
-/// https://cp-algorithms.com/string/suffix-array.html#on-log-n-approach (lcp array) 
+/// Source: https://github.com/bqi343/USACO/blob/master/Implementations/content/strings%20(14)/Light/SuffixArray%20(14.4).h
 /// Verification:
-/// https://oj.uz/submission/648808
-/// https://codeforces.com/gym/102428/submission/185955879
-int sa[MAXN], rnk[2*MAXN], lcp[MAXN], tmp[MAXN];
-// build suffix array of $S_0,\cdots,S_{N-1}$
-void suffix_array(int N, const string& S){//$\mathcal{O}(N\log^2N)$
-  //se usi suffix_array() più di una volta azzera rnk qua
-  for (int i = 0; i < N; i++) {
-    sa[i] = i, rnk[i] = S[i];
-  }
-  for (int k = 1; k < N; k *= 2) {
-    sort(sa, sa + N, [&](int a, int b) {
-      return tie(rnk[a],rnk[a+k]) < tie(rnk[b],rnk[b+k]);
-    });
-    tmp[sa[0]] = 1;
-    for (int i = 1; i < N; i++) {
-      tmp[sa[i]] = tmp[sa[i-1]] + (rnk[sa[i]] !=
-        rnk[sa[i-1]] || rnk[sa[i]+k] != rnk[sa[i-1]+k]);
+/// https://oj.uz/submission/675696
+/// https://codeforces.com/gym/102428/submission/186962324
+// build suffix array of $S_0,\cdots,S_{n-1}$
+struct SuffixArray { 
+    string S; int N; vi sa, isa, lcp; //N=sz(S)+1=n+1
+    void init(string _S) { //$\mathcal{O}(n\log n)$
+        N = sz(S = _S)+1; genSa(); genLcp(); 
+    } //tested with $t\leq 10,n \leq 10^6$ (5.41 sec)
+    void genSa() { // sa has size sz(S)+1, sa[0]=sz(S)
+        sa = isa = vi(N); sa[0] = N-1; iota(1+all(sa),0);
+        sort(1+all(sa),[&](int a,int b){return S[a]<S[b];});
+        FOR(i,1,N) { int a = sa[i-1], b = sa[i];
+            isa[b] = i > 1 && S[a] == S[b] ? isa[a] : i; }
+        for (int len = 1; len < N; len *= 2) { // currently
+            // sorted by first len chars
+            vi s(sa), is(isa), pos(N); iota(all(pos),0); 
+            each(t,s){
+                int T=t-len;if(T>=0)sa[pos[isa[T]]++]=T;
+            }
+            FOR(i,1,N) { 
+                int a = sa[i-1], b = sa[i]; 
+                // verify that nothing goes out of bounds
+                isa[b] = is[a]==is[b]&&
+                    is[a+len]==is[b+len]?isa[a]:i;
+            }
+        }//sa[i]= indice (0-based) d'inizio i-esimo... 
+    }    //... prefisso più piccolo
+    // isa[i] = x t.c. sa[x]=i
+    //lcp[i]=lcp tra sa[i] e sa[i+1] ($0\leq i \leq n-1$)
+    void genLcp(){
+        lcp=vi(N-1); int h=0; //lcp[0]=lcp(sz(S),sa[1])=0
+        F0R(b,N-1) { int a = sa[isa[b]-1];
+            while (a+h < sz(S) && S[a+h] == S[b+h]) ++h;
+            lcp[isa[b]-1] = h; if (h) h--; }
+        build(N-1,lcp); // serve rmq (del booklet)
+        //ma va modificato con vector<int>& anzichè int*
+        //e V.begin() anzichè V
+        //if we cut off first chars of two strings with...
+    }//...lcp h then remaining portions still have lcp h-1 
+    //lcp of suffixes starting at a,b
+    int getLCP(int a, int b){
+        if (a == b) return sz(S)-a; // a,b sono 0-based
+        int l = isa[a], r = isa[b]; if (l > r) swap(l,r);
+        return query(l,r); // serve rmq (del booklet)
     }
-    copy(tmp, tmp + N, rnk);
-    if (rnk[sa[N - 1]] == N) break;
-  }
-} //sa[i]= indice di inizio i-esimo prefisso più piccolo
-void lcp_array(int N, const string& S) { //$\mathcal{O}(N)$
-  for (int i = 0, k = 0; i < N; i++) {
-    int j = sa[rnk[i]];
-    while (i+k < N && j+k < N && S[i+k] == S[j+k]) k++;
-    lcp[rnk[i] - 1] = k;
-    k = max(k - 1, 0);
-  }
-} //lcp[i]= lcp tra sa[i] e sa[i+1] ($0\leq i \leq N-2$)
+};
