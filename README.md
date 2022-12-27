@@ -3,7 +3,6 @@
 ## TODO:
 
 - testare polynomials, SMAWK, simplex e (quasi) tutta geometria
-- suffix array in $\mathcal{O}(N\log N)$
 
 ## Algoritmi
 
