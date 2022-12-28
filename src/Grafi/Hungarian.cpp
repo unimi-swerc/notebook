@@ -1,8 +1,8 @@
 /// Source:
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/Dinic.h
 /// Verification:
-/// https://codingcompetitions.withgoogle.com/codejam/round/00000000008778ec/0000000000b158f8#problem (attempt 6)
-/// https://open.kattis.com/submissions/8830096
+/// https://codingcompetitions.withgoogle.com/codejam/round/00000000008778ec/0000000000b158f8#problem (attempt 12)
+/// https://open.kattis.com/submissions/10161695
 // Description: Given array of (possibly negative) costs
 // to complete each of $N$ (1-indexed) jobs with each of $M$
 // workers ($N$ < $M$), finds min cost to complete all jobs
@@ -14,14 +14,15 @@
 //riga x= lista dei costi di ciascun worker per il lavoro x
 
 using C = ll;
-C hungarian(const V<V<C>>& a) { 
+C hungarian(const V<V<C>>& a) { // 1-based
   int N = sz(a)-1, M = sz(a[1])-1; assert(N <= M);
   V<C> u(N+1), v(M+1); // to make edge weights >= 0
-  vi job(M+1);
+  vi job(M+1); // job[i] = lavoro assegnato al lavoratore i
   FOR(i,1,N+1) { // find alternating path with job i
+    //attenzione: se C=__int128 bisogna settare inf a mano
     const C inf = numeric_limits<C>::max();
     int w = 0; job[w] = i; // add "dummy" worker 0
-    V<C> dist(M+1,inf); vi pre(M+1,-1); vb done(M+1);
+    V<C> dist(M+1,inf); vi pre(M+1,-1); V<bool> done(M+1);
     while (job[w]) { // dijkstra
       done[w] = 1; int j = job[w], nexW; C delta = inf; 
       // fix dist[j], update dists from j

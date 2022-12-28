@@ -1,11 +1,12 @@
 ///Source:
 ///https://github.com/bqi343/USACO/blob/master/Implementations/content/number-theory%20(11.1)/Primality/MillerRabin.h
 ///Verification:
-///https://dmoj.ca/submission/4706327 (solo prime())
-///https://www.spoj.com/problems/FACT0/ (id: 29454595, testa anche factor_rec())
-///https://www.codechef.com/viewsolution/80813902
+///https://dmoj.ca/submission/5161525 (solo prime())
+///https://www.spoj.com/problems/FACT0/ (id: 30634459, testa anche factor_rec(), compila solo con __gcd però)
+///https://www.codechef.com/viewsolution/83550834
+using ul = uint64_t;
 ul modMul(ul a, ul b, const ul mod) {
-  ll ret = a*b-mod*(ul)((db)a*b/mod);
+  ll ret = a*b-mod*(ul)((long double)a*b/mod);
   return ret+((ret<0)-(ret>=(ll)mod))*mod; }
 ul modPow(ul a, ul b, const ul mod) {
   if (b == 0) return 1;

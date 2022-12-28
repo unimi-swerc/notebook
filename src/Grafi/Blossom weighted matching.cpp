@@ -1,16 +1,18 @@
 /// Source:
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Matching/WeightedMatch.h (l'ho sistemato per non farlo andare in overflow)
 /// Verification:
-/// https://judge.yosupo.jp/submission/91592
-/// https://training.olinfo.it/#/task/ois_marathon2 (id: 736626)
+/// https://judge.yosupo.jp/submission/118366
+/// https://training.olinfo.it/#/task/ois_marathon2 (id: 939431)
 //1-based, tested with $N\leq 500,M\leq \frac{N(N-1)}{2},W \leq 10^6$ (394 ms)
+template<class T> bool ckmax(T& a, const T& b) {
+    return a < b ? a = b, 1 : 0; } // set a = max(a,b)
 template<int SZ> struct WeightedMatch { //Time: $\mathcal{O}(N^3)$?
   struct edge { int u,v;long long w; }; edge g[SZ*2][SZ*2];
   void ae(int u, int v, long long w){g[u][v].w=g[v][u].w=w;}
   int N,NX,match[SZ*2],slack[SZ*2],st[SZ*2];
-  long long lab[SZ*2];
+  long long lab[SZ*2]; //per sicurezza sovrastima SZ
   int par[SZ*2],floFrom[SZ*2][SZ],S[SZ*2],aux[SZ*2]; 
-  vi flo[SZ*2]; queue<int> q;
+  vi flo[SZ*2]; queue<int> q; 
   void init(int _N) { N = _N; // init all edges
     FOR(u,1,N+1) FOR(v,1,N+1) g[u][v] = {u,v,0}; }
   long long eDelta(edge e) { // >= 0 at all times
@@ -106,7 +108,7 @@ template<int SZ> struct WeightedMatch { //Time: $\mathcal{O}(N^3)$?
     if (!sz(q)) return 0;
     while (1) {
       while (sz(q)) { //unweighted matching with tight edges
-        int u = q.ft; q.pop(); if (S[st[u]] == 1) continue;
+        int u = q.front(); q.pop(); if(S[st[u]]==1)continue;
         FOR(v,1,N+1) if (g[u][v].w > 0 && st[u] != st[v]) { 
           if (eDelta(g[u][v]) == 0) { //condition is strict
             if (onFoundEdge(g[u][v])) return 1;

@@ -1,7 +1,7 @@
 /// Source:
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/GomoryHu.h
 /// Verification:
-/// https://www.spoj.com/problems/MCQUERY/ (id: 30319850)
+/// https://www.spoj.com/problems/MCQUERY/ (id: 30634725)
 /*Returns edges of Gomory-Hu tree (second element is weight)
 * Max flow between pair of vertices of undirected graph 
 * is given by min edge weight along tree path. 
@@ -9,6 +9,7 @@
 * where $\lambda_{ij}$ denotes the flow between $i$ and $j.$
 * Time: $N-1$ calls to Dinic (use Max flow code), tested
 * with $T\leq 10,N \leq 150,M \leq 3000,\text{edgeweight}\leq 10^6$(0.10 s)*/
+using pi = pair<int,int>; //c'è già in Dinic ma vabbè
 template<class F> V<pair<pi,F>> gomoryHu(int N, 
     const V<pair<pi,F>>& ed) { //nodes 0-based
   vi par(N); Dinic<F> D; D.init(N);

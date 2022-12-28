@@ -2,8 +2,8 @@
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/strings%20(14)/Light/HashRange%20(14.2).h
 /// https://codeforces.com/blog/entry/60442
 /// Verification:
-/// https://www.facebook.com/codingcompetitions/hacker-cup/2022/round-3/problems/C/my-submissions
-/// https://itacpc22.kattis.com/submissions/9997431
+/// https://www.facebook.com/codingcompetitions/hacker-cup/2022/round-3/problems/C/my-submissions (submission 28 dicembre 2022)
+/// https://itacpc22.kattis.com/submissions/10162065
 // Polynomial hash for substrings with two bases
 mt19937 rng((uint64_t) chrono::duration_cast<chrono::
     nanoseconds>(chrono::high_resolution_clock::now()
@@ -40,10 +40,10 @@ H operator*(H l, H r) {
 V<H> pows{{1,1}};
 struct HashRange { // 0-based, estremi l e r sono inclusi
   string S; V<H> cum{{}};
-  void add(char c){ S += c; cum.pb(base*cum.bk+makeH(c));}
+  void add(char c){S+=c; cum.pb(base*cum.back()+makeH(c));}
   void add(string s) { each(c,s) add(c); }
   void extend(int len) { while (sz(pows) <= len) 
-    pows.pb(base*pows.bk); }
+    pows.pb(base*pows.back()); }
   H hash(int l, int r) { int len = r+1-l; extend(len);
     return cum[r+1]-pows[len]*cum[l]; }
 };
