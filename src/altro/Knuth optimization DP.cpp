@@ -7,7 +7,7 @@ dp[i][j] = min_{i < k < j}(dp[i][k] + dp[k][j] + C[i][j])
 min[i][j-1] <= min[i][j] <= min[i+1][j]
 min[i][j] is the smallest k that gives the optimal answer
 This optimization reduces the time complexity 
-from $O(N^3$)to $O(N^2)$
+from $\mathcal{O}(N^3)$ to $\mathcal{O}(N^2)$
 */
 long long dp[SIZE][SIZE];
 int mid[SIZE][SIZE],pos[SIZE],n,m;

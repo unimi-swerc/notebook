@@ -4,14 +4,14 @@ In un grafo qualsiasi, se si considera un qualsiasi max indipendent set $S$ allo
 \subsubsection{Max-flow min-cut theorem}
 Dato un grafo pesato diretto (se gli archi non sono direzionati, basta scomporre ciascun arco bidirezionale in due archi direzionati e tutto funziona) il flusso massimo tra un nodo $u$ e un nodo $v$ è uguale al taglio minimo, ovvero il costo minimo di archi da rimuovere (costo di rimozione = peso dell'arco) in modo tale da disconnettere $u$ da $v$. Per trovare il taglio minimo quindi basta trovare il flusso massimo da $u$ a $v$, dopodichè fare una visita partendo da $u$ del grafo residuo e tutti gli archi del grafo originale che collegano un nodo visitato con un nodo non visitato fanno parte del taglio minimo.
 
-\subsubsection{Konig Theorem: max matching e min vertex cover (anche pesato) su grafo bipartito}
+\subsubsection{Konig theorem: max matching e min vertex cover (anche pesato) su grafo bipartito}
 In un grafo bipartito la cardinalità del max matching è uguale a quella del minimum vertex cover. Per trovare il max matching, creare una sorgente $u$ e 
 degli archi di peso $1$ dalla sorgente verso tutti i nodi della prima metà del grafo bipartito, dopodichè per ogni arco $(a,b)$ del grafo bipartito creare un arco $a$->$b$ di peso $\infty$ 
 (va bene anche di peso 1, ma se si tratta di min vertex cover pesato devono essere di peso infinito), infine creare un pozzo $v$ e degli archi di peso $1$ da tutti i nodi della 
 seconda metà del grafo bipartito verso il pozzo. Il flusso massimo sarà uguale al max matching, inoltre il flusso massimo è uguale anche al taglio minimo e in questo caso il taglio 
 minimo rappresenta il minimum vertex cover (per ogni arco del grafo bipartito originale, almeno uno dei due estremi deve essere preso/tagliato via da $u$ o $v$). Per min vertex cover pesato, modificare gli archi che partono dalla sorgente o arrivano verso il pozzo con il peso corrispettivo del nodo.
 
-\subsubsection{Hall Theorem: matching perfetto su grafo bipartito}
+\subsubsection{Hall theorem: matching perfetto su grafo bipartito}
 Dato un insieme $W$ di nodi appartenenti al lato sinistro di un grafo bipartito $G$, sia $N_G(W)$ l'insieme dei vicini di $W$. $G$ ammette un matching perfetto per il lato sinistro (ovvero in cui ogni nodo del lato sinistro è matchato) se e solo se per ogni sottoinsieme $W$ (dei nodi del lato sinistro) vale $|W|\leq|N_G(W)|$.
 
 \subsubsection{Erdős–Gallai theorem}
@@ -20,7 +20,7 @@ Dato un insieme $W$ di nodi appartenenti al lato sinistro di un grafo bipartito 
 		A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
 		\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
 
-\subsubsection{Dilworth Theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene}
+\subsubsection{Dilworth theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene}
 \,
 
 \textbf{Teorema}: in un insieme parzialmente ordinato, la cardinalità del più piccolo partizionamento in catene (le catene non devono avere elementi in comune, ma anche se li hanno 
