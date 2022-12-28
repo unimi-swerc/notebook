@@ -1,6 +1,6 @@
 /// Source: Bortoz
 /// Verification:
-/// https://oj.uz/submission/648808
+/// https://oj.uz/submission/675959 (versione con i vector)
 /// https://codeforces.com/gym/102428/submission/185955879
 constexpr int MAXN = 1 << 20, LOGN = 21;
 int table[LOGN][MAXN];

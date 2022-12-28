@@ -1,7 +1,7 @@
 /// Source: MrBrionix (partendo da quello senza laazy propagation)
 /// Verification:
-/// https://judge.yosupo.jp/submission/118051 (senza get_pos)
-/// https://judge.yosupo.jp/submission/118056 (cont get_pos)
+/// https://judge.yosupo.jp/submission/118384 (senza get_pos)
+/// https://judge.yosupo.jp/submission/118385 (cont get_pos)
 typedef long long T;
 mt19937 rng(time(NULL));
 constexpr long long mod = 998244353;
@@ -13,6 +13,7 @@ struct node {
   int size, rot;
   size_t prior;
   node *left, *right;
+  //node *par=nullptr; bool isleft=0; //se serve get_pos
 
   node(T v) : val(v), mi(v), sum(v), lazy1(1), lazy2(0),
       size(1), rot(0), prior(rng()), left(0), right(0) {}
@@ -46,7 +47,7 @@ struct node {
     sum%=mod;
     sum= ((sum*lazy1) + (lazy2*size))%mod;
     val = (lazy1*val+lazy2)%mod;
-    if (rot) swap(left, right);
+    if (rot) swap(left, right);//+ update di isleft se serve
     rot = lazy2 = 0;
     lazy1 = 1;
     return this;
