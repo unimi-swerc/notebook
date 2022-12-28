@@ -2,12 +2,13 @@
 /// Verification:
 /// https://oj.uz/submission/675696
 /// https://codeforces.com/gym/102428/submission/186962324
+/// https://judge.yosupo.jp/submission/118350
 // build suffix array of $S_0,\cdots,S_{n-1}$
 struct SuffixArray { 
     string S; int N; vi sa, isa, lcp; //N=sz(S)+1=n+1
     void init(string _S) { //$\mathcal{O}(n\log n)$
         N = sz(S = _S)+1; genSa(); genLcp(); 
-    } //tested with $t\leq 10,n \leq 10^6$ (5.41 sec)
+    } //tested with $n \leq 5\cdot 10^5$ (226 ms)
     void genSa() { // sa has size sz(S)+1, sa[0]=sz(S)
         sa = isa = vi(N); sa[0] = N-1; iota(1+all(sa),0);
         sort(1+all(sa),[&](int a,int b){return S[a]<S[b];});
