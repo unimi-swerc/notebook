@@ -20,6 +20,9 @@
 \usepackage{titling}
 \usepackage{luacode}
 \usepackage{fontspec}
+\usepackage{extramarks}
+\usepackage{hyperref}
+\usepackage{xpatch}
 \setmonofont[Scale=MatchUppercase]{DejaVuSansMono}
 
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-2em}}}
@@ -41,7 +44,14 @@
 
 % Header/Footer
 \pagestyle{fancy}
-\lhead{Università degli Studi di Milano - LaStatale Yellow}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ \MakeUppercase{#1}}{\thesection.\ \MakeUppercase{#1}}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection.\ \MakeUppercase{#1}}}
+\lhead{Università degli Studi di Milano - LaStatale Blue}
+\chead{
+    \ifthenelse{\equal{\firstrightmark}{\lastrightmark}}
+        {\firstrightmark}
+        {\firstrightmark\ -\ \lastrightmark}
+}
 \rhead{\thepage}
 \cfoot{}
 \setlength{\headheight}{15.2pt}
@@ -49,7 +59,9 @@
 \posttitle{\par\end{center}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
-\setcounter{tocdepth}{2}
+\makeatletter
+\xapptocmd{\@sect}{\csname #1mark\endcsname{#7}}{}{}
+\makeatother
 
 % Math and bit operators
 \DeclareMathOperator{\lcm}{lcm}
@@ -62,13 +74,15 @@
 \DeclareRobustCommand{\stirling}{\genfrac{[}{]}{0pt}{}}
 
 % Title/Author
-\author{LaStatale Yellow 2021-2022}
-\title{Università degli Studi di Milano - LaStatale Yellow}
+\author{LaStatale Blue 2022-2023}
+\title{Università degli Studi di Milano - LaStatale Blue}
 \subtitle{Team Reference Document}
 \date{\ddmmyyyydate{\today{}}}
+\setcounter{tocdepth}{2} % table of content depth
 
 \begin{document}
 \begin{multicols*}{3}
+\markboth{0. INDICE}{0. INDICE}
 \maketitle
 \thispagestyle{fancy}
 \vspace{-3em}
