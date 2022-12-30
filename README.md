@@ -3,6 +3,7 @@
 ## TODO:
 
 - testare polynomials, SMAWK, simplex e (quasi) tutta geometria
+- aggiornare e ordinare il cheat sheet con gli argomenti nuovi nell'ordine corretto
 
 ## Algoritmi
 
