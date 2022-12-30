@@ -3,7 +3,6 @@
 ## TODO:
 
 - testare polynomials, SMAWK, simplex e (quasi) tutta geometria
-- aggiornare e ordinare il cheat sheet con gli argomenti nuovi nell'ordine corretto
 
 ## Algoritmi
 
@@ -75,18 +74,18 @@
 
 ### 5. Strutture dati
 
+- [x] $T(n)\log(n)$ deletion offline
 - [x] Centroid decomposition
 - [x] Compressed BBST
 - [x] Fast hash table
 - [x] Heavy light decomposition (nodi & archi) (+ lca)
 - [x] Li chao tree
 - [x] Line container
-- [x] Link-cut tree (completo, ridotto, modifica per path non commutativi)
+- [x] Link-cut tree (completo, divino, modifica per path non commutativi, ridotto)
 - [x] Mo queries (su array e su albero)
 - [x] Segment tree beats
 - [x] Persistent segment tree (normale oppure sparso + lazy)
 - [x] Sparse table
-- [x] $T(n)\log(n)$ deletion offline
 - [x] Treap (+ lazy propagation)
 - [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
@@ -97,10 +96,10 @@
 - [x] Divide and conquer DP
 - [x] Fast input (per lettura interi)
 - [x] Knuth optimization DP
+- [x] SMAWK
 - [x] Simplesso
 - [x] Template (con pbds e rope)
 - [x] Twosat
-- [x] SMAWK
 - [ ] (?) Hornsat
 
 ### 7. Scarti
@@ -118,28 +117,29 @@
 - [x] Derangement
 - [x] Catalan
 - [x] Burnside's lemma
+- [x] Somma potenze quarte
 
 ### 2. Grafi
 
 - [x] Relazione generale tra max indipendent set e minimum vertex cover
 - [x] Max-flow min-cut theorem
-- [x] Konig Theorem: max matching e min vertex cover (anche pesato) su grafo bipartito
-- [x] Hall Theorem: matching perfetto su grafo bipartito
-- [x] Dilworth Theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene
+- [x] Konig theorem: max matching e min vertex cover (anche pesato) su grafo bipartito
+- [x] Hall theorem: matching perfetto su grafo bipartito
+- [x] Erdős–Gallai theorem
+- [x] Dilworth theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene
 - [x] Archi o nodi obbligati in un matching
 - [x] Max matching, in caso di parità scelgo min/max cost
 - [x] Max matching pesato e min matching pesato
 - [x] Min/Max cost ma non per forza max flow
 - [x] Number of Spanning Trees
-- [x] Erdős–Gallai theorem
 - [x] BEST theorem: number of eulerian circuits
 
 ### 3. Vario
 
+- [x] Subset sum speedup for small weights
 - [x] Varianti del nim
 - [x] Rango matrice
 - [x] Prodotto scalare e vettoriale
-- [x] Somma potenze quarte
 - [x] Pick's theorem
 - [x] Minkowski sum
 - [x] Pythagorean triples
