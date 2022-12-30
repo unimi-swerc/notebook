@@ -1,4 +1,4 @@
-\subsubsection{Subset Sum Speedup for small weights}
+\subsubsection{Subset sum speedup for small weights}
 There are $N$ items. The $i$-th item has weight $w_i\leq D$. Can we find a set $S$ such that $\sum_{i\in S}w_i=C$?
 We will solve this in $\mathcal{O}(ND)$. Firstly, if $\sum w_i<C$, the answer is obviously no, so we will ignore that case.
 Let us find the maximal $k$ such that $\sum_{i=1}^{k}w_i<C$. The basic idea is that we initially have an answer of $w_1+w_2+\dots+w_k$, then we can either subtract $w_i$ for $i\leq k$ or add $w_i$ for $i>k$ in some order such that the cost of our items is in the range $[C-D,C+D]$. The proof sketch is just: if the current weight is more than $C$, remove something, otherwise add something.
