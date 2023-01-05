@@ -4,8 +4,7 @@
 /// https://www.spoj.com/problems/ETF/ (id: 29454799) (fino a 10^6)
 // It took less than 0.5s to calculate with MAX=10^7
 #define MAX 10000000
-int phi[MAX];
-bool pr[MAX];
+int phi[MAX];bool pr[MAX];
 void totient() {
   for (int i = 0; i < MAX; i++) {
     phi[i] = i;

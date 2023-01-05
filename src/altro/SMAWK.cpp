@@ -67,7 +67,6 @@ vector<int> smawck(F f, int n, int m) {
   for(int i = 0; i < m; i++) cols[i] = i;
   return smawck(f, rows, cols);
 }
-
 template<class T>
 vector<T> MaxConvolutionWithConvexShape(vector<T> anyShape, 
       const vector<T> &convexShape) {

@@ -12,7 +12,6 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
   int lvl;
   static SegmentTree* newSeg();
   static SegmentTree* newSeg(ll l,ll r,int _lvl);
-  
   void build(ll *v,ll l,ll r,ll _l,ll _r){
     if(_r<l || _l>r)return;  
     if(_l==_r){
@@ -24,28 +23,24 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
     right->build(v,l,r,(_l+_r)/2+1,_r);   
     sum=left->sum+right->sum;
   }
-  
   SegmentTree* copy(int x){
     SegmentTree *res = newSeg(); 
     *res = *this;
     res->lvl=x;
     return res;
   }
-  
   void checkcopy(long long _l,long long _r){   
     if(left == nullptr){
       left = newSeg(_l,(_l+_r)/2,lvl);
     } else if(left->lvl != lvl){
       left = left->copy(lvl);
     }
-	
     if(right == nullptr){
       right = newSeg((_l+_r)/2+1,_r,lvl);
     }else if(right->lvl != lvl){
       right = right->copy(lvl);
     }
   }
-  
   void checklazy(long long _l,long long _r){
     if(lazy!=0){
       left->lazy+=lazy;
@@ -55,7 +50,6 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
       lazy=0;
     }
   }
-  
   void update(ll l,ll r,ll val,ll _l,ll _r){
     if(l>r || r<_l || l>_r)return;
     if(_l>=l && _r<=r){
@@ -69,7 +63,6 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
     right->update(l,r,val,(_l+_r)/2+1,_r);
     sum=left->sum+right->sum;
   }
-  
   void pointupdate(ll pos,ll val,ll _l,ll _r){
     if(pos<_l || pos>_r)return;
     if(_l==_r){
@@ -82,7 +75,6 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
     right->pointupdate(pos,val,(_l+_r)/2+1,_r);
     sum = left->sum+right->sum;
   }
-  
   __int128 query(ll l,ll r,ll _l,ll _r){
     if(_r<l || _l>r)return 0;
     if(_l>=l && _r<=r)return sum;
@@ -92,7 +84,6 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
 	  right->query(l,r,(_l+_r)/2+1,_r);
   }
 };
-
 SegmentTree vett[4*(MAXN*LOGN+MAXN*LOGN)]; //652M
 int cc=0;
 SegmentTree* SegmentTree::newSeg(){

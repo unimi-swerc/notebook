@@ -8,7 +8,6 @@
 mt19937 rng((uint64_t) chrono::duration_cast<chrono::
     nanoseconds>(chrono::high_resolution_clock::now()
                             .time_since_epoch()).count());
-
 constexpr uint64_t MOD = (1ull<<61) - 1; //1e9+7ll;
 uint64_t modmul(uint64_t a, uint64_t b){ //solo con $2^{61}-1$
   uint64_t l1=(uint32_t)a,h1=a>>32,l2=(uint32_t)b,h2=b>>32;
@@ -18,12 +17,10 @@ uint64_t modmul(uint64_t a, uint64_t b){ //solo con $2^{61}-1$
   ret = (ret & MOD) + (ret>>61);
   return ret-1;
 }
-
 using H = array<long long,2>; //array<int,2>;
 H makeH(char c) { return {c,c}; }
 uniform_int_distribution<ll> BDIST(0.1*MOD,0.9*MOD);//<int>
 const H base{BDIST(rng),BDIST(rng)};
-
 H operator+(H l, H r) { 
   F0R(i,2) if ((l[i] += r[i]) >= MOD) l[i] -= MOD;
   return l; }
@@ -36,7 +33,6 @@ H operator*(H l, H r) {
 // H& operator+=(H& l, H r) { return l = l+r; }
 // H& operator-=(H& l, H r) { return l = l-r; }
 // H& operator*=(H& l, H r) { return l = l*r; }
-
 V<H> pows{{1,1}};
 struct HashRange { // 0-based, estremi l e r sono inclusi
   string S; V<H> cum{{}};

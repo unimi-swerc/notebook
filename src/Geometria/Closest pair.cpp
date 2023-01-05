@@ -10,12 +10,10 @@ struct cmp_y {
     return a.y < b.y;
   }
 };
-
 int n;
 vector<pt> a, t;
 ll mindist = LLONG_MAX;
 pair<int, int> best_pair;
-
 void upd_ans(const pt& a, const pt& b) {
   ll dist = (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y);
   if (dist < mindist) {
@@ -23,7 +21,6 @@ void upd_ans(const pt& a, const pt& b) {
     best_pair = {a.id, b.id};
   }
 }
-
 void rec(int l, int r) {
   if (r - l <= 3) {
     for (int i = l; i < r; ++i) {
@@ -34,16 +31,13 @@ void rec(int l, int r) {
     sort(a.begin()+l, a.begin()+r, cmp_y());
     return;
   }
-  
   int m = (l + r) >> 1;
   int midx = a[m].x;
   rec(l, m);
   rec(m, r);
-
   merge(a.begin()+ l, a.begin()+m, a.begin()+m,
             a.begin()+r, t.begin(), cmp_y());
   copy(t.begin(), t.begin()+r-l, a.begin()+l);
-
   int tsz = 0;
   for (int i = l; i < r; ++i) {
     if (abs(a[i].x - midx) < mindist) {

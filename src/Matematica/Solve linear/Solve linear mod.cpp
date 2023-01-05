@@ -12,7 +12,6 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
   if (n) assert(sz(A[0]) == m);
   col.resize(m);
   iota(all(col), 0);
-
   rep(i,0,n) {
     ll v, bv = 0;
     rep(r,i,n) rep(c,i,m)
@@ -38,19 +37,17 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
     }
     rank++;
   }
-
   x.assign(m, 0);
   for (int i = rank; i--;) {
     b[i] *= inv(A[i][i]);//inverso
     b[i] %= mod;
-    rep(z,i+1,m){ //*per ricavare il sottospazio
+    rep(z,i+1,m){ //(*)per ricavare il sottospazio
       A[i][z] *= inv(A[i][i]);//inverso
       A[i][z] %= mod;
     }
-    
     x[col[i]] = b[i];
     rep(j,0,i) {
-      rep(z,i+1,m){ //*per ricavare il sottospazio
+      rep(z,i+1,m){ //(*)per ricavare il sottospazio
         A[j][z] -= A[j][i] * A[i][z];
         A[j][z] %= mod;
       }
@@ -74,7 +71,6 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
   cout<<m-xx<<"\n";
   for(int i=0;i<m;i++)cout<<(ans[i]+mod)%mod<<" ";
   cout<<"\n";
-  
   for(auto &i : co)i=0; //azzero i termini noti
   xx = solveLinear(cop,co,ans); //calcolo
   assert(xx!=-1);

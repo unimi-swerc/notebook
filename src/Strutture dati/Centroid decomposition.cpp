@@ -6,11 +6,8 @@ template<typename T> bool ckmin(T& a, const T& b)
 {return b<a?a=b,1:0;}
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
-bool r[MN], red[MN];
-std::vector<int> a[MN], v[MN];
-struct info
-{
-  public:
+bool r[MN], red[MN];vector<int> a[MN], v[MN];
+struct info {
     int n,b,d;
 };
 std::vector<info> g[MN];

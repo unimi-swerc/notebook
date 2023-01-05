@@ -56,14 +56,11 @@ int main(){
   }
   rollback_disjoint_set dsu(n);
   auto insert = [&](array<int, 2> e)->void{
-    dsu.merge(e[0], e[1]);
-  };
+    dsu.merge(e[0], e[1]);};
   auto time = [&]()->int{
-    return dsu.time();
-  };
+    return dsu.time();};
   auto reverse_to = [&](int t)->void{
-    dsu.reverse_to(t);
-  };
+    dsu.reverse_to(t);};
   long long res = 0;
   auto answer = [&](int c)->void{
     for(auto [u, v]: edge[c]){

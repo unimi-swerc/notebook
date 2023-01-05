@@ -6,8 +6,7 @@
  * commutative, and distributive over addition (xor). 
  * Forms finite field of size $2^{2^k}$.
  * Defined by $ab=\text{mex}(\{a'b+ab'+a'b':a'<a,b'<b\}).$
- * Time: $64^2$ xors per multiplication, memorize to speed up.
- */
+*Time: $64^2$ xors per multiplication, memorize to speed up.*/
 using ul = uint64_t; 
 struct Precalc {
   ul tmp[64][64], y[8][8][256];

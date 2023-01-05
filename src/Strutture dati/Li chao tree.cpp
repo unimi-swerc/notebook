@@ -6,7 +6,6 @@
 /// https://dmoj.ca/submission/4972352
 const ll INF = (ll)4e18;
 const ll C = (ll)1e9 + 7;
-
 struct Line {
   ll k, b;
   Line() : k(), b(INF) {}
@@ -21,8 +20,7 @@ struct Line {
   root = insertLine(root, -C, C, l, r, Line(k, b));
   //query: trovo il min in x (se non c'è ritorna INF)
   ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$)
-  con $n,q \leq 2\cdot 10^5$ impiega 651 ms
-*/
+  con $n,q \leq 2\cdot 10^5$ impiega 651 ms*/
 struct Node {
   int l, r;
   Line L;
@@ -31,7 +29,6 @@ struct Node {
 const int S = (int)8e6;
 Node tree[S];
 int treeSz;
-
 int getNewNode() {
   tree[treeSz] = Node();
   return treeSz++;
@@ -64,7 +61,6 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
   tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
   return v;
 }
-
 ll getMinPoint(int v, ll l, ll r, ll x) {
   if (v == -1) return INF;
   if (x < l || x >= r) return INF;

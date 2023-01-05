@@ -171,7 +171,6 @@ sp lct[N];
 int n,q,a,b,c,t,rt;
 pair<int,int> e[N];
 Info ans;
-
 int main(){
   cin>>n>>q;
   fori(1,n) cin>>e[i].first>>e[i].second;

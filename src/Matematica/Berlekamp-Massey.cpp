@@ -12,7 +12,6 @@
 // Output will have size < n.
 // Usage: berlekampMassey({0, 1, 1, 3, 5, 11}) // {1, 2}
 // Time: $\mathcal{O}(N^2)$
-
 const ll mod = 1000000007; // faster if const
 ll modpow(ll b, ll e) {
   ll ans = 1;
@@ -25,7 +24,6 @@ vector<ll> berlekampMassey(vector<ll> s) {
   int n = sz(s), L = 0, m = 0;
   vector<ll> C(n), B(n), T;
   C[0] = B[0] = 1;
-
   ll b = 1;
   rep(i,0,n) { ++m;
     ll d = s[i] % mod;
@@ -36,7 +34,6 @@ vector<ll> berlekampMassey(vector<ll> s) {
     if (2 * L > i) continue;
     L = i + 1 - L; B = T; b = d; m = 0;
   }
-
   C.resize(L + 1); C.erase(C.begin());
   for (ll& x : C) x = (mod - x) % mod;
   return C;

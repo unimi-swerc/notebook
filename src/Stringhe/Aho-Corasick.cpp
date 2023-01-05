@@ -14,13 +14,11 @@ struct Vertex {
   int go[K];
   int ind;
   int exitlink = -2;
-
   Vertex(int p=-1, char ch='$') : p(p), pch(ch) {
     fill(begin(next), end(next), -1);
     fill(begin(go), end(go), -1);
   }
 };
- 
 vector<Vertex> t(1);
 //Total time:$\mathcal{O}(mk)$ (k=alphabet,m=total strings lengths)
 void add_string(string const& s, int num) {
@@ -36,9 +34,7 @@ void add_string(string const& s, int num) {
   t[v].leaf = true;
   t[v].ind=num;
 }
- 
 int go(int v, char ch);
- 
 int get_link(int v) {
   if (t[v].link == -1) {
     if (v == 0 || t[v].p == 0)
@@ -48,7 +44,6 @@ int get_link(int v) {
   }
   return t[v].link;
 }
- 
 int get_exitlink(int v){
   if(t[v].exitlink==-2){
     if(v==0)
@@ -64,7 +59,6 @@ int get_exitlink(int v){
   }
   return t[v].exitlink;
 }
- 
 int go(int v, char ch) {
   int c = ch - 'a';
   if (t[v].go[c] == -1) {

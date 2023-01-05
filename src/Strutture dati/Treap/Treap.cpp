@@ -14,10 +14,8 @@ struct node {
   size_t prior;
   node *left, *right;
   //node *par=nullptr; bool isleft=0; se serve get_pos
-
   node(T v) : val(v), mi(v), size(1), rot(0),
        prior(rng()), left(0), right(0) {}
-
   node* fix() {
     mi = val, size = 1;
     if (left) {
@@ -35,7 +33,6 @@ struct node {
     return this;
   }
 };
-
 node* merge(node* a, node* b) {
   if (!a) return b; a->fix();
   if (!b) return a; b->fix();
@@ -71,7 +68,6 @@ pair<node*, node*> split(node* p, int k) {
     return {p->fix(), b};
   }//invariante: sui due nodi di ritorno
 }  //è sempre stata chiamata ->fix()
-
 int min_pos(node* p) {
   p->fix();
   int sl = p->left ? p->left->size : 0;

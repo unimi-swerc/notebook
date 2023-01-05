@@ -7,8 +7,7 @@
 *run of Dijkstra is slow, but this hasn't been an issue 
 * Time: Ignoring first run of Dijkstra, $\mathcal{O}(FM\log M)$
 * if caps are integers and $F$ is max flow. Tested
-* with $N\leq 250, M\leq 5000, \text{cap}\leq 10^4, W\leq 1000$ (0.4 sec)
-*/
+*with $N\leq 250, M\leq 5000, \text{cap}\leq 10^4, W\leq 1000$ (0.4 sec)*/
 struct MCMF { // 0-based, archi direzionati
   using F = ll; using C = ll; // flow type, cost type
   struct Edge { int to, rev; F flo, cap; C cost; };

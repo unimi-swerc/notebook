@@ -12,7 +12,6 @@ vector<triple> delaunay(vector<T> &x, vector<T> &y) {
   vector<triple> ret;
   for (int i = 0; i < n; i++)
     z[i] = x[i] * x[i] + y[i] * y[i];
-
   for (int i = 0; i < n - 2; i++) {
     for (int j = i + 1; j < n; j++) {
       for (int k = i + 1; k < n; k++) {

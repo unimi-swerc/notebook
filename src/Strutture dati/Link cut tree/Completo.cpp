@@ -18,8 +18,7 @@ const int MX = 2e5+5;//con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec
  * Use $\texttt{makeRoot}$ for arbitrary path queries.
  * Time: $\mathcal{O}(\log{N})$
  * Usage: FOR(i,1,N+1) {
- *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);}
- */
+ *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);}*/
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
   sn p, c[2]; // parent, children
@@ -155,7 +154,6 @@ struct snode { //////// VARIABLES
     cut(y); }
 };
 sn LCT[MX];
-
 int N,Q;
 int main() {
   cin>>N>>Q;
@@ -171,16 +169,13 @@ int main() {
     int t; cin>>t;
     if (t == 0) {
       int u,v,w,x; cin>>u>>v>>w>>x;
-      cut(LCT[u],LCT[v]);
-      link(LCT[w],LCT[x],1);
+      cut(LCT[u],LCT[v]);link(LCT[w],LCT[x],1);
     } else if (t == 1) {
-      /*
-      //point update (aggiungi x al nodo p)
+      /*//point update (aggiungi x al nodo p)
       int p,x; cin>>p>>x;
       LCT[p]->access();
       LCT[p]->val += x;
-      LCT[p]->calc();
-      */
+      LCT[p]->calc();*/
       //subtree update 
       // (radice=p, aggiungi x al sottoalbero di v)
       int v,p,x; cin>>v>>p>>x;
@@ -190,16 +185,13 @@ int main() {
       link(LCT[p],LCT[v],1);
     } else {
       int u,v; cin>>u>>v;
-      /*
-      //path query (query nel path tra u e v)
+      /*//path query (query nel path tra u e v)
       LCT[u]->makeRoot();
       LCT[v]->access();
-      cout<<(LCT[v]->sum)<<"\n";
-      */      
+      cout<<(LCT[v]->sum)<<"\n";*/
       //subtree query
       // (v=radice, query sul sottoalbero di u)
-      LCT[v]->makeRoot();
-      LCT[u]->access();
+      LCT[v]->makeRoot();LCT[u]->access();
       cout<<(LCT[u]->vsubSum + LCT[u]->val)<<"\n";
     }
   }

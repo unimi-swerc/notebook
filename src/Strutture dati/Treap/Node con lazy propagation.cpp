@@ -14,10 +14,8 @@ struct node {
   size_t prior;
   node *left, *right;
   //node *par=nullptr; bool isleft=0; //se serve get_pos
-
   node(T v) : val(v), mi(v), sum(v), lazy1(1), lazy2(0),
       size(1), rot(0), prior(rng()), left(0), right(0) {}
-
   static inline void combine(T a, T b, T &c, T &d){
     c=(a*c)%mod;
     d=(a*d+b)%mod;
@@ -26,7 +24,6 @@ struct node {
   //convenzione: info vere = info + lazy
   node* fix() {
     mi = val, size = 1, sum = val;
-    
     if (left) {
       left->rot ^= rot;
       mi = min(mi, left->mi);
@@ -43,7 +40,6 @@ struct node {
       combine(lazy1,lazy2,right->lazy1,right->lazy2);
       size += right->size;
     }
-    
     sum%=mod;
     sum= ((sum*lazy1) + (lazy2*size))%mod;
     val = (lazy1*val+lazy2)%mod;

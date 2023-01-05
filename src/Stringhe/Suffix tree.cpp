@@ -9,14 +9,12 @@
  *  (has l = -1, r = 0), non-existent children are -1.
  *  To get a complete tree, append a dummy symbol -- 
  *  otherwise it may contain an incomplete path (still 
- *  useful for substring matching, though). Time: $\mathcal{O}(26N)$
- */
+ *  useful for substring matching, though). Time: $\mathcal{O}(26N)$*/
 struct SuffixTree {
   enum { N = 200010, ALPHA = 26 }; // $N \approx 2\cdot\text{maxlen}+10$
   int toi(char c) { return c - 'a'; }
   string a; // v = cur node, q = cur position
   int t[N][ALPHA],l[N],r[N],p[N],s[N],v=0,q=0,m=2;
-
   void ukkadd(int i, int c) { suff:
     if (r[v]<=q) {
       if (t[v][c]==-1) { t[v][c]=m;  l[m]=i;
@@ -41,7 +39,6 @@ struct SuffixTree {
     s[0] = 1; l[0] = l[1] = -1; r[0] = r[1] = p[0] = p[1]=0;
     rep(i,0,sz(a)) ukkadd(i, toi(a[i]));
   }
-
   // example: find longest common substring (uses ALPHA=28)
   pii best; //tested with $N,M\leq 250000$ (0.21 sec)
   int lcs(int node, int i1, int i2, int olen) {

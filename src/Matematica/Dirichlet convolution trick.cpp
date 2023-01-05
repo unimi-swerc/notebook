@@ -7,14 +7,12 @@
    $p_g$: the prefix sum of $g(x)$ ($0 \leq x \leq N$).
           Usually $g(x)=x^k$ or $g(x)=[x=1]$.
    $p_c$: the prefix sum of $f*g(x)=\displaystyle\sum_{d|x}f(d)g(\frac{x}{d})$ ($0 \leq x \leq N$).
-   th: the thereshold, generally should be $n^{\frac{2}{3}}$.
-*/
+   th: the thereshold, generally should be $n^{\frac{2}{3}}$.*/
 struct prefix_mul {
   typedef long long (*func) (__int128);
   func p_f, p_g, p_c;
   long long n, th, inv;
   std::unordered_map <long long, long long> mem;
-
   prefix_mul (func p_f, func p_g, func p_c) : 
     p_f (p_f), p_g (p_g), p_c (p_c) {}
   long long calc (long long x) {

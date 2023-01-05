@@ -11,7 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{fullpage}
-\usepackage[top=3pt, bottom=1cm, left=0.6cm, right=0.3cm]{geometry}
+\usepackage[top=0pt, bottom=0.8cm, left=0.6cm, right=0.3cm]{geometry}
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage[cache=false]{minted}
@@ -31,7 +31,7 @@
 \renewcommand{\theFancyVerbLine}{\ttfamily{\footnotesize\arabic{FancyVerbLine}}\hspace{-8pt}} % mono line numbers
 \setminted{
     fontsize=\normalsize,
-    baselinestretch=0.85,
+    baselinestretch=0.91,
     xleftmargin=1.5em,
     xrightmargin=-0.3cm,
     linenos,
@@ -58,7 +58,7 @@
 \setlength{\droptitle}{-20pt}
 \posttitle{\par\end{center}}
 \renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
 \makeatletter
 \xapptocmd{\@sect}{\csname #1mark\endcsname{#7}}{}{}
 \makeatother
@@ -80,14 +80,16 @@
 \date{\ddmmyyyydate{\today{}}}
 \setcounter{tocdepth}{2} % table of content depth
 
+
 \begin{document}
 \begin{multicols*}{3}
 \markboth{0. INDICE}{0. INDICE}
 \maketitle
 \thispagestyle{fancy}
 \vspace{-3em}
-\renewcommand{\baselinestretch}{0.9}\normalsize
-\tableofcontents
+\renewcommand{\baselinestretch}{0.91}\normalsize
+\addtocontents{toc}{\vspace{-2em}\setlength{\columnsep}{-0.2cm}\protect\begin{multicols}{2}}
+{\small\tableofcontents}
 \vspace{-3em}
 \begin{luacode*}
 
@@ -154,5 +156,6 @@ for _, section in ls(current_dir) do
 end
 
 \end{luacode*}
+\addtocontents{toc}{\protect\end{multicols}}
 \end{multicols*}
 \end{document}

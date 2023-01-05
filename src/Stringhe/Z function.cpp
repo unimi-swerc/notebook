@@ -10,8 +10,7 @@ vector<int> z_function(string str) { //$\mathcal{O}(N)$
             str[ret[i]]==str[i+ret[i]])
       ret[i]++;
     if (i+ret[i]-1 > r) {
-      r = i+ret[i]-1;
-      l = i;
+      r = i+ret[i]-1; l = i;
     }
   }
   return ret;

@@ -25,7 +25,6 @@ double orientedAngle(pt a, pt b, pt c) {
     return 2*M_PI - angle(b-a, c-a);
   }
 }
-
 // *** Linee ***
 struct line {
   pt v; ll c;
@@ -35,16 +34,13 @@ struct line {
   line(ll a, ll b, ll c) : v({b,-a}), c(c) {}
   // From points P and Q
   line(pt p, pt q) : v(q-p), c(cross(v,p)) {}
-
   ll side(pt p) { return cross(v,p)-c; }
   ll dist(pt p) {return abs(side(p)) / abs(v);}
   ll normDist(pt p) {return side(p)*side(p) / norm(v);}
-
   line perpThrough(pt p) {return {p, p + perp(v)};}
   line translate(pt t) {return {v, c + cross(v,t)};}
   line shiftLeft(ll dist) {return {v, c + dist*abs(v)};}
 };
-
 bool lineIntersection(line l1, line l2, pt &out) {
   ll d = cross(l1.v, l2.v);
   if (d == 0) return false;
@@ -52,7 +48,6 @@ bool lineIntersection(line l1, line l2, pt &out) {
   out = (l2.v*l1.c - l1.v*l2.c) / d;
   return true;
 }
-
 // *** Segmenti ***
 bool above(pt a, pt p) { return p.y >= a.y; }
 bool inDisk(pt a, pt b, pt p) { 
@@ -103,7 +98,6 @@ double segSegDistance(pt a, pt b, pt c, pt d) {
               segPointDistance(c,d,a), 
               segPointDistance(c,d,b)});
 }
-
 // *** Poligoni
 ll area(vector<pt> V) {
   ll area = 0;

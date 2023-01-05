@@ -12,7 +12,6 @@
 // Time: $\mathcal{O}(N^2M)$ (con $N\leq 1000,M\leq 2000$ impiega 1.6 sec)
 // Matrix A is 1-based (sia sulle righe che sulle colonne)
 //riga x= lista dei costi di ciascun worker per il lavoro x
-
 using C = ll;
 C hungarian(const V<V<C>>& a) { // 1-based
   int N = sz(a)-1, M = sz(a[1])-1; assert(N <= M);

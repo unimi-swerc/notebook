@@ -13,7 +13,6 @@ struct node {
     mis = INF; mxs = -INF;
     sum = _n; lz = 0;
   }
-
   node operator+(const node &oth) const {
     node ans;
     ans.sum = sum + oth.sum;
@@ -48,9 +47,7 @@ struct segment_tree {
 #define m (l + r) / 2
 #define lc i * 2
 #define rc i * 2 + 1
-
   node tr[4 * N];
-
   bool break_condition(int i, long long v, int typ) {
     if (typ == 1) {
       return tr[i].mx <= v;
@@ -60,7 +57,6 @@ struct segment_tree {
       return false;
     }
   }
-
   bool apply_condition(int i, long long v, int typ) {
     if (typ == 1) {
       return tr[i].mxs < v;
@@ -70,7 +66,6 @@ struct segment_tree {
       return true;
     }
   }
-
   void apply(int i, int l, int r, long long v, int typ) {
     if (typ == 1) {
       tr[i].sum -= (tr[i].mx - v) * tr[i].mxc;
@@ -96,7 +91,6 @@ struct segment_tree {
       tr[i].lz += v;
     }
   }
-
   void push(int i, int l, int r) {
     apply(lc, l, m, tr[i].lz, 3);
     apply(rc, m + 1, r, tr[i].lz, 3);
@@ -111,7 +105,6 @@ struct segment_tree {
       }
     }
   }
-
   void build(int l, int r, int i) {
     if (l == r) {
       tr[i] = node(a[l]);
@@ -122,7 +115,6 @@ struct segment_tree {
       tr[i] = tr[lc] + tr[rc];
     }
   }
-
   void update(int l,int r,int i,int L,int R,long long v,
                                                 int typ){
     if (l > R || r < L || break_condition(i, v, typ)) {
@@ -149,11 +141,9 @@ struct segment_tree {
     }
   }
 } seg;
-
 /*uso:
 cin >> n >> q;
 for (int i = 1; i <= n; i++) cin >> a[i];
 seg.build(1, n, 1);
 seg.update(1, n, 1, l, r, v, t);
-cout << seg.query(1, n, 1, l, r) << '\n';
-*/
+cout << seg.query(1, n, 1, l, r) << '\n';*/

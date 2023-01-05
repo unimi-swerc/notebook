@@ -14,17 +14,14 @@ fun v[MAXN];
 vector<int> grafo[MAXN];
 int par[MAXN][LOGN],prof[MAXN],siz[MAXN],in[MAXN];
 int out[MAXN],rin[MAXN],nex[MAXN],cont;
-
 void dfs(int nodo=0, int last=0, int p=0){
   siz[nodo]=1;
   par[nodo][0]=last;
   prof[nodo]=p;
-  
   for(auto &x : grafo[nodo]){
     if(x!=last){
       dfs(x,nodo,p+1);
       siz[nodo]+=siz[x];
-      
       if(grafo[nodo][0]==last || siz[x]>siz[grafo[nodo][0]])
       {
         swap(x,grafo[nodo][0]);
@@ -32,11 +29,9 @@ void dfs(int nodo=0, int last=0, int p=0){
     }
   }
 }
-
 void dfs_hld(int nodo=0, int last=0){
   in[nodo]=cont;
   rin[cont++]=nodo;
-  
   for(auto x : grafo[nodo]){
     if(x!=last){
       if(x==grafo[nodo][0])nex[x]=nex[nodo];
@@ -44,10 +39,8 @@ void dfs_hld(int nodo=0, int last=0){
       dfs_hld(x,nodo);
     }
   }
-  
   out[nodo]=cont;
 }
-
 int lca(int x,int y){ //$\mathcal{O}(\log{N})$
   if(prof[x]>prof[y])swap(x,y);
   for(int i=LOGN-1;i>=0;i--){
@@ -55,7 +48,6 @@ int lca(int x,int y){ //$\mathcal{O}(\log{N})$
       y=par[y][i];
     }
   }
-  
   if(x==y)return x;
   for(int i=LOGN-1;i>=0;i--){
     if(par[x][i]!=par[y][i]){
@@ -65,11 +57,9 @@ int lca(int x,int y){ //$\mathcal{O}(\log{N})$
   }
   return par[x][0];
 }
-
 void update(int pos,fun x){
   rt.update(in[pos],x);
 }
-
 //query sul percorso u->v (u escluso)
 //se flag = 1 il percorso viene fatto al
 //contrario: v->u (u escluso)
@@ -84,22 +74,18 @@ fun path_query(int u,int v,bool flag){
   //il segment deve gestire il caso l>r (ovvero u=v)
   if(flag)res = res ^ rt.query(in[u]+1,in[v],1);
   else res = rt.query(in[u]+1,in[v],0) ^ res;
-  
   return res;
 }
-
 // con $N,Q \le 200000$ impiega 800 ms
 fun query(int u,int v){ //$\mathcal{O}(\log^2 N)$
   int z = lca(u,v);
   return path_query(par[z][0],u,1)^path_query(z,v,0);
 }
-
 /* subtree query
 // con $N,Q \le 500000$ impiega 961 ms
 fun query(int u){ //$\mathcal{O}(\log{N})$
   return rt.query(in[u],out[u]-1);
-}
-*/
+}*/
 int main(){
   cin>>n>>q;
   for(int i=1;i<=n;i++){
@@ -123,7 +109,6 @@ int main(){
     }
   }
   rt.build(v,rin,1,n);
-  
   for(int i=0;i<q;i++){
     int t,a,b,c;
     cin>>t>>a>>b>>c; 

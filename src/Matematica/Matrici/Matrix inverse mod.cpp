@@ -8,8 +8,7 @@
  * $A^{-1} = A^{-1} (2I - AA^{-1}) (\text{mod } p^k)$
  * where $A^{-1}$ starts as the inverse of $A \text{mod } p$,
  * and $k$ is doubled in each step.
- * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 253 ms)
- */
+ * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 253 ms)*/
 const ll mod = 998244353;//1000000007; // faster if const
 ll modpow(ll b, ll e) {
   ll ans = 1;
@@ -17,12 +16,10 @@ ll modpow(ll b, ll e) {
     if (e & 1) ans = ans * b % mod;
   return ans;
 }
-
 int matInv(vector<vector<ll>>& A) {
   int n = sz(A); vi col(n);
   vector<vector<ll>> tmp(n, vector<ll>(n));
   rep(i,0,n) tmp[i][i] = 1, col[i] = i;
-
   rep(i,0,n) {
     int r = i, c = i;
     rep(j,i,n) rep(k,i,n) if (A[j][k]) {
@@ -46,12 +43,10 @@ found:
     rep(j,0,n) tmp[i][j] = tmp[i][j] * v % mod;
     A[i][i] = 1;
   }
-
   for (int i = n-1; i > 0; --i) rep(j,0,i) {
     ll v = A[j][i];
     rep(k,0,n) tmp[j][k]=(tmp[j][k]-v*tmp[i][k])%mod;
   }
-
   rep(i,0,n) rep(j,0,n)
     A[col[i]][col[j]]=tmp[i][j]%mod+(tmp[i][j]<0?mod:0);
   return n;
