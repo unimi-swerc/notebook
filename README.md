@@ -39,7 +39,7 @@
 - [x] Max flow
 - [x] Max clique
 - [x] Stable marriage (Gale-Shapley algorithm)
-- [ ] Tarjan trick for SPFA
+- [x] Tarjan trick for SPFA
 
 ### 3. Matematica
 
