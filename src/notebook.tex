@@ -11,7 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{fullpage}
-\usepackage[top=0pt, bottom=0.8cm, left=0.6cm, right=0.3cm]{geometry}
+\usepackage[top=3pt, bottom=0.8cm, left=0.6cm, right=0.3cm]{geometry}
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage[cache=false]{minted}
@@ -115,7 +115,7 @@ local current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
         local section_dir = current_dir .. "/" .. section
-        tex.print("\\vspace{-1em}" .. "\\section{" .. section:gsub("^%l", string.upper) .. "}")
+        tex.print("\\vspace{0em}" .. "\\section{" .. section:gsub("^%l", string.upper) .. "}")
         for _, subsection in ls(section_dir) do
             local subsection_file = section_dir .. "/" .. subsection
             local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
