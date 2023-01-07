@@ -54,7 +54,7 @@
 }
 \rhead{\thepage}
 \cfoot{}
-\setlength{\headheight}{15.2pt}
+\setlength{\headheight}{15pt}
 \setlength{\droptitle}{-20pt}
 \posttitle{\par\end{center}}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -79,7 +79,7 @@
 \subtitle{Team Reference Document}
 \date{\ddmmyyyydate{\today{}}}
 \setcounter{tocdepth}{2} % table of content depth
-
+\renewcommand*{\addcontentsline}[4]{\addtocontents{toc}{\protect\contentsline{#2}{#3}{}{#4}}} % toc entries without page number
 
 \begin{document}
 \begin{multicols*}{3}
@@ -90,7 +90,7 @@
 \renewcommand{\baselinestretch}{0.91}\normalsize
 \addtocontents{toc}{\vspace{-2em}\setlength{\columnsep}{-0.2cm}\protect\begin{multicols}{2}}
 {\small\tableofcontents}
-\vspace{-3em}
+\vspace{-4em}
 \begin{luacode*}
 
 function ls(dir)
