@@ -49,7 +49,6 @@
 - [x] FFT
 - [x] Fattorizzazione veloce (Pollard's Rho)
 - [x] Fast subset convolution (or,and,xor)
-- [x] Floyd cycle detection
 - [x] Ricorrenze lineari
 - [x] Operazioni sulle matrici (determinante, determinante mod, inversa, inversa mod)
 - [x] NTT
@@ -108,6 +107,7 @@
 - [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
 - [x] Sat (bruteforce O(2^variables*clauses))
+- [x] Floyd cycle detection
 
 ## Teoria
 
