@@ -128,7 +128,7 @@ for _, section in ls(current_dir) do
                 tex.print("\\codepy{" .. subsection_file .. "}")
             end
             if subsection:find("%.tex$") then
-                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-1em}")
+                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{0em}")
                 tex.print("\\input{" .. subsection_file .. "}")
             end
             if not subsection:find("%.") then
@@ -146,7 +146,7 @@ for _, section in ls(current_dir) do
                         tex.print("\\codepy{" .. subsubsection_file .. "}")
                     end
                     if subsubsection:find("%.tex$") then
-                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{-1em}")
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{0em}")
                         tex.print("\\input{" .. subsubsection_file .. "}")
                     end
                 end
