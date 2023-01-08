@@ -4,6 +4,7 @@
 /// https://open.kattis.com/submissions/8824728 (come subroutine di CRT)
 /// https://training.olinfo.it/#/task/ois_pouring/submissions (id: 887571)
 /// https://codeforces.com/contest/1748/submission/181247413
+/// https://atcoder.jp/contests/abc284/tasks/abc284_g
 // Soluzione: $\left( x + k \frac{b}{\gcd(a,b)}, \ y - k \frac{a}{\gcd(a,b)} \right)$
 // restituisce $\left( x, \ y, \ \gcd(a,b) \right)$
 tuple<ll, ll, ll> xgcd(ll a, ll b) {
