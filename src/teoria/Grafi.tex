@@ -75,12 +75,10 @@ Np-completo
 		Create an $N\times N$ matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
-		(if $G$ is undirected, remove any row/column). Oriented spanning tree = spanning tree (quindi n-1 archi) in cui dalla radice è possibile raggiungere ogni nodo. Conseguenza (Cayley's formula): il numero di alberi (non radicati) con $n$ vertici numerati è $n^{n-2}$. Il numero di foreste non radicate, con vertici numerati e $k$ componenti connesse tali che i vertici $1,\dots,k$ sono in componenti diverse è $kn^{n-k-1}$.
+		(if $G$ is undirected, remove any row/column). Oriented spanning tree = spanning tree (quindi $n-1$ archi) in cui dalla radice è possibile raggiungere ogni nodo. Conseguenza (Cayley's formula): il numero di alberi (non radicati) con $n$ nodi numerati è $n^{n-2}$. Il numero di foreste non radicate, con nodi numerati e $k$ componenti connesse tali che i nodi $1,\dots,k$ sono in componenti diverse è $kn^{n-k-1}$.
 
 \subsubsection{BEST theorem: number of eulerian circuits}
 The BEST theorem states that the number ec$(G)$ of Eulerian circuits in a connected Eulerian graph $G$ is given by the formula:
 $$\text{ec}(G)=t_w(G)\prod_{v\in V}(\text{deg}(v)-1)!$$
 Here $t_w(G)$ is the number of arborescences, which are trees directed towards the root at a fixed vertex w in G (If we reverse the edges we obtain an oriented spanning tree, we can count the number of oriented spanning tree with a determinant as explained in the previous section).
 It is a property of Eulerian graphs that $t_v(G) = t_w(G)$ for every two vertices $v$ and $w$ in a connected Eulerian graph $G$. Counting eulerian circuit in a undirected graphs is at least as hard as NP-complete problem.
-
-\,
