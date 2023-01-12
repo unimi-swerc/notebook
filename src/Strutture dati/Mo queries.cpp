@@ -3,6 +3,7 @@
 /// Verification:
 /// https://www.hackerearth.com/submission/72640530/ (moTree)
 /// https://www.spoj.com/problems/DQUERY/ (mo, id: 30185129)
+/// ois notdivisible
 // If values are on tree edges, change $\texttt{step}$ to add/remove 
 // the edge $(a, c)$ and remove the initial $\texttt{add}$ call 
 // (but keep $\texttt{in}$) Time: $\mathcal{O}(N \sqrt{Q})$
