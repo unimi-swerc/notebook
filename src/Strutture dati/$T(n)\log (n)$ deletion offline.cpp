@@ -2,6 +2,7 @@
 /// https://codeforces.com/contest/1681/submission/158216155
 /// Verification:
 /// https://training.olinfo.it/#/task/ois_police7 (id: 807310)
+/// ois xortree2
 // For a commutative data structure supporting true $O(T(n))$
 // insertion, support deletion in $O(T(n)\log n)$ offline.
 template<class E>
