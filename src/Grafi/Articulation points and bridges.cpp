@@ -3,6 +3,7 @@
 /// Verification:
 /// https://www.spoj.com/problems/EC_P/ (id: 29457276, bridges)
 /// https://www.spoj.com/problems/SUBMERGE/ (id: 29457270, articulation points)
+/// https://evaluator.hsin.hr/events/coci23_3/tasks/HONI222335baltazar/ (submission 14)
 using wedge_t = pair<size_t, size_t>;
 // Returns (articulation points, bridges) ($\mathcal{O}(N+M)$)
 pair<vector<size_t>, vector<wedge_t>>
