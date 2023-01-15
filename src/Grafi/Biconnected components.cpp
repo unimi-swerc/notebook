@@ -8,8 +8,8 @@
 // paths between any two nodes. Note that a node can be in
 // several components. An edge which is not in a component
 // is a bridge, i.e., not part of any cycle.
-// Usage:
-//  int eid = 0; ed.resize(N);
+// It works also on disconnected graphs. Usage:
+//  int eid = 0; ed.resize(N); //0-based
 //  for each edge (a,b) {
 //    ed[a].emplace_back(b, eid);
 //    ed[b].emplace_back(a, eid++); }
