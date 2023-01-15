@@ -5,7 +5,7 @@
 /// https://judge.yosupo.jp/submission/85907
 /// https://judge.yosupo.jp/submission/85911
 /// https://codeforces.com/gym/101669/submission/179461930 (solo LCA)
-/// https://evaluator.hsin.hr/tasks/HONI222337skrivaca/ (solo LCA)
+/// https://evaluator.hsin.hr/tasks/HONI222337skrivaca/ (submission 2, solo LCA)
 const long long mod=998244353ll, MAXN=200005, LOGN=18;
 // HLD 1-based (si supponga rt un segment 
 // e ^ l'operazione di merge di due segmenti)
