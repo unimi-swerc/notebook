@@ -146,3 +146,4 @@
 - [x] Minkowski sum
 - [x] Pythagorean triples
 - [x] Numeri primi grandi
+- [x] Note su DP
