@@ -26,7 +26,7 @@
 \usepackage{anyfontsize}
 \setmonofont[Scale=MatchUppercase]{DejaVuSansMono}
 
-\newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\large#1\end{center}\vskip0.1em\vspace{-2em}}}
+\newcommand{\subtitle}[1]{\posttitle{\par\end{center}\vspace{-0.5em}\begin{center}\large#1\end{center}\vspace{-2.2em}}}
 
 % Minted
 \renewcommand{\theFancyVerbLine}{\ttfamily{\footnotesize\arabic{FancyVerbLine}}\hspace{-8pt}} % mono line numbers
@@ -56,7 +56,7 @@
 \rhead{\thepage}
 \cfoot{}
 \setlength{\headheight}{15pt}
-\setlength{\droptitle}{-20pt}
+\setlength{\droptitle}{-26pt}
 \posttitle{\par\end{center}}
 \renewcommand{\headrulewidth}{0.4pt}
 %\renewcommand{\footrulewidth}{0.4pt}
@@ -90,8 +90,8 @@
 \vspace{-3em}
 \renewcommand{\baselinestretch}{0.91}\normalsize
 \addtocontents{toc}{\vspace{-2em}\setlength{\columnsep}{-0.5cm}\protect\begin{multicols}{2}}
-{\fontsize{8}{8}\selectfont \tableofcontents}
-\vspace{-4em}
+{\fontsize{8}{8.5}\selectfont \tableofcontents}
+\vspace{-5.1em}
 \begin{luacode*}
 
 function ls(dir)
@@ -121,11 +121,11 @@ for _, section in ls(current_dir) do
             local subsection_file = section_dir .. "/" .. subsection
             local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") then
-                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-1em}")
+                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-0.87em}")
                 codecpp(subsection_file)
             end
             if subsection:find("%.py$") then
-                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-1em}")
+                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{0em}")
                 tex.print("\\codepy{" .. subsection_file .. "}")
             end
             if subsection:find("%.tex$") then
@@ -134,16 +134,16 @@ for _, section in ls(current_dir) do
             end
             if not subsection:find("%.") then
                 local subsection_dir = section_dir .. "/" .. subsection
-                tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}")
+                tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}" .. "\\vspace{-0.87em}")
                 for _, subsubsection in ls(subsection_dir) do
                     subsubsection_file = subsection_dir .. "/" .. subsubsection
                     subsubsection_name = subsubsection:gsub("^(.*)%..*$", "%1")
                     if subsubsection:find("%.cpp$") then
-                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{-1em}")
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{-0.87em}")
                         codecpp(subsubsection_file)
                     end
                     if subsubsection:find("%.py$") then
-                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{-1em}")
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{0em}")
                         tex.print("\\codepy{" .. subsubsection_file .. "}")
                     end
                     if subsubsection:find("%.tex$") then
