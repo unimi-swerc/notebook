@@ -1,3 +1,4 @@
+/// Source: https://github.com/dariost/swerc/blob/master/src/Extra/delaunay.cpp
 // Slow but simple Delaunay triangulation. Does not handle
 // degenerate cases (from O'Rourke, Computational Geometry
 // in C), running time: $\mathcal{O}(n^4)$
