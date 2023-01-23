@@ -1,3 +1,4 @@
+/// Source: https://github.com/dariost/swerc/blob/master/src/Extra/welzl.cpp
 // Welzl's algorithm: minimum enclosing circle in expected
 // linear time. If there are any duplicate points in the
 // input, be sure to remove them first.
