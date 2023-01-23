@@ -1,3 +1,4 @@
+/// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/geometry/FastDelaunay.h
 /* Fast Delaunay triangulation.
  * Each circumcircle contains none of the input points.
  * There must be no duplicate points.
@@ -6,8 +7,7 @@
  * there may be precision issues in 'circ'.
  * Returns triangles in order {t[0][0], t[0][1], t[0][2],
  * t[1][0], ...}, all counter-clockwise.
- * Time: $\mathcal{O}(n \log n)$
- */
+ * Time: $\mathcal{O}(n \log n)$ */
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)
 pt arb(LLONG_MAX,LLONG_MAX);//not equal to any other point
