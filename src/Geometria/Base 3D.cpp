@@ -1,3 +1,4 @@
+/// Source: Bortoz
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}

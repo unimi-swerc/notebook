@@ -1,3 +1,8 @@
+/// Source: Bortoz
+/// Verification:
+/// https://judge.yosupo.jp/submission/86719 (Solo polar sort e cross)
+/// https://training.olinfo.it/#/task/pre_boi_cerchi (Solo polar sort, cross e perp, ID: 874846)
+/// Guarda Convex hull per la verification di orient
 typedef complex<ll> pt;
 #define x real()
 #define y imag()
