@@ -1,4 +1,7 @@
 /// Source: https://github.com/dariost/swerc/blob/master/src/Extra/welzl.cpp
+/// Verification:
+/// https://www.spoj.com/problems/QCJ4/ (ID: 30771826)
+/// https://www.spoj.com/problems/ALIENS/ (ID: 30772237)
 // Welzl's algorithm: minimum enclosing circle in expected
 // linear time. If there are any duplicate points in the
 // input, be sure to remove them first.
@@ -53,4 +56,4 @@ circle b_minidisk(vector<point> &P, int i,
 circle minidisk(vector<point> P) {
   random_shuffle(P.begin(), P.end());
   return b_minidisk(P, 0, vector<point>());
-}
+} //tested with $t\leq 5,n\leq 10^5$ (0.45 sec)

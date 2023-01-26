@@ -1,4 +1,6 @@
 /// Source: Bortoz (cp-algorithm)
+/// Verification:
+/// https://cses.fi/problemset/result/5356145/
 struct pt { ll x, y, id; };
 struct cmp_x {
   bool operator()(const pt& a, const pt& b) const {
@@ -54,5 +56,5 @@ void closestPair(vector<pt> v) {
   a = v;
   t.resize(v.size());
   rec(0, v.size());
-  // return {best_pair,sqrt(min_dist)};
-}
+  // return {best_pair,sqrt(mindist)};
+} //tested with $n\leq 2\cdot 10^5$ and $x,y\leq 10^9$ (0.33 sec)

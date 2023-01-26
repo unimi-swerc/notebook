@@ -3,6 +3,11 @@
 /// https://judge.yosupo.jp/submission/86719 (Solo polar sort e cross)
 /// https://training.olinfo.it/#/task/pre_boi_cerchi (Solo polar sort, cross e perp, ID: 874846)
 /// Guarda Convex hull per la verification di orient
+/// https://cses.fi/problemset/result/5356091/ (Point in Polygon)
+/// https://cses.fi/problemset/result/5356039/ (Polygon Area)
+/// https://codeforces.com/gym/102501/submission/190662748 (Polygon Area)
+/// https://cses.fi/problemset/result/5356001/ (segIntersection)
+/// https://cses.fi/problemset/result/5355945/ (Line.Side)
 typedef complex<ll> pt;
 #define x real()
 #define y imag()
@@ -109,7 +114,7 @@ ll area(vector<pt> V) {
   for (int i = 0; i < (int)V.size(); i++) {
     area += cross(V[i], V[(i + 1) % V.size()]);
   }
-  return abs(area); // divide by 2
+  return abs(area); // divide by 2 for the real area
 }
 bool isConvex(vector<pt> p) {
   bool hasPos=false, hasNeg=false;
@@ -126,7 +131,7 @@ int inPolygon(vector<pt> V, pt p) {
     if (onSegment(V[i], V[(i+1) % V.size()], p)) return 2;
     numCrossings+=crossesRay(p, V[i], V[(i+1)%V.size()]);
   }
-  return numCrossings % 2;
+  return numCrossings % 2; //1=INSIDE,0=OUTSIZE,2=BOUNDARY
 }
 bool half(pt p) {
   assert(p.x != 0 || p.y != 0);
