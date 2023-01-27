@@ -3,6 +3,7 @@
 /// https://www.hackerearth.com/submission/72599930/
 /// https://judge.yosupo.jp/submission/86597
 /// https://judge.yosupo.jp/submission/86600
+/// https://codeforces.com/gym/103640/submission/190890414
 ll MOD;//Time:$\mathcal{O}(N\log{N})$, con $N\leq 2^{19}$ impiega 465 ms
 ll MOD1=104857601,MOD2=469762049,MOD3=998244353;
 int base = 1;
