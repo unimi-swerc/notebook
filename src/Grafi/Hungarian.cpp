@@ -3,6 +3,7 @@
 /// Verification:
 /// https://codingcompetitions.withgoogle.com/codejam/round/00000000008778ec/0000000000b158f8#problem (attempt 12)
 /// https://open.kattis.com/submissions/10161695
+/// https://codeforces.com/gym/103640/submission/190868345
 // Description: Given array of (possibly negative) costs
 // to complete each of $N$ (1-indexed) jobs with each of $M$
 // workers ($N$ < $M$), finds min cost to complete all jobs
