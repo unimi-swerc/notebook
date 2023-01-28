@@ -44,4 +44,4 @@ int tangents(pt o1, double r1, pt o2, double r2,
     out.push_back({o1 + v*r1, o2 + v*r2});
   }
   return 1 + (h2 > 0);
-}
+} //untested :(
