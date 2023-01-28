@@ -2,7 +2,7 @@
 /// Verification:
 /// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10156661)
 /* Fast Delaunay triangulation, it works also with cyclic
- * quadrilateral. Each circumcircle contains none of the input 
+ * quadrilateral. Each circumcircle contains none of input 
  * points. There must be no duplicate points (but collinear 
  * point are ok). If all points are on a line, no triangles 
  * will be returned. Should work for doubles as well, 
