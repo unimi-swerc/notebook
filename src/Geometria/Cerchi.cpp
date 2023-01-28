@@ -1,6 +1,7 @@
 /// Source: Bortoz
 /// Verification:
 /// https://acm.timus.ru/problem.aspx?space=1&num=1520 (circleLine e circumCenter, ID: 10156658)
+/// https://codeforces.com/contest/933/submission/191029359 (circleCircle)
 int sgn(double xx) { return (xx > 1e-10) - (xx < -1e-10); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
@@ -30,7 +31,7 @@ int circleCircle(pt o1, double r1, pt o2, double r2,
     out = {p-h, p+h};
   }
   return 1 + sgn(h2);
-}
+} //tested counting intersections of 3 circles
 // tangenti tra due cerchi
 int tangents(pt o1, double r1, pt o2, double r2,
               bool inner, vector<pair<pt,pt>> &out) {
