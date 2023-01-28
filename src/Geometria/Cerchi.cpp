@@ -1,21 +1,23 @@
 /// Source: Bortoz
-int sgn(double x) { return (x > 1e-10) - (x < -1e-10); }
+/// Verification:
+/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (circleLine e circumCenter, ID: 10156658)
+int sgn(double xx) { return (xx > 1e-10) - (xx < -1e-10); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
   b = b-a, c = c-a;
   assert(cross(b,c) != 0);
-  return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/2;
-}
+  return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/2.0;
+}  //tested with EPS < $10^{-5}$
 // intersezione tra il cerchio (o,r) e la linea l
 int circleLine(pt o, double r, line l, pair<pt,pt>& out){
   double h2 = r*r - l.normDist(o);
   if (h2 >= 0) {
-    pt p = o - perp(l.v) * l.size(p) / norm(l.v);
+    pt p = o - perp(l.v) * l.side(p) / norm(l.v);
     pt h = l.v * sqrt(h2) / abs(l.v);
     out = {p-h, p+h};
   }
   return 1 + sgn(h2);
-}
+}  //tested with EPS < ${10^-5}$
 // intersezione tra due cerchi
 int circleCircle(pt o1, double r1, pt o2, double r2,
                                   pair<pt,pt> &out) {
