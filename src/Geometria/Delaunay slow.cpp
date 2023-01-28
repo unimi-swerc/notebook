@@ -6,7 +6,7 @@
 // INPUT: x[] = x-coordinates, y[] = y-coordinates
 // OUTPUT:   triples = a vector containing m triples of
 // indices corresponding to triangle vertices
-typedef double T; //tested with $N\leq 300,x_i^2+y_i^2\leq 1000$ (0.7 sec)
+typedef double T;//tested with $N\leq 300,x_i^2+y_i^2\leq 10^3$ (0.7 s)
 typedef tuple<int, int, int> triple;
 vector<triple> delaunay(vector<T> &xx, vector<T> &yy) {
   int n = xx.size();
