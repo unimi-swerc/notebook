@@ -1,16 +1,16 @@
 /// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/geometry/FastDelaunay.h
 /// Verification:
 /// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10156661)
-/* Fast Delaunay triangulation.
- * Each circumcircle contains none of the input points.
- * There must be no duplicate points (but collinear 
+/* Fast Delaunay triangulation, it works also with cyclic
+ * quadrilateral. Each circumcircle contains none of the input 
+ * points. There must be no duplicate points (but collinear 
  * point are ok). If all points are on a line, no triangles 
  * will be returned. Should work for doubles as well, 
  * though there may be precision issues in 'circ'.
  * Returns triangles in order {t[0][0], t[0][1], t[0][2],
  * t[1][0], ...}, all counter-clockwise.
- * Time: $\mathcal{O}(n \log n)$ 
- * Tested with $N\leq 300,X_i^2+Y_i^2\leq 1000$.*/
+ * Time: $\mathcal{O}(n \log n)$, tested with:
+ * $N\leq 300,X_i^2+Y_i^2\leq 1000$. (using doubles)*/
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)
 pt arb(LLONG_MAX,LLONG_MAX);//not equal to any other point
