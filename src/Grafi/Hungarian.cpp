@@ -6,7 +6,7 @@
 /// https://codeforces.com/gym/103640/submission/190868345
 // Description: Given array of (possibly negative) costs
 // to complete each of $N$ (1-indexed) jobs with each of $M$
-// workers ($N$ < $M$), finds min cost to complete all jobs
+// workers ($N\leq M$), finds min cost to complete all jobs
 // such that each worker is assigned to at most one job.
 // Dijkstra with potentials works in almost the same way
 // as MCMF.
