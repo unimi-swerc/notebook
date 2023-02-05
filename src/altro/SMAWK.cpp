@@ -1,5 +1,5 @@
 /// Source: https://codeforces.com/blog/entry/98663
-// smawck for max
+// smawck for (max,+) convolution
 template<class F>
 vector<int> smawck(F f, const vector<int> &rows, 
       const vector<int> &cols) {
@@ -88,4 +88,4 @@ vector<T> MaxConvolutionWithConvexShape(vector<T> anyShape,
     ans[i] = function(i, best[i]);
   }
   return ans;
-}
+} //$\mathit{ans}_i=\max_{j+k=i}(A_j+B_k)$
