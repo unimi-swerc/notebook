@@ -1,3 +1,7 @@
+/// Source:
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/Polynomial.h
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/PolyInterpolate.h
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/PolyRoots.h
 struct Poly {
   vector<double> a;
   double operator()(double x) const {
