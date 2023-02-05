@@ -1,3 +1,4 @@
+/// Source: https://codeforces.com/blog/entry/98663
 // smawck for max
 template<class F>
 vector<int> smawck(F f, const vector<int> &rows, 
