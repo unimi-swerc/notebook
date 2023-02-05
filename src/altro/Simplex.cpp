@@ -1,3 +1,4 @@
+/// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/Simplex.h
 // Description: Solves a general linear maximization
 // problem: maximize $c^T x$ subject to $Ax\le b, x\ge 0$.
 // Returns -inf if there is no solution, inf if there
