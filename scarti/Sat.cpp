@@ -1,3 +1,4 @@
+/// Source: Dariost (Booklet swerc 2019-2020 LaStatale Blue)
 using u32 = uint32_t;
 using u64 = uint32_t;
 /* 0-based, esempio d'uso:
