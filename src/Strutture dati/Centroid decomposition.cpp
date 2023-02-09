@@ -2,13 +2,15 @@
 /// https://usaco.guide/plat/centroid?lang=cpp
 /// Verification:
 /// https://codeforces.com/contest/342/submission/192848259
-template<typename T> bool ckmin(T& a, const T& b)
-{return b<a?a=b,1:0;}
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
+//v[i][j] = nodo rosso più vicino a i nel sottoalbero j-esimo
 struct info { int n,b,d; };
-std::vector<info> g[MN];
+//g[i] = lista degli antenati di i nel centroid tree
+//g[i][j] = {antenato x,indice del sottoalbero che 
+// contiene i in v[x],distanza i->x}
+vector<info> g[MN]; 
 int dfs(int n, int p=0){
   s[n]=1;
   for(auto x:a[n])
@@ -28,7 +30,7 @@ void dfs2(int n, int p=0){
       ++d, dfs2(x, n), --d;
   g[n].push_back({t,b,d});
 }
-void centroid(int n=1){
+void centroid(int n=1){ //1-based
   n = find(n, dfs(n));
   v[n].reserve(a[n].size());
   for(auto x:a[n])
@@ -49,25 +51,21 @@ int main() {
     scanf("%d%d", &u, &v);
     a[u].push_back(v),a[v].push_back(u);
   }
-  centroid();
-  memset(m, 0x3f, sizeof m);
+  centroid(); memset(m, 0x3f, sizeof m);
   for(int i=0,t=1,n=1;i<=M;++i) {
-    if(t==1) {
+    if(t==1) { //colora il nodo n di rosso
       for(auto x:g[n]) {
         int &q=v[x.n][x.b];
         if(x.d<q) {
-          if(m[x.n][0]==q) m[x.n][0]=x.d;
-          else for(int i=0,u=x.d;i<2;++i) 
-                if(u<m[x.n][i]) std::swap(u, m[x.n][i]);
+          m[x.n][0]=min(m[x.n][0],x.d);
           q=x.d;
         }
       }
       red[n]=1;
       m[n][0]=0;
-    } else {
-      int f=m[n][0];
-      for(auto x:g[n])if(x.d)
-      ckmin(f, m[x.n][v[x.n][x.b]==m[x.n][0]]+x.d);
+    } else { // trova il nodo rosso...
+      int f=m[n][0]; // ...più vicino a n
+      for(auto x:g[n])f=min(f, m[x.n][0]+x.d);
       printf("%d\n", f);
     }
     if(i<M) scanf("%d%d", &t, &n);
