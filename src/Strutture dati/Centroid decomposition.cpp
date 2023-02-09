@@ -1,7 +1,7 @@
 /// Source:
 /// https://usaco.guide/plat/centroid?lang=cpp
 /// Verification:
-/// https://codeforces.com/contest/342/submission/154195909
+/// https://codeforces.com/contest/342/submission/192848259
 template<typename T> bool ckmin(T& a, const T& b)
 {return b<a?a=b,1:0;}
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
