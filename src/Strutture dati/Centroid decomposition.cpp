@@ -7,39 +7,32 @@ template<typename T> bool ckmin(T& a, const T& b)
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
-struct info {
-    int n,b,d;
-};
+struct info { int n,b,d; };
 std::vector<info> g[MN];
-int dfs(int n, int p=0)
-{
+int dfs(int n, int p=0){
   s[n]=1;
   for(auto x:a[n])
     if(x!=p&&!r[x])
       s[n]+=dfs(x, n);
   return s[n];
 }
-int find(int n, int ms, int p=0)
-{
+int find(int n, int ms, int p=0){
   for(auto x:a[n])
     if(!r[x]&&x!=p&&s[x]*2>ms)
       return find(x, ms, n);
   return n;
 }
-void dfs2(int n, int p=0)
-{
+void dfs2(int n, int p=0){
   for(auto x:a[n])
     if(!r[x]&&x!=p)
       ++d, dfs2(x, n), --d;
   g[n].push_back({t,b,d});
 }
-void centroid(int n=1)
-{
+void centroid(int n=1){
   n = find(n, dfs(n));
   v[n].reserve(a[n].size());
   for(auto x:a[n])
-    if(!r[x])
-    {
+    if(!r[x]){
       t=n, b=v[n].size(), d=1;
       dfs2(x, n);
       v[n].push_back(INF);
