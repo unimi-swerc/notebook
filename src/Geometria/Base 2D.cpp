@@ -8,6 +8,7 @@
 /// https://codeforces.com/gym/102501/submission/190662748 (Polygon Area)
 /// https://cses.fi/problemset/result/5356001/ (segIntersection)
 /// https://cses.fi/problemset/result/5355945/ (Line.Side)
+/// https://dmoj.ca/submission/5304464 (polar sort + cross)
 typedef complex<ll> pt;
 #define x real()
 #define y imag()
