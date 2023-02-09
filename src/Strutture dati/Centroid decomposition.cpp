@@ -36,7 +36,7 @@ void centroid(int n=1){ //1-based
   for(auto x:a[n])
     if(!r[x]){
       t=n, b=v[n].size(), d=1;
-      dfs2(x, n);
+      dfs2(x, n); //aggiorno i g[]
       v[n].push_back(INF);
     }
   r[n]=1;
