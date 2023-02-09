@@ -1,7 +1,7 @@
 /// Source:
 /// https://usaco.guide/plat/centroid?lang=cpp
 /// Verification:
-/// https://codeforces.com/contest/342/submission/192848259
+/// https://codeforces.com/contest/342/submission/192852077
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
