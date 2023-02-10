@@ -3,7 +3,6 @@
 /// Verification:
 /// https://training.olinfo.it/#/task/ois_police7 (id: 807310)
 /// https://training.olinfo.it/#/task/ois_xortree2 (id: 949588)
-/// ois xortree2
 // For a commutative data structure supporting true $O(T(n))$
 // insertion, support deletion in $O(T(n)\log n)$ offline.
 template<class E>
@@ -34,8 +33,8 @@ struct query_tree{
         int m = l + (r - l >> 1);
         self(self,u+1,l,m), self(self,u+(m - l << 1),m,r);
       }
-      reverse_to(timer);
-    };
+      reverse_to(timer);//il reverse va bene anche se...
+    }; //torna indietro di una unità di tempo alla volta
     dfs(dfs, 0, 0, n);
   }
 };
