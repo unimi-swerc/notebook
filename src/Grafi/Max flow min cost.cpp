@@ -13,7 +13,7 @@ struct MCMF { // 0-based, archi direzionati
   struct Edge { int to, rev; F flo, cap; C cost; };
   int N; V<C> p, dist; vpi pre; V<V<Edge>> adj;
   void init(int _N) { N = _N;
-    p.rsz(N), adj.rsz(N), dist.rsz(N), pre.rsz(N); }
+    p.resize(N), adj.resize(N), dist.resize(N), pre.resize(N);}
   void ae(int u, int v, F cap, C cost) { assert(cap >= 0); 
     adj[u].pb({v,sz(adj[v]),0,cap,cost}); 
     adj[v].pb({u,sz(adj[u])-1,0,0,-cost});
