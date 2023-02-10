@@ -8,8 +8,7 @@ min[i][j-1] <= min[i][j] <= min[i+1][j]
 min[i][j] is the smallest k that gives the optimal answer
 This optimization reduces the time complexity 
 from $\mathcal{O}(N^3)$ to $\mathcal{O}(N^2)$*/
-long long dp[SIZE][SIZE];
-int mid[SIZE][SIZE],pos[SIZE],n,m;
+long long dp[SIZE][SIZE],mid[SIZE][SIZE],pos[SIZE],n,m;
 cin>>p[1]>>p[2]>>...>>p[m];
 pos[0] = 0;pos[m + 1] = n;
 // length of section of cuts to compute

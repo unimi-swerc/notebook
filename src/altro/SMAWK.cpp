@@ -1,7 +1,7 @@
 /// Source: https://codeforces.com/blog/entry/98663
 // smawck for (max,+) convolution
 template<class F>
-vector<int> smawck(F f, const vector<int> &rows, 
+vector<int> smawck(F f, const vector<int> &rows,
       const vector<int> &cols) {
   vector<int> ans(rows.size(), -1);
   if((int) max(rows.size(), cols.size()) <= 2) {
@@ -12,8 +12,7 @@ vector<int> smawck(F f, const vector<int> &rows,
         }
       }
     }
-  } else if(rows.size() < cols.size()) {
-    // reduce
+  } else if(rows.size() < cols.size()) { // reduce
     vector<int> st;
     for(int j : cols) {
       while(1) {

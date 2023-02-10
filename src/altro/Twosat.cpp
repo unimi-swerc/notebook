@@ -8,8 +8,7 @@ typedef pair<int, int> ipair;
 ipair conj(int v1, bool neg1, int v2, bool neg2) { 
   return {v1 * 2 + neg1, v2 * 2 + neg2}; 
 }
-// Time: $\mathcal{O}(N+M)$
-const int N = 1000111;
+const int N = 1000111; // Time: $\mathcal{O}(N+M)$
 //0-based, X = 2*i, not(X) = 2*i+1
 //ritorna un vector vuoto se non c'è soluzione
 //altrimenti ritorna un vector V tale che V[i] = true
@@ -42,8 +41,7 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
       for (int nv : eb[v]) dfs2(nv, comp);
     }
   };
-  for (int v = 0; v < n; ++v)
-    Internal::dfs1(v);
+  for (int v = 0; v < n; ++v) Internal::dfs1(v);
   fill(vis, vis + n, 0);
   int comp = 0;
   for (int i = n - 1; i >= 0; --i) {
@@ -60,7 +58,6 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
     else
       ans[v / 2] = (vis[v] < vis[v + 1]);
   if (fail) ans.clear();
-
   for (int i = 0; i < n; ++i) {
     e[i].clear();
     eb[i].clear();

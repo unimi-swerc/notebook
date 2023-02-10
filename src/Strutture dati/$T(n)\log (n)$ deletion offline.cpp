@@ -38,8 +38,7 @@ struct query_tree{
     dfs(dfs, 0, 0, n);
   }
 };
-//example
-int main(){
+int main(){ //example
   int n;
   cin >> n;
   vector<vector<array<int, 2>>> edge(n);
