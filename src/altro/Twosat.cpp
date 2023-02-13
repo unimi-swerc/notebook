@@ -1,7 +1,7 @@
 /// Source:
 /// https://judge.yosupo.jp/submission/64812
 /// Verification:
-/// https://judge.yosupo.jp/submission/86644
+/// https://judge.yosupo.jp/submission/125670
 #define X first
 #define Y second
 typedef pair<int, int> ipair;
