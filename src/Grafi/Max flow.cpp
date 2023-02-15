@@ -46,7 +46,7 @@ template<class F> struct Dinic {
             if (lev[e.to]!=lev[v]+1||!e.cap) continue;
             if (F df = dfs(e.to,t,min(flo,e.cap))) { 
                 e.cap -= df; adj[e.to][e.rev].cap += df;
-                return df; } // saturated >=1 one edge
+                return df; } // saturated $\geq1$ one edge
         }
         return 0;
     }

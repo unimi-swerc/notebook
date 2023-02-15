@@ -6,7 +6,7 @@
  * commutative, and distributive over addition (xor). 
  * Forms finite field of size $2^{2^k}$.
  * Defined by $ab=\text{mex}(\{a'b+ab'+a'b':a'<a,b'<b\}).$
-*Time: $64^2$ xors per multiplication, memorize to speed up.*/
+ *Time: $64^2$ xors per multiplication, memorize to speed up*/
 using ul = uint64_t; 
 struct Precalc {
   ul tmp[64][64], y[8][8][256];
@@ -16,10 +16,10 @@ struct Precalc {
     F0R(i,8) F0R(j,i+1) F0R(k,256)
       y[i][j][k] = mult<64>(prod2(8*i,8*j),k);
   }
-  ul prod2(int i, int j) { // nim prod of 2^i, 2^j
+  ul prod2(int i, int j) { // nim prod of $2^i$, $2^j$
     ul& u = tmp[i][j]; if (u) return u;
     if (!(i&j)) return u = 1ULL<<(i|j);
-    int a = (i&j)&-(i&j); // a=2^k, consider 2^{2^k}
+    int a = (i&j)&-(i&j); // $a=2^k$, consider $2^{2^k}$
    return u=prod2(i^a,j)^prod2((i^a)|(a-1),(j^a)|(i&(a-1)));
   }
   template<int L> ul mult(ul a, ul b) {
@@ -47,6 +47,6 @@ struct nb { // nimber
   nb operator*(nb y) { return nb(P.multFast(x,y.x)); }
   friend nb pow(nb b, ul p) {
     nb res = 1; for (;p;p/=2,b=b*b) if (p&1) res = res*b;
-    return res; } // b^{2^{2^A}-1}=1 where 2^{2^A} > b
+    return res; } // $b^{2^{2^A}-1}=1$ where $2^{2^A} > b$
   friend nb inv(nb b) { return pow(b,-2); }
 };

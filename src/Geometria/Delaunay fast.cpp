@@ -10,7 +10,7 @@
  * Returns triangles in order {t[0][0], t[0][1], t[0][2],
  * t[1][0], ...}, all counter-clockwise.
  * Time: $\mathcal{O}(n \log n)$, tested with:
- * $N\leq 300,X_i^2+Y_i^2\leq 1000$. (using doubles)*/
+ * $N\leq 300,X_i^2+Y_i^2\leq 1000$. (using doubles) */
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)
 pt arb(LLONG_MAX,LLONG_MAX);//not equal to any other point

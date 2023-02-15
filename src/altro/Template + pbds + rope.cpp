@@ -31,4 +31,4 @@ using vpi = V<pair<int,int>>;
 #define each(a,x) for (auto& a: x)
 #define all(x) begin(x), end(x)
 template<class T> bool ckmin(T& a, const T& b) {
-    return b < a ? a = b, 1 : 0; } // set a = min(a,b)
+    return b < a ? a = b, 1 : 0; } // set $a = \min(a,b)$

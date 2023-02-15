@@ -3,13 +3,13 @@
 /// Verification:
 /// https://www.spoj.com/problems/LCS/ (id: 30319688)
 /* Ukkonen's algorithm for online suffix tree construction.
- *  Each node contains indices [l, r) into the string, and 
- *  a list of child nodes. Suffixes are given by traversals 
- *  of this tree, joining [l, r) substrings. The root is 0 
- *  (has l = -1, r = 0), non-existent children are -1.
- *  To get a complete tree, append a dummy symbol -- 
- *  otherwise it may contain an incomplete path (still 
- *  useful for substring matching, though). Time: $\mathcal{O}(26N)$*/
+ * Each node contains indices $[l, r)$ into the string, and
+ * a list of child nodes. Suffixes are given by traversals
+ * of this tree, joining $[l, r)$ substrings. The root is 0
+ * (has $l = -1, r = 0$), non-existent children are -1.
+ * To get a complete tree, append a dummy symbol --
+ * otherwise it may contain an incomplete path (still
+ * useful for substring matching, though). Time: $\mathcal{O}(26N)$ */
 struct SuffixTree {
   enum { N = 200010, ALPHA = 26 }; // $N \approx 2\cdot\text{maxlen}+10$
   int toi(char c) { return c - 'a'; }

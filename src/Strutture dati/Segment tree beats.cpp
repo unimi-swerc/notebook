@@ -2,6 +2,10 @@
 /// https://judge.yosupo.jp/submission/35587
 /// Verification:
 /// https://judge.yosupo.jp/submission/94863
+/* 1-based. Estremi degli intervalli inclusi: [l,r]
+ * 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD
+ * $\mathcal{O}(\log{(N)})$ per query/update
+ * con $n,q \leq 2\cdot 10^5$ impiega 600 ms */
 const int N = 200005;
 const long long INF = 1E16;
 long long a[N];
@@ -39,10 +43,6 @@ struct node {
     return ans;
   }
 };
-// 1-based. Estremi degli intervalli inclusi: [l,r]
-// 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD
-// $\mathcal{O}(\log{(N)})$ per query/update
-// con $n,q \leq 2\cdot 10^5$ impiega 600 ms
 struct segment_tree {
 #define m (l + r) / 2
 #define lc i * 2

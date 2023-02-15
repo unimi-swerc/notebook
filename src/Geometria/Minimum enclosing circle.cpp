@@ -2,9 +2,9 @@
 /// Verification:
 /// https://www.spoj.com/problems/QCJ4/ (ID: 30771826)
 /// https://www.spoj.com/problems/ALIENS/ (ID: 30772237)
-// Welzl's algorithm: minimum enclosing circle in expected
-// linear time. If there are any duplicate points in the
-// input, be sure to remove them first.
+/* Welzl's algorithm: minimum enclosing circle in expected
+ * linear time. If there are any duplicate points in the
+ * input, be sure to remove them first. */
 struct point{ double x,y;};
 struct circle {
   double x,y,r;

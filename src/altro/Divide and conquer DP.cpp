@@ -22,10 +22,10 @@ void compute(int l, int r, int optl, int optr) {
   compute(l, mid - 1, optl, opt);
   compute(mid + 1, r, opt, optr);
 }
-// versione $\mathcal{O}(n\log^2n)$ potenziata con ds ($\mathcal{O}(\log n)$ per upd)
-// $d[l\dots r]$ = posizioni il cui taglio ottimo è in $[l_{\mathit{opt}},r_{\mathit{opt}}]$
-// invariante di chiamata: 
-// sono sempre attivi gli upd in $[d[mid],\max(l_{\mathit{opt}}, d[mid]))$
+/* versione $\mathcal{O}(n\log^2n)$ potenziata con ds ($\mathcal{O}(\log n)$ per upd)
+ * $d[l\dots r]$ = posizioni il cui taglio ottimo è in $[l_{\mathit{opt}},r_{\mathit{opt}}]$
+ * invariante di chiamata:
+ * sono sempre attivi gli upd in $[d[mid],\max(l_{\mathit{opt}}, d[mid]))$ */
 void divide_conquer(int l, int r, int l_opt, int r_opt){
   int mid = (l + r) / 2, opt = -1;
   ll best_delta = 1; //qua la ricorrenza è del tipo $min_{k > j}$

@@ -4,15 +4,15 @@
 /// https://codingcompetitions.withgoogle.com/codejam/round/00000000008778ec/0000000000b158f8#problem (attempt 12)
 /// https://open.kattis.com/submissions/10161695
 /// https://codeforces.com/gym/103640/submission/190868345
-// Description: Given array of (possibly negative) costs
-// to complete each of $N$ (1-indexed) jobs with each of $M$
-// workers ($N\leq M$), finds min cost to complete all jobs
-// such that each worker is assigned to at most one job.
-// Dijkstra with potentials works in almost the same way
-// as MCMF.
-// Time: $\mathcal{O}(N^2M)$ (con $N\leq 1000,M\leq 2000$ impiega 1.6 sec)
-// Matrix A is 1-based (sia sulle righe che sulle colonne)
-//riga x= lista dei costi di ciascun worker per il lavoro x
+/* Description: Given array of (possibly negative) costs
+ * to complete each of $N$ (1-indexed) jobs with each of $M$
+ * workers ($N\leq M$), finds min cost to complete all jobs
+ * such that each worker is assigned to at most one job.
+ * Dijkstra with potentials works in almost the same way
+ * as MCMF.
+ * Time: $\mathcal{O}(N^2M)$ (con $N\leq 1000,M\leq 2000$ impiega 1.6 sec)
+ * Matrix A is 1-based (sia sulle righe che sulle colonne)
+ *row x= lista dei costi di ciascun worker per il lavoro x*/
 using C = ll;
 C hungarian(const V<V<C>>& a) { // 1-based
   int N = sz(a)-1, M = sz(a[1])-1; assert(N <= M);

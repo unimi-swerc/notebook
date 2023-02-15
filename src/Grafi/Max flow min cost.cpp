@@ -4,17 +4,17 @@
 /// https://open.kattis.com/submissions/10457476
 /// tal_fattorini
 /*Minimum-cost maximum flow, assumes no negative cycles.It's
-*possible to choose negative edge costs such that the first
-*run of Dijkstra is slow, but this hasn't been an issue 
-* Time: Ignoring first run of Dijkstra, $\mathcal{O}(FM\log M)$
-* if caps are integers and $F$ is max flow. Tested
-*with $N\leq 250, M\leq 5000, \text{cap}\leq 10^4, W\leq 1000$ (0.4 sec)*/
+ *possible to choose negative edge costs such that the first
+ * run of Dijkstra is slow, but this hasn't been an issue
+ * Time: Ignoring first run of Dijkstra, $\mathcal{O}(FM\log M)$
+ * if caps are integers and $F$ is max flow. Tested
+ * with $N\leq 250, M\leq 5000, \text{cap}\leq 10^4, W\leq 1000$ (0.4 sec) */
 struct MCMF { // 0-based, archi direzionati
   using F = ll; using C = ll; // flow type, cost type
   struct Edge { int to, rev; F flo, cap; C cost; };
   int N; V<C> p, dist; vpi pre; V<V<Edge>> adj;
   void init(int _N) { N = _N;
-    p.resize(N), adj.resize(N), dist.resize(N), pre.resize(N);}
+    p.resize(N),adj.resize(N),dist.resize(N),pre.resize(N);}
   void ae(int u, int v, F cap, C cost) { assert(cap >= 0); 
     adj[u].pb({v,sz(adj[v]),0,cap,cost}); 
     adj[v].pb({u,sz(adj[u])-1,0,0,-cost});

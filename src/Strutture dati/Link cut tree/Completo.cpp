@@ -18,7 +18,7 @@ const int MX = 2e5+5;//con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec
  * Use $\texttt{makeRoot}$ for arbitrary path queries.
  * Time: $\mathcal{O}(\log{N})$
  * Usage: FOR(i,1,N+1) {
- *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);}*/
+ *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);} */
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
   sn p, c[2]; // parent, children

@@ -6,9 +6,9 @@
  * is stored in $A$ unless singular (rank < n).
  * For prime powers, repeatedly set
  * $A^{-1} = A^{-1} (2I - AA^{-1}) (\text{mod } p^k)$
- * where $A^{-1}$ starts as the inverse of $A \text{mod } p$,
+ * where $A^{-1}$ starts as the inverse of $A\ \text{mod } p$,
  * and $k$ is doubled in each step.
- * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 253 ms)*/
+ * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 253 ms) */
 const ll mod = 998244353;//1000000007; // faster if const
 ll modpow(ll b, ll e) {
   ll ans = 1;

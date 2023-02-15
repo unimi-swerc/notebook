@@ -1,11 +1,11 @@
 /// Source: https://github.com/dariost/swerc/blob/master/src/Extra/delaunay.cpp
 /// Verification: https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10156667)
-// Slow but simple Delaunay triangulation. Does not handle
-// degenerate cases (from O'Rourke, Computational Geometry
-// in C), running time: $\mathcal{O}(n^4)$
-// INPUT: x[] = x-coordinates, y[] = y-coordinates
-// OUTPUT:   triples = a vector containing m triples of
-// indices corresponding to triangle vertices
+/* Slow but simple Delaunay triangulation. Does not handle
+ * degenerate cases (from O'Rourke, Computational Geometry
+ * in C), running time: $\mathcal{O}(n^4)$
+ * INPUT: x[] = x-coordinates, y[] = y-coordinates
+ * OUTPUT:   triples = a vector containing m triples of
+ * indices corresponding to triangle vertices */
 typedef double T;//tested with $N\leq 300,x_i^2+y_i^2\leq 10^3$ (0.7 s)
 typedef tuple<int, int, int> triple;
 vector<triple> delaunay(vector<T> &xx, vector<T> &yy) {

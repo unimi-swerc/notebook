@@ -4,7 +4,7 @@
 /// https://www.spoj.com/problems/DISGRAPH/ (id: 30318042) (archi con peso = 1)
 /* Find a global minimum cut in an undirected graph, 
  * as represented by an adjacency matrix. Time: $\mathcal{O}(V^3)$
- * tested with $V \leq 1400$ (12.22 sec)*/
+ * tested with $V \leq 1400$ (12.22 sec) */
 pair<int, vi> globalMinCut(vector<vi> mat) { //0-based
   pair<int, vi> best = {INT_MAX, {}};
   int n = sz(mat);//mat[i][j]=0 means there is no arc (i->j)

@@ -2,12 +2,12 @@
 /// https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/MaximumClique.h
 /// Verification:
 /// https://judge.yosupo.jp/submission/110005 (max clique on complement graph)
-// Quickly finds a maximum clique of a graph (given as
-// symmetric bitset matrix; self-edges not allowed).
-// Can be used to find a maximum independent set by
-// finding a clique of the complement graph.
-// Time: Runs in about 1s for n=155 and worst case
-// random graphs (p=.90). Runs faster for sparse graphs.
+/* Quickly finds a maximum clique of a graph (given as
+ * symmetric bitset matrix; self-edges not allowed).
+ * Can be used to find a maximum independent set by
+ * finding a clique of the complement graph.
+ * Time: Runs in about 1s for $n=155$ and worst case
+ * random graphs ($p=.90$). Runs faster for sparse graphs. */
 typedef vector<bitset<200>> vb; //vb.size()=n
 struct Maxclique { //0-based
   double limit=0.025, pk=0;

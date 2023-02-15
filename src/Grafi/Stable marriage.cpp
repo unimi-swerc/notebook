@@ -2,13 +2,13 @@
 /// https://github.com/dariost/swerc/blob/master/src/Extra/stablemp.cpp
 /// Verification:
 /// https://www.spoj.com/problems/STABLEMP/ (id: 29454835)
-// Gale-Shapley algorithm for the stable marriage problem.
-// madj[i][j] is the jth highest ranked woman for man i.
-// fpref[i][j] is the rank woman i assigns to man j.
-// rank = 0 -> first preference
-// Returns a pair of vectors (mpart, fpart), where mpart[i]
-// gives the partner of man i, and fpart is analogous.
-//tested with $N\leq 500$ (0.04 sec) ($\mathcal{O}(N^2)$)
+/* Gale-Shapley algorithm for the stable marriage problem.
+ * madj[i][j] is the jth highest ranked woman for man i.
+ * fpref[i][j] is the rank woman i assigns to man j.
+ * rank = 0 -> first preference
+ * Returns a pair of vectors (mpart, fpart), where mpart[i]
+ * gives the partner of man i, and fpart is analogous.
+ * tested with $N\leq 500$ (0.04 sec) ($\mathcal{O}(N^2)$) */
 pair<vector<int>, vector<int>>
 stable_marriage(vector<vector<int>> &madj,
                 vector<vector<int>> &fpref) {

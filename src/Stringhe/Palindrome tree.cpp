@@ -8,7 +8,7 @@
  * palindrome within string. Tested with $n\leq 3\cdot 10^5$ (78 ms)
  * $\texttt{ans[i][0]}$ stores min even $x$ such that 
  * the prefix $s[1..i]$ can be split into exactly $x$
- * palindromes, $\texttt{ans[i][1]}$ does the same for odd $x$.*/
+ * palindromes, $\texttt{ans[i][1]}$ does the same for odd $x$. */
 constexpr long long MOD = 1e9+7ll; //inf
 struct PalTree{//Time:$O(N\Sigma)$ 4 addChar,$O(N\log{N})$ 4 updAns
   static const int ASZ = 26;
@@ -26,7 +26,7 @@ struct PalTree{//Time:$O(N\Sigma)$ 4 addChar,$O(N\log{N})$ 4 updAns
     while (s[sz(s)-d[v].len-2] != s.back()) v = d[v].link;
     return v;
   }
-  void updAns() { // serial path has O(log n) vertices
+  void updAns() { // serial path has $\mathcal{O}(\log{n})$ vertices
     ans.pb({MOD,MOD});
     for (int v = last; d[v].len > 0; v = d[v].slink) {
    d[v].seriesAns=ans[sz(s)-1-d[d[v].slink].len-d[v].diff];

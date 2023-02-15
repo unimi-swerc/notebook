@@ -6,10 +6,10 @@
 /// https://judge.yosupo.jp/submission/85911
 /// https://codeforces.com/gym/101669/submission/179461930 (solo LCA)
 /// https://evaluator.hsin.hr/tasks/HONI222337skrivaca/ (submission 2, solo LCA)
+/* HLD 1-based (si supponga rt un segment 
+ * e ^ l'operazione di merge di due segmenti)
+ * gli estremi di query e update del segment sono inclusi */
 const long long mod=998244353ll, MAXN=200005, LOGN=18;
-// HLD 1-based (si supponga rt un segment 
-// e ^ l'operazione di merge di due segmenti)
-// gli estremi di query e update del segment sono inclusi
 long long n,q;
 fun v[MAXN];
 vector<int> grafo[MAXN];
@@ -61,9 +61,9 @@ int lca(int x,int y){ //$\mathcal{O}(\log{N})$
 void update(int pos,fun x){
   rt.update(in[pos],x);
 }
-//query sul percorso u->v (u escluso)
-//se flag = 1 il percorso viene fatto al
-//contrario: v->u (u escluso)
+/* query sul percorso u->v (u escluso)
+ * se flag = 1 il percorso viene fatto al
+ * contrario: v->u (u escluso) */
 fun path_query(int u,int v,bool flag){
   fun res=fun();
   //u deve essere antenato di v (u=v va bene)

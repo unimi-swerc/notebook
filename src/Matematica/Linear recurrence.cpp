@@ -6,9 +6,9 @@
  * linear recurrence S[i] = sum(S[i-j-1] * tr[j]),
  * given S[0...n-1] and tr[0...n-1].
  * Faster than matrix multiplication.
- * Useful together with Berlekamp--Massey.
+ * Useful together with Berlekamp-Massey.
  * Usage: linearRec({0, 1}, {1, 1}, k) // Fibonacci
- * Time: $\mathcal{O}(n^2 \log k)$*/
+ * Time: $\mathcal{O}(n^2 \log k)$ */
 typedef vector<ll> Poly;
 ll linearRec(Poly S, Poly tr, ll k) {
   int n = sz(tr);

@@ -2,9 +2,9 @@
 /// https://github.com/kth-competitive-programming/kactl/blob/main/content/strings/KMP.h
 /// Verification:
 /// https://www.facebook.com/codingcompetitions/hacker-cup/2022/round-1/problems/A2/my-submissions
-// pi[x] computes the length of the longest
-// prefix of s that ends at x, other than
-// s[0...x] itself (abacaba -> 0010123).
+/* pi[x] computes the length of the longest
+ * prefix of s that ends at x, other than
+ * s[0...x] itself (abacaba -> 0010123). */
 vi pi(const string& s) {
   vi p(sz(s));
   rep(i,1,sz(s)) {

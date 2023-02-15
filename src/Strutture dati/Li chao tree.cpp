@@ -4,6 +4,13 @@
 /// https://judge.yosupo.jp/submission/109983
 /// https://www.hackerearth.com/submission/76633561/
 /// https://dmoj.ca/submission/4972352
+/* Lichao tree per il minimo. Utilizzo:
+ * int root = -1; //creo un nuovo lichao tree
+ * //update: aggiungo k*x+b in [l,r) ($\mathcal{O}(\log{n})$)
+ * root = insertLine(root, -C, C, l, r, Line(k, b));
+ * //query: trovo il min in x (se non c'è ritorna INF)
+ * ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$)
+ * con $n,q \leq 2\cdot 10^5$ impiega 651 ms */
 const ll INF = (ll)4e18;
 const ll C = (ll)1e9 + 7;
 struct Line {
@@ -14,13 +21,6 @@ struct Line {
     return k * x + b; //modificare qua
   }
 };
-/*lichao tree per il minimo. Utilizzo:
-  int root = -1; //creo un nuovo lichao tree
-  //update: aggiungo k*x+b in [l,r) ($\mathcal{O}(\log{n})$)
-  root = insertLine(root, -C, C, l, r, Line(k, b));
-  //query: trovo il min in x (se non c'è ritorna INF)
-  ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$)
-  con $n,q \leq 2\cdot 10^5$ impiega 651 ms*/
 struct Node {
   int l, r;
   Line L;

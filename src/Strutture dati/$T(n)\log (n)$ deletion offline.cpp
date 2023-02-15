@@ -3,14 +3,14 @@
 /// Verification:
 /// https://training.olinfo.it/#/task/ois_police7 (id: 807310)
 /// https://training.olinfo.it/#/task/ois_xortree2 (id: 949588)
-// For a commutative data structure supporting true $O(T(n))$
-// insertion, support deletion in $O(T(n)\log n)$ offline.
+/* For a commutative data structure supporting true $O(T(n))$
+ * insertion, support deletion in $O(T(n)\log n)$ offline. */
 template<class E>
 struct query_tree{
   int n; // max query range (0-based)
   vector<vector<E>> queues;
   query_tree(int n): n(n), queues(n << 1){ }
-  void insert(E e, int ql, int qr){ //add [ql,qr)
+  void insert(E e, int ql, int qr){ //add $[ql,qr)$
     assert(0 <= ql && ql <= qr && qr <= n);
     auto recurse =[&](auto self, int u, int l, int r)->void{
       if(qr <= l || r <= ql) return;

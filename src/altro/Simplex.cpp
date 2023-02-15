@@ -1,17 +1,17 @@
 /// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/Simplex.h
-// Description: Solves a general linear maximization
-// problem: maximize $c^T x$ subject to $Ax\le b, x\ge 0$.
-// Returns -inf if there is no solution, inf if there
-// are arbitrarily good solutions,  or the maximum value
-// of $c^T x$ otherwise. The input vector is set to an
-// optimal $x$ (or in the unbounded case, an arbitrary
-// solution fulfilling the constraints).
-// Usage:
-// vvd A = {{1,-1}, {-1,1}, {-1,-2}};
-// vd b = {1,1,-4}, c = {-1,-1}, x;
-// T val = LPSolver(A, b, c).solve(x);
-// Time: $\mathcal{O}(NM \cdot \#pivots)$, where a pivot may be e.g. 
-// an edge relaxation. $\mathcal{O}(2^N)$ in the general case.
+/* Description: Solves a general linear maximization
+ * problem: maximize $c^T x$ subject to $Ax\le b, x\ge 0$.
+ * Returns -inf if there is no solution, inf if there
+ * are arbitrarily good solutions,  or the maximum value
+ * of $c^T x$ otherwise. The input vector is set to an
+ * optimal $x$ (or in the unbounded case, an arbitrary
+ * solution fulfilling the constraints).
+ * Usage:
+ * vvd A = {{1,-1}, {-1,1}, {-1,-2}};
+ * vd b = {1,1,-4}, c = {-1,-1}, x;
+ * T val = LPSolver(A, b, c).solve(x);
+ * Time: $\mathcal{O}(NM \cdot \#pivots)$, where a pivot may be e.g.
+ * an edge relaxation. $\mathcal{O}(2^N)$ in the general case. */
 typedef double T;
 typedef vector<T> vd;
 typedef vector<vd> vvd;
