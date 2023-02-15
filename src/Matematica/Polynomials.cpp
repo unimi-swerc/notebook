@@ -21,7 +21,7 @@ struct Poly {
 };
 /* Finds the real roots to a polynomial.
  * Usage: polyRoots({{2,-3,1}},-1e9,1e9) solve $x^2-3x+2=0$
- * Time: $O(n^2 \log(1/\epsilon))$ */
+ * Time: $\mathcal{O}(n^2 \log(1/\epsilon))$ */
 vector<double> polyRoots(Poly p,double xmin,double xmax){
   if (sz(p.a) == 2) { return {-p.a[0]/p.a[1]}; }
   vector<double> ret;
@@ -50,7 +50,7 @@ vector<double> polyRoots(Poly p,double xmin,double xmax){
  * passes through them: $p(x) = a[0]*x^0 + \ldots + a[n-1]*x^{n-1}$
  * For numerical precision, pick:
  * $x[k] = c*\cos(k/(n-1)*\pi) \qquad k=0 \dots n-1$
- * Time: $O(n^2)$ */
+ * Time: $\mathcal{O}(n^2)$ */
 typedef vector<double> vd;
 vd interpolate(vd x, vd y, int n) {
   vd res(n), temp(n);
