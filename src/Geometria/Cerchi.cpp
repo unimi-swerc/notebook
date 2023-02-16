@@ -2,6 +2,7 @@
 /// Verification:
 /// https://acm.timus.ru/problem.aspx?space=1&num=1520 (circleLine e circumCenter, ID: 10156658)
 /// https://codeforces.com/contest/933/submission/191029359 (circleCircle)
+/// https://www.acmicpc.net/problem/18175 (circleLine, id: 55979832)
 int sgn(double xx) { return (xx > 1e-10) - (xx < -1e-10); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
