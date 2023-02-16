@@ -1,5 +1,5 @@
 /// Source: https://codeforces.com/blog/entry/98663
-// smawck for (max,+) convolution
+// smawck for (max,+) convolution, complexity: $\mathcal{O}(N)$
 template<class F>
 vector<int> smawck(F f, const vector<int> &rows,
       const vector<int> &cols) {
