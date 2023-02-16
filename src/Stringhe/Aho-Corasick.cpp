@@ -4,6 +4,7 @@
 /// https://codeforces.com/contest/1437/submission/99256058
 /// https://codeforces.com/contest/1252/submission/99909522
 /// https://codeforces.com/gym/101741/submission/142825783
+/// https://www.acmicpc.net/source/55978922
 const int K = 26;
 struct Vertex {
   int next[K];
