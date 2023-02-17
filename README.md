@@ -7,6 +7,7 @@
 ## TODO:
 
 - testare polynomials, SMAWK, simplex, geo base 3d, tangenti cerchi e poligon cut
+- URGENTE: aggiungere ornaments
 
 ## Algoritmi
 
