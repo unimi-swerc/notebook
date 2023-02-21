@@ -1,7 +1,7 @@
 # SWERC cheat sheet
 
 ## Note per il booklet cartaceo:
-- segnare la complessità di SMAWK (O(N))
+- segnare la complessità di SMAWK ($\mathcal{O}(N)$)
 - l'intersezione retta-cerchio funziona solo se il cerchio ha centro nell'origine
 
 ## TODO:
