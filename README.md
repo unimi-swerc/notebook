@@ -3,7 +3,6 @@
 ## TODO:
 
 - testare polynomials, SMAWK, simplex, geo base 3d, tangenti cerchi e poligon cut
-- l'intersezione retta-cerchio funziona solo se il cerchio ha centro nell'origine
 
 ## Algoritmi
 
