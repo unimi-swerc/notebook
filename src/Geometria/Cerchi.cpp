@@ -1,8 +1,8 @@
 /// Source: Bortoz
 /// Verification:
-/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (circleLine e circumCenter, ID: 10156658)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (circleLine e circumCenter, ID: 10185727)
 /// https://codeforces.com/contest/933/submission/191029359 (circleCircle)
-/// https://www.acmicpc.net/source/55979832 (circleLine)
+/// https://www.acmicpc.net/source/56746243 (circleLine)
 int sgn(double xx) { return (xx > 1e-10) - (xx < -1e-10); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
@@ -12,11 +12,12 @@ pt circumCenter(pt a, pt b, pt c) {
 }  //tested with EPS < $10^{-5}$
 // intersezione tra il cerchio (o,r) e la linea l
 int circleLine(pt o, double r, line l, pair<pt,pt>& out){
-  double h2 = r*r - l.normDist(o);
+  l = l.translate(-o);
+  double h2 = r*r - l.normDist({0,0});
   if (h2 >= 0) {
-    pt p = o - perp(l.v) * l.side(p) / norm(l.v);
+    pt p = pt(0,0) - perp(l.v) * l.side(p) / norm(l.v);
     pt h = l.v * sqrt(h2) / abs(l.v);
-    out = {p-h, p+h};
+    out = {p-h+o, p+h+o};
   }
   return 1 + sgn(h2);
 }  //tested with EPS < ${10^-5}$
