@@ -1,7 +1,7 @@
 /// Source:
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/Dinic.h
 /// Verification:
-/// https://codingcompetitions.withgoogle.com/codejam/round/00000000008778ec/0000000000b158f8#problem (attempt 12)
+/// https://www.acmicpc.net/source/56913786 (google code jam 2022)
 /// https://open.kattis.com/submissions/10161695
 /// https://codeforces.com/gym/103640/submission/190868345
 /* Description: Given array of (possibly negative) costs
