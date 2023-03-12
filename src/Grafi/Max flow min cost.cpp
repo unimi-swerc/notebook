@@ -1,14 +1,15 @@
 /// Source: 
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/MCMF.h
 /// Verification:
-/// https://open.kattis.com/submissions/10457476
+/// https://open.kattis.com/submissions/10697972
 /// tal_fattorini
+/// ois rusco
 /*Minimum-cost maximum flow, assumes no negative cycles.It's
  *possible to choose negative edge costs such that the first
- * run of Dijkstra is slow, but this hasn't been an issue
- * Time: Ignoring first run of Dijkstra, $\mathcal{O}(FM\log M)$
+ *run of Dijkstra (or SPFA) is slow, but this hasn't been an
+ * issue. Time: Ignoring first run of Dijkstra, $\mathcal{O}(FM\log M)$
  * if caps are integers and $F$ is max flow. Tested
- * with $N\leq 250, M\leq 5000, \text{cap}\leq 10^4, W\leq 1000$ (0.4 sec) */
+ * with $N\leq 250, M\leq 5000, \text{cap}\leq 10^4, W\leq 1000$ (0.41 sec) */
 struct MCMF { // 0-based, archi direzionati
   using F = ll; using C = ll; // flow type, cost type
   struct Edge { int to, rev; F flo, cap; C cost; };
@@ -24,11 +25,11 @@ struct MCMF { // 0-based, archi direzionati
     const C inf = numeric_limits<C>::max(); 
     dist.assign(N,inf);
     using T = pair<C,int>;
-    priority_queue<T,V<T>,greater<T>> todo; 
+    priority_queue<T,V<T>,greater<T>> todo;//(or queue<T>)
     todo.push({dist[s] = 0,s}); 
-    while (sz(todo)) { // Dijkstra
-      T x = todo.top(); todo.pop(); 
-      if (x.f > dist[x.s]) continue;
+    while (sz(todo)) { // Dijkstra (or SPFA)
+      T x = todo.top(); todo.pop(); //(or todo.front())
+      if (x.f > dist[x.s]) continue; //(or x.f = dist[x.s])
       //all weights should be non-negative
       each(e,adj[x.s]) {
         if (e.flo < e.cap && ckmin(dist[e.to],
@@ -42,8 +43,8 @@ struct MCMF { // 0-based, archi direzionati
     return dist[t] != inf; // true if augmenting path
   }
   pair<F,C> calc(int s, int t) { assert(s != t);
-    F0R(_,N) F0R(i,N) each(e,adj[i]) // Bellman-Ford
-      if (e.cap) ckmin(p[e.to],p[i]+e.cost);
+  //F0R(_,N)F0R(i,N)each(e,adj[i])//utile con grafi densi...
+  //  if(e.cap)ckmin(p[e.to],p[i]+e.cost);//e archi negativi
     F totFlow = 0; C totCost = 0;
     while (path(s,t)) { // p -> potentials for Dijkstra
       F0R(i,N)p[i]+=dist[i];//don't matter for unreachable
