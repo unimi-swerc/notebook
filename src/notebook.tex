@@ -77,8 +77,8 @@
 
 % Title/Author
 \author{LaStatale Blue 2022-2023}
-\title{Università degli Studi di Milano - LaStatale Blue}
-\subtitle{Team Reference Document, \today{}\vspace{0.5cm}}
+\title{Team Reference Document}
+\date{\vspace{-1.7em}\today{}}
 \setcounter{tocdepth}{2} % table of content depth
 
 \begin{document}
@@ -86,7 +86,7 @@
 \markboth{0. INDICE}{0. INDICE}
 \maketitle
 \thispagestyle{fancy}
-\vspace{-3em}
+\vspace{-1em}
 \renewcommand{\baselinestretch}{0.91}\normalsize
 
 % Table of contents
@@ -95,15 +95,15 @@
 \hspace{-0.8cm}
 \begin{tikzpicture}[every node/.style={inner sep=0pt}]
 
-\node[text width=9.3cm,align=center](Text){{\fontsize{7.5}{8}\selectfont \tableofcontents \vspace{0.8cm}}};
+\node[text width=9.3cm,align=center](Text){{\small \selectfont \tableofcontents}};
 
-\node[anchor=north west](NW) at (Text.north west) {\pgfornament[width=1.75cm]{37}};
-\node[anchor=west](W)        at (Text.west) {};
-\node[anchor=south west](SW) at (Text.south west) {\pgfornament[width=1.75cm,symmetry=h]{37}};
+\node[shift={(0cm, -0.1cm)}, anchor=north west](NW) at (Text.north west) {\pgfornament[width=1.75cm]{37}};
+\node[shift={(0cm, 0cm)}, anchor=west](W)        at (Text.west) {};
+\node[shift={(0cm, -0.6cm)}, anchor=south west](SW) at (Text.south west) {\pgfornament[width=1.75cm,symmetry=h]{37}};
 
-\node[shift={(0.4cm, 0)}, anchor=north east](NE) at (Text.north east) {\pgfornament[width=1.75cm]{38}};
-\node[shift={(0.4cm, 0)}, anchor=east](E)        at (Text.east) {};
-\node[shift={(0.4cm, 0)}, anchor=south east](SE) at (Text.south east) {\pgfornament[width=1.75cm,symmetry=h]{38}};
+\node[shift={(0.4cm, -0.1cm)}, anchor=north east](NE) at (Text.north east) {\pgfornament[width=1.75cm]{38}};
+\node[shift={(0.4cm, 0cm)}, anchor=east](E)        at (Text.east) {};
+\node[shift={(0.4cm, -0.6cm)}, anchor=south east](SE) at (Text.south east) {\pgfornament[width=1.75cm,symmetry=h]{38}};
 
 \pgfornamenthline{NW}{NE}{north}{85}
 \pgfornamenthline{SW}{SE}{south}{85}
@@ -115,7 +115,7 @@
 \pgfornamentvline{E}{SE}{east}{85}
 
 \end{tikzpicture}
-\vspace{-2.5em}
+\vspace{-1.6em}
 
 \begin{luacode*}
 
