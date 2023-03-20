@@ -1,6 +1,4 @@
 \documentclass[8pt,a4paper,landscape,oneside]{amsart}
-% \usepackage[utf8]{inputenc} -- lualatex uses utf8 by default
-
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[italian]{babel}
 \usepackage{booktabs}
@@ -24,6 +22,9 @@
 \usepackage{hyperref}
 \usepackage{xpatch}
 \usepackage{anyfontsize}
+\usepackage{pgfornament}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 \setmonofont[Scale=MatchUppercase]{DejaVuSansMono}
 
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\vspace{-0.5em}\begin{center}\large#1\end{center}\vspace{-2.2em}}}
@@ -78,9 +79,8 @@
 \author{LaStatale Blue 2022-2023}
 \title{Università degli Studi di Milano - LaStatale Blue}
 \subtitle{Team Reference Document}
-\date{\ddmmyyyydate{\today{}}}
+\date{\ddmmyyyydate{\today{}}\vspace{0.5cm}}
 \setcounter{tocdepth}{2} % table of content depth
-\renewcommand*{\addcontentsline}[4]{\addtocontents{toc}{\protect\contentsline{#2}{#3}{}{#4}}} % toc entries without page number
 
 \begin{document}
 \begin{multicols*}{3}
@@ -89,9 +89,34 @@
 \thispagestyle{fancy}
 \vspace{-3em}
 \renewcommand{\baselinestretch}{0.91}\normalsize
-\addtocontents{toc}{\vspace{-2em}\setlength{\columnsep}{-0.5cm}\protect\begin{multicols}{2}}
-{\fontsize{8}{8.5}\selectfont \tableofcontents}
-\vspace{-5.1em}
+
+% Table of contents
+\addtocontents{toc}{\setlength{\columnsep}{-0.3cm}\protect\begin{multicols}{2}}
+
+\hspace{-0.8cm}
+\begin{tikzpicture}[every node/.style={inner sep=0pt}]
+
+\node[text width=9.3cm,align=center](Text){{\fontsize{7.5}{8}\selectfont \tableofcontents \vspace{0.8cm}}};
+
+\node[anchor=north west](NW) at (Text.north west) {\pgfornament[width=1.75cm]{37}};
+\node[anchor=west](W)        at (Text.west) {};
+\node[anchor=south west](SW) at (Text.south west) {\pgfornament[width=1.75cm,symmetry=h]{37}};
+
+\node[shift={(0.4cm, 0)}, anchor=north east](NE) at (Text.north east) {\pgfornament[width=1.75cm]{38}};
+\node[shift={(0.4cm, 0)}, anchor=east](E)        at (Text.east) {};
+\node[shift={(0.4cm, 0)}, anchor=south east](SE) at (Text.south east) {\pgfornament[width=1.75cm,symmetry=h]{38}};
+
+\pgfornamenthline{NW}{NE}{north}{85}
+\pgfornamenthline{SW}{SE}{south}{85}
+
+\pgfornamentvline{NW}{W}{west}{85}
+\pgfornamentvline{W}{SW}{west}{85}
+
+\pgfornamentvline{NE}{E}{east}{85}
+\pgfornamentvline{E}{SE}{east}{85}
+
+\end{tikzpicture}
+
 \begin{luacode*}
 
 function ls(dir)
