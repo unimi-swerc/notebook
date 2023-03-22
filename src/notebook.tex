@@ -23,11 +23,10 @@
 \usepackage{xpatch}
 \usepackage{anyfontsize}
 \usepackage{pgfornament}
+\usepackage{psvectorian}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \setmonofont[Scale=MatchUppercase]{DejaVuSansMono}
-
-\newcommand{\subtitle}[1]{\posttitle{\par\end{center}\vspace{-0.5em}\begin{center}\large#1\end{center}\vspace{-2.2em}}}
 
 % Minted
 \renewcommand{\theFancyVerbLine}{\ttfamily{\footnotesize\arabic{FancyVerbLine}}\hspace{-8pt}} % mono line numbers
@@ -74,6 +73,17 @@
 \newcommand*\BitNeg{\ensuremath{\mathord{\sim}}}
 \DeclareRobustCommand{\Stirling}{\genfrac{\{}{\}}{0pt}{}}
 \DeclareRobustCommand{\stirling}{\genfrac{[}{]}{0pt}{}}
+
+% Section ornaments
+\newcommand{\sectionOrnament}[2]{
+    \section{#1}
+    \vspace{-1.3em}
+    \begin{center}
+        \;\rput[r](-2pt,6pt){\pgfornament[height=2.5em]{#2}}
+        \phantom{1. #1}\quad
+        \rput[l](2pt,6pt){\pgfornament[height=2.5em,symmetry=v]{#2}}
+    \end{center}
+}
 
 % Title/Author
 \author{LaStatale Blue 2022-2023}
@@ -145,11 +155,15 @@ function codecpp(filename)
     tex.print("\\codecpp{" .. filename .. "}{" .. skipped_lines .. "}")
 end
 
+local sectionOrnaments = {190, 158, 193, 156, 113, 104, 102, 158}
+local sectionIndex = 1
+
 local current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
         local section_dir = current_dir .. "/" .. section
-        tex.print("\\section{" .. section:gsub("^%l", string.upper) .. "}")
+        tex.print("\\sectionOrnament{" .. section:gsub("^%l", string.upper) .. "}{" .. sectionOrnaments[sectionIndex] .. "}")
+        sectionIndex = sectionIndex + 1
         for _, subsection in ls(section_dir) do
             local subsection_file = section_dir .. "/" .. subsection
             local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
