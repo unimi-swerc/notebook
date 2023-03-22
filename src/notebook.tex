@@ -98,8 +98,10 @@
 \node[text width=9.3cm,align=center](Text){{\small \selectfont \tableofcontents}};
 
 \node[shift={(0cm, -0.1cm)}, anchor=north west](NW) at (Text.north west) {\pgfornament[width=1.75cm]{37}};
-\node[shift={(-0.05cm, 0cm)}, anchor=west](W)        at (Text.west) {};
+\node[shift={(0cm, -0.1cm)}, anchor=north west](NW2) at (NW.south west) {};
+\node[minimum height = 0cm, shift={(-0.05cm, 0cm)}, anchor=west](W)        at (Text.west) {};
 \node[shift={(0cm, -0.6cm)}, anchor=south west](SW) at (Text.south west) {\pgfornament[width=1.75cm,symmetry=h]{37}};
+\node[shift={(0cm, -0.6cm)}, anchor=south west](SW2) at (SW.north west) {};
 
 \node[shift={(0.4cm, -0.1cm)}, anchor=north east](NE) at (Text.north east) {\pgfornament[width=1.75cm]{38}};
 \node[shift={(0.4cm, 0cm)}, anchor=north east](NE2) at (NE.south east) {};
@@ -110,8 +112,8 @@
 \pgfornamenthline{NW}{NE}{north}{85}
 \pgfornamenthline{SW}{SE}{south}{85}
 
-\pgfornamentvline{NW}{W}{west}{85}
-\pgfornamentvline{W}{SW}{west}{85}
+\pgfornamentvline{NW2}{W}{west}{85}
+\pgfornamentvline{W}{SW2}{west}{85}
 
 \pgfornamentvline{E}{NE2}{east}{85}
 \pgfornamentvline{SE2}{E}{east}{85}
