@@ -98,12 +98,14 @@
 \node[text width=9.3cm,align=center](Text){{\small \selectfont \tableofcontents}};
 
 \node[shift={(0cm, -0.1cm)}, anchor=north west](NW) at (Text.north west) {\pgfornament[width=1.75cm]{37}};
-\node[shift={(0cm, 0cm)}, anchor=west](W)        at (Text.west) {};
+\node[shift={(-0.05cm, 0cm)}, anchor=west](W)        at (Text.west) {};
 \node[shift={(0cm, -0.6cm)}, anchor=south west](SW) at (Text.south west) {\pgfornament[width=1.75cm,symmetry=h]{37}};
 
 \node[shift={(0.4cm, -0.1cm)}, anchor=north east](NE) at (Text.north east) {\pgfornament[width=1.75cm]{38}};
-\node[shift={(0.4cm, 0cm)}, anchor=east](E)        at (Text.east) {};
+\node[shift={(0.4cm, 0cm)}, anchor=north east](NE2) at (NE.south east) {};
+\node[shift={(0.1cm, 0cm)}, anchor=east](E)        at (Text.east) {};
 \node[shift={(0.4cm, -0.6cm)}, anchor=south east](SE) at (Text.south east) {\pgfornament[width=1.75cm,symmetry=h]{38}};
+\node[shift={(0.4cm, 0cm)}, anchor=south east](SE2) at (SE.north east) {};
 
 \pgfornamenthline{NW}{NE}{north}{85}
 \pgfornamenthline{SW}{SE}{south}{85}
@@ -111,8 +113,8 @@
 \pgfornamentvline{NW}{W}{west}{85}
 \pgfornamentvline{W}{SW}{west}{85}
 
-\pgfornamentvline{NE}{E}{east}{85}
-\pgfornamentvline{E}{SE}{east}{85}
+\pgfornamentvline{E}{NE2}{east}{85}
+\pgfornamentvline{SE2}{E}{east}{85}
 
 \end{tikzpicture}
 \vspace{-1.6em}
