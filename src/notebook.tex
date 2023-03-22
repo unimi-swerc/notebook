@@ -146,7 +146,7 @@ for _, section in ls(current_dir) do
             local subsection_file = section_dir .. "/" .. subsection
             local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") then
-                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-0.80em}")
+                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-0.20em}")
                 codecpp(subsection_file)
             end
             if subsection:find("%.py$") then
@@ -159,12 +159,12 @@ for _, section in ls(current_dir) do
             end
             if not subsection:find("%.") then
                 local subsection_dir = section_dir .. "/" .. subsection
-                tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}" .. "\\vspace{-0.85em}")
+                tex.print("\\subsection{" .. subsection:gsub("^%l", string.upper) .. "}" .. "\\vspace{-0.20em}")
                 for _, subsubsection in ls(subsection_dir) do
                     subsubsection_file = subsection_dir .. "/" .. subsubsection
                     subsubsection_name = subsubsection:gsub("^(.*)%..*$", "%1")
                     if subsubsection:find("%.cpp$") then
-                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{-0.80em}")
+                        tex.print("\\subsubsection{" .. subsubsection_name .. "}" .. "\\vspace{-0.20em}")
                         codecpp(subsubsection_file)
                     end
                     if subsubsection:find("%.py$") then
