@@ -3,6 +3,7 @@
 /// Verification:
 /// https://training.olinfo.it/#/task/ois_police7 (id: 807310)
 /// https://training.olinfo.it/#/task/ois_xortree2 (id: 949588)
+/// https://codeforces.com/contest/1814/submission/201244020
 /* For a commutative data structure supporting true $O(T(n))$
  * insertion, support deletion in $O(T(n)\log n)$ offline. */
 template<class E>
@@ -39,7 +40,7 @@ struct query_tree{
   }
 };
 int main(){ //example
-  int n;
+  int n; // tested with $n\leq 2e5$ (873 ms)
   cin >> n;
   vector<vector<array<int, 2>>> edge(n);
   for(auto i = 0; i < n - 1; ++ i){
