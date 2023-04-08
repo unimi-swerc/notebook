@@ -4,8 +4,8 @@
 /// https://training.olinfo.it/#/task/ois_police7 (id: 807310)
 /// https://training.olinfo.it/#/task/ois_xortree2 (id: 949588)
 /// https://codeforces.com/contest/1814/submission/201244020
-/* For a commutative data structure supporting true $O(T(n))$
- * insertion, support deletion in $O(T(n)\log n)$ offline. */
+/* For a commutative data structure supporting true $\mathcal{O}(T(n))$
+ * insertion, support deletion in $\mathcal{O}(T(n)\log n)$ offline. */
 template<class E>
 struct query_tree{
   int n; // max query range (0-based)
@@ -23,7 +23,7 @@ struct query_tree{
     };
     recurse(recurse, 0, 0, n);
   }
-  // $O(q \log n)$ insert calls and $O(n)$ answer calls
+  // $\mathcal{O}(q \log n)$ insert calls and $\mathcal{O}(n)$ answer calls
   template<class I, class T, class R, class A>
   void solve(I insert, T time, R reverse_to, A answer){
     auto dfs = [&](auto self, int u, int l, int r)->void{
@@ -40,7 +40,7 @@ struct query_tree{
   }
 };
 int main(){ //example
-  int n; // tested with $n\leq 2e5$ (873 ms)
+  int n; // tested with $n\leq 2\cdot 10^5$ (873 ms)
   cin >> n;
   vector<vector<array<int, 2>>> edge(n);
   for(auto i = 0; i < n - 1; ++ i){
