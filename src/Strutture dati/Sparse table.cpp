@@ -5,7 +5,7 @@
 /// https://codeforces.com/contest/1748/submission/187560209
 /// https://www.acmicpc.net/source/55976125
 constexpr int MAXN = 1 << 20, LOGN = 21;
-int table[LOGN][MAXN];
+int table[LOGN][MAXN]; //sparse table per il minimo
 void build(int N, int* V) { //$\mathcal{O}(N\log{N})$
   copy(V, V + N, table[0]);
   for (int j = 1; j < LOGN; j++) {
