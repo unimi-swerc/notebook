@@ -61,7 +61,7 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
     checklazy(_l,_r);
     left->update(l,r,val,_l,(_l+_r)/2);
     right->update(l,r,val,(_l+_r)/2+1,_r);
-    sum=left->sum+right->sum;
+    sum=left->sum+right->sum; //range sum update
   }
   void pointupdate(ll pos,ll val,ll _l,ll _r){
     if(pos<_l || pos>_r)return;
