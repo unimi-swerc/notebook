@@ -27,7 +27,7 @@ double angle(p3 v, p3 w) {
 }
 // positivo se s è sopra il piano tra p, q, r
 T orient(p3 p, p3 q, p3 r, p3 s) {
-  return (q-p )* (r-p) | (s-p);
+  return (q-p) * (r-p) | (s-p);
 }
 // orientamento 2D delle proiezioni di p, q, r
 // rispetto al piano perpendicolare a n

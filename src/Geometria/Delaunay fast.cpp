@@ -14,9 +14,6 @@
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)
 pt arb(LLONG_MAX,LLONG_MAX);//not equal to any other point
-ll dist2(pt tmp){
-  return tmp.x*tmp.x+tmp.y*tmp.y;
-}
 struct Quad {
   Q rot, o; pt p = arb; bool mark;
   pt& F() { return r()->p; }
@@ -26,8 +23,8 @@ struct Quad {
 } *H;
 // is p in the circumcircle?
 bool circ(pt p, pt a, pt b, pt c) { 
-  lll p2 = dist2(p), A = dist2(a)-p2,
-      B = dist2(b)-p2, C = dist2(c)-p2;
+  lll p2 = norm(p), A = norm(a)-p2,
+      B = norm(b)-p2, C = norm(c)-p2;
   return cross(a-p,b-p)*C + cross(b-p,c-p)*A
                     + cross(c-p,a-p)*B > 0;
 }
@@ -88,7 +85,7 @@ pair<Q,Q> rec(const vector<pt>& s) {
   return { ra, rb };
 }
 bool comp(const pt& a,const pt& b){
-  return pair<ll,ll>(a.x,a.y) < pair<ll,ll>(b.x,b.y);
+  return pair(a.x,a.y) < pair(b.x,b.y);
 }
 vector<pt> triangulate(vector<pt> pts) {
   sort(all(pts),comp);
