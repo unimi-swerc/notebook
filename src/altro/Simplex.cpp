@@ -5,8 +5,7 @@
  * are arbitrarily good solutions,  or the maximum value
  * of $c^T x$ otherwise. The input vector is set to an
  * optimal $x$ (or in the unbounded case, an arbitrary
- * solution fulfilling the constraints).
- * Usage:
+ * solution fulfilling the constraints). Usage:
  * vvd A = {{1,-1}, {-1,1}, {-1,-2}};
  * vd b = {1,1,-4}, c = {-1,-1}, x;
  * T val = LPSolver(A, b, c).solve(x);
