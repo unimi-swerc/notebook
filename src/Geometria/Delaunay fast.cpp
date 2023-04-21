@@ -1,6 +1,6 @@
 /// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/geometry/FastDelaunay.h
 /// Verification:
-/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10156661)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250755)
 /* Fast Delaunay triangulation, it works also with cyclic
  * quadrilateral. Each circumcircle contains none of input 
  * points. There must be no duplicate points (but collinear 
