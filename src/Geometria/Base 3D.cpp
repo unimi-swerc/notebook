@@ -1,4 +1,5 @@
 /// Source: Bortoz
+/// Verification: https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250738, solo dot e cross product)
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}
