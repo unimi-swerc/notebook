@@ -168,7 +168,7 @@ for _, section in ls(current_dir) do
             local subsection_file = section_dir .. "/" .. subsection
             local subsection_name = subsection:gsub("^(.*)%..*$", "%1")
             if subsection:find("%.cpp$") then
-                tex.print("\\subsection{" .. subsection_name .. "}" .. "\\vspace{-0.01em}")
+                tex.print("\\subsection{" .. subsection_name .. "}")
                 codecpp(subsection_file)
             end
             if subsection:find("%.py$") then
