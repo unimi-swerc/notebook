@@ -6,8 +6,8 @@
 /// https://training.olinfo.it/#/task/ois_notdivisible (moTree, id: 949678)
 /* If values are on tree edges, change $\texttt{step}$ to add/remove 
  * the edge $(a, c)$ and remove the initial $\texttt{add}$ call 
- * (but keep $\texttt{in}$) Time: $\mathcal{O}(N \sqrt{Q})$
- * add a[ind] (end = 0 or 1) */
+ * (but keep $\texttt{in}$) Time: $\mathcal{O}(N \sqrt{Q})$ */
+// add a[ind] (end = 0 or 1)
 void add(int ind, int end) { return; } 
 // remove a[ind]
 void del(int ind, int end) { return; } 
