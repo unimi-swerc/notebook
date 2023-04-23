@@ -15,8 +15,7 @@ vector<pt> polygonCut(const vector<pt>& poly, pt s, pt e){
       lineIntersection(line(s,e), line(cur,prev), out);
       res.push_back(out);
     }
-    if (side)
-      res.push_back(cur);
+    if(side) res.push_back(cur);
   }
   return res;
 }
