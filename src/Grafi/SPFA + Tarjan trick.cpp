@@ -8,8 +8,7 @@ vector<int> nod,g[MAXN];
 void dfs(int nodo){
     dist[nodo]=-1;
     for(auto i : g[nodo]){
-        if(padre[i]==nodo)
-            dfs(i);
+        if(padre[i]==nodo) dfs(i);
     }
     g[nodo].clear();
     padre[nodo]=-1;
