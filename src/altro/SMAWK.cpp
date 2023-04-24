@@ -7,9 +7,8 @@ vector<int> smawck(F f, const vector<int> &rows,
   if((int) max(rows.size(), cols.size()) <= 2) {
     for(int i = 0; i < (int) rows.size(); i++) {
       for(auto j : cols) {
-        if(ans[i] == -1 || f(rows[i], ans[i], j)) {
+        if(ans[i] == -1 || f(rows[i], ans[i], j))
           ans[i] = j;
-        }
       }
     }
   } else if(rows.size() < cols.size()) { // reduce
@@ -45,9 +44,8 @@ vector<int> smawck(F f, const vector<int> &rows,
       while(r < (int) cols.size() && r <= ans[i+1]) r++;
       ans[i] = cols[l++];
       for(; l < r; l++) {
-        if(f(rows[i], ans[i], cols[l])) {
+        if(f(rows[i], ans[i], cols[l]))
           ans[i] = cols[l];
-        }
       }
       l--;
     }
@@ -83,8 +81,7 @@ vector<T> MaxConvolutionWithConvexShape(vector<T> anyShape,
   };
   const vector<int> best = smawck(comparator, n + m - 1, n);
   vector<T> ans(n + m - 1);
-  for(int i = 0; i < n + m - 1; i++) {
+  for(int i = 0; i < n + m - 1; i++)
     ans[i] = function(i, best[i]);
-  }
   return ans;
 } //$\mathit{ans}_i=\max_{j+k=i}(A_j+B_k)$
