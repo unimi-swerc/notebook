@@ -1,4 +1,4 @@
-/// Source: https://github.com/dariost/swerc/blob/master/src/Extra/delaunay.cpp
+/// Source: https://github.com/dariost/swerc/blob/master/src/Extra/delaunay.cpp (+ refactor di Bortoz)
 /// Verification: https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250738)
 /* Slow but simple Delaunay triangulation. Does not handle
  * degenerate cases (from O'Rourke, Computational Geometry
