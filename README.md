@@ -70,7 +70,6 @@
 - [x] Suffix array + lcp array
 - [x] Suffix tree
 - [x] Z-algorithm
-- [ ] (?) Dictionary of basic factors
 
 ### 5. Strutture dati
 
@@ -99,15 +98,16 @@
 - [x] Simplesso
 - [x] Template (con pbds e rope)
 - [x] Twosat
-- [ ] (?) Hornsat
 
 ### 7. Scarti
 
 - [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
+- [x] Dictionary of basic factors
 - [x] Sat (bruteforce O(2^variables*clauses))
 - [x] Floyd cycle detection
 - [x] Fast input (per lettura interi)
+- [x] Hornsat
 
 ## Teoria
 
