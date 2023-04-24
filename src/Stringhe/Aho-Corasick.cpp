@@ -1,20 +1,15 @@
 /// Source:
 /// https://cp-algorithms.com/string/aho_corasick.html#construction-of-an-automaton (con aggiunte di MrBrionix)
 /// Verification:
-/// https://codeforces.com/contest/1437/submission/99256058
-/// https://codeforces.com/contest/1252/submission/99909522
-/// https://codeforces.com/gym/101741/submission/142825783
-/// https://www.acmicpc.net/source/55978922
+/// https://codeforces.com/contest/1437/submission/203227342
+/// https://codeforces.com/contest/1252/submission/203227672
+/// https://codeforces.com/gym/101741/submission/203227771
+/// https://www.acmicpc.net/source/59829587
 const int K = 26;
 struct Vertex {
-  int next[K];
+  int next[K], go[K], p=-1, link=-1, ind, exitlink=-2;
   bool leaf = false;
-  int p = -1;
   char pch;
-  int link = -1;
-  int go[K];
-  int ind;
-  int exitlink = -2;
   Vertex(int p=-1, char ch='$') : p(p), pch(ch) {
     fill(begin(next), end(next), -1);
     fill(begin(go), end(go), -1);
@@ -31,7 +26,7 @@ void add_string(string const& s, int num) {
       t.emplace_back(v, ch);
     }
     v = t[v].next[c];
-}
+  }
   t[v].leaf = true;
   t[v].ind=num;
 }
@@ -53,9 +48,8 @@ int get_exitlink(int v){
       int pos = get_link(v);
       if(t[pos].leaf)
         t[v].exitlink=t[v].link;
-      else{
+      else
         t[v].exitlink=get_exitlink(pos);
-      }
     }
   }
   return t[v].exitlink;
