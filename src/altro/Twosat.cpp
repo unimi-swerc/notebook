@@ -1,7 +1,7 @@
 /// Source:
 /// https://judge.yosupo.jp/submission/64812
 /// Verification:
-/// https://judge.yosupo.jp/submission/125670
+/// https://judge.yosupo.jp/submission/135967
 /* 0-based, $X = 2*i$, $\mathit{not}(X) = 2*i+1$
  * ritorna un vector vuoto se non c'è soluzione
  * altrimenti ritorna un vector V tale che V[i] = true
@@ -24,8 +24,7 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
     eb[x ^ 1].push_back(y);
     eb[y ^ 1].push_back(x);
   }
-  static int order[N], oi;
-  static int vis[N];
+  static int order[N], oi, vis[N];
   oi = 0;
   fill(vis, vis + n, 0);
   struct Internal {
