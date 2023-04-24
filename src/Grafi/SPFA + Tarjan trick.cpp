@@ -1,6 +1,6 @@
 /// Source: Own (MrBrionix)
 /// Verification:
-/// https://atcoder.jp/contests/agc056/submissions/37750937
+/// https://atcoder.jp/contests/agc056/submissions/40918831
 long long n,m,t,dist[MAXN],padre[MAXN];
 vector<pair<int,int>> grafo[MAXN];
 vector<int> nod,g[MAXN];
