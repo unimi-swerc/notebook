@@ -10,14 +10,14 @@
 /// https://cses.fi/problemset/result/5355945/ (Line.Side)
 /// https://dmoj.ca/submission/5304464 (polar sort + cross)
 typedef complex<ll> pt;
-#define x real()
-#define y imag()
+#define X real()
+#define Y imag()
 // *** Punti ***
-ll dot(pt v, pt w) { return (conj(v) * w).x; }
-ll cross(pt v, pt w) { return (conj(v) * w).y; }
+ll dot(pt v, pt w) { return (conj(v) * w).X; }
+ll cross(pt v, pt w) { return (conj(v) * w).Y; }
 ll orient(pt a, pt b, pt c) { return cross(b-a, c-a); }
 pt translate(pt v, pt p) { return p+v; }
-pt perp(pt p) { return {-p.y, p.x}; }
+pt perp(pt p) { return {-p.Y, p.X}; }
 bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
 pt scale(pt c, ll factor, pt p) { return c+(p-c)*factor; }
 pt rotate(pt p, double a) { return p * polar(1.0, a); }
@@ -60,7 +60,7 @@ bool lineIntersection(line l1, line l2, pt &out) {
   return true;
 }
 // *** Segmenti ***
-bool above(pt a, pt p) { return p.y >= a.y; }
+bool above(pt a, pt p) { return p.Y >= a.Y; }
 bool inDisk(pt a, pt b, pt p) { 
   return dot(a - p, b - p) <= 0;
 }
@@ -135,8 +135,8 @@ int inPolygon(vector<pt> V, pt p) {
   return numCrossings % 2; //1=INSIDE,0=OUTSIZE,2=BOUNDARY
 }
 bool half(pt p) {
-  assert(p.x != 0 || p.y != 0);
-  return p.y > 0 || (p.y == 0 && p.x < 0);
+  assert(p.X != 0 || p.Y != 0);
+  return p.Y > 0 || (p.Y == 0 && p.X < 0);
 }
 void polarSort(vector<pt> &v) {
   sort(v.begin(), v.end(), [](pt v, pt w) {
