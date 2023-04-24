@@ -1,7 +1,7 @@
 /// Source: MrBrionix
 /// Verification:
 /// https://www.hackerearth.com/submission/72603015/ (è un po modificato perchè andava aggiunto un trick)
-/// https://judge.yosupo.jp/submission/86744
+/// https://judge.yosupo.jp/submission/135968
 /// https://judge.yosupo.jp/submission/85907
 /// https://judge.yosupo.jp/submission/85911
 /// https://codeforces.com/gym/101669/submission/179461930 (solo LCA)
@@ -89,14 +89,11 @@ fun query(int u){ //$\mathcal{O}(\log{N})$
 }*/
 int main(){
   cin>>n>>q;
-  for(int i=1;i<=n;i++){
-    cin>>v[i].a>>v[i].b;
-  }
+  for(int i=1;i<=n;i++) cin>>v[i].a>>v[i].b;
   for(int i=0;i<n-1;i++){
     int u,v;
     cin>>u>>v;
-    u++; //li rendo 1-based
-    v++;
+    u++; v++; //li rendo 1-based
     grafo[u].push_back(v);
     grafo[v].push_back(u);
   }
@@ -105,9 +102,8 @@ int main(){
   dfs();
   dfs_hld();
   for(int j=1;j<LOGN;j++){ //build LCA (1-based)
-    for(int i=0;i<MAXN;i++){
+    for(int i=0;i<MAXN;i++)
       par[i][j]=par[par[i][j-1]][j-1];
-    }
   }
   rt.build(v,rin,1,n);
   for(int i=0;i<q;i++){
