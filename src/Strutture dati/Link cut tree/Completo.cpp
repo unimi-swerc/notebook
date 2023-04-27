@@ -3,7 +3,7 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/86785
 /// https://judge.yosupo.jp/submission/86786
-/// https://judge.yosupo.jp/submission/86787
+/// https://judge.yosupo.jp/submission/136447
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5;//con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec
@@ -153,16 +153,14 @@ struct snode { //////// VARIABLES
     assert(y->c[0] == x && !x->c[0] && !x->c[1]);
     cut(y); }
 };
-sn LCT[MX];
-int N,Q;
+sn LCT[MX]; int N,Q;
 int main() {
   cin>>N>>Q;
   vector<int> A(N);
   for(int i=0;i<N;i++)cin>>A[i];
   F0R(i,N) LCT[i] = new snode(A[i]);
   F0R(i,N-1) {
-    int u,v;
-    cin>>u>>v;
+    int u,v; cin>>u>>v;
     link(LCT[u],LCT[v],1);
   }
   F0R(i,Q) {
