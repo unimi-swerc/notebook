@@ -64,9 +64,8 @@ int main(){ //example
     dsu.reverse_to(t);};
   long long res = 0;
   auto answer = [&](int c)->void{
-    for(auto [u, v]: edge[c]){
+    for(auto [u, v]: edge[c])
       res += 1LL * dsu.size(u) * dsu.size(v);
-    }
   };
   qt.solve(insert, time, reverse_to, answer);
   cout << res << "\n";
