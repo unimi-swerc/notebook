@@ -1,7 +1,7 @@
 /// Source:
 /// https://usaco.guide/adv/link-cut-tree?lang=cpp#problem-dmoj-DynamicTreeTest
 /// Verification:
-/// https://dmoj.ca/submission/4836281
+/// https://dmoj.ca/submission/5504214
 //link cut tree degli dei ($\mathcal{O}(\log{N})$)
 #define fori(a,b) for(int i=(a);i<(b);i++)
 //0.687 s con $n,q \leq 10^5$ (e ios_sync_with_stdio=false)
@@ -167,10 +167,8 @@ void cut(sp x){
   access(x);
   x->c[0]->p=nullptr; x->c[0]=nullptr;
 }
-sp lct[N];
-int n,q,a,b,c,t,rt;
-pair<int,int> e[N];
-Info ans;
+sp lct[N]; int n,q,a,b,c,t,rt;
+pair<int,int> e[N]; Info ans;
 int main(){
   cin>>n>>q;
   fori(1,n) cin>>e[i].first>>e[i].second;
