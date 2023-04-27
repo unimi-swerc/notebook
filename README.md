@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare polynomials, SMAWK, simplex, geo base 3d, tangenti cerchi e poligon cut
+- testare polynomials, SMAWK, simplex, piani 3d, tangenti cerchi e poligon cut
 
 ## Algoritmi
 
