@@ -1,7 +1,7 @@
 /// Source:
 /// https://usaco.guide/plat/centroid?lang=cpp
 /// Verification:
-/// https://codeforces.com/contest/342/submission/192852077
+/// https://codeforces.com/contest/342/submission/203721047
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
@@ -61,8 +61,7 @@ int main() {
           q=x.d;
         }
       }
-      red[n]=1;
-      m[n][0]=0;
+      red[n]=1; m[n][0]=0;
     } else { // trova il nodo rosso...
       int f=m[n][0]; // ...più vicino a n
       for(auto x:g[n])f=min(f, m[x.n][0]+x.d);
