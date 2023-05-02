@@ -120,7 +120,7 @@ ll area(vector<pt> V) {
 bool isConvex(vector<pt> p) {
   bool hasPos=false, hasNeg=false;
   for (int i=0, n=p.size(); i<n; i++) {
-    int o = orient(p[i], p[(i+1)%n], p[(i+2)%n]);
+    ll o = orient(p[i], p[(i+1)%n], p[(i+2)%n]);
     if (o > 0) hasPos = true;
     if (o < 0) hasNeg = true;
   }
