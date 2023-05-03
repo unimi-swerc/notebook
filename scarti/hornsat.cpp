@@ -1,3 +1,4 @@
+/// Source: https://github.com/dariost/swerc/blob/master/src/Generic/hornsat.hpp
 using u32 = uint32_t;
 
 /// Viene assunto che in ogni clausola il primo termine sia quello positivo
