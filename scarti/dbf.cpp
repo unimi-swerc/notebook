@@ -1,3 +1,4 @@
+/// Source: https://github.com/dariost/swerc/blob/master/src/Strings/dbf.hpp
 using u64 = uint64_t;
 using i64 = int64_t;
 
