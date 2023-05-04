@@ -87,18 +87,8 @@ fun query(int u,int v){ //$\mathcal{O}(\log^2 N)$
 fun query(int u){ //$\mathcal{O}(\log{N})$
   return rt.query(in[u],out[u]-1);
 }*/
-int main(){
-  cin>>n>>q;
-  for(int i=1;i<=n;i++) cin>>v[i].a>>v[i].b;
-  for(int i=0;i<n-1;i++){
-    int u,v;
-    cin>>u>>v;
-    u++; v++; //li rendo 1-based
-    grafo[u].push_back(v);
-    grafo[v].push_back(u);
-  }
-  //add dummy vertex 0, necessary for LCA and HLD
-  grafo[0].push_back(1);
+/*add dummy vertex 0, necessary for LCA and HLD
+  grafo[0].push_back(1); //Esempio d'uso
   dfs();
   dfs_hld();
   for(int j=1;j<LOGN;j++){ //build LCA (1-based)
@@ -106,15 +96,4 @@ int main(){
       par[i][j]=par[par[i][j-1]][j-1];
   }
   rt.build(v,rin,1,n);
-  for(int i=0;i<q;i++){
-    int t,a,b,c;
-    cin>>t>>a>>b>>c; 
-    if(t==0){
-      a++;
-      update(a,fun(b,c));
-    }else{
-      a++;b++;
-      cout<<query(a,b).eval(c)<<"\n";
-    }
-  }
-}
+  update(a,fun(b,c)); query(a,b).eval(c);*/
