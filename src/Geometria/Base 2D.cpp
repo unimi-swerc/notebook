@@ -74,7 +74,7 @@ bool properInter(pt a, pt b, pt c, pt d, pt &out) {
   ll oa = orient(c,d,a), ob = orient(c,d,b),
      oc = orient(a,b,c), od = orient(a,b,d);
   // Proper intersection exists iff opposite signs
-  if ((oa^ob) < 0 && (oc^od) < 0) {
+  if (oa*ob < 0 && oc*od < 0) {
     out = (a*ob - b*oa) / (ob-oa); // requires floats
     return true;
   }
