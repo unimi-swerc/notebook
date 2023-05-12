@@ -138,7 +138,7 @@ template<typename T> struct poly { vector<T> a;
   static auto inter(vector<T> x,vector<T> y){//interpolate 
     int n = x.size(); vector<poly> tr(4 * n);
     return bld(tr,1,all(x)).deriv().itr(tr,1,all(x),all(y));
-  } //$\mathcal{O}(N\log^2N), tested with $n \leq 2^{17}$ (2990 ms)
+  } //$\mathcal{O}(N\log^2N)$, tested with $n \leq 2^{17}$ (2990 ms)
   poly x2() { // P(x) -> P(x^2)
     vector<T> res(2 * a.size());
     for(size_t i = 0; i < a.size(); i++)res[2*i] = a[i];
