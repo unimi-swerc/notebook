@@ -1,5 +1,5 @@
 /// Source:
-/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/MatrixInverse-mod.h
+/// https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/MatrixInverse.h
 /// Verification:
 /// https://judge.yosupo.jp/submission/139307
 /* Invert matrix $A$ modulo a prime. Returns rank; result
