@@ -1,12 +1,16 @@
 /// Source:
-/// https://judge.yosupo.jp/submission/13926
+/// https://judge.yosupo.jp/submission/13926 (completo)
+/// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Advanced/LCT.h (ridotto)
 /// Verification:
-/// https://judge.yosupo.jp/submission/86785
-/// https://judge.yosupo.jp/submission/86786
-/// https://judge.yosupo.jp/submission/136447
+/// https://judge.yosupo.jp/submission/139388 (completo)
+/// https://judge.yosupo.jp/submission/139389 (completo)
+/// https://judge.yosupo.jp/submission/139390 (completo)
+/// https://codeforces.com/contest/1681/submission/205638292 (ridotto)
+/// https://judge.yosupo.jp/submission/139391 (ridotto)
+/// https://judge.yosupo.jp/submission/139392 (ridotto)
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
-const int MX = 2e5+5;//con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec
+const int MX = 2e5+5;
 /* Link-Cut Tree. Given a function $f(1 \ldots N) \rightarrow 1 \ldots N$,
  * evaluates $f^b(a)$ for any $a,b$. $\texttt{sz}$ is for path queries; 
  * $\texttt{sub}$, $\texttt{vsub}$ are for subtree queries. $\texttt{x->access()}$
@@ -18,12 +22,21 @@ const int MX = 2e5+5;//con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec
  * Use $\texttt{makeRoot}$ for arbitrary path queries.
  * Time: $\mathcal{O}(\log{N})$
  * Usage: FOR(i,1,N+1) {
- *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);} */
+ *   LCT[i]=new snode(i); link(LCT[1],LCT[2],1);} 
+ * RIDOTTO: testato su vertex add + path sum
+ * e su vertex add + subtree sum
+ * con $N,M \leq 2\cdot 10^5$ impiega 539 ms
+ * COMPLETO: testato come RIDOTTO e anche 
+ * su Subtree add + Subtree sum
+ * con $N,M \leq 2\cdot 10^5$ impiega 0.9/1.1 sec 
+ *la versione ridotta è senza subtree update, usare solo uno
+ *dei due codici tra VERSIONE COMPLETA e VERSIONE RIDOTTA*/
 typedef struct snode* sn;
 struct snode { //////// VARIABLES
   sn p, c[2]; // parent, children
   bool flip = 0; // subtree flipped or not
   int sz; // value in node, # nodes in current splay tree
+  // VERSIONE COMPLETA ###############################
   ll sub; // numero di nodi nella sua componente
   ll vsub = 0; //num nodi nel suo sottoalbero (lui escluso)
   ll val; // dato contenuto nel nodo
@@ -66,6 +79,26 @@ struct snode { //////// VARIABLES
     subSum = val+getSubSum(c[0])+getSubSum(c[1])+vsubSum; 
     // ^^ assume vsub, vsubSum are OK
   }
+  // VERSIONE RIDOTTA #############################
+  ll sub, vsub = 0; // vsub stores sum of virtual children
+  ll val, sum;
+  snode(ll _val) : val(_val) {
+    p = c[0] = c[1] = NULL; calc(); }
+  friend int getSz(sn x) { return x?x->sz:0; }
+  friend ll getSub(sn x) { return x?x->sub:0; }
+  friend ll getSum(sn x) { return x?x->sum:0; }
+  void prop() { // lazy prop
+    if (!flip) return;
+    swap(c[0],c[1]); flip = 0;
+    F0R(i,2) if (c[i]) c[i]->flip ^= 1;
+  }
+  void calc() { // recalc vals
+    F0R(i,2) if (c[i]) c[i]->prop();
+    sz = 1+getSz(c[0])+getSz(c[1]);
+    sub = val+getSub(c[0])+getSub(c[1])+vsub;
+    sum = val+getSum(c[0])+getSum(c[1]);
+  }
+  // ################################################
   //////// SPLAY TREE OPERATIONS
   int dir() {
     if (!p) return -2;
@@ -98,6 +131,7 @@ struct snode { //////// VARIABLES
     return b < z ? c[0]->fbo(b) : c[1] -> fbo(b-z-1);
   }
   //////// BASE OPERATIONS
+  // VERSIONE COMPLETA ###################################
   void access() { // bring this to top of tree, propagate
     for (sn v = this, pre = NULL; v; v = v->p) { 
       v->splay(); // now switch virtual children
@@ -115,6 +149,17 @@ struct snode { //////// VARIABLES
     }
     splay(); assert(!c[1]); // right subtree is empty
   }
+  // VERSIONE RIDOTTA ##############################
+  void access() { // bring this to top of tree, propagate
+    for (sn v = this, pre = NULL; v; v = v->p) {
+      v->splay(); // now switch virtual children
+      if (pre) v->vsub -= pre->sub;
+      if (v->c[1]) v->vsub += v->c[1]->sub;
+      v->c[1] = pre; v->calc(); pre = v;
+    }
+    splay(); assert(!c[1]); // right subtree is empty
+  }
+  // #################################################
   void makeRoot() { 
     access(); flip ^= 1; access();
     assert(!c[0] && !c[1]); }
@@ -154,7 +199,7 @@ struct snode { //////// VARIABLES
     cut(y); }
 };
 sn LCT[MX]; int N,Q;
-int main() {
+int main() { //utilizzo versione completa
   cin>>N>>Q;
   vector<int> A(N);
   for(int i=0;i<N;i++)cin>>A[i];
@@ -170,10 +215,10 @@ int main() {
       cut(LCT[u],LCT[v]);link(LCT[w],LCT[x],1);
     } else if (t == 1) {
       /*//point update (aggiungi x al nodo p)
-      int p,x; cin>>p>>x;
-      LCT[p]->access();
-      LCT[p]->val += x;
-      LCT[p]->calc();*/
+        int p,x; cin>>p>>x;
+        LCT[p]->access();
+        LCT[p]->val += x;
+        LCT[p]->calc();*/
       //subtree update 
       // (radice=p, aggiungi x al sottoalbero di v)
       int v,p,x; cin>>v>>p>>x;
@@ -184,9 +229,9 @@ int main() {
     } else {
       int u,v; cin>>u>>v;
       /*//path query (query nel path tra u e v)
-      LCT[u]->makeRoot();
-      LCT[v]->access();
-      cout<<(LCT[v]->sum)<<"\n";*/
+        LCT[u]->makeRoot();
+        LCT[v]->access();
+        cout<<(LCT[v]->sum)<<"\n";*/
       //subtree query
       // (v=radice, query sul sottoalbero di u)
       LCT[v]->makeRoot();LCT[u]->access();
@@ -194,3 +239,9 @@ int main() {
     }
   }
 }
+/* utilizzo versione ridotta
+ * subtree query (v=radice) è leggermente diverso:
+ * LCT[v]->makeRoot();
+ * LCT[u]->access();
+ * cout<<(LCT[u]->vsub + LCT[u]->val)<<"\n";
+ * tutto il resto è uguale al link cut tree completo */

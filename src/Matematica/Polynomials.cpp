@@ -1,7 +1,9 @@
 /// Source: https://github.com/cp-algorithms/cp-algorithms-aux/blob/master/src/polynomial.cpp
 /// Verification:
-/// https://judge.yosupo.jp/submission/139295
-/// https://judge.yosupo.jp/submission/139296
+/// https://judge.yosupo.jp/submission/139393
+/// https://judge.yosupo.jp/submission/139394
+/// https://judge.yosupo.jp/submission/139395
+/// https://judge.yosupo.jp/submission/139396
 const int maxn = 1 << 20;//requires modular & fft
 template<int m> struct dft {
   static constexpr int split = 1 << 15; vector<cpx> A;
@@ -68,19 +70,33 @@ template<typename T> struct poly { vector<T> a;
     auto res = a; res.insert(begin(res), k, 0);
     return res;
   }
-  poly operator*=(const poly &t){mul(a,t.a);nor();return *this;}
+  poly operator*=(const poly &t){mul(a,t.a);nor();
+    return *this;}
   poly operator*(const poly &t)const{return poly(*this)*=t;}
   poly rev(size_t n) const { // computes x^n A(x^{-1})
     auto res = a; res.resize(max(n, res.size()));
     return vector<T>(res.rbegin(), res.rbegin() + n);
   }
   poly rev() const { return rev(deg() + 1); }
+  pair<poly, poly> divmod_slow(const poly &b) const {
+    vector<T> A(a); vector<T> res;
+    while(A.size() >= b.a.size()) {
+      res.push_back(A.back() / b.a.back());
+      if(res.back() != T(0)) {
+        for(size_t i = 0; i < b.a.size(); i++)
+          A[A.size()-i-1]-=res.back()*b.a[b.a.size()-i-1];
+      }
+      A.pop_back();
+    }
+    reverse(begin(res), end(res)); return {res, A};
+  }
   pair<poly, poly> divmod(const poly &b) const { //a mod b
     if(deg() < b.deg()) return {poly{0}, *this};
     int d = deg() - b.deg() + 1;
+    if(min(d-1, b.deg()) < 250) return divmod_slow(b);
     poly D=(rev().moxk(d)*b.rev().inv(d)).moxk(d).rev(d);
     return {D, *this - D * b};
-  }
+  } //complessità: boh, tested with $n,m \leq 5\cdot 10^5$ (1289 ms)
   poly operator%(const poly &t)const{return divmod(t).s;}
   T eval(T x) const { // evaluates in single point x
     T res(0);
@@ -117,8 +133,9 @@ template<typename T> struct poly { vector<T> a;
     if(is_zero()) return vector<T>(n, T(0));
     vector<poly> tree(4 * n); bld(tree, 1, all(x));
     return eval(tree, 1, all(x));
-  } //$\mathcal{O}(N\log^2N)$, tested with $n\leq 2^{17}$ (2577 ms)
-  poly itr(vector<poly> &tree,int v,auto l,auto r,auto ly,auto ry){
+  } //$\mathcal{O}(N\log^2N)$, tested with $n\leq 2^{17}$ (1887 ms)
+  poly itr(vector<poly> &tree,int v,auto l,auto r,
+                                           auto ly,auto ry){
     if(r - l == 1) return {*ly / a[0]};
     else {
       auto m = l + (r - l) / 2;
@@ -138,7 +155,7 @@ template<typename T> struct poly { vector<T> a;
   static auto inter(vector<T> x,vector<T> y){//interpolate 
     int n = x.size(); vector<poly> tr(4 * n);
     return bld(tr,1,all(x)).deriv().itr(tr,1,all(x),all(y));
-  } //$\mathcal{O}(N\log^2N)$, tested with $n \leq 2^{17}$ (2990 ms)
+  } //$\mathcal{O}(N\log^2N)$, tested with $n \leq 2^{17}$ (2286 ms)
   poly x2() { // P(x) -> P(x^2)
     vector<T> res(2 * a.size());
     for(size_t i = 0; i < a.size(); i++)res[2*i] = a[i];
@@ -161,5 +178,5 @@ template<typename T> struct poly { vector<T> a;
       ).inv((n + 1) / 2).a, N);
     return(poly(P0f*TT).x2()+poly(P1f*TT).x2().mul_xk(1)
       ).moxk(n);
-  }
+  } //$\mathcal{O}(N\log N)$, tested with $n \leq 5\cdot 10^5$ (850 ms)
 };

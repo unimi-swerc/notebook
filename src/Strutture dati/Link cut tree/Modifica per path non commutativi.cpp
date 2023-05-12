@@ -15,4 +15,4 @@ void calc() { // recalc vals
   sub = 1+getSub(c[0])+getSub(c[1])+vsub;
   func[0] = getFunc(c[0],0)+val+getFunc(c[1],0);
   func[1] = getFunc(c[1],1)+val+getFunc(c[0],1);
-}
+} //usa la versione RIDOTTA
