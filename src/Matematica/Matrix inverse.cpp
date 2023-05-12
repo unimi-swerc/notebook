@@ -8,7 +8,7 @@
  * $A^{-1} = A^{-1} (2I - AA^{-1}) (\text{mod } p^k)$
  * where $A^{-1}$ starts as the inverse of $A\ \text{mod } p$,
  * and $k$ is doubled in each step.
- * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 253 ms) */
+ * Time: $\mathcal{O}(n^3)$ (con $n\leq 500$ impiega 557 ms) */
 typedef modular<mod> T; //oppure double
 int matInv(vector<vector<T>>& A) {
   int n = sz(A); vi col(n);
