@@ -11,19 +11,19 @@ template<typename T> T bpow(T x, size_t n) {
 template<int m> struct modular {
   int r;
   constexpr modular(): r(0) {}
-  constexpr modular(int64_t rr): r(rr % m) {if(r < 0) r += m;}
+  constexpr modular(int64_t rr): r(rr%m){if(r<0)r+=m;}
   modular inv() const {return bpow(*this, m - 2);}
-  modular operator - () const {return r ? m - r : 0;}
-  modular operator * (const modular &t) const {return (int64_t)r * t.r % m;}
-  modular operator / (const modular &t) const {return *this * t.inv();}
-  modular operator += (const modular &t) {r += t.r; if(r >= m) r -= m; return *this;}
-  modular operator -= (const modular &t) {r -= t.r; if(r < 0) r += m; return *this;}
-  modular operator + (const modular &t) const {return modular(*this) += t;}
-  modular operator - (const modular &t) const {return modular(*this) -= t;}
-  modular operator *= (const modular &t) {return *this = *this * t;}
-  bool operator == (const modular &t) const {return r == t.r;}
-  bool operator > (const modular &t) const {return r > t.r;}
-  bool operator <= (const double &t) const {return r <= int(t);}
-  bool operator > (const double &t) const {return r > int(t);}
+  modular operator-()const{return r ? m - r : 0;}
+  modular operator*(const modular &t)const{return (ll)r*t.r%m;}
+  modular operator/(const modular &t)const{return *this*t.inv();}
+  modular operator+=(const modular &t){r+=t.r;if(r>=m)r-=m;return *this;}
+  modular operator-=(const modular &t){r-=t.r;if(r<0)r+=m;return *this;}
+  modular operator+(const modular &t)const{return modular(*this)+=t;}
+  modular operator-(const modular &t)const{return modular(*this)-=t;}
+  modular operator*=(const modular &t){return *this=*this*t;}
+  bool operator==(const modular &t)const{return r==t.r;}
+  bool operator>(const modular &t)const{return r>t.r;}
+  bool operator<=(const double &t)const{return r<=int(t);}
+  bool operator>(const double &t)const{return r>int(t);}
 };
 template<int m> modular<m> fabs(modular<m> x){return abs(x.r);}
