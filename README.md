@@ -51,9 +51,10 @@
 - [x] Fast subset convolution (or,and,xor)
 - [x] Ricorrenze lineari
 - [x] Operazioni sulle matrici (determinante, determinante mod, inversa, inversa mod)
+- [X] Modular
 - [x] NTT
 - [x] Nimber product
-- [x] Operazioni sui polinomi (radici reali, interpolazione)
+- [x] Operazioni sui polinomi (valutazione, interpolazione)
 - [x] Gaussian elimination (linear solve con mod e senza mod)
 - [x] Teorema del resto cinese
 - [x] Euler’s totient function
@@ -80,7 +81,7 @@
 - [x] Heavy light decomposition (nodi & archi) (+ lca)
 - [x] Li chao tree
 - [x] Line container
-- [x] Link-cut tree (completo, divino, modifica per path non commutativi, ridotto)
+- [x] Link-cut tree (normale, divino, modifica per path non commutativi)
 - [x] Mo queries (su array e su albero)
 - [x] Segment tree beats
 - [x] Persistent segment tree (normale oppure sparso + lazy)
