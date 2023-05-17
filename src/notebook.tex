@@ -21,7 +21,6 @@
 \usepackage{extramarks}
 \usepackage{hyperref}
 \usepackage{xpatch}
-\usepackage{anyfontsize}
 \usepackage{pgfornament}
 \usepackage{psvectorian}
 \usepackage{tikz}
@@ -64,13 +63,7 @@
 \xapptocmd{\@sect}{\csname #1mark\endcsname{#7}}{}{}
 \makeatother
 
-% Math and bit operators
-\DeclareMathOperator{\lcm}{lcm}
-\newcommand*\BitAnd{\mathrel{\&}}
-\newcommand*\BitOr{\mathrel{|}}
-\newcommand*\ShiftLeft{\ll}
-\newcommand*\ShiftRight{\gg}
-\newcommand*\BitNeg{\ensuremath{\mathord{\sim}}}
+% Math operators
 \DeclareRobustCommand{\Stirling}{\genfrac{\{}{\}}{0pt}{}}
 \DeclareRobustCommand{\stirling}{\genfrac{[}{]}{0pt}{}}
 
