@@ -2,14 +2,15 @@
 /// https://usaco.guide/plat/centroid?lang=cpp
 /// Verification:
 /// https://codeforces.com/contest/342/submission/203721047
+/// https://judge.yosupo.jp/submission/140347
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
 //v[i][j]=nodo rosso + vicino a i nel sottoalbero j-esimo
 struct info { int n,b,d; };
 //g[i] = lista degli antenati di i nel centroid tree
-//g[i][j] = {antenato x,indice del sottoalbero che 
-// contiene i in v[x],distanza i->x}
+//g[i][j]={antenato x (diverso da i),indice del sottoalbero
+// che contiene i in v[x],distanza i->x}
 vector<info> g[MN]; 
 int dfs(int n, int p=0){
   s[n]=1;
