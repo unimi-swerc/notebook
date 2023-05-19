@@ -1,4 +1,6 @@
 /// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/Simplex.h
+/// Verification:
+/// https://icpc.kattis.com/submissions/11083576
 /* Description: Solves a general linear maximization
  * problem: maximize $c^T x$ subject to $Ax\le b, x\ge 0$.
  * Returns -inf if there is no solution, inf if there
@@ -16,9 +18,8 @@ typedef vector<T> vd;
 typedef vector<vd> vvd;
 const T eps = 1e-8, inf = 1/.0;
 #define MP make_pair
-#define ltj(X) if(s == -1 || \
-  MP(X[j],N[j]) < MP(X[s],N[s])) s=j
-struct LPSolver {
+#define ltj(X) if(s==-1 || MP(X[j],N[j])<MP(X[s],N[s])) s=j
+struct LPSolver {//tested with $t \leq 200, m \leq 100, n \leq 400, EPS = 10^{-6}$ (1.12 sec)
   int m, n; vi N, B; vvd D;
   LPSolver(const vvd& A, const vd& b, const vd& c) :
     m(sz(b)), n(sz(c)), N(n+1), B(m), D(m+2, vd(n+2)) {
@@ -51,7 +52,7 @@ struct LPSolver {
       rep(i,0,m) {
         if (D[i][s] <= eps) continue;
         if (r == -1 || MP(D[i][n+1] / D[i][s], B[i])
-              < MP(D[r][n+1] / D[r][s], B[r])) r = i;
+          < MP(D[r][n+1] / D[r][s], B[r])) r = i;
       }
       if (r == -1) return false;
       pivot(r, s);
