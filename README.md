@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare SMAWK, piani 3d e tangenti cerchi
+- testare piani 3d e tangenti cerchi
 
 ## Algoritmi
 
