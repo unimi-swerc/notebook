@@ -1,87 +1,58 @@
 /// Source: https://codeforces.com/blog/entry/98663
-// smawck for (max,+) convolution, complexity: $\mathcal{O}(N)$
-template<class F>
-vector<int> smawck(F f, const vector<int> &rows,
-      const vector<int> &cols) {
-  vector<int> ans(rows.size(), -1);
-  if((int) max(rows.size(), cols.size()) <= 2) {
-    for(int i = 0; i < (int) rows.size(); i++) {
-      for(auto j : cols) {
-        if(ans[i] == -1 || f(rows[i], ans[i], j))
-          ans[i] = j;
+/// Verification:
+/// https://oj.uz/submission/745219
+/// https://atcoder.jp/contests/abc218/submissions/41520329
+/* smawk for (max,+) convolution, complexity: $\mathcal{O}(N)$
+ * tested in a $\mathcal{O}(4N\log N)$ solution ($N\leq 2\cdot 10^5$, 913 ms)*/
+template <class Select>
+vector<int> smawk(const int row_size, const int col_size,
+  const Select &select){
+  using vec_zu = vector<int>;
+  const function<vec_zu(const vec_zu&, const vec_zu&)> solve=
+  [&](const vec_zu &row, const vec_zu &col) -> vec_zu{
+    const int n = row.size();
+    if (n == 0) return {};
+    vec_zu c2;
+    for(const int i : col){
+      while(!c2.empty()&&select(row[c2.size()-1],c2.back(),i))
+        c2.pop_back();
+      if (c2.size() < n) c2.push_back(i);
+    }
+    vec_zu r2;
+    for(int i = 1; i < n; i += 2) r2.push_back(row[i]);
+    const vec_zu a2 = solve(r2, c2);
+    vec_zu ans(n);
+    for(int i = 0; i != a2.size(); i += 1) ans[i*2+1]=a2[i];
+    int j = 0;
+    for(int i = 0; i < n; i += 2){
+      ans[i] = c2[j];
+      const int end = i + 1 == n ? c2.back() : ans[i + 1];
+      while (c2[j] != end){
+        j += 1;
+        if(select(row[i], ans[i], c2[j])) ans[i] = c2[j];
       }
     }
-  } else if(rows.size() < cols.size()) { // reduce
-    vector<int> st;
-    for(int j : cols) {
-      while(1) {
-        if(st.empty()) {
-          st.push_back(j);
-          break;
-        }else if(f(rows[(int)st.size()-1], st.back(), j)){
-          st.pop_back();
-        } else if(st.size() < rows.size()) {
-          st.push_back(j);
-          break;
-        } else {
-          break;
-        }
-      }
-    }
-    ans = smawck(f, rows, st);
-  } else {
-    vector<int> newRows;
-    for(int i = 1; i < (int) rows.size(); i += 2) {
-      newRows.push_back(rows[i]);
-    }
-    auto otherAns = smawck(f, newRows, cols);
-    for(int i = 0; i < (int) newRows.size(); i++) {
-      ans[2*i+1] = otherAns[i];
-    }
-    for(int i = 0, l = 0, r = 0; i < (int)rows.size();i+=2){
-      while(l && cols[l-1] >= ans[i-1]) l--;
-      if(i+1 == (int) rows.size()) r = (int) cols.size();
-      while(r < (int) cols.size() && r <= ans[i+1]) r++;
-      ans[i] = cols[l++];
-      for(; l < r; l++) {
-        if(f(rows[i], ans[i], cols[l]))
-          ans[i] = cols[l];
-      }
-      l--;
-    }
-  }
-  return ans;
-}
-/* F(i, j, k) checks if M[i][j] $\leq$ M[i][k]
- * another interpretations is: F(i, j, k) checks if
- * M[i][k] is at least as good as M[i][j] (higher == better)
- * when comparing 2 columns as vectors for j < k, 
- *column j can start better than column k. as soon as column
- * k is at least as good, it's always at least as good */
-template<class F>
-vector<int> smawck(F f, int n, int m) {
-  vector<int> rows(n), cols(m);
-  for(int i = 0; i < n; i++) rows[i] = i;
-  for(int i = 0; i < m; i++) cols[i] = i;
-  return smawck(f, rows, cols);
-}
-template<class T>
-vector<T> MaxConvolutionWithConvexShape(vector<T> anyShape, 
-      const vector<T> &convexShape) {
-  if((int) convexShape.size() <= 1) return anyShape;
-  if(anyShape.empty()) anyShape.push_back(0);
-  int n = (int)anyShape.size(), m = (int)convexShape.size();
-  auto function = [&](int i, int j) {
-    return anyShape[j] + convexShape[i-j];
+    return ans;
   };
-  auto comparator = [&](int i, int j, int k) {
-    if(i < k) return false;
-    if(i - j >= m) return true;
-    return function(i, j) <= function(i, k);
+  vec_zu row(row_size);iota(row.begin(), row.end(), 0);
+  vec_zu col(col_size);iota(col.begin(), col.end(), 0);
+  return solve(row, col);
+}
+template <class T>
+vector<T> concave_max_plus_convolution(const vector<T> &a,
+  const vector<T> &b){ // a qualsiasi, b convesso
+  const int n = a.size(); const int m = b.size();
+  const auto get = [&](const int i, const int j){
+    return a[j] + b[i - j];
   };
-  const vector<int> best = smawck(comparator, n + m - 1, n);
-  vector<T> ans(n + m - 1);
-  for(int i = 0; i < n + m - 1; i++)
-    ans[i] = function(i, best[i]);
-  return ans;
+  const auto select=[&](const int i,const int j,const int k){
+    if (i < k) return false;
+    if (i - j >= m) return true;
+    return get(i, j) <= get(i, k);
+  };
+  const vector<int> amax = smawk(n + m - 1, n, select);
+  vector<T> c(n + m - 1);
+  for (int i = 0; i != n + m - 1; i += 1)
+    c[i] = get(i, amax[i]);
+  return c;
 } //$\mathit{ans}_i=\max_{j+k=i}(A_j+B_k)$
