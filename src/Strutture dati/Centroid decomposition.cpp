@@ -70,4 +70,4 @@ int main(){ //tested with $N,M \leq 10^5$ (529 ms)
     }
     if(i<M) scanf("%d%d", &t, &n);
   }
-} //also tested with countour sum ($N \leq 10^5, Q \leq 2\cdot 10^5$, 835 ms)
+}//also tested with contour sum ($N \leq 10^5, Q \leq 2\cdot 10^5$, 835 ms)
