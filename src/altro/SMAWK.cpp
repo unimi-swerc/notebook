@@ -1,4 +1,6 @@
-/// Source: https://codeforces.com/blog/entry/98663
+/// Source: 
+/// https://codeforces.com/blog/entry/110844
+/// https://noshi91.github.io/Library/algorithm/concave_max_plus_convolution.cpp
 /// Verification:
 /// https://oj.uz/submission/745219
 /// https://atcoder.jp/contests/abc218/submissions/41520329
