@@ -1,8 +1,9 @@
 /// Source:
 /// https://usaco.guide/plat/centroid?lang=cpp
 /// Verification:
-/// https://codeforces.com/contest/342/submission/203721047
+/// https://codeforces.com/contest/342/submission/206408466
 /// https://judge.yosupo.jp/submission/140347
+/// https://judge.yosupo.jp/submission/140409
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
@@ -45,8 +46,7 @@ void centroid(int n=1){ //1-based
     if(!r[x])
       centroid(x);
 }
-// tested with $N,M \leq 10^5$ (639 ms)
-int main() {
+int main(){ //tested with $N,M \leq 10^5$ (529 ms)
   scanf("%d%d", &N, &M);
   for(int i=0,u,v;i+1<N;++i) {
     scanf("%d%d", &u, &v);
@@ -70,4 +70,4 @@ int main() {
     }
     if(i<M) scanf("%d%d", &t, &n);
   }
-}
+} //also tested with countour sum ($N \leq 10^5, Q \leq 2\cdot 10^5$, 835 ms)
