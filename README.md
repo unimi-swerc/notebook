@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare SMAWK, simplex, piani 3d, tangenti cerchi e poligon cut
+- testare SMAWK, piani 3d e tangenti cerchi
 
 ## Algoritmi
 
