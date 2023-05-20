@@ -143,8 +143,8 @@ bool half(pt p) {
 }
 void polarSort(vector<pt> &v) {
   sort(v.begin(), v.end(), [](pt v, pt w) {
-    v = (v!=pt{0,0} ? v : pt{1,0}); //atan(0,0)=0
-    w = (w!=pt{0,0} ? w : pt{1,0}); //atan(0,0)=0
+    v = (v!=pt{0,0} ? v : pt{1,0}); //atan2(0,0)=0
+    w = (w!=pt{0,0} ? w : pt{1,0}); //atan2(0,0)=0
     return make_tuple(half(v),0)<
            make_tuple(half(w),cross(v,w));});
 }
