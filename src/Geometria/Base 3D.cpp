@@ -71,6 +71,15 @@ struct coords {
   pt pos2d(p3 p) {return {(p-o)|dx, (p-o)|dy};}
   p3 pos3d(p3 p) {return {(p-o)|dx, (p-o)|dy, (p-o)|dz};}
 };
+p3 vectorArea2(vector<p3> p) { //vector area * 2
+  p3 S = zero;
+  for (int i = 0, n = p.size(); i < n; i++)
+    S = S + p[i]*p[(i+1)%n];
+  return S;
+}
+T area(vector<p3> p) {
+  return abs(vectorArea2(p)) / T(2.0);
+}
 T volume(vector<vector<p3>> fs) {
   T vol6 = 0.0;
   for (vector<p3> f : fs)
