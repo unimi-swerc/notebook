@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare piani 3d e tangenti cerchi
+- testare tangenti cerchi
 
 ## Algoritmi
 
