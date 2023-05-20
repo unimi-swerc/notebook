@@ -17,7 +17,7 @@ vector<pt> convexHullHalf(vector<pt>& v) {
 //return clockwise Hull starting from lefmost point
 vector<pt> convexHull(vector<pt> v) { //$\mathcal{O}(n\log{n})$
   sort(v.begin(), v.end(), [](pt a, pt b) {
-    return make_pair(a.x, a.y) < make_pair(b.x, b.y);
+    return make_pair(a.X, a.Y) < make_pair(b.X, b.Y);
   }); //in case of tie start from the lowest point
   auto up = convexHullHalf(v);
   reverse(v.begin(), v.end());
