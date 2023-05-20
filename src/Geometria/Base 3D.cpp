@@ -3,6 +3,7 @@
 /// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250738, solo dot e cross product)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1477 (ID: 10288871, orient, cross product, norm)
 /// https://acm.timus.ru/problem.aspx?space=1&num=2099 (ID: 10288927, orient, dot product)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1686 (ID: 10288965, dot product, cross product, unit, abs, plane(p,q,r), plane.side())
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}
