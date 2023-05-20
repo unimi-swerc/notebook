@@ -1,5 +1,7 @@
 /// Source: Bortoz
-/// Verification: https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250738, solo dot e cross product)
+/// Verification: 
+/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250738, solo dot e cross product)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1477 (ID: 10288871, orient, cross product, norm, dot product)
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}
