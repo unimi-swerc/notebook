@@ -1,9 +1,10 @@
-/// Source: Bortoz
-/// Verification: 
-/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10250738, solo dot e cross product)
-/// https://acm.timus.ru/problem.aspx?space=1&num=1477 (ID: 10288871, orient, cross product, norm)
-/// https://acm.timus.ru/problem.aspx?space=1&num=2099 (ID: 10288927, orient, dot product)
-/// https://acm.timus.ru/problem.aspx?space=1&num=1686 (ID: 10288965, dot product, cross product, unit, abs, plane(p,q,r), plane.side())
+/// Source: Handbook of geometry for competitive programmers (Victor Lecomte)
+/// Verification:
+/// https://acm.timus.ru/problem.aspx?space=1&num=1520 (ID: 10289483, solo dot e cross product)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1477 (ID: 10289475, orient, cross product, norm)
+/// https://acm.timus.ru/problem.aspx?space=1&num=2099 (ID: 10289469, orient, dot product)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1686 (ID: 10289468, dot product, cross product, unit, abs, plane(p,q,r), plane.side())
+/// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, plane.proj(), plane.dist() e coords)
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}
@@ -24,10 +25,10 @@ p3 operator*(p3 v, p3 w) { // cross product
           v.x*w.y - v.y*w.x};
 }
 T norm(p3 v) {return v|v;}
-double abs(p3 v) {return sqrt(norm(v));}
+T abs(p3 v) {return sqrtl(norm(v));}
 p3 unit(p3 v) {return v/abs(v);}
 double angle(p3 v, p3 w) {
-  return acos(clamp(1.*(v|w)/abs(v)/abs(w), -1., 1.));
+  return acos(clamp(1.*(v|w)/abs(v)/abs(w), T(-1), T(1)));
 }
 // positivo se s è sopra il piano tra p, q, r
 T orient(p3 p, p3 q, p3 r, p3 s) {
@@ -47,10 +48,32 @@ struct plane {
   // From three non-collinear points P,Q,R
   plane(p3 p, p3 q, p3 r) : plane((q-p)*(r-p), p) {}
   T side(p3 p) {return (n|p)-d;}
-  double dist(p3 p) {return abs(side(p))/abs(n);}
+  T dist(p3 p) {return abs(side(p))/abs(n);}
   plane translate(p3 t) {return {n, d+(n|t)};}
   // requires double
-  plane shiftUp(double dist) {return {n, d+dist*abs(n)};}
+  plane shiftUp(T dist) {return {n, d+dist*abs(n)};}
   p3 proj(p3 p) {return p - n*side(p)/norm(n);}
   p3 refl(p3 p) {return p - n*2*side(p)/norm(n);}
 };
+struct coords {
+  p3 o, dx, dy, dz;
+  // From three points P,Q,R on the plane:
+  // build an orthonormal 3D basis
+  coords(p3 p, p3 q, p3 r) : o(p) {
+    dx = unit(q-p);
+    dz = unit(dx*(r-p));
+    dy = dz*dx;
+  }
+  // From four points P,Q,R,S:
+  // take directions PQ, PR, PS as is
+  coords(p3 p, p3 q, p3 r, p3 s) :
+    o(p), dx(q-p), dy(r-p), dz(s-p) {}
+  pt pos2d(p3 p) {return {(p-o)|dx, (p-o)|dy};}
+  p3 pos3d(p3 p) {return {(p-o)|dx, (p-o)|dy, (p-o)|dz};}
+};
+T volume(vector<vector<p3>> fs) {
+  T vol6 = 0.0;
+  for (vector<p3> f : fs)
+  vol6 += (vectorArea2(f)|f[0]);
+  return abs(vol6) / 6.0;
+}

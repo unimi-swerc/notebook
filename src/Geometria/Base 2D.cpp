@@ -1,28 +1,30 @@
-/// Source: Bortoz
+/// Source: Handbook of geometry for competitive programmers (Victor Lecomte)
 /// Verification:
-/// https://judge.yosupo.jp/submission/86719 (Solo polar sort e cross)
-/// https://training.olinfo.it/#/task/pre_boi_cerchi (Solo polar sort, cross e perp, ID: 874846)
-/// Guarda Convex hull per la verification di orient
-/// https://cses.fi/problemset/result/5356091/ (Point in Polygon)
-/// https://cses.fi/problemset/result/5356039/ (Polygon Area)
-/// https://codeforces.com/gym/102501/submission/190662748 (Polygon Area)
-/// https://cses.fi/problemset/result/5356001/ (segIntersection)
-/// https://cses.fi/problemset/result/5355945/ (Line.Side)
-/// https://dmoj.ca/submission/5304464 (polar sort + cross)
-typedef complex<ll> pt;
+/// https://judge.yosupo.jp/submission/140837 (Solo polar sort e cross)
+/// https://training.olinfo.it/#/task/pre_boi_cerchi (Solo polar sort, cross e perp, ID: 1025082)
+/// Guarda Convex huT per la verification di orient
+/// https://cses.fi/problemset/result/6102096/ (Point in Polygon)
+/// https://cses.fi/problemset/result/6102101/ (Polygon Area)
+/// https://codeforces.com/gym/102501/submission/206681789 (Polygon Area)
+/// https://cses.fi/problemset/result/6102115/ (segIntersection)
+/// https://cses.fi/problemset/result/6102119/ (Line.Side)
+/// https://dmoj.ca/submission/5552046 (polar sort + cross)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, Line.proj e un po di altra roba)
+typedef complex<T> pt;
 #define X real()
 #define Y imag()
+#define M_PI acos(-1)
 // *** Punti ***
-ll dot(pt v, pt w) { return (conj(v) * w).X; }
-ll cross(pt v, pt w) { return (conj(v) * w).Y; }
-ll orient(pt a, pt b, pt c) { return cross(b-a, c-a); }
+T dot(pt v, pt w) { return (conj(v) * w).X; }
+T cross(pt v, pt w) { return (conj(v) * w).Y; }
+T orient(pt a, pt b, pt c) { return cross(b-a, c-a); }
 pt translate(pt v, pt p) { return p+v; }
 pt perp(pt p) { return {-p.Y, p.X}; }
 bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
-pt scale(pt c, ll factor, pt p) { return c+(p-c)*factor; }
-pt rotate(pt p, double a) { return p * polar(1.0, a); }
+pt scale(pt c, T factor, pt p) { return c+(p-c)*factor; }
+pt rotate(pt p, T a) { return p * polar(T(1.0), a); }
 double angle(pt v, pt w) {
-  return acos(clamp(1.*dot(v,w)/abs(v)/abs(w), -1., 1.));
+  return acos(clamp(1.*dot(v,w)/abs(v)/abs(w),T(-1),T(1)));
 }
 bool inAngle(pt a, pt b, pt c, pt p) {
   assert(orient(a,b,c) != 0);
@@ -38,22 +40,23 @@ double orientedAngle(pt a, pt b, pt c) {
 }
 // *** Linee ***
 struct line {
-  pt v; ll c;
+  pt v; T c;
   // From direction vector v and offset c
-  line(pt v, ll c) : v(v), c(c) {}
+  line(pt v, T c) : v(v), c(c) {}
   // From equation ax+by=c
-  line(ll a, ll b, ll c) : v({b,-a}), c(c) {}
+  line(T a, T b, T c) : v({b,-a}), c(c) {}
   // From points P and Q
   line(pt p, pt q) : v(q-p), c(cross(v,p)) {}
-  ll side(pt p) { return cross(v,p)-c; }
-  ll dist(pt p) {return abs(side(p)) / abs(v);}
-  ll normDist(pt p) {return side(p)*side(p) / norm(v);}
+  T side(pt p) { return cross(v,p)-c; }
+  T dist(pt p) {return abs(side(p)) / abs(v);}
+  T normDist(pt p) {return side(p)*side(p) / norm(v);}
   line perpThrough(pt p) {return {p, p + perp(v)};}
   line translate(pt t) {return {v, c + cross(v,t)};}
-  line shiftLeft(ll dist) {return {v, c + dist*abs(v)};}
+  line shiftLeft(T dist) {return {v, c + dist*abs(v)};}
+  pt proj(pt p) {return p - perp(v)*side(p)/norm(v);}
 };
 bool lineIntersection(line l1, line l2, pt &out) {
-  ll d = cross(l1.v, l2.v);
+  T d = cross(l1.v, l2.v);
   if (d == 0) return false;
   //requires floating-point
   out = (l2.v*l1.c - l1.v*l2.c) / d;
@@ -71,7 +74,7 @@ bool crossesRay(pt a, pt p, pt q) {
   return (above(a,q)-above(a,p))*orient(a, p, q)>0;
 }
 bool properInter(pt a, pt b, pt c, pt d, pt &out) {
-  ll oa = orient(c,d,a), ob = orient(c,d,b),
+  T oa = orient(c,d,a), ob = orient(c,d,b),
      oc = orient(a,b,c), od = orient(a,b,d);
   // Proper intersection exists iff opposite signs
   if (oa*ob < 0 && oc*od < 0) {
@@ -91,7 +94,7 @@ set<pt, comp> segIntersection(pt a, pt b, pt c, pt d) {
   if (onSegment(a,b,d)) s.insert(d);
   return s;
 }
-double segPointDistance(pt a, pt b, pt p) {
+T segPointDistance(pt a, pt b, pt p) {
   if (a != b) {
     line l(a,b);
     // if closest to projection
@@ -101,7 +104,7 @@ double segPointDistance(pt a, pt b, pt p) {
   }
   return min(abs(p-a), abs(p-b));
 }
-double segSegDistance(pt a, pt b, pt c, pt d) {
+T segSegDistance(pt a, pt b, pt c, pt d) {
   pt dummy;
   if (properInter(a,b,c,d,dummy)) return 0;
   return min({segPointDistance(a,b,c), 
@@ -110,8 +113,8 @@ double segSegDistance(pt a, pt b, pt c, pt d) {
               segPointDistance(c,d,b)});
 }
 // *** Poligoni
-ll area(vector<pt> V) {
-  ll area = 0;
+T area(vector<pt> V) {
+  T area = 0;
   for (int i = 0; i < (int)V.size(); i++) {
     area += cross(V[i], V[(i + 1) % V.size()]);
   }
@@ -120,7 +123,7 @@ ll area(vector<pt> V) {
 bool isConvex(vector<pt> p) {
   bool hasPos=false, hasNeg=false;
   for (int i=0, n=p.size(); i<n; i++) {
-    ll o = orient(p[i], p[(i+1)%n], p[(i+2)%n]);
+    T o = orient(p[i], p[(i+1)%n], p[(i+2)%n]);
     if (o > 0) hasPos = true;
     if (o < 0) hasNeg = true;
   }
@@ -140,7 +143,8 @@ bool half(pt p) {
 }
 void polarSort(vector<pt> &v) {
   sort(v.begin(), v.end(), [](pt v, pt w) {
-    return make_tuple(half(v), 0) <
-           make_tuple(half(w), cross(v,w));
-  });
+    v = (v!=pt{0,0} ? v : pt{1,0}); //atan(0,0)=0
+    w = (w!=pt{0,0} ? w : pt{1,0}); //atan(0,0)=0
+    return make_tuple(half(v),0)<make_tuple(half(w),cross(v,w));
+    });
 }
