@@ -10,7 +10,9 @@
 /// https://cses.fi/problemset/result/6102119/ (Line.Side)
 /// https://dmoj.ca/submission/5552046 (polar sort + cross)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, Line.proj e un po di altra roba)
+using T = long long; //o double o long double
 typedef complex<T> pt;
+const T EPS = 1e-10; //per i double o long double
 #define X real()
 #define Y imag()
 #define M_PI acos(-1)
@@ -24,7 +26,8 @@ bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
 pt scale(pt c, T factor, pt p) { return c+(p-c)*factor; }
 pt rotate(pt p, T a) { return p * polar(T(1.0), a); }
 double angle(pt v, pt w) {
-  return acos(clamp(1.*dot(v,w)/abs(v)/abs(w),T(-1),T(1)));
+  return acos(clamp(
+    1.*dot(v,w)/abs(v)/abs(w),T(-1)*1.,T(1)*1.));
 }
 bool inAngle(pt a, pt b, pt c, pt p) {
   assert(orient(a,b,c) != 0);
@@ -83,7 +86,11 @@ bool properInter(pt a, pt b, pt c, pt d, pt &out) {
   }
   return false;
 }
-// definire un struct comp per comparare i complessi
+struct comp{ //serve solo per il set di segIntersection
+  bool operator()(pt a, pt b) const {
+    return make_pair(a.X, a.Y) < make_pair(b.X, b.Y);
+  }
+};
 set<pt, comp> segIntersection(pt a, pt b, pt c, pt d) {
   pt out;
   if (properInter(a,b,c,d,out)) return {out};
