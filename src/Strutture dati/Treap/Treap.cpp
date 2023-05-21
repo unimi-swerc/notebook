@@ -1,6 +1,6 @@
 /// Source: Bortoz
 /// Verification:
-/// https://oj.uz/submission/675961 (senza get_pos)
+/// https://oj.uz/submission/745951 (senza get_pos)
 /// https://oj.uz/submission/675962 (con get_pos)
 /// https://codeforces.com/gym/418635/submission/187058661
 /// https://evaluator.hsin.hr/events/ceoi22_2mirror/tasks/SC2022CEOI22measures/ (submission 5)
@@ -89,6 +89,7 @@ node* build(vector<T>& A, int l, int r) {
 }
 // ritorna il k-esimo nodo (0-based)
 int find_kth(node* p,int pos){
+  p->fix();
   int sl = p->left ? p->left->size : 0;
   if (p->left && pos < sl) {
     return find_kth(p->left,pos);

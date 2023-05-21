@@ -1,4 +1,4 @@
-/// Source: MrBrionix (partendo da quello senza laazy propagation)
+/// Source: MrBrionix (partendo da quello senza lazy propagation)
 /// Verification:
 /// https://judge.yosupo.jp/submission/118384 (senza get_pos)
 /// https://judge.yosupo.jp/submission/118385 (cont get_pos)
