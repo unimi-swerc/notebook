@@ -2,6 +2,7 @@
 /// https://judge.yosupo.jp/submission/64812
 /// Verification:
 /// https://judge.yosupo.jp/submission/135967
+/// https://atcoder.jp/contests/arc161/submissions/41812299
 /* 0-based, $X = 2*i$, $\mathit{not}(X) = 2*i+1$
  * ritorna un vector vuoto se non c'è soluzione
  * altrimenti ritorna un vector V tale che V[i] = true
