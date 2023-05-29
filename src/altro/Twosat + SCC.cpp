@@ -3,6 +3,7 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/135967
 /// https://atcoder.jp/contests/arc161/submissions/41812299
+/// https://judge.yosupo.jp/submission/142333 (solo SCC)
 /* 0-based, $X = 2*i$, $\mathit{not}(X) = 2*i+1$
  * ritorna un vector vuoto se non c'è soluzione
  * altrimenti ritorna un vector V tale che V[i] = true
@@ -41,6 +42,7 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
       for (int nv : eb[v]) dfs2(nv, comp);
     }
   };
+  // Compute SCC (Kosaraju)
   for (int v = 0; v < n; ++v) Internal::dfs1(v);
   fill(vis, vis + n, 0);
   int comp = 0;
