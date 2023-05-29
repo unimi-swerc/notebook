@@ -27,7 +27,7 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
     eb[y ^ 1].push_back(x);
   }
   static int order[N], oi, vis[N];
-  oi = 0;
+  oi = 0; // Compute SCC (Kosaraju)
   fill(vis, vis + n, 0);
   struct Internal {
     static void dfs1(int v) {
@@ -42,7 +42,6 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
       for (int nv : eb[v]) dfs2(nv, comp);
     }
   };
-  // Compute SCC (Kosaraju)
   for (int v = 0; v < n; ++v) Internal::dfs1(v);
   fill(vis, vis + n, 0);
   int comp = 0;
