@@ -133,7 +133,7 @@
 - [x] Max matching, in caso di parità scelgo min/max cost
 - [x] Max matching pesato e min matching pesato
 - [x] Min/Max cost ma non per forza max flow
-- [x] Number of Spanning Trees and Cayley's formula
+- [x] Number of spanning trees, Cayley's formula and labeled unrooted trees
 - [x] BEST theorem: number of eulerian circuits
 
 ### 3. Vario
@@ -147,4 +147,5 @@
 - [x] Minkowski sum
 - [x] Pythagorean triples
 - [x] Numeri primi grandi
+- [x] Teoria della probabilità (valore atteso, varianza, covarianza)
 - [x] Note
