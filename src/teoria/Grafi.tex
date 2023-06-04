@@ -14,6 +14,47 @@ minimo rappresenta il minimum vertex cover (per ogni arco del grafo bipartito or
 \subsubsection{Hall theorem: matching perfetto su grafo bipartito}
 Dato un insieme $W$ di nodi appartenenti al lato sinistro di un grafo bipartito $G$, sia $N_G(W)$ l'insieme dei vicini di $W$. $G$ ammette un matching perfetto per il lato sinistro (ovvero in cui ogni nodo del lato sinistro è matchato) se e solo se per ogni sottoinsieme $W$ (dei nodi del lato sinistro) vale: $$|W|\leq|N_G(W)|$$
 
+\subsubsection{Archi o nodi obbligati in un matching}
+Dato un grafo residuo, un arco del max flow appartiene a tutti i max flow possibili se ha gli estremi in due componenti fortemente connesse diverse. Nel gioco su grafo bipartito in cui ogni nodo può venire visitato massimo una volta, i nodi che appartengono a tutti i max matching sono tutti e i soli nodi di partenza vincenti. Stesso gioco ma visitando ogni arco al più una volta: gaussian elimination per trovare l'insieme di archi su cui dirigere l'avversario.
+
+\subsubsection{Min/Max cost ma non per forza max flow}
+NP-completo se non si considerano anche i circulant flows, altrimenti è P ma serve il simplesso.
+
+\subsubsection{Max matching pesato e min matching pesato}
+\,
+
+\textbf{Max matching, grafo generale}: weighted blossom algorithm. (se ci sono archi con peso negativo li butti perchè non ha senso prenderli)
+
+\textbf{Max matching, grafo bipartito}: algoritmo ungherese, invertendo il valore dei $w_i$ ($w_i=-\infty$ se non esiste l'arco, poi negandolo diventerà $+\infty$) e aggiungendo eventuali nodi dummy (dalla parte dei lavoratori) che verrano matchati con i nodi che non appartengono al max match pesato.
+
+\textbf{Min matching}: uguale a max matching ma pima negare i $w_i$.
+
+\subsubsection{Max matching, in caso di parità scelgo min/max cost}
+\,
+
+\textbf{Min cost, grafo generale}: dare peso $\infty - w_i$ agli archi ($w_i$ è il costo dell'arco). Prima la priorità verrà data a trovare il max matching ovviamente, a parità di matching verrà scelto il costo minimo.
+
+\textbf{Min cost, grafo bipartito}: max flow min cost.
+
+\textbf{Per max cost}: uguale a min cost ma prima negare i $w_i$.
+
+\subsubsection{Number of spanning trees, Cayley's formula and labeled unrooted trees}
+		% I.e. matrix-tree theorem.
+		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
+		% Test: stress-tests/graph/matrix-tree.cpp
+		Create an $N\times N$ matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
+		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
+		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
+		(if $G$ is undirected, remove any row/column). Oriented spanning tree = spanning tree (quindi $n-1$ archi) in cui dalla radice è possibile raggiungere ogni nodo. Conseguenza (Cayley's formula): il numero di alberi (non radicati) con $n$ nodi numerati è $n^{n-2}$. Il numero di foreste non radicate, con nodi numerati e $k$ componenti connesse tali che i nodi $1,\dots,k$ sono in componenti diverse è $kn^{n-k-1}$.
+		Number of $k$ labeled unrooted trees of size $n_i$: $n_1n_2\cdots n_k n^{k-2}$.
+		Number of labeled unrooted trees with degrees $d_i$ for node $i$: $(n-2)! / ((d_1-1)! \cdots (d_n-1)!)$.
+
+\subsubsection{BEST theorem: number of eulerian circuits}
+The BEST theorem states that the number ec$(G)$ of Eulerian circuits in a connected Eulerian graph $G$ is given by the formula:
+$$\text{ec}(G)=t_w(G)\prod_{v\in V}(\text{deg}(v)-1)!$$
+Here $t_w(G)$ is the number of arborescences, which are trees directed towards the root at a fixed vertex w in G (If we reverse the edges we obtain an oriented spanning tree, we can count the number of oriented spanning tree with a determinant as explained in the previous section).
+It is a property of Eulerian graphs that $t_v(G) = t_w(G)$ for every two vertices $v$ and $w$ in a connected Eulerian graph $G$. Counting eulerian circuit in a undirected graphs is at least as hard as NP-complete problem.
+
 \subsubsection{Erdős–Gallai theorem}
 		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
 		% Test: stress-tests/graph/erdos-gallai.cpp
@@ -42,43 +83,3 @@ $x'$<->$y''$ appartiene al matching allora $x$ e $y$ sono nella stessa catena.
 minimo in catene, prendi tutti i nodi di partenza della catene e finchè c'è una coppia di nodi comparabili fai avanzare la testa del nodo più grande finchè sono tutti incomparabili (lca style).
 
 \textbf{Trovare il partizionamento minimo in anti-catene}: TO DO. 
-
-\subsubsection{Archi o nodi obbligati in un matching}
-Dato un grafo residuo, un arco del max flow appartiene a tutti i max flow possibili se ha gli estremi in due componenti fortemente connesse diverse. Nel gioco su grafo bipartito in cui ogni nodo può venire visitato massimo una volta, i nodi che appartengono a tutti i max matching sono tutti e i soli nodi di partenza vincenti. Stesso gioco ma visitando ogni arco al più una volta: gaussian elimination per trovare l'insieme di archi su cui dirigere l'avversario.
-
-\subsubsection{Max matching, in caso di parità scelgo min/max cost}
-\,
-
-\textbf{Min cost, grafo generale}: dare peso $\infty - w_i$ agli archi ($w_i$ è il costo dell'arco). Prima la priorità verrà data a trovare il max matching ovviamente, a parità di matching verrà scelto il costo minimo.
-
-\textbf{Min cost, grafo bipartito}: max flow min cost.
-
-\textbf{Per max cost}: uguale a min cost ma prima negare i $w_i$.
-
-\subsubsection{Max matching pesato e min matching pesato}
-\,
-
-\textbf{Max matching, grafo generale}: weighted blossom algorithm. (se ci sono archi con peso negativo li butti perchè non ha senso prenderli)
-
-\textbf{Max matching, grafo bipartito}: algoritmo ungherese, invertendo il valore dei $w_i$ ($w_i=-\infty$ se non esiste l'arco, poi negandolo diventerà $+\infty$) e aggiungendo eventuali nodi dummy (dalla parte dei lavoratori) che verrano matchati con i nodi che non appartengono al max match pesato.
-
-\textbf{Min matching}: uguale a max matching ma pima negare i $w_i$.
-
-
-\subsubsection{Min/Max cost ma non per forza max flow}
-NP-completo se non si considerano anche i circulant flows, altrimenti è P ma serve il simplesso.
-
-\subsubsection{Number of Spanning Trees and Cayley's formula}
-		% I.e. matrix-tree theorem.
-		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
-		% Test: stress-tests/graph/matrix-tree.cpp
-		Create an $N\times N$ matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
-		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
-		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
-		(if $G$ is undirected, remove any row/column). Oriented spanning tree = spanning tree (quindi $n-1$ archi) in cui dalla radice è possibile raggiungere ogni nodo. Conseguenza (Cayley's formula): il numero di alberi (non radicati) con $n$ nodi numerati è $n^{n-2}$. Il numero di foreste non radicate, con nodi numerati e $k$ componenti connesse tali che i nodi $1,\dots,k$ sono in componenti diverse è $kn^{n-k-1}$.
-
-\subsubsection{BEST theorem: number of eulerian circuits}
-The BEST theorem states that the number ec$(G)$ of Eulerian circuits in a connected Eulerian graph $G$ is given by the formula:
-$$\text{ec}(G)=t_w(G)\prod_{v\in V}(\text{deg}(v)-1)!$$
-Here $t_w(G)$ is the number of arborescences, which are trees directed towards the root at a fixed vertex w in G (If we reverse the edges we obtain an oriented spanning tree, we can count the number of oriented spanning tree with a determinant as explained in the previous section).
-It is a property of Eulerian graphs that $t_v(G) = t_w(G)$ for every two vertices $v$ and $w$ in a connected Eulerian graph $G$. Counting eulerian circuit in a undirected graphs is at least as hard as NP-complete problem.
