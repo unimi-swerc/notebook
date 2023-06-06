@@ -1,9 +1,7 @@
-\subsubsection{Euler's formula} $F+V-E=2$ (only for convex polyhedron).
-
-\subsubsection{Generare numeri primi}
-%\begin{center}
-\verb|openssl prime -generate -bits 60|
-%\end{center}
+\subsubsection{Pick's Theorem}
+Given a certain lattice polygon with non-zero area.
+We denote its area by $S$, the number of points with integer coordinates lying strictly inside the polygon by $I$ and the number of points lying on polygon sides by $B$.
+Pick's formula states: $S=I+\frac{B}{2}-1$.
 
 \subsubsection{Subset sum speedup for small weights}
 There are $N$ items. The $i$-th item has weight $w_i\leq D$. Can we find a set $S$ such that $\sum_{i\in S}w_i=C$?
@@ -23,9 +21,6 @@ However, it would only make sense to transition to $\mathit{dp}(\mathit{total}-w
 
 \textbf{K-nim}: ogni giocatore in un turno può diminuire l'altezza da $1$ pila fino a $k$ pile (se $k=1$ è il nim classico). Per determinare chi vince scrivere tutte le altezze delle pile in base 2, poi sommare questi numeri però supponendo che siano in base $k+1$ senza effetuare riporti (quindi come uno xor bit a bit ma modulo $k+1$ anzichè il classico modulo 2). Se il risultato è zero il giocatore di turno perde, altrimenti vince.
 
-\subsubsection{Rango matrice}
-Numero di linee (o colonne, è equivalente) linearmente indipendenti. Per calcolarlo: gaussian elimination (se ogni vettore ha al massimo 2 componenti non nulle si può velocizzare con dsu).
-
 \subsubsection{Prodotto scalare (dot) e vettoriale (cross)} 
 \,
 
@@ -36,10 +31,10 @@ $a\cdot b = |a| \cdot |b| \cos \theta = x_1 x_2 + y_1 y_2 + z_1 z_2$
 $$|a\times b| = |a| \cdot |b| \sin \theta = (y_1 z_2 - z_1 y_2) + (z_1 x_2 - x_1 z_2) + (x_1 y_2 - y_1 x_2)$$ 
 Verso e direzione: regola della mano destra, $\theta$ nel cross product 3d originale è sempre minore di 180 gradi, ma se si usa lo pseudo-scalar product in 2d $\theta$ è l'angolo da $a$ a $b$ in senso antiorario.
 
-\subsubsection{Pick's Theorem}
-Given a certain lattice polygon with non-zero area.
-We denote its area by $S$, the number of points with integer coordinates lying strictly inside the polygon by $I$ and the number of points lying on polygon sides by $B$.
-Pick's formula states: $S=I+\frac{B}{2}-1$.
+\subsubsection{Generare numeri primi}\verb|openssl prime -generate -bits 60|
+
+\subsubsection{Rango matrice}
+Numero di linee (o colonne, è equivalente) linearmente indipendenti. Per calcolarlo: gaussian elimination (se ogni vettore ha al massimo 2 componenti non nulle si può velocizzare con dsu).
 
 \subsubsection{Minkowski sum}
 Consider two sets $A$ and $B$ of points on a plane. Minkowski sum $A + B$ is defined as $\{a + b| a \in A, b \in B\}$.
@@ -73,7 +68,7 @@ Let $X$ be a discrete random variable with probability $p_X(x)$ of assuming the 
 Moreover it holds $\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)$ for any (even dependent) $X,Y$.
 For independent $X$ and $Y$: $V(aX+bY) = a^2V(X)+b^2V(Y)$.
 For dependent $X$ and $Y$: $V(X+Y) = V(X) + V(Y) + 2\mathit{Cov}(X,Y)$ where $\mathit{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$.
-Moreover it holds $\mathit{Cov}(aX+b,Y) = a\mathit{Cov}(X,Y)$ and $\mathit{Cov}(X+Y,Z) = \mathit{Cov}(X,Z)+\mathit{Cov}(Y,Z)$.
+($\mathit{Cov}(aX+b,Y) = a\mathit{Cov}(X,Y)$ and $\mathit{Cov}(X+Y,Z) = \mathit{Cov}(X,Z)+\mathit{Cov}(Y,Z)$).
 
 \subsubsection{Note} La DP prova a pensarla sia in avanti che all’indietro, magari si semplifica qualcosa. (Es. i casi base se si va in avanti sono multipli, mentre
 andando all’indietro è uno solo). Ricorda che esistono i bitset (fattore di speed up: circa 100).

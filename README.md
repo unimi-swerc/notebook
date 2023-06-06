@@ -94,7 +94,7 @@
 ### 6. Altro
 
 - [x] Divide and conquer DP
-- [x] Fast input (per lettura interi)
+- [x] Hornsat
 - [x] Knuth optimization DP
 - [x] SMAWK
 - [x] Simplesso
@@ -103,12 +103,12 @@
 
 ### 7. Scarti
 
+- [x] Fast input (per lettura interi)
 - [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
 - [x] Dictionary of basic factors
 - [x] Sat (bruteforce O(2^variables*clauses))
 - [x] Floyd cycle detection
-- [x] Hornsat
 
 ## Teoria
 
