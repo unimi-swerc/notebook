@@ -82,7 +82,7 @@ template<typename T> struct poly { vector<T> a;
     vector<T> A(a); vector<T> res;
     while(A.size() >= b.a.size()) {
       res.push_back(A.back() / b.a.back());
-      if(res.back() != T(0)) {
+      if(!(res.back() == T(0))) {
         for(size_t i = 0; i < b.a.size(); i++)
           A[A.size()-i-1]-=res.back()*b.a[b.a.size()-i-1];
       }
