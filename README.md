@@ -57,7 +57,7 @@
 - [x] Operazioni sui polinomi (divisione, serie infinita di 1/p(x), valutazione, interpolazione)
 - [x] Gaussian elimination (linear solve con mod e senza mod)
 - [x] Teorema del resto cinese
-- [x] Euler’s totient function
+- [x] Euler’s totient function and linear factorization sieve
 - [ ] Fast matrix multiplication
 
 ### 4. Stringhe
