@@ -7,12 +7,9 @@
 /* If values are on tree edges, change $\texttt{step}$ to add/remove 
  * the edge $(a, c)$ and remove the initial $\texttt{add}$ call 
  * (but keep $\texttt{in}$) Time: $\mathcal{O}(N \sqrt{Q})$ */
-// add a[ind] (end = 0 or 1)
-void add(int ind, int end) { return; } 
-// remove a[ind]
-void del(int ind, int end) { return; } 
-// compute current answer
-int calc() { return 0; } 
+void add(int ind, int end){return;}//add a[ind] (end=0 or 1)
+void del(int ind, int end) { return; }// remove a[ind]
+int calc() { return 0; } // compute current answer
 // Q[i] = [l,r) query, 0-based
 //con $n \leq 3\cdot 10^4, q \leq 2\cdot 10^5$, O(1) add/del/calc impiega 0.39 sec
 vi mo(vector<pii> Q) { 

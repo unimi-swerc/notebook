@@ -9,8 +9,7 @@
  * This optimization reduces the time complexity 
  * from $\mathcal{O}(N^3)$ to $\mathcal{O}(N^2)$ */
 long long dp[SIZE][SIZE],mid[SIZE][SIZE],pos[SIZE],n,m;
-cin>>p[1]>>p[2]>>...>>p[m];
-pos[0] = 0;pos[m + 1] = n;
+cin>>p[1]>>p[2]>>...>>p[m]; pos[0] = 0;pos[m + 1] = n;
 // length of section of cuts to compute
 for (int i = 0; i <= m + 1; i++) {
   // section of cuts to compute: [j, j + i]
