@@ -2,6 +2,7 @@
 /// https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h
 /// Verification:
 /// https://judge.yosupo.jp/submission/86692
+/// https://kilonova.ro/submissions/32073
 /* Container where you can add lines of the form $kx+m$,
  * and query maximum values at points x. Time: $\mathcal{O}(\log N)$
  * tested with $N,Q\leq 200000$ (296 ms) */
