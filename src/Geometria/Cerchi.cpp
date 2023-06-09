@@ -34,16 +34,16 @@ int circleCircle(pt o1, T r1, pt o2, T r2,
   }
   return 1 + sgn(h2);
 } //tested counting intersections of 3 circles
-// tangenti tra due cerchi
+//tangenti tra due cerchi (o passante per un punto se r2=0)
 int tangents(pt o1, T r1, pt o2, T r2,
               bool inner, vector<pair<pt,pt>> &out) {
   if (inner) r2 = -r2;
   pt d = o2-o1;
   T dr = r1-r2, d2 = norm(d), h2 = d2-dr*dr;
-  if (d2 == 0 || h2 < 0) {assert(h2 != 0); return 0;}
+  if(abs(d2)<EPS||h2<-EPS){assert(abs(h2)>EPS);return 0;}
   for (T sign : {-1,1}) {
     pt v = (d*dr + perp(d)*T(sqrtl(h2))*sign)/d2;
     out.push_back({o1 + v*r1, o2 + v*r2});
   }
-  return 1 + (h2 > 0);
+  return 1 + (h2 > EPS);
 } //untested :(
