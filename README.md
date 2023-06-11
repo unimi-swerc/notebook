@@ -120,6 +120,7 @@
 - [x] Catalan
 - [x] Burnside's lemma
 - [x] Somma potenze quarte
+- [x] Euler's formula
 
 ### 2. Grafi
 
@@ -143,7 +144,6 @@
 - [x] Rango matrice
 - [x] Prodotto scalare e vettoriale
 - [x] Pick's theorem
-- [x] Euler's formula
 - [x] Minkowski sum
 - [x] Pythagorean triples
 - [x] Numeri primi grandi
