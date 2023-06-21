@@ -38,6 +38,7 @@
 - [x] Min cost max flow
 - [x] Max flow
 - [x] Max clique
+- [x] Min cost bflow 
 - [x] Stable marriage (Gale-Shapley algorithm)
 - [x] Tarjan trick for SPFA
 
