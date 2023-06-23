@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- testare tangenti cerchi
+- rendere più presentabile il booklet
 
 ## Algoritmi
 
