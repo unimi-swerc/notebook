@@ -4,6 +4,7 @@
 /// https://codeforces.com/contest/933/submission/206680402 (circleCircle)
 /// https://www.acmicpc.net/source/61069469 (circleLine)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, circleLine)
+/// https://acm.timus.ru/problem.aspx?space=1&num=1163 (ID: 10319768, tangenti interne)
 int sgn(T xx) { return (xx > EPS) - (xx < -EPS); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
@@ -46,4 +47,4 @@ int tangents(pt o1, T r1, pt o2, T r2,
     out.push_back({o1 + v*r1, o2 + v*r2});
   }
   return 1 + (h2 > EPS);
-} //untested :(
+} //tested with EPS < $10^{-8}$
