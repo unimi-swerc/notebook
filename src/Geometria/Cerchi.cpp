@@ -9,7 +9,7 @@ int sgn(T xx) { return (xx > EPS) - (xx < -EPS); }
 pt circumCenter(pt a, pt b, pt c) {
   b = b-a, c = c-a;
   assert(cross(b,c) != 0);
-  return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/2.0;
+  return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/T(2.0);
 }  //tested with EPS < $10^{-5}$
 // intersezione tra il cerchio (o,r) e la linea l
 int circleLine(pt o, T r, line l, pair<pt,pt> &out) {
