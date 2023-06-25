@@ -4,6 +4,7 @@
 /// https://judge.yosupo.jp/submission/139394
 /// https://judge.yosupo.jp/submission/139395
 /// https://judge.yosupo.jp/submission/139396
+/// https://judge.yosupo.jp/submission/146522
 const int maxn = 1 << 20;//requires modular & fft
 template<int m> struct dft {
   static constexpr int split = 1 << 15; vector<cpx> A;
@@ -71,7 +72,7 @@ template<typename T> struct poly { vector<T> a;
     return res;
   }
   poly operator*=(const poly &t){mul(a,t.a);nor();
-    return *this;}
+    return *this;} //nota che viene chiamato nor()
   poly operator*(const poly &t)const{return poly(*this)*=t;}
   poly rev(size_t n) const { // computes x^n A(x^{-1})
     auto res = a; res.resize(max(n, res.size()));
