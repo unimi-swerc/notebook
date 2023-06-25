@@ -3,8 +3,9 @@
 /// https://www.spoj.com/problems/POLYMUL/ (id: 30318108)
 /// https://judge.yosupo.jp/submission/139296
 /// https://judge.yosupo.jp/submission/139295
+/// testato anche con polynomials
 typedef complex<double> cpx;
-int base=1;//tested with $T\leq 10,N\leq 10^5,a_i,b_i\leq 10^3$(0.07 s)
+int base=1;//tested with $N\leq 2^{19}$ (500 ms)
 vector<cpx> roots = {{0, 0}, {1, 0}};
 vector<int> rev = {0, 1};
 const double PI = acosl(-1.0);
