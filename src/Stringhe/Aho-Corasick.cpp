@@ -5,6 +5,7 @@
 /// https://codeforces.com/contest/1252/submission/203227672
 /// https://codeforces.com/gym/101741/submission/203227771
 /// https://www.acmicpc.net/source/59829587
+/// https://kilonova.ro/submissions/40684
 const int K = 26;
 struct Vertex {
   int next[K], go[K], p=-1, link=-1, ind, exitlink=-2;
