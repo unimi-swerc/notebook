@@ -3,6 +3,7 @@
 /// https://oj.uz/submission/675959
 /// https://codeforces.com/gym/102428/submission/187056057
 /// https://judge.yosupo.jp/submission/118382
+/// https://kilonova.ro/problems/457
 // build suffix array of $S_0,\cdots,S_{n-1}$
 struct SuffixArray { //tested with $n \leq 5\cdot 10^5$ (226 ms)
   string S; int N; vi sa, isa, lcp; //N=sz(S)+1=n+1
