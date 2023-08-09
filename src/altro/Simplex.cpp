@@ -1,6 +1,7 @@
 /// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/numerical/Simplex.h
 /// Verification:
 /// https://icpc.kattis.com/submissions/11083576
+/// https://codeforces.com/gym/104511/submission/218041506
 /* Description: Solves a general linear maximization
  * problem: maximize $c^T x$ subject to $Ax\le b, x\ge 0$.
  * Returns -inf if there is no solution, inf if there
