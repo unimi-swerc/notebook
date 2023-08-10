@@ -4,9 +4,10 @@
 /// Verification:
 /// https://oj.uz/submission/745241
 /// https://atcoder.jp/contests/abc218/submissions/41520696
+/// https://judge.yosupo.jp/submission/155098
 /* smawk for (max,+) convolution, complexity: $\mathcal{O}(N)$
  * tested in a $\mathcal{O}(4N\log N)$ solution ($N\leq 2\cdot 10^5$, 913 ms)*/
-template <class Select>
+template <class Select> //tested with $N\leq 524288$ (181 ms)
 vector<int> smawk(const int row_size, const int col_size,
   const Select &sel){
   using vi = vector<int>;
@@ -38,7 +39,7 @@ vector<int> smawk(const int row_size, const int col_size,
   vi col(col_size);iota(col.begin(), col.end(), 0);
   return solve(row, col);
 }
-template <class T> // a qualsiasi, b convesso
+template <class T> // a qualsiasi, b concavo ($b{i+1}-b_{i}\geq b_{i+2}-b_{i+1}$)
 vector<T> conv(const vector<T> &a, const vector<T> &b){
   const int n = a.size(); const int m = b.size();
   const auto get = [&](const int i, const int j){
