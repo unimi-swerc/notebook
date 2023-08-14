@@ -39,7 +39,7 @@ vector<int> smawk(const int row_size, const int col_size,
   vi col(col_size);iota(col.begin(), col.end(), 0);
   return solve(row, col);
 }
-template <class T> // a qualsiasi, b concavo ($b{i+1}-b_{i}\geq b_{i+2}-b_{i+1}$)
+template <class T> //a qualsiasi, b concavo ($b_{i+1}-b_{i}\geq b_{i+2}-b_{i+1}$)
 vector<T> conv(const vector<T> &a, const vector<T> &b){
   const int n = a.size(); const int m = b.size();
   const auto get = [&](const int i, const int j){
