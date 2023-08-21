@@ -3,8 +3,8 @@
 /// https://judge.yosupo.jp/submission/139293
 /// https://dmoj.ca/submission/5535996
 /// https://dmoj.ca/submission/5537684
-/// https://judge.yosupo.jp/submission/139294
-/// https://judge.yosupo.jp/submission/139386
+/// https://judge.yosupo.jp/submission/156783
+/// https://judge.yosupo.jp/submission/156789
 template<typename T> T bpow(T x, size_t n) {
   if(n == 0) return T(1);
   else{auto t=bpow(x, n/2); t=t*t; return n%2 ? x*t : t;}
