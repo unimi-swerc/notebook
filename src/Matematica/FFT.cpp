@@ -1,11 +1,11 @@
 /// Source: Bortoz
 /// Verification:
-/// https://www.spoj.com/problems/POLYMUL/ (id: 30318108)
-/// https://judge.yosupo.jp/submission/139296
-/// https://judge.yosupo.jp/submission/139295
-/// testato anche con polynomials
+/// https://www.spoj.com/problems/POLYMUL/ (id: 31738225)
+/// https://judge.yosupo.jp/submission/156783
+/// https://judge.yosupo.jp/submission/156789
+/// https://judge.yosupo.jp/submission/156793
 typedef complex<double> cpx;
-int base=1;//tested with $N\leq 2^{19}$ (500 ms)
+int base=1;//tested with dft, $N\leq 2^{19}$ (500 ms)
 vector<cpx> roots = {{0, 0}, {1, 0}};
 vector<int> rev = {0, 1};
 const double PI = acosl(-1.0);
@@ -54,9 +54,7 @@ vector<int> multiply(vector<int> &a, vector<int> &b) {
   while ((1 << nbase) < need) nbase++;
   ensure_base(nbase);
   int sz = 1 << nbase;
-  if (sz > (int) fa.size()) {
-    fa.resize(sz);
-  }
+  fa.resize(sz);
   for (int i = 0; i < sz; i++) {
     double x = (i < (int) a.size() ? a[i] : 0);
     double y = (i < (int) b.size() ? b[i] : 0);
