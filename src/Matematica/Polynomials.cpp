@@ -1,10 +1,10 @@
 /// Source: https://github.com/cp-algorithms/cp-algorithms-aux/blob/master/src/polynomial.cpp
 /// Verification:
-/// https://judge.yosupo.jp/submission/139393
-/// https://judge.yosupo.jp/submission/139394
-/// https://judge.yosupo.jp/submission/139395
-/// https://judge.yosupo.jp/submission/139396
-/// https://judge.yosupo.jp/submission/146522
+/// https://judge.yosupo.jp/submission/156789
+/// https://judge.yosupo.jp/submission/156783
+/// https://judge.yosupo.jp/submission/156790
+/// https://judge.yosupo.jp/submission/156791
+/// https://judge.yosupo.jp/submission/156793
 const int maxn = 1 << 20;//requires modular & fft
 template<int m> struct dft {
   static constexpr int split = 1 << 15; vector<cpx> A;
@@ -97,7 +97,7 @@ template<typename T> struct poly { vector<T> a;
     if(min(d-1, b.deg()) < 250) return divmod_slow(b);
     poly D=(rev().moxk(d)*b.rev().inv(d)).moxk(d).rev(d);
     return {D, *this - D * b};
-  } //complessità: boh, tested with $n,m \leq 5\cdot 10^5$ (1289 ms)
+  } //complessità: boh, tested with $n,m \leq 5\cdot 10^5$ (1350 ms)
   poly operator%(const poly &t)const{return divmod(t).s;}
   T eval(T x) const { // evaluates in single point x
     T res(0);
