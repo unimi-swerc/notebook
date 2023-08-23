@@ -4,6 +4,7 @@
 /// https://judge.yosupo.jp/submission/156783
 /// https://judge.yosupo.jp/submission/156789
 /// https://judge.yosupo.jp/submission/156793
+/// https://codeforces.com/gym/104373/submission/219925236
 typedef complex<double> cpx;
 int base=1;//tested with dft, $N\leq 2^{19}$ (500 ms)
 vector<cpx> roots = {{0, 0}, {1, 0}};
