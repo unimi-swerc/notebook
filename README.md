@@ -27,6 +27,7 @@
 
 - [x] Ponti e punti di articolazione
 - [x] Biconnected components
+- [x] Bipartite matching
 - [x] Blossom (matching)
 - [x] Blossom pesato (matching pesato)
 - [x] Dominator tree
@@ -110,6 +111,7 @@
 - [x] Dictionary of basic factors
 - [x] Sat (bruteforce O(2^variables*clauses))
 - [x] Floyd cycle detection
+- [x] Suffix array lineare
 
 ## Teoria
 
