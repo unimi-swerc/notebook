@@ -70,7 +70,7 @@
 - [x] Manacher
 - [x] Palindrome tree
 - [x] Rotazione minima lessicografica
-- [x] Suffix array + lcp array
+- [x] Suffix array (nlogn o lineare) + lcp array
 - [x] Suffix tree
 - [x] Z-algorithm
 
@@ -86,7 +86,7 @@
 - [x] Link-cut tree (normale, divino, modifica per path non commutativi)
 - [x] Mo queries (su array e su albero)
 - [x] Segment tree beats
-- [x] Persistent segment tree (normale oppure sparso + lazy)
+- [x] Persistent segment tree sparso lazy
 - [x] Sparse table
 - [x] Treap (+ lazy propagation)
 - [ ] (?) Pairing heap
@@ -111,7 +111,7 @@
 - [x] Dictionary of basic factors
 - [x] Sat (bruteforce O(2^variables*clauses))
 - [x] Floyd cycle detection
-- [x] Suffix array lineare
+- [x] Persistent segment tree normale
 
 ## Teoria
 
