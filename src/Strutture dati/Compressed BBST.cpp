@@ -1,6 +1,7 @@
 /// Source: Bortoz
 /// Verification:
 /// https://training.olinfo.it/#/task/vasi2/submissions (id: 825432)
+/// https://tlx.toki.id/contests/osn-open-2023-day-2/submissions/430773
 // $\mathcal{O}(\log{N})$ query/update, 0-based
 class CompressedTree {
  private:
