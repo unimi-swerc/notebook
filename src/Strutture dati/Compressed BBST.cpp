@@ -127,7 +127,7 @@ class CompressedTree {
   void insert(ll val, size_t pos) {
     insert(val, val + 1, pos);
   }
-  void insert(ll from, ll to, size_t pos) {
+  void insert(ll from, ll to, size_t pos) { //[from,to)
     root = insert(from, to, pos, root);
   }
   ll erase(size_t pos) {
