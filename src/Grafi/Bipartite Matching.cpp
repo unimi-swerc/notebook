@@ -22,11 +22,11 @@ struct HopcroftKarp { //tested with $n,m\leq 1e5$ (75 ms)
           int y = g[j];
           if (r[y] == -1) {
             while (~y) r[y] = x, swap(l[x], y), x = p[x];
-            match = true; ans++; break;
+            match = true; ans++; break;//ans=numero match
           }
           if(p[r[y]]==-1)q[t++]=y=r[y],p[y]=x,a[y]=a[x];
         }
       }
     }
-  }//nodi sx numerati da 0 a n, nodi dx numerati da 0 a m
+  }//nodi sx numerati da 0 a n-1, nodi dx da 0 a m-1
 }; //l[i]= match del nodo sx i (-1 se non è matchato)
