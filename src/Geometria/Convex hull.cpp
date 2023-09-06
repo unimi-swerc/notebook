@@ -2,6 +2,7 @@
 /// Verification:
 /// https://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=7820016#1
 /// https://cses.fi/problemset/result/6102150/
+/// https://qoj.ac/submission/166610
 vector<pt> convexHullHalf(vector<pt>& v) {
   vector<pt> st;
   for (pt p: v) {
