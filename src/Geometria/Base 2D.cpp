@@ -11,6 +11,7 @@
 /// https://dmoj.ca/submission/5552046 (polar sort + cross)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, Line.proj e un po di altra roba)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1163 (ID: 10319768, polart sort, Line.perpThrough, Line.dist e rotate)
+/// https://www.acmicpc.net/source/66250748 (properInter e onSegment)
 using T = long long; //o double o long double
 typedef complex<T> pt;
 const T EPS = 1e-10; //per i double o long double
