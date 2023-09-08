@@ -8,6 +8,7 @@
 /// https://codeforces.com/contest/1681/submission/205638292 (ridotto)
 /// https://judge.yosupo.jp/submission/139391 (ridotto)
 /// https://judge.yosupo.jp/submission/139392 (ridotto)
+/// https://qoj.ac/submission/168154 (ridotto)
 typedef long long ll;
 #define F0R(i,a) for (int i = (0); i < (a); ++i)
 const int MX = 2e5+5;
