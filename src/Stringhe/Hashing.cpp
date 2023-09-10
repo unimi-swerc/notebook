@@ -32,9 +32,6 @@ H operator-(H l, H r) {
 H operator*(H l, H r) { 
   F0R(i,2) l[i] = modmul(l[i],r[i]);//(ll)l[i]*r[i]%MOD;
   return l; }
-// H& operator+=(H& l, H r) { return l = l+r; }
-// H& operator-=(H& l, H r) { return l = l-r; }
-// H& operator*=(H& l, H r) { return l = l*r; }
 V<H> pows{{1,1}};
 struct HashRange { // 0-based, estremi l e r sono inclusi
   string S; V<H> cum{{}};

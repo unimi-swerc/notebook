@@ -12,7 +12,7 @@ seconda metà del grafo bipartito verso il pozzo. Il flusso massimo sarà uguale
 minimo rappresenta il minimum vertex cover (per ogni arco del grafo bipartito originale, almeno uno dei due estremi deve essere preso/tagliato via da $u$ o $v$). Per min vertex cover pesato, modificare gli archi che partono dalla sorgente o arrivano verso il pozzo con il peso corrispettivo del nodo.
 
 \subsubsection{Hall theorem: matching perfetto su grafo bipartito}
-Dato un insieme $W$ di nodi appartenenti al lato sinistro di un grafo bipartito $G$, sia $N_G(W)$ l'insieme dei vicini di $W$. $G$ ammette un matching perfetto per il lato sinistro (ovvero in cui ogni nodo del lato sinistro è matchato) se e solo se per ogni sottoinsieme $X$ di $W$ vale $|X|\leq|N_G(X)|$.
+Dato un insieme $W$ di nodi appartenenti al lato sinistro di un grafo bipartito $G$, sia $N_G(W)$ l'insieme dei vicini di $W$. $G$ ammette un matching perfetto per il lato sinistro (ovvero in cui ogni nodo del lato sinistro è matchato) se e solo se per ogni sottoinsieme $X$ di $W$ vale $$|X|\leq|N_G(X)|$$
 
 \subsubsection{Min/Max cost ma non per forza max flow}
 NP-completo se non si considerano anche i circulant flows, altrimenti è P ma serve il simplesso.
@@ -38,6 +38,12 @@ Dato un grafo residuo, un arco del max flow appartiene a tutti i max flow possib
 
 \textbf{Per max cost}: uguale a min cost ma prima negare i $w_i$.
 
+\subsubsection{Erdős–Gallai theorem}
+		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
+		% Test: stress-tests/graph/erdos-gallai.cpp
+		A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
+		\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
+
 \subsubsection{Number of spanning trees, Cayley's formula and labeled unrooted trees}
 		% I.e. matrix-tree theorem.
 		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
@@ -54,12 +60,6 @@ The BEST theorem states that the number ec$(G)$ of Eulerian circuits in a connec
 $$\text{ec}(G)=t_w(G)\prod_{v\in V}(\text{deg}(v)-1)!$$
 Here $t_w(G)$ is the number of arborescences, which are trees directed towards the root at a fixed vertex w in G (If we reverse the edges we obtain an oriented spanning tree, we can count the number of oriented spanning tree with a determinant as explained in the previous section).
 It is a property of Eulerian graphs that $t_v(G) = t_w(G)$ for every two vertices $v$ and $w$ in a connected Eulerian graph $G$. Counting eulerian circuit in a undirected graphs is at least as hard as NP-complete problem.
-
-\subsubsection{Erdős–Gallai theorem}
-		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
-		% Test: stress-tests/graph/erdos-gallai.cpp
-		A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
-		\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
 
 \subsubsection{Dilworth theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene}
 \,

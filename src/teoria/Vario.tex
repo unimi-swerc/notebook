@@ -1,7 +1,7 @@
 \subsubsection{Pick's Theorem}
 Given a certain lattice polygon with non-zero area.
 We denote its area by $S$, the number of points with integer coordinates lying strictly inside the polygon by $I$ and the number of points lying on polygon sides by $B$.
-Pick's formula states: $S=I+\frac{B}{2}-1$.
+Pick's formula states: $$S=I+\frac{B}{2}-1$$
 
 \subsubsection{Subset sum speedup for small weights}
 There are $N$ items. The $i$-th item has weight $w_i\leq D$. Can we find a set $S$ such that $\sum_{i\in S}w_i=C$?
@@ -64,11 +64,11 @@ $P + (-Q)$ and $(0, 0)$.
  with $m > n > 0$, $k > 0$, $\mathit{GCD}(m,n)=1$, and either $m$ or $n$ even.
 
 \subsubsection{Probability theory}
-Let $X$ be a discrete random variable with probability $p_X(x)$ of assuming the value $x$. Then $\mu=\mathbb{E}(X)=\sum_xxp_X(x)$ and $\sigma^2=V(X)=\mathbb{E}(X^2)-(\mathbb{E}(X))^2=\sum_x(x-\mathbb{E}(X))^2p_X(x)$. If $X$ is instead continuous it will have a probability density function $f_X(x)$ and the sums above will instead be integrals with $p_X(x)$ replaced by $f_X(x)$.
-Moreover it holds $\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)$ for any (even dependent) $X,Y$.
-For independent $X$ and $Y$: $V(aX+bY) = a^2V(X)+b^2V(Y)$.
-For dependent $X$ and $Y$: $V(X+Y) = V(X) + V(Y) + 2\mathit{Cov}(X,Y)$ where $\mathit{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$.
-($\mathit{Cov}(aX+b,Y) = a\mathit{Cov}(X,Y)$ and $\mathit{Cov}(X+Y,Z) = \mathit{Cov}(X,Z)+\mathit{Cov}(Y,Z)$).
+Let $X$ be a discrete random variable with probability $p_X(x)$ of assuming the value $x$. Then $$\mu=\mathbb{E}(X)=\sum_xxp_X(x)$$ $$\sigma^2=V(X)=\mathbb{E}(X^2)-(\mathbb{E}(X))^2=\sum_x(x-\mathbb{E}(X))^2p_X(x)$$ If $X$ is instead continuous it will have a probability density function $f_X(x)$ and the sums above will instead be integrals with $p_X(x)$ replaced by $f_X(x)$.
+Moreover it holds $$\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)$$ for any (even dependent) $X,Y$.
+For independent $X$ and $Y$: $$V(aX+bY) = a^2V(X)+b^2V(Y)$$
+For dependent $X$ and $Y$: $$V(X+Y) = V(X) + V(Y) + 2\mathit{Cov}(X,Y)$$ $$\mathit{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$$
+$$\mathit{Cov}(aX+b,Y) = a\mathit{Cov}(X,Y)$$ $$\mathit{Cov}(X+Y,Z) = \mathit{Cov}(X,Z)+\mathit{Cov}(Y,Z)$$
 
 \subsubsection{Note} La DP prova a pensarla sia in avanti che all’indietro, magari si semplifica qualcosa. (Es. i casi base se si va in avanti sono multipli, mentre
 andando all’indietro è uno solo). Ricorda che esistono i bitset (fattore di speed up: circa 100).

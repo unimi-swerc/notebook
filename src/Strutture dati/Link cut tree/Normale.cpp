@@ -201,13 +201,11 @@ struct snode { //////// VARIABLES
 };
 sn LCT[MX]; int N,Q;
 int main() { //utilizzo versione completa
-  cin>>N>>Q;
-  vector<int> A(N);
+  cin>>N>>Q; vector<int> A(N);
   for(int i=0;i<N;i++)cin>>A[i];
   F0R(i,N) LCT[i] = new snode(A[i]);
   F0R(i,N-1) {
-    int u,v; cin>>u>>v;
-    link(LCT[u],LCT[v],1);
+    int u,v; cin>>u>>v; link(LCT[u],LCT[v],1);
   }
   F0R(i,Q) {
     int t; cin>>t;
@@ -217,21 +215,17 @@ int main() { //utilizzo versione completa
     } else if (t == 1) {
       /*//point update (aggiungi x al nodo p)
         int p,x; cin>>p>>x;
-        LCT[p]->access();
-        LCT[p]->val += x;
+        LCT[p]->access(); LCT[p]->val += x;
         LCT[p]->calc();*/
       //subtree update 
       // (radice=p, aggiungi x al sottoalbero di v)
       int v,p,x; cin>>v>>p>>x;
-      LCT[p]->makeRoot();
-      cut(LCT[v]);
-      LCT[v]->inc(x);
-      link(LCT[p],LCT[v],1);
+      LCT[p]->makeRoot(); cut(LCT[v]);
+      LCT[v]->inc(x); link(LCT[p],LCT[v],1);
     } else {
       int u,v; cin>>u>>v;
       /*//path query (query nel path tra u e v)
-        LCT[u]->makeRoot();
-        LCT[v]->access();
+        LCT[u]->makeRoot(); LCT[v]->access();
         cout<<(LCT[v]->sum)<<"\n";*/
       //subtree query
       // (v=radice, query sul sottoalbero di u)
@@ -242,7 +236,6 @@ int main() { //utilizzo versione completa
 }
 /* utilizzo versione ridotta
  * subtree query (v=radice) è leggermente diverso:
- * LCT[v]->makeRoot();
- * LCT[u]->access();
+ * LCT[v]->makeRoot(); LCT[u]->access();
  * cout<<(LCT[u]->vsub + LCT[u]->val)<<"\n";
  * tutto il resto è uguale al link cut tree completo */
