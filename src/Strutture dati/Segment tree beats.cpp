@@ -3,11 +3,9 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/94863
 /* 1-based. Estremi degli intervalli inclusi: [l,r]
- * 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD
- * $\mathcal{O}(\log{(N)})$ per query/update
- * con $n,q \leq 2\cdot 10^5$ impiega 600 ms */
-const int N = 200005;
-const long long INF = 1E16;
+ * 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD. Time: $\mathcal{O}(\log{(N)})$
+ * per query/update con $n,q \leq 2\cdot 10^5$ impiega 600 ms */
+const int N = 200005; const long long INF = 1E16;
 long long a[N];
 struct node {
   long long mi, mx, mis, mxs, sum, lz;
@@ -141,9 +139,7 @@ struct segment_tree {
     }
   }
 } seg;
-/*uso:
-cin >> n >> q;
+/*uso: cin >> n >> q;
 for (int i = 1; i <= n; i++) cin >> a[i];
-seg.build(1, n, 1);
-seg.update(1, n, 1, l, r, v, t);
+seg.build(1, n, 1); seg.update(1, n, 1, l, r, v, t);
 cout << seg.query(1, n, 1, l, r) << '\n';*/

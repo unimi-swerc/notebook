@@ -24,7 +24,7 @@ struct CapacityScaling {//Tested with $M<10^3,U<10^9$(33 ms)
     while (pre_edge[x] != -1) {
       E[pre_edge[x]].flow += delta;
       assert(E[pre_edge[x]].flow <= E[pre_edge[x]].cap);
-      E[pre_edge[x]^1].flow -= delta; 
+      E[pre_edge[x]^1].flow -= delta;
       x = E[pre_edge[x]].src;
     }
     return x;
@@ -93,7 +93,7 @@ struct CapacityScaling {//Tested with $M<10^3,U<10^9$(33 ms)
   for(int i=0;i<n;++i)cin>>NS.B[i];//vertex supply (in-out)
   if (n == 0) { cout << 0 << endl; return 0; }
   for(int i = 0; i < m; ++i){//l,u,k,NS.b[i] anche negativi
-  cin >> a >> b >> l >> u >> k; lo[i] = l; 
+  cin >> a >> b >> l >> u >> k; lo[i] = l;
   assert(2 * i == NS.ae(a, b, l, u, k));}
   auto cost = NS.solve(tmp); //tmp è falso se infeasible
   NS.E[2 * i].flow + lo[i] = flusso arco i-esimo*/

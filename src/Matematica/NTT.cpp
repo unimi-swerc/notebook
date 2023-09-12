@@ -7,11 +7,8 @@
 /// https://atcoder.jp/contests/abc303/submissions/42004674
 ll MOD;//Time:$\mathcal{O}(N\log{N})$, con $N\leq 2^{19}$ impiega 465 ms
 ll MOD1=104857601,MOD2=469762049,MOD3=998244353;
-int base = 1;
-vector<int> roots = {0, 1};
-vector<int> rev = {0, 1};
-int max_base = -1;
-int root = -1;
+int base = 1, max_base = -1, root = -1;
+vector<int> roots = {0, 1}, rev = {0, 1};
 int ipow(int b, int e) {
   int r = 1;
   while (e > 0) {
@@ -56,8 +53,7 @@ void ensure_base(int nbase) {
   }
 }
 void fft(vector<int> &a) {
-  int n = a.size();
-  int zeros = __builtin_ctz(n);
+  int n = a.size(); int zeros = __builtin_ctz(n);
   ensure_base(zeros);
   int shift = base - zeros;
   for (int i = 0; i < n; i++) {
@@ -79,13 +75,11 @@ void fft(vector<int> &a) {
   }
 }
 vector<int> multiply(vector<int> a, vector<int> b) {
-  int need = a.size() + b.size() - 1;
-  int nbase = 0;
+  int need = a.size() + b.size() - 1, nbase = 0;
   while ((1 << nbase) < need) nbase++;
   ensure_base(nbase);
   int sz = 1 << nbase;
-  a.resize(sz);
-  b.resize(sz);
+  a.resize(sz); b.resize(sz);
   fft(a);
   fft(b);
   int inv_sz = ipow(sz, MOD - 2);

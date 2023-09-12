@@ -8,8 +8,7 @@
 int sgn(T xx) { return (xx > EPS) - (xx < -EPS); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
-  b = b-a, c = c-a;
-  assert(cross(b,c) != 0);
+  b = b-a, c = c-a; assert(cross(b,c) != 0);
   return a + perp(b*norm(c) - c*norm(b))/cross(b,c)/T(2.0);
 }  //tested with EPS < $10^{-5}$
 // intersezione tra il cerchio (o,r) e la linea l
@@ -22,7 +21,7 @@ int circleLine(pt o, T r, line l, pair<pt,pt> &out) {
   }
   return 1 + sgn(h2);
 }  //tested with EPS < ${10^-5}$
-// intersezione tra due cerchi
+// intersezione tra due cerchi (o1,r1) e (o2,r2)
 int circleCircle(pt o1, T r1, pt o2, T r2,
                                   pair<pt,pt> &out) {
   pt d=o2-o1; T d2=norm(d);
@@ -39,8 +38,7 @@ int circleCircle(pt o1, T r1, pt o2, T r2,
 int tangents(pt o1, T r1, pt o2, T r2,
               bool inner, vector<pair<pt,pt>> &out) {
   if (inner) r2 = -r2;
-  pt d = o2-o1;
-  T dr = r1-r2, d2 = norm(d), h2 = d2-dr*dr;
+  pt d = o2-o1; T dr = r1-r2, d2 = norm(d), h2 = d2-dr*dr;
   if(abs(d2)<EPS||h2<-EPS){assert(abs(h2)>EPS);return 0;}
   for (T sign : {-1,1}) {
     pt v = (d*dr + perp(d)*T(sqrtl(h2))*sign)/d2;

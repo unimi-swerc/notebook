@@ -12,8 +12,7 @@ tuple<ll, ll, ll> xgcd(ll a, ll b) {
   while (a != 0) {
     ll q = b / a; b -= q * a;
     s -= q * s2; t -= q * t2;
-    swap(a, b);
-    swap(s, s2); swap(t, t2);
+    swap(a, b); swap(s, s2); swap(t, t2);
   }
   return {s, t, b};
 } //tested with ll=__int128, $a,b\leq 10^{18}$

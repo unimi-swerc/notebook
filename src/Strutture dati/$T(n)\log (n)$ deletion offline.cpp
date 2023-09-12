@@ -6,10 +6,8 @@
 /// https://codeforces.com/contest/1814/submission/201244020
 /* For a commutative data structure supporting true $\mathcal{O}(T(n))$
  * insertion, support deletion in $\mathcal{O}(T(n)\log n)$ offline. */
-template<class E>
-struct query_tree{
-  int n; // max query range (0-based)
-  vector<vector<E>> queues;
+template<class E> struct query_tree{
+  vector<vector<E>> queues; int n; // max query range (0-based)
   query_tree(int n): n(n), queues(n << 1){ }
   void insert(E e, int ql, int qr){ //add $[ql,qr)$
     assert(0 <= ql && ql <= qr && qr <= n);
@@ -40,19 +38,16 @@ struct query_tree{
   }
 };
 int main(){ //example
-  int n; // tested with $n\leq 2\cdot 10^5$ (873 ms)
-  cin >> n;
+  int n; cin >> n; // tested with $n\leq 2\cdot 10^5$ (873 ms)
   vector<vector<array<int, 2>>> edge(n);
   for(auto i = 0; i < n - 1; ++ i){
-    int u, v, c;
-    cin >> u >> v >> c, -- u, -- v, -- c;
+    int u, v, c; cin >> u >> v >> c; -- u, -- v, -- c;
     edge[c].push_back({u, v});
   }
   query_tree<array<int, 2>> qt(n);
   for(auto c = 0; c < n; ++ c){
     for(auto [u, v]: edge[c]){
-      qt.insert({u, v}, 0, c);
-      qt.insert({u, v}, c + 1, n);
+      qt.insert({u, v}, 0, c); qt.insert({u, v}, c + 1, n);
     }
   }
   rollback_disjoint_set dsu(n);

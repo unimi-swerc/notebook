@@ -9,9 +9,8 @@
  * //update: aggiungo k*x+b in [l,r) ($\mathcal{O}(\log{n})$)
  * root = insertLine(root, -C, C, l, r, Line(k, b));
  * //query: trovo il min in x (se non c'è ritorna INF)
- * ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$)
- * con $n,q \leq 2\cdot 10^5$ impiega 651 ms */
-const ll INF = (ll)4e18;
+ * ll res = getMinPoint(root, -C, C, x); ($\mathcal{O}(\log{n})$) */
+const ll INF = (ll)4e18; //con $n,q \leq 2\cdot 10^5$ impiega 651 ms
 const ll C = (ll)1e9 + 7;
 struct Line {
   ll k, b;
@@ -22,13 +21,11 @@ struct Line {
   }
 };
 struct Node {
-  int l, r;
-  Line L;
+  int l, r; Line L;
   Node() : l(-1), r(-1), L() {}
 };
 const int S = (int)8e6;
-Node tree[S];
-int treeSz;
+Node tree[S]; int treeSz;
 int getNewNode() {
   tree[treeSz] = Node();
   return treeSz++;
@@ -46,7 +43,7 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
   if (ql <= l && r <= qr) {
     if (L.eval(m) < tree[v].L.eval(m))
       swap(L, tree[v].L);
-    if (L.eval(l) >= tree[v].L.eval(l) && 
+    if (L.eval(l) >= tree[v].L.eval(l) &&
       L.eval(r - 1) >= tree[v].L.eval(r - 1)) return v;
     if (L.eval(r - 1) < tree[v].L.eval(r - 1))
       tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
@@ -55,7 +52,7 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
     return v;
   }
   if (L.eval(max(l, ql)) >= tree[v].L.eval(max(l, ql))
-    && L.eval(min(r, qr)-1)>=tree[v].L.eval(min(r, qr)-1)) 
+    && L.eval(min(r, qr)-1)>=tree[v].L.eval(min(r, qr)-1))
     return v;
   tree[v].l = insertLine(tree[v].l, l, m, ql, qr, L);
   tree[v].r = insertLine(tree[v].r, m, r, ql, qr, L);
@@ -64,8 +61,7 @@ int insertLine(int v, ll l, ll r, ll ql, ll qr, Line L) {
 ll getMinPoint(int v, ll l, ll r, ll x) {
   if (v == -1) return INF;
   if (x < l || x >= r) return INF;
-  ll m = l + (r - l) / 2;
-  ll ans = tree[v].L.eval(x);
+  ll m = l + (r - l) / 2, ans = tree[v].L.eval(x);
   ans = min(ans, getMinPoint(tree[v].l, l, m, x));
   ans = min(ans, getMinPoint(tree[v].r, m, r, x));
   return ans;

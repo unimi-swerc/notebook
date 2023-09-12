@@ -6,30 +6,28 @@
 typedef long long ll;//$n,q\leq 10^5$,t ignoto->0.89sec
 const ll MAXN=100005, LOGN=42, GAP = 10000004;
 struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
-  __int128 sum;
-  SegmentTree *left,*right;
-  long long lazy;
-  int lvl;
+  __int128 sum; SegmentTree *left,*right;
+  long long lazy; int lvl;
   static SegmentTree* newSeg();
   static SegmentTree* newSeg(ll l,ll r,int _lvl);
   void build(ll *v,ll l,ll r,ll _l,ll _r){
-    if(_r<l || _l>r)return;  
+    if(_r<l || _l>r)return;
     if(_l==_r){
       sum=v[_l];
       return;
     }
     checkcopy(_l,_r);
     left->build(v,l,r,_l,(_l+_r)/2);
-    right->build(v,l,r,(_l+_r)/2+1,_r);   
+    right->build(v,l,r,(_l+_r)/2+1,_r);
     sum=left->sum+right->sum;
   }
   SegmentTree* copy(int x){
-    SegmentTree *res = newSeg(); 
+    SegmentTree *res = newSeg();
     *res = *this;
     res->lvl=x;
     return res;
   }
-  void checkcopy(long long _l,long long _r){   
+  void checkcopy(long long _l,long long _r){
     if(left == nullptr){
       left = newSeg(_l,(_l+_r)/2,lvl);
     } else if(left->lvl != lvl){
@@ -84,18 +82,16 @@ struct SegmentTree{//$\mathcal{O}(\log{N})$ per query/update ovviamente
 	  right->query(l,r,(_l+_r)/2+1,_r);
   }
 };
-SegmentTree vett[4*(MAXN*LOGN+MAXN*LOGN)]; //652M
-int cc=0;
+int cc=0; SegmentTree vett[4*(MAXN*LOGN+MAXN*LOGN)]; //652M
 SegmentTree* SegmentTree::newSeg(){
   return &vett[cc++];
 }
 SegmentTree* SegmentTree::newSeg(ll l,ll r,int _lvl){
-  int ind=cc++; 
+  int ind=cc++;
   vett[ind].sum=0;
   vett[ind].lazy=0;
   vett[ind].lvl=_lvl;
-  vett[ind].left=nullptr;
-  vett[ind].right=nullptr; 
+  vett[ind].left=nullptr; vett[ind].right=nullptr;
   return &vett[ind];
 }
 /* building:

@@ -2,7 +2,7 @@
 /// https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/GlobalMinCut.h
 /// Verification:
 /// https://www.spoj.com/problems/DISGRAPH/ (id: 30318042) (archi con peso = 1)
-/* Find a global minimum cut in an undirected graph, 
+/* Find a global minimum cut in an undirected graph,
  * as represented by an adjacency matrix. Time: $\mathcal{O}(V^3)$
  * tested with $V \leq 1400$ (12.22 sec) */
 pair<int, vi> globalMinCut(vector<vi> mat) { //0-based
@@ -11,8 +11,7 @@ pair<int, vi> globalMinCut(vector<vi> mat) { //0-based
   vector<vi> co(n); //mat must be symmetric
   rep(i,0,n) co[i] = {i};
   rep(ph,1,n) {
-    vi w = mat[0];
-    size_t s = 0, t = 0;
+    vi w = mat[0]; size_t s = 0, t = 0;
     rep(it,0,n-ph) { // $\mathcal{O}(V^2)$ -> $\mathcal{O}(E \log V)$ with prio queue
       w[t] = INT_MIN;
       s = t, t = max_element(all(w)) - w.begin();

@@ -1,9 +1,8 @@
 /// Source: Bortoz
 /// Verification:
 /// https://www.codechef.com/viewsolution/64779959
-vector<int> z_function(string str) { //$\mathcal{O}(N)$
-  vector<int> ret(str.size());
-  int l=0, r=0;
+vector<int> z_function(string str) { // Time: $\mathcal{O}(N)$
+  vector<int> ret(str.size()); int l=0, r=0;
   for (int i=1; i<str.size(); i++) {
     if (i<=r) ret[i] = min(r-i+1, ret[i-l]);
     while (i+ret[i]<str.size() &&

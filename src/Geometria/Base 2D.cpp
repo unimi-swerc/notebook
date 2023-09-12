@@ -27,17 +27,17 @@ pt perp(pt p) { return {-p.Y, p.X}; }
 bool isPerp(pt v, pt w) { return dot(v,w) == 0; }
 pt scale(pt c, T factor, pt p) { return c+(p-c)*factor; }
 pt rotate(pt p, T a) { return p * polar(T(1.0), a); }
-double angle(pt v, pt w) {
+double angle(pt v, pt w) { //return an angle in $[0,\pi]$
   return acos(clamp(
     1.*dot(v,w)/abs(v)/abs(w),T(-1)*1.,T(1)*1.));
 }
-bool inAngle(pt a, pt b, pt c, pt p) {
-  assert(orient(a,b,c) != 0);
+bool inAngle(pt a, pt b, pt c, pt p) { //$\angle bac$
+  assert(orient(a,b,c) != 0);     //(counterclockwise)
   if (orient(a,b,c) < 0) swap(b,c);
   return orient(a,b,p) >= 0 && orient(a,c,p) <= 0;
 }
-double orientedAngle(pt a, pt b, pt c) {
-  if (orient(a,b,c) >= 0) {
+double orientedAngle(pt a, pt b, pt c) { //$\angle bac$
+  if (orient(a,b,c) >= 0) {        //(counterclockwise)
     return angle(b-a, c-a);
   } else {
     return 2*M_PI - angle(b-a, c-a);
@@ -63,24 +63,23 @@ struct line {
 bool lineIntersection(line l1, line l2, pt &out) {
   T d = cross(l1.v, l2.v);
   if (d == 0) return false;
-  //requires floating-point
-  out = (l2.v*l1.c - l1.v*l2.c) / d;
+  out = (l2.v*l1.c - l1.v*l2.c) / d; // requires floats
   return true;
 }
 // *** Segmenti ***
 bool above(pt a, pt p) { return p.Y >= a.Y; }
-bool inDisk(pt a, pt b, pt p) { 
+bool inDisk(pt a, pt b, pt p) { //ab segment
   return dot(a - p, b - p) <= 0;
 }
-bool onSegment(pt a, pt b, pt p) { 
+bool onSegment(pt a, pt b, pt p) { //ab segment
   return orient(a, b, p) == 0 && inDisk(a, b, p);
 }
-bool crossesRay(pt a, pt p, pt q) { 
+bool crossesRay(pt a, pt p, pt q) {
   return (above(a,q)-above(a,p))*orient(a, p, q)>0;
 }
 bool properInter(pt a, pt b, pt c, pt d, pt &out) {
-  T oa = orient(c,d,a), ob = orient(c,d,b),
-     oc = orient(a,b,c), od = orient(a,b,d);
+  T oa = orient(c,d,a), ob = orient(c,d,b), //ab, cd
+     oc = orient(a,b,c), od = orient(a,b,d);//segments
   // Proper intersection exists iff opposite signs
   if (oa*ob < 0 && oc*od < 0) {
     out = (a*ob - b*oa) / (ob-oa); // requires floats
@@ -88,15 +87,14 @@ bool properInter(pt a, pt b, pt c, pt d, pt &out) {
   }
   return false;
 }
-struct comp{ //serve solo per il set di segIntersection
+struct comp { //serve solo per il set di segIntersection
   bool operator()(pt a, pt b) const {
     return make_pair(a.X, a.Y) < make_pair(b.X, b.Y);
   }
 };
 set<pt, comp> segIntersection(pt a, pt b, pt c, pt d) {
-  pt out;
+  pt out; set<pt, comp> s; //ab, cd segments
   if (properInter(a,b,c,d,out)) return {out};
-  set<pt, comp> s;
   if (onSegment(c,d,a)) s.insert(a);
   if (onSegment(c,d,b)) s.insert(b);
   if (onSegment(a,b,c)) s.insert(c);
@@ -105,15 +103,14 @@ set<pt, comp> segIntersection(pt a, pt b, pt c, pt d) {
 }
 T segPointDistance(pt a, pt b, pt p) {
   if (a != b) {
-    line l(a,b);
-    // if closest to projection
-    if(dot(l.v, a)<dot(l.v, p) && dot(l.v, p)<dot(l.v, b)){
-      return l.dist(p);
+    line l(a,b); // if closest to projection...
+    if(dot(l.v, a)<dot(l.v, p) && dot(l.v, p)<dot(l.v, b)) {
+      return l.dist(p); // ...output distance to line
     }
   }
   return min(abs(p-a), abs(p-b));
 }
-T segSegDistance(pt a, pt b, pt c, pt d) {
+T segSegDistance(pt a, pt b, pt c, pt d) { //ab, cd segments
   pt dummy;
   if (properInter(a,b,c,d,dummy)) return 0;
   return min({segPointDistance(a,b,c), 
@@ -122,14 +119,14 @@ T segSegDistance(pt a, pt b, pt c, pt d) {
               segPointDistance(c,d,b)});
 }
 // *** Poligoni
-T area(vector<pt> V) {
+T area(vector<pt> V) { //V polygon
   T area = 0;
   for (int i = 0; i < (int)V.size(); i++) {
     area += cross(V[i], V[(i + 1) % V.size()]);
   }
   return abs(area); // divide by 2 for the real area
 }
-bool isConvex(vector<pt> p) {
+bool isConvex(vector<pt> p) { //p polygon
   bool hasPos=false, hasNeg=false;
   for (int i=0, n=p.size(); i<n; i++) {
     T o = orient(p[i], p[(i+1)%n], p[(i+2)%n]);
@@ -138,7 +135,7 @@ bool isConvex(vector<pt> p) {
   }
   return !(hasPos && hasNeg);
 }
-int inPolygon(vector<pt> V, pt p) {
+int inPolygon(vector<pt> V, pt p) { //V polygon, p point
   int numCrossings = 0;
   for (int i = 0; i < V.size(); i++) {
     if (onSegment(V[i], V[(i+1) % V.size()], p)) return 2;
@@ -156,4 +153,4 @@ void polarSort(vector<pt> &v) {
     w = (w!=pt{0,0} ? w : pt{1,0}); //atan2(0,0)=0
     return make_tuple(half(v),0)<
            make_tuple(half(w),cross(v,w));});
-}
+} //sort counterclockwise from the half line $x\leq 0,y=0$

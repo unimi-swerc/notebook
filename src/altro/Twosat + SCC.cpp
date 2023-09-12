@@ -12,8 +12,8 @@
 #define X first
 #define Y second
 typedef pair<int, int> ipair;
-ipair conj(int v1, bool neg1, int v2, bool neg2) { 
-  return {v1 * 2 + neg1, v2 * 2 + neg2}; 
+ipair conj(int v1, bool neg1, int v2, bool neg2) {
+  return {v1 * 2 + neg1, v2 * 2 + neg2};
 }
 const int N = 1000111; // Time: $\mathcal{O}(N+M)$
 vector<char> twoSat(int n, vector<ipair> const& cc) {
@@ -51,8 +51,7 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
     ++comp;
     Internal::dfs2(v, comp);
   }
-  bool fail = false;
-  vector<char> ans(n / 2);
+  bool fail = false; vector<char> ans(n / 2);
   for (int v = 0; v < n; v += 2)
     if (vis[v] == vis[v + 1])
       fail = true;

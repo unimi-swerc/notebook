@@ -10,10 +10,9 @@
  * th: the thereshold, generally should be $n^{\frac{2}{3}}$. */
 struct prefix_mul {
   typedef long long (*func) (__int128);
-  func p_f, p_g, p_c;
-  long long n, th, inv;
-  std::unordered_map <long long, long long> mem;
-  prefix_mul (func p_f, func p_g, func p_c) : 
+  func p_f, p_g, p_c; long long n, th, inv;
+  unordered_map <long long, long long> mem;
+  prefix_mul (func p_f, func p_g, func p_c) :
     p_f (p_f), p_g (p_g), p_c (p_c) {}
   long long calc (long long x) {
     if (x <= th) return p_f (x);
@@ -25,7 +24,7 @@ struct prefix_mul {
       ans=ans+((p_g(la)-p_g(i-1)+mod)%mod)*calc(x/i)%mod;
       ans %= mod;
     }
-    ans = p_c (x) - ans; 
+    ans = p_c (x) - ans;
     ans=ans/inv;//if $\mathit{inv}\neq1$, use multiplicative inverse
     ans %= mod;
     return mem[x] = ans;
@@ -35,6 +34,6 @@ struct prefix_mul {
     if (n <= 0) return 0;
     prefix_mul::n = n; prefix_mul::th = th;
     inv = p_g (1);
-    return calc (n); 
+    return calc (n);
   }
 };

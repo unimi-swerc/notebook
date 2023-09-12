@@ -15,7 +15,7 @@ vector<pt> convexHullHalf(vector<pt>& v) {
   }
   return st;
 }
-//return clockwise Hull starting from lefmost point
+//return clockwise hull starting from lefmost point
 vector<pt> convexHull(vector<pt> v) { //$\mathcal{O}(n\log{n})$
   sort(v.begin(), v.end(), [](pt a, pt b) {
     return make_pair(a.X, a.Y) < make_pair(b.X, b.Y);

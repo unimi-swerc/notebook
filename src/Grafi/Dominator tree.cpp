@@ -11,7 +11,7 @@ template<int SZ> struct Dominator { //0-based
   vi adj[SZ], ans[SZ]; //input edges, dominator tree edges
   vi radj[SZ], child[SZ], sdomChild[SZ];
   int label[SZ], rlabel[SZ], sdom[SZ], dom[SZ], co = 0;
-  int par[SZ], bes[SZ]; 
+  int par[SZ], bes[SZ];
   void ae(int a, int b) { adj[a].pb(b); }
   int get(int x) { // DSU with path compression
     // get vertex with smallest sdom on path to root
@@ -20,9 +20,9 @@ template<int SZ> struct Dominator { //0-based
       if (sdom[t] < sdom[bes[x]]) bes[x] = t;
     }
     return bes[x];
-  } 
+  }
   void dfs(int x) { // create DFS tree
-    label[x] = ++co; rlabel[co] = x; 
+    label[x] = ++co; rlabel[co] = x;
     sdom[co] = par[co] = bes[co] = co;
     each(y,adj[x]) {
       if (!label[y]) {

@@ -5,13 +5,12 @@
 /// https://judge.yosupo.jp/submission/139293 (modular)
 /// https://dmoj.ca/submission/5535996 (modular)
 /// https://dmoj.ca/submission/5536025 (modular)
-/* Solves $Ax = b$. If there are multiple solutions, 
+/* Solves $Ax = b$. If there are multiple solutions,
  * an arbitrary one is returned.
- * Returns rank, or -1 if no solutions. 
- * Data in A and b is lost.
- * Time: $\mathcal{O}(n^2 m)$
+ * Returns rank, or -1 if no solutions.
+ * Data in A and b is lost. Time: $\mathcal{O}(n^2 m)$
  * double: $n,m \leq 100$, t ignoto impiega 0.03 sec
- * con precisione di almeno $10^{-3}$ (ma eps=1e-12) 
+ * con precisione di almeno $10^{-3}$ (ma eps=1e-12)
  * modular: con $n,m\leq 500$ impiega 447 ms*/
 typedef double T; //oppure modular<mod>
 typedef vector<T> vd;
@@ -30,8 +29,7 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
       rep(j,i,n) if (fabs(b[j]) > eps) return -1;
       break;
     }
-    swap(A[i], A[br]);
-    swap(b[i], b[br]);
+    swap(A[i], A[br]); swap(b[i], b[br]);
     swap(col[i], col[bc]);
     rep(j,0,n) swap(A[j][i], A[j][bc]);
     bv = T(1)/A[i][i];
@@ -61,13 +59,9 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
 /* se non serve il sottospazio eliminare
   i 2 for segnati sopra (*)
   per ottenere il sottospazio vettoriale:
-  auto cop = p;
-  auto co = tmp;
+  auto cop = p; auto co = tmp;
   int xx=solveLinear(p,tmp,ans);
-  if(xx==-1){
-  cout<<xx<<"\n";
-  return 0;
-  }
+  if(xx==-1) { cout<<xx<<"\n";return 0; }
   //soluzioni
   cout<<m-xx<<"\n";
   for(int i=0;i<m;i++)cout<<ans[i].r<<" ";
@@ -78,8 +72,7 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
   //costruisco la base del sottospazio
   vector<vector<ll> > d(m-xx,vector<ll>(m,0));
   for(int j = xx; j<m;j++){
-  d[j-xx][col[j]]=1;
-  for(int i=xx-1;i>=0;i--){
-  d[j-xx][col[i]]=-(cop[i][j].r);
-  }
+    d[j-xx][col[j]]=1;
+    for(int i=xx-1;i>=0;i--)
+      d[j-xx][col[i]]=-(cop[i][j].r);
   }*/

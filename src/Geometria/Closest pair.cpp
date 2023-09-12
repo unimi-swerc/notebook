@@ -12,9 +12,7 @@ struct cmp_y {
     return a.y < b.y;
   }
 };
-int n;
-vector<pt> a, t;
-ll mindist = LLONG_MAX;
+int n; vector<pt> a, t; ll mindist = LLONG_MAX;
 pair<int, int> best_pair;
 void upd_ans(const pt& a, const pt& b) {
   ll dist = (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y);
@@ -33,28 +31,23 @@ void rec(int l, int r) {
     sort(a.begin()+l, a.begin()+r, cmp_y());
     return;
   }
-  int m = (l + r) >> 1;
-  int midx = a[m].x;
-  rec(l, m);
-  rec(m, r);
+  int m = (l + r) >> 1; int midx = a[m].x, tsz = 0;
+  rec(l, m); rec(m, r);
   merge(a.begin()+ l, a.begin()+m, a.begin()+m,
             a.begin()+r, t.begin(), cmp_y());
   copy(t.begin(), t.begin()+r-l, a.begin()+l);
-  int tsz = 0;
   for (int i = l; i < r; ++i) {
     if (abs(a[i].x - midx) < mindist) {
-      for (int j=tsz-1; j>=0 && 
+      for (int j=tsz-1; j>=0 &&
               a[i].y-t[j].y<mindist; --j)
         upd_ans(a[i], t[j]);
       t[tsz++] = a[i];
     }
   }
 }
-// Complexity: $\mathcal{O}(n\log n)$
-void closestPair(vector<pt> v) {
+void closestPair(vector<pt> v) { // Complexity: $\mathcal{O}(n\log n)$
   sort(v.begin(), v.end(), cmp_x());
-  a = v;
-  t.resize(v.size());
+  a = v; t.resize(v.size());
   rec(0, v.size());
   // return {best_pair,sqrt(mindist)};
 } //tested with $n\leq 2\cdot 10^5$ and $x,y\leq 10^9$ (0.33 sec)

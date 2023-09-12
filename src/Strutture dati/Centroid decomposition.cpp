@@ -12,7 +12,7 @@ struct info { int n,b,d; };
 //g[i] = lista degli antenati di i nel centroid tree
 //g[i][j]={antenato x (diverso da i),indice del sottoalbero
 // che contiene i in v[x],distanza i->x}
-vector<info> g[MN]; 
+vector<info> g[MN];
 int dfs(int n, int p=0){
   s[n]=1;
   for(auto x:a[n])
@@ -58,8 +58,7 @@ int main(){ //tested with $N,M \leq 10^5$ (529 ms)
       for(auto x:g[n]) {
         int &q=v[x.n][x.b];
         if(x.d<q) {
-          m[x.n][0]=min(m[x.n][0],x.d);
-          q=x.d;
+          m[x.n][0]=min(m[x.n][0],x.d); q=x.d;
         }
       }
       red[n]=1; m[n][0]=0;

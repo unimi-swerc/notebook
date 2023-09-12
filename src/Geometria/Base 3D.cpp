@@ -24,16 +24,16 @@ p3 operator*(p3 v, p3 w) { // cross product
           v.z*w.x - v.x*w.z,
           v.x*w.y - v.y*w.x};
 }
-T norm(p3 v) {return v|v;}
-T abs(p3 v) {return sqrtl(norm(v));}
-p3 unit(p3 v) {return v/abs(v);}
-double angle(p3 v, p3 w) {
+T norm(p3 v) {return v|v;} //modulo^2
+T abs(p3 v) {return sqrtl(norm(v));} //modulo
+p3 unit(p3 v) {return v/abs(v);} //versore ($|v|\neq 0$)
+double angle(p3 v, p3 w) { //return an angle in $[0,\pi]$
   return acos(clamp(
     1.*(v|w)/abs(v)/abs(w), T(-1)*1., T(1)*1.));
 }
-// positivo se s è sopra il piano tra p, q, r
+//>0 sse s è sopra il piano pqr, nella direzione di $\overrightarrow{PQ}\times\overrightarrow{PR}$
 T orient(p3 p, p3 q, p3 r, p3 s) {
-  return (q-p) * (r-p) | (s-p);
+  return (q-p) * (r-p) | (s-p); //0 sse p,q,r,s coplanari
 }
 // orientamento 2D delle proiezioni di p, q, r
 // rispetto al piano perpendicolare a n
@@ -65,9 +65,9 @@ struct coords {
     dz = unit(dx*(r-p));
     dy = dz*dx;
   }
-  // From four points P,Q,R,S:
-  // take directions PQ, PR, PS as is
-  coords(p3 p, p3 q, p3 r, p3 s) :
+  // From four points P,Q,R,S: take directions PQ, PR, PS
+  // as is (represents a change of coordinate system)
+  coords(p3 p, p3 q, p3 r, p3 s) : //not always orthonormal
     o(p), dx(q-p), dy(r-p), dz(s-p) {}
   pt pos2d(p3 p) {return {(p-o)|dx, (p-o)|dy};}
   p3 pos3d(p3 p) {return {(p-o)|dx, (p-o)|dy, (p-o)|dz};}

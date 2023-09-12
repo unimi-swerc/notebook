@@ -11,7 +11,7 @@ void FST(vi& a, bool inv) {
   for (int n = sz(a), step = 1; step < n; step *= 2) {
     for (int i = 0; i < n; i += 2 * step) rep(j,i,i+step) {
       __int128 &u = a[j], &v = a[j + step]; tie(u, v) =
-        inv ? pii(v - u, u) : pii(v, u + v); // AND 
+        inv ? pii(v - u, u) : pii(v, u + v); // AND
         // inv ? pii(v, u - v) : pii(u + v, u); // OR
         // pii(u + v, u - v);                   // XOR
     }

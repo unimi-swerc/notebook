@@ -29,8 +29,7 @@ void ensure_base(int nbase) {
   }
 }
 void fft(vector<cpx> &a) {
-  int n = a.size();
-  int zeros = __builtin_ctz(n);
+  int n = a.size(); int zeros = __builtin_ctz(n);
   ensure_base(zeros);
   int shift = base - zeros;
   for (int i = 0; i < n; i++) {
@@ -50,8 +49,7 @@ void fft(vector<cpx> &a) {
 }
 vector<cpx> fa, fb; // Time: $\mathcal{O}(N\log{N})$
 vector<int> multiply(vector<int> &a, vector<int> &b) {
-  int need = a.size() + b.size() - 1;
-  int nbase = 0;
+  int need = a.size() + b.size() - 1, nbase = 0;
   while ((1 << nbase) < need) nbase++;
   ensure_base(nbase);
   int sz = 1 << nbase;

@@ -3,10 +3,9 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/94007
 /* Calculates determinant using modular arithmetics
- * Destroys the matrix.
- * Time: $\mathcal{O}(N^3)$, con $N\leq 500$ impiega 327 ms */
-const ll mod = 12345;//non per forza primo
-ll det(vector<vector<ll>>& a) {
+ * Destroys the matrix. Time: $\mathcal{O}(N^3)$. */
+const ll mod = 12345; // non per forza primo
+ll det(vector<vector<ll>>& a) { //con $N\leq 500$ impiega 327 ms
   int n = sz(a); ll ans = 1;
   rep(i,0,n) {
     rep(j,i+1,n) {

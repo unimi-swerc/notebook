@@ -1,4 +1,4 @@
-/// Source: 
+/// Source:
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/MCMF.h
 /// Verification:
 /// https://open.kattis.com/submissions/10697972
@@ -18,17 +18,17 @@ struct MCMF { // 0-based, archi direzionati
   int N; V<C> p, dist; vpi pre; V<V<Edge>> adj;
   void init(int _N) { N = _N;
     p.resize(N),adj.resize(N),dist.resize(N),pre.resize(N);}
-  void ae(int u, int v, F cap, C cost) { assert(cap >= 0); 
-    adj[u].pb({v,sz(adj[v]),0,cap,cost}); 
+  void ae(int u, int v, F cap, C cost) { assert(cap >= 0);
+    adj[u].pb({v,sz(adj[v]),0,cap,cost});
     adj[v].pb({u,sz(adj[u])-1,0,0,-cost});
   }
   //send flow through lowest cost path
   bool path(int s, int t) {
-    const C inf = numeric_limits<C>::max(); 
+    const C inf = numeric_limits<C>::max();
     dist.assign(N,inf);
     using T = pair<C,int>;
     priority_queue<T,V<T>,greater<T>> todo;//(or queue<T>)
-    todo.push({dist[s] = 0,s}); 
+    todo.push({dist[s] = 0,s});
     while (sz(todo)) { // Dijkstra (or SPFA)
       T x = todo.top(); todo.pop(); //(or todo.front())
       if (x.f > dist[x.s]) continue; //(or x.f = dist[x.s])
@@ -40,7 +40,7 @@ struct MCMF { // 0-based, archi direzionati
           todo.push({dist[e.to],e.to});
         }
       }
-    } // if costs are doubles, add some EPS so you 
+    } // if costs are doubles, add some EPS so you
     // don't traverse ~0-weight cycle repeatedly
     return dist[t] != inf; // true if augmenting path
   }
@@ -52,7 +52,7 @@ struct MCMF { // 0-based, archi direzionati
       F0R(i,N)p[i]+=dist[i];//don't matter for unreachable
       F df = numeric_limits<F>::max();
       for (int x = t; x != s; x = pre[x].f) {
-        Edge& e = adj[pre[x].f][adj[x][pre[x].s].rev]; 
+        Edge& e = adj[pre[x].f][adj[x][pre[x].s].rev];
         ckmin(df,e.cap-e.flo); }
       totFlow += df; totCost += (p[t]-p[s])*df;
       for (int x = t; x != s; x = pre[x].f) {

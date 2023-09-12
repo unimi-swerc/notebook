@@ -6,9 +6,7 @@
 class CompressedTree {
  private:
   struct Node {
-    ll height, size;
-    ll from, to;
-    Node *left, *right;
+    ll height, size, from, to; Node *left, *right;
     Node() : height(0), size(0), from(0), to(0),
                                left(0), right(0) {}
     Node(ll a, ll b, Node* l, Node* r) : from(a),

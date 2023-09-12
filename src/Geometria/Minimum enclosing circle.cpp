@@ -30,7 +30,7 @@ circle b_minidisk(vector<pt>& P, int i, vector<pt> R) {
     return {center, rad};
   }
 }
-circle minidisk(vector<pt> P) { // Call this function.
+circle minidisk(vector<pt> P) { // call this function.
   shuffle(P.begin(), P.end(), rng);
   return b_minidisk(P, 0, {});
-} //tested with $t\leq 5,n\leq 10^5$ (0.52 sec)
+} // tested with $t\leq 5,n\leq 10^5$ (0.52 sec)

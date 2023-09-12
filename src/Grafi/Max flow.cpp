@@ -1,4 +1,4 @@
-/// Source: 
+/// Source:
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Flows%20(12.3)/Dinic.h
 /// Verification:
 /// https://dmoj.ca/submission/5076805
@@ -18,7 +18,7 @@ template<class F> struct Dinic {
     struct Edge { int to, rev; F cap; };
     int N; vector<vector<Edge>> adj;
     void init(int _N) { N = _N; adj.resize(N); } //0-based
-    pi ae(int a, int b, F cap, F rcap = 0) { 
+    pi ae(int a, int b, F cap, F rcap = 0) {
         assert(min(cap,rcap) >= 0); // saved me > once
         adj[a].push_back({b,sz(adj[b]),cap});
         adj[b].push_back({a,sz(adj[a])-1,rcap});
@@ -45,14 +45,14 @@ template<class F> struct Dinic {
         for (int& i = ptr[v]; i < sz(adj[v]); i++) {
             Edge& e = adj[v][i];
             if (lev[e.to]!=lev[v]+1||!e.cap) continue;
-            if (F df = dfs(e.to,t,min(flo,e.cap))) { 
+            if (F df = dfs(e.to,t,min(flo,e.cap))) {
                 e.cap -= df; adj[e.to][e.rev].cap += df;
                 return df; } // saturated $\geq1$ one edge
         }
         return 0;
     }
     F maxFlow(int s, int t) {
-        F tot = 0; while (bfs(s,t)) while (F df = 
+        F tot = 0; while (bfs(s,t)) while (F df =
             dfs(s,t,numeric_limits<F>::max())) tot += df;
         return tot;
     }

@@ -9,10 +9,8 @@ mt19937 rng(time(nullptr));
 // Time: randomized $\mathcal{O}(\log{N})$
 // per $\approx 1.2\cdot 10^6$ split/merge impiega 1.2 sec
 struct node {
-  T val, mi;
-  int size, rot;
-  size_t prior;
-  node *left, *right;
+  T val, mi; int size, rot;
+  size_t prior; node *left, *right;
   //node *par=nullptr; bool isleft=0; se serve get_pos
   node(T v) : val(v), mi(v), size(1), rot(0),
        prior(rng()), left(0), right(0) {}

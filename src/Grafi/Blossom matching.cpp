@@ -3,13 +3,11 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/86633
 const int maxn = 505; //with $N\leq 500$ run in 8 ms
-// Complexity: $\mathcal{O}(VE)$?
-struct EdmondsStruct {
+struct EdmondsStruct { // Complexity: $\mathcal{O}(VE)$?
   int vis[maxn], par[maxn], orig[maxn];
   int match[maxn], aux[maxn], t, n;
-  vector <int> conn[maxn];
-  queue <int> q;
-  void add(int u, int v) { // 1 based
+  vector <int> conn[maxn]; queue <int> q;
+  void add(int u, int v) { // 1-based
     conn[u].push_back(v), conn[v].push_back(u);
   }
   // total number of nodes
@@ -69,8 +67,7 @@ struct EdmondsStruct {
     return 0;
   }
   int max_match() { //match[i]=0 -> not matched
-    int ans = 0;
-    vector <int> V(n - 1);
+    int ans = 0; vector <int> V(n - 1);
     iota(V.begin(), V.end(), 1);
     // shuffle(V.begin(), V.end(), mt19937(1007050321));
     for (auto x: V) if (!match[x]) {
@@ -79,7 +76,7 @@ struct EdmondsStruct {
         ++ans; break;
       }
     }
-    for (int i = 1; i <= n; ++i) 
+    for (int i = 1; i <= n; ++i)
     if (!match[i] && bfs(i)) ++ans;
     return ans;
   }

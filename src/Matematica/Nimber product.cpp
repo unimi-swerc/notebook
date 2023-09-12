@@ -2,17 +2,17 @@
 /// https://github.com/bqi343/USACO/blob/master/Implementations/content/combinatorial%20(11.2)/NimProduct.h
 /// Verification:
 /// https://judge.yosupo.jp/submission/13893
-/* Product of nimbers is associative, 
- * commutative, and distributive over addition (xor). 
+/* Product of nimbers is associative,
+ * commutative, and distributive over addition (xor).
  * Forms finite field of size $2^{2^k}$.
  * Defined by $ab=\text{mex}(\{a'b+ab'+a'b':a'<a,b'<b\}).$
  *Time: $64^2$ xors per multiplication, memorize to speed up*/
-using ul = uint64_t; 
+using ul = uint64_t;
 struct Precalc {
   ul tmp[64][64], y[8][8][256];
   unsigned char x[256][256];
   Precalc() { // small nim products, all < 256
-    F0R(i,256) F0R(j,256) x[i][j] = mult<8>(i,j); 
+    F0R(i,256) F0R(j,256) x[i][j] = mult<8>(i,j);
     F0R(i,8) F0R(j,i+1) F0R(k,256)
       y[i][j][k] = mult<64>(prod2(8*i,8*j),k);
   }
@@ -23,7 +23,7 @@ struct Precalc {
    return u=prod2(i^a,j)^prod2((i^a)|(a-1),(j^a)|(i&(a-1)));
   }
   template<int L> ul mult(ul a, ul b) {
-    ul c = 0; F0R(i,L) if (a>>i&1) 
+    ul c = 0; F0R(i,L) if (a>>i&1)
       F0R(j,L) if (b>>j&1) c ^= prod2(i,j);
     return c;
   }
@@ -37,8 +37,7 @@ struct Precalc {
     return res;
   }
 };
-const Precalc P;
-//tested with $T\leq 10^6, 0\leq A,B \le 2^{64}$ (543 ms)
+const Precalc P; //tested with $T\leq 10^6, 0\leq A,B \le 2^{64}$(543 ms)
 struct nb { // nimber
   ul x; nb() { x = 0; }
   nb(ul _x): x(_x) {}

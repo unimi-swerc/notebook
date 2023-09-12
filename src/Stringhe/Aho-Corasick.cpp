@@ -9,8 +9,7 @@
 const int K = 26;
 struct Vertex {
   int next[K], go[K], p=-1, link=-1, ind, exitlink=-2;
-  bool leaf = false;
-  char pch;
+  bool leaf = false; char pch;
   Vertex(int p=-1, char ch='$') : p(p), pch(ch) {
     fill(begin(next), end(next), -1);
     fill(begin(go), end(go), -1);

@@ -15,14 +15,10 @@
  *    ed[a].emplace_back(b, eid);
  *    ed[b].emplace_back(a, eid++); }
  *  bicomps([&](const vi& edgelist) {...});
- * Time: $\mathcal{O}(E + V)$
- * tested with $N,M \leq 500000$ (728 ms), 0-based
+ * Time: $\mathcal{O}(E + V)$. Tested with $N,M \leq 5\cdot 10^5$ (728 ms)
  * it works also with multiple edges (but no self-loops) */
-vi num, st;
-vector<vector<pii>> ed;
-int Time;
-template<class F>
-int dfs(int at, int par, F& f) {
+vi num, st; vector<vector<pii>> ed; int Time;
+template<class F> int dfs(int at, int par, F& f) {
   int me = num[at] = ++Time, e, y, top = me;
   for (auto pa : ed[at]) if (pa.second != par) {
     tie(y, e) = pa;
@@ -31,8 +27,7 @@ int dfs(int at, int par, F& f) {
       if (num[y] < me)
         st.push_back(e);
     } else {
-      int si = sz(st);
-      int up = dfs(y, e, f);
+      int si = sz(st); int up = dfs(y, e, f);
       top = min(top, up);
       if (up == me) {
         st.push_back(e);
@@ -40,14 +35,13 @@ int dfs(int at, int par, F& f) {
         st.resize(si);
       }
       else if (up < me) st.push_back(e);
-      else{/* e is a bridge,call f(vi(1,e))
+      else{/* e is a bridge, call f(vi(1,e))
             for obtaining 2-vertex components */}
     }
   }
   return top;
 }
-template<class F>
-void bicomps(F f) {
+template<class F> void bicomps(F f) { //0-based
   num.assign(sz(ed), 0);
   rep(i,0,sz(ed)) if (!num[i]) dfs(i, -1, f);
 } //don't forget single-vertex components (if needed)

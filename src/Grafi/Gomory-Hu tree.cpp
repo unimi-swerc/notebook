@@ -10,10 +10,9 @@
  * Time: $N-1$ calls to Dinic (use Max flow code), tested
  * with $T\leq 10,N \leq 150,M \leq 3000,\text{edgeweight}\leq 10^6$(0.10 s) */
 using pi = pair<int,int>; //c'è già in Dinic ma vabbè
-template<class F> V<pair<pi,F>> gomoryHu(int N, 
+template<class F> V<pair<pi,F>> gomoryHu(int N,
     const V<pair<pi,F>>& ed) { //nodes 0-based
-  vi par(N); Dinic<F> D; D.init(N);
-  vpi ed_locs; 
+  vi par(N); Dinic<F> D; D.init(N); vpi ed_locs;
   each(t,ed)ed_locs.pb(D.ae(t.f.f,t.f.s,t.s,t.s));
   V<pair<pi,F>> ans;
   FOR(i,1,N) {

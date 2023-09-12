@@ -2,8 +2,7 @@
 /// Verification:
 /// https://www.spoj.com/problems/NUMOFPAL/ (id: 29983634)
 pair<vector<int>, vector<int>> manacher(string S) {
-  int N = S.size(); //Time: $\mathcal{O}(N)$
-  vector<int> even(N), odd(N);
+  int N = S.size(); vector<int> even(N),odd(N);//Time:$\mathcal{O}(N)$
   for (int i=0, l=0, r=-1; i<N; i++) {
     int k = (i>r) ? 0 : min(even[l+r-i+1], r-i+1);
     while (0 <= i-k-1 && i+k<N && S[i-k-1] == S[i+k])

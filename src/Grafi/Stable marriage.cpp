@@ -12,10 +12,8 @@
 pair<vector<int>, vector<int>>
 stable_marriage(vector<vector<int>> &madj,
                 vector<vector<int>> &fpref) {
-  int n = madj.size(); // 0-based
-  vector<int> mpart(n, -1), fpart(n, -1);
-  vector<int> midx(n);
-  queue<int> mfree;
+  int n = madj.size(); queue<int> mfree;// 0-based
+  vector<int> mpart(n, -1), fpart(n, -1), midx(n);
   for (int i = 0; i < n; i++) {
     mfree.push(i);
   }
