@@ -5,7 +5,7 @@
 typedef long long T;
 mt19937 rng(time(NULL));
 constexpr long long mod = 998244353;
-// $N\le 500K, Q\le 100K$ (685 ms), $N\le 500K, Q\le 500K$ (2900 ms)
+//$N\le 500K, Q\le 100K$ (685 ms), $N\le 500K, Q\le 500K$ (2900 ms)
 struct node {
   int val, mi, size, rot;
   T sum, lazy1, lazy2;

@@ -59,13 +59,13 @@
 \DeclareRobustCommand{\stirling}{\genfrac{[}{]}{0pt}{}}
 
 % Section ornaments
-\newcommand{\sectionOrnament}[2]{
+\newcommand{\sectionOrnament}[5]{
     \section{#1}
     \vspace{-1.3em}
     \begin{center}
-        \;\rput[r](-2pt,6pt){\pgfornament[height=2.5em]{#2}}
+        \;\rput[r](- #4 pt, #5 pt){\pgfornament[height= #3 em]{#2}}
         \phantom{1. #1}\quad
-        \rput[l](2pt,6pt){\pgfornament[height=2.5em,symmetry=v]{#2}}
+        \rput[l](#4 pt, #5 pt){\pgfornament[height= #3 em,symmetry=v]{#2}}
     \end{center}
 }
 
@@ -81,15 +81,14 @@
 \maketitle
 \thispagestyle{fancy}
 \vspace{-1em}
-\renewcommand{\baselinestretch}{1}\normalsize
+\normalsize
 
 % Table of contents
 \addtocontents{toc}{\setlength{\columnsep}{-0.3cm}\protect\begin{multicols}{2}}
 
 \hspace{-0.8cm}
 \begin{tikzpicture}[every node/.style={inner sep=0pt}]
-
-\node[text width=9.3cm,align=center](Text){{\small \selectfont \tableofcontents}};
+\node[text width=9.3cm,align=center](Text){{\fontsize{8pt}{8pt} \selectfont \tableofcontents}};
 
 \node[shift={(0cm, -0.1cm)}, anchor=north west](NW) at (Text.north west) {\pgfornament[width=1.75cm]{37}};
 \node[coordinate, shift={(0cm, 0cm)}](NW2) at (NW.south west) {};
@@ -139,14 +138,17 @@ function codecpp(filename)
     tex.print("\\codecpp{" .. filename .. "}{" .. skipped_lines .. "}")
 end
 
-local sectionOrnaments = {190, 158, 193, 156, 113, 104, 102, 158}
+local sectionOrnaments = {190, 113, 158, 156, 193, 104, 102, 113}
+local sectionOrnamentSizes = {4, 4, 5.7, 3.2, 2.7, 4.5, 6.5}
+local sectionOrnamentOffsetx = {-1, 3, 3, 2, 2, 2, 5}
+local sectionOrnamentOffsety = {1, 10, 8, -2, -1, 12, 12}
 local sectionIndex = 1
 
 local current_dir = lfs.currentdir() .. "/src"
 for _, section in ls(current_dir) do
     if not section:find("%.") then
         local section_dir = current_dir .. "/" .. section
-        tex.print("\\sectionOrnament{" .. section:gsub("^%l", string.upper) .. "}{" .. sectionOrnaments[sectionIndex] .. "}")
+        tex.print("\\sectionOrnament{" .. section:gsub("^%l", string.upper) .. "}{" .. sectionOrnaments[sectionIndex] .. "}{" .. sectionOrnamentSizes[sectionIndex] .. "}{" .. sectionOrnamentOffsetx[sectionIndex] .. "}{" .. sectionOrnamentOffsety[sectionIndex] .. "}")
         sectionIndex = sectionIndex + 1
         for _, subsection in ls(section_dir) do
             local subsection_file = section_dir .. "/" .. subsection

@@ -7,7 +7,7 @@
 /* For a commutative data structure supporting true $\mathcal{O}(T(n))$
  * insertion, support deletion in $\mathcal{O}(T(n)\log n)$ offline. */
 template<class E> struct query_tree{
-  vector<vector<E>> queues; int n; // max query range (0-based)
+  vector<vector<E>> queues; int n;//max query range, 0-based
   query_tree(int n): n(n), queues(n << 1){ }
   void insert(E e, int ql, int qr){ //add $[ql,qr)$
     assert(0 <= ql && ql <= qr && qr <= n);

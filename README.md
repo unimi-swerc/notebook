@@ -40,19 +40,20 @@
 - [x] Max flow
 - [x] Max clique
 - [x] Min cost bflow 
-- [x] Stable marriage (Gale-Shapley algorithm)
 - [x] Tarjan trick for SPFA
+- [x] Stable marriage (Gale-Shapley algorithm)
 
 ### 3. Matematica
 
 - [x] Berlekamp-Massey
+- [x] Determinante di matrice (con modulo e senza modulo)
 - [x] Dirichlet convolution trick
 - [x] Euclide esteso
 - [x] FFT
 - [x] Fattorizzazione veloce (Pollard's Rho)
 - [x] Fast subset convolution (or,and,xor)
 - [x] Ricorrenze lineari
-- [x] Operazioni sulle matrici (determinante, determinante mod, inversa, inversa mod)
+- [x] Matrice inversa (con modulo e senza modulo)
 - [X] Modular
 - [x] NTT
 - [x] Nimber product
@@ -101,17 +102,19 @@
 - [x] SMAWK
 - [x] Simplesso
 - [x] Template (con pbds e rope)
-- [x] Twosat
+- [x] Twosat (+ SCC)
 
 ### 7. Scarti
 
-- [x] Fast input (per lettura interi)
-- [x] XorSat
 - [x] Characteristic polynomial (of a matrix)
 - [x] Dictionary of basic factors
-- [x] Sat (bruteforce O(2^variables*clauses))
+- [x] Fast input (per lettura interi)
 - [x] Floyd cycle detection
+- [x] Pairing heap
+- [x] Sat (bruteforce O(2^variables*clauses))
+- [x] Scapegoat tree
 - [x] Persistent segment tree normale
+- [x] XorSat
 
 ## Teoria
 
@@ -131,24 +134,24 @@
 - [x] Max-flow min-cut theorem
 - [x] Konig theorem: max matching e min vertex cover (anche pesato) su grafo bipartito
 - [x] Hall theorem: matching perfetto su grafo bipartito
-- [x] Erdős–Gallai theorem
-- [x] Dilworth theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene
-- [x] Archi o nodi obbligati in un matching
-- [x] Max matching, in caso di parità scelgo min/max cost
-- [x] Max matching pesato e min matching pesato
 - [x] Min/Max cost ma non per forza max flow
+- [x] Archi o nodi obbligati in un matching
+- [x] Max matching pesato e min matching pesato
+- [x] Max matching, in caso di parità scelgo min/max cost
+- [x] Erdős–Gallai theorem
 - [x] Number of spanning trees, Cayley's formula and labeled unrooted trees
 - [x] BEST theorem: number of eulerian circuits
+- [x] Dilworth theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene
 
 ### 3. Vario
 
+- [x] Pick's theorem
 - [x] Subset sum speedup for small weights
 - [x] Varianti del nim
-- [x] Rango matrice
 - [x] Prodotto scalare e vettoriale
-- [x] Pick's theorem
+- [x] Numeri primi grandi
+- [x] Rango matrice
 - [x] Minkowski sum
 - [x] Pythagorean triples
-- [x] Numeri primi grandi
 - [x] Teoria della probabilità (valore atteso, varianza, covarianza)
 - [x] Note
