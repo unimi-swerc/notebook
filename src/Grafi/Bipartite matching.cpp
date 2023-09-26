@@ -3,6 +3,7 @@
 /// Balance CEOI 2023
 /// https://judge.yosupo.jp/submission/158216
 /// https://www.spoj.com/problems/MATCHING/ (id: 31764370)
+/// https://osijek2023s-d4.eolymp.io/problems/8
 struct HopcroftKarp { //tested with $n,m\leq 1e5$ (75 ms)
   vector<int> g, l, r; int ans; // 0-based
   HopcroftKarp(int n, int m, const vector<pair<int,int>> &e)
@@ -27,6 +28,6 @@ struct HopcroftKarp { //tested with $n,m\leq 1e5$ (75 ms)
           if(p[r[y]]==-1)q[t++]=y=r[y],p[y]=x,a[y]=a[x];
         }
       }
-    }
+    }//nodi sx vengono matchati dando preferenza ai primi(?)
   }//nodi sx numerati da 0 a n-1, nodi dx da 0 a m-1
 }; //l[i]= match del nodo sx i (-1 se non è matchato)

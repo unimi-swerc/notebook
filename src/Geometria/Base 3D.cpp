@@ -5,6 +5,7 @@
 /// https://acm.timus.ru/problem.aspx?space=1&num=2099 (ID: 10289469, orient, dot product)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1686 (ID: 10289468, dot product, cross product, unit, abs, plane(p,q,r), plane.side())
 /// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, plane.proj(), plane.dist() e coords)
+/// https://osijek2023s-d8.eolymp.io/problems/4 (cross, dot, plane.side, creazione di piani)
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}
