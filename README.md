@@ -90,7 +90,6 @@
 - [x] Persistent segment tree sparso lazy
 - [x] Sparse table
 - [x] Treap (+ lazy propagation)
-- [ ] (?) Pairing heap
 - [ ] (?) Lower bound su fenwick
 - [ ] (?) KD-tree
 

@@ -5,6 +5,7 @@
 /// https://www.acmicpc.net/source/61069469 (circleLine)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, circleLine)
 /// https://acm.timus.ru/problem.aspx?space=1&num=1163 (ID: 10319768, tangenti interne)
+/// https://contest.ucup.ac/submission/196466 (circleLine)
 int sgn(T xx) { return (xx > EPS) - (xx < -EPS); }
 // centro della circonferenza per 3 punti
 pt circumCenter(pt a, pt b, pt c) {
