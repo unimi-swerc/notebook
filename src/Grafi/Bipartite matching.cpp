@@ -4,7 +4,7 @@
 /// https://judge.yosupo.jp/submission/158216
 /// https://www.spoj.com/problems/MATCHING/ (id: 31764370)
 /// https://osijek2023s-d4.eolymp.io/problems/8
-struct HopcroftKarp { //tested with $n,m\leq 1e5$ (75 ms)
+struct HopcroftKarp { //tested with $n,m\leq 10^5$ (75 ms)
   vector<int> g, l, r; int ans; // 0-based
   HopcroftKarp(int n, int m, const vector<pair<int,int>> &e)
   : g(e.size()), l(n, -1), r(m, -1), ans(0) {

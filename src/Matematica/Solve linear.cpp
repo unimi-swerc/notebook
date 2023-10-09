@@ -10,7 +10,7 @@
  * Returns rank, or -1 if no solutions.
  * Data in A and b is lost. Time: $\mathcal{O}(n^2 m)$
  * double: $n,m \leq 100$, t ignoto impiega 0.03 sec
- * con precisione di almeno $10^{-3}$ (ma eps=1e-12)
+ * con precisione di almeno $10^{-3}$ (ma eps=$10^{-12}$)
  * modular: con $n,m\leq 500$ impiega 447 ms*/
 typedef double T; //oppure modular<mod>
 typedef vector<T> vd;

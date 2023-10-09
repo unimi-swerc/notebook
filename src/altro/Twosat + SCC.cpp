@@ -8,7 +8,7 @@
  * ritorna un vector vuoto se non c'è soluzione
  * altrimenti ritorna un vector V tale che V[i] = true
  * se la variabile i deve valere true (V.size()=N)
- * tested with $N \text{(variables)}, M \text{(clauses)} \le 500000$ (0.7 sec) */
+ * tested with $N \text{(variables)}, M \text{(clauses)} \le 5\cdot 10^5$ (0.7 sec) */
 #define X first
 #define Y second
 typedef pair<int, int> ipair;

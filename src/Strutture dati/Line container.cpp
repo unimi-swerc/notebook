@@ -6,7 +6,7 @@
 /// https://codeforces.com/contest/1866/submission/221701386
 /* Container where you can add lines of the form $kx+m$,
  * and query maximum values at points x. Time: $\mathcal{O}(\log N)$ */
-struct Line { // tested with $N,Q\leq 200000$ (296 ms)
+struct Line { // tested with $N,Q\leq 2\cdot 10^5$ (296 ms)
   mutable ll k, m, p;
   bool operator<(const Line& o) const { return k < o.k; }
   bool operator<(ll x) const { return p < x; }

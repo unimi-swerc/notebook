@@ -5,7 +5,7 @@
 /// https://contest.yandex.ru/yacup/contest/42237/problems/B/
 /* Assuming that all nodes are reachable from $root,$ $a$
  * dominates $b$ iff every path from $root$ to $b$ passes through
- * $a$. Time:$\mathcal{O}(M\log N)$, tested with $N,M\leq 200000$ (153 ms)*/
+ * $a$. Time:$\mathcal{O}(M\log N)$, tested with $N,M\leq 2\cdot 10^5$ (153 ms)*/
 #define ROF(i,a,b) for (int i = (b)-1; i >= (a); --i)
 template<int SZ> struct Dominator { //0-based
   vi adj[SZ], ans[SZ]; //input edges, dominator tree edges

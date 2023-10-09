@@ -21,7 +21,7 @@ int circleLine(pt o, T r, line l, pair<pt,pt> &out) {
     out = {p-h, p+h};
   }
   return 1 + sgn(h2);
-}  //tested with EPS < ${10^-5}$
+}  //tested with EPS < $10^{-5}$
 // intersezione tra due cerchi (o1,r1) e (o2,r2)
 int circleCircle(pt o1, T r1, pt o2, T r2,
                                   pair<pt,pt> &out) {
