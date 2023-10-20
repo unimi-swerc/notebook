@@ -3,6 +3,7 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/118366
 /// https://training.olinfo.it/#/task/ois_marathon2 (id: 939431)
+/// https://csacademy.com/contest/rmi-2023-day-2/task/to-be-xor-not-to-be/submissions/
 //1-based, tested with $N\leq 500,M\leq \frac{N(N-1)}{2},W \leq 10^6$ (394 ms)
 template<class T> bool ckmax(T& a, const T& b) {
     return a < b ? a = b, 1 : 0; } // set a = max(a,b)
