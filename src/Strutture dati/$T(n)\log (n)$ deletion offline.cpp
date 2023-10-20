@@ -6,6 +6,24 @@
 /// https://codeforces.com/contest/1814/submission/201244020
 /* For a commutative data structure supporting true $\mathcal{O}(T(n))$
  * insertion, support deletion in $\mathcal{O}(T(n)\log n)$ offline. */
+struct RollbackUF {
+  vi e; vector<pii> st;
+  RollbackUF(int n) : e(n, -1) {}
+  int size(int x) { return -e[find(x)]; }
+  int find(int x) { return e[x] < 0 ? x : find(e[x]); }
+  int time() { return sz(st); }
+  void rollback(int t) {
+    for(int i=time();i-->t;) e[st[i].first] = st[i].second;
+    st.resize(t);
+  }
+  bool join(int a, int b) {
+    a = find(a), b = find(b);
+    if (a == b) return false;
+    if (e[a] > e[b]) swap(a, b);
+    st.push_back({a, e[a]}); st.push_back({b, e[b]});
+    e[a] += e[b]; e[b] = a; return true;
+  }
+};
 template<class E> struct query_tree{
   vector<vector<E>> queues; int n;//max query range, 0-based
   query_tree(int n): n(n), queues(n << 1){ }
@@ -50,13 +68,13 @@ int main(){ //example
       qt.insert({u, v}, 0, c); qt.insert({u, v}, c + 1, n);
     }
   }
-  rollback_disjoint_set dsu(n);
+  RollbackUF dsu(n);
   auto insert = [&](array<int, 2> e)->void{
-    dsu.merge(e[0], e[1]);};
+    dsu.join(e[0], e[1]);};
   auto time = [&]()->int{
     return dsu.time();};
   auto reverse_to = [&](int t)->void{
-    dsu.reverse_to(t);};
+    dsu.rollback(t);};
   long long res = 0;
   auto answer = [&](int c)->void{
     for(auto [u, v]: edge[c])
