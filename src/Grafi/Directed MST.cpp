@@ -1,12 +1,12 @@
 /// Source: https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/DirectedMST.h
 /// Verification:
-///
-// 0-based, requires RollbackUF and Leftist heap,$\mathcal{O}(E \log V)$
+/// https://open.kattis.com/submissions/12063799
+// 0-based, requires RollbackUF and Heap,$\mathcal{O}(E \log V)$
 pair<ll, vi> dmst(int n, int r, vector<KEY>& g) {
   RollbackUF uf(n); vector<ph> heap(n,nullptr);
   for(KEY e : g) heap[e[2]] = meld(heap[e[2]],new Heap{e});
   ll res = 0; vi seen(n, -1), path(n), par(n);
-  seen[r] = r;
+  seen[r] = r; // g[i] = array<ll,3>{peso,from,to}
   vector<KEY> Q(n), in(n, {0,-1,-1}), comp;
   deque<tuple<int, int, vector<KEY>>> cycs;
   rep(s,0,n) {
@@ -35,4 +35,4 @@ pair<ll, vi> dmst(int n, int r, vector<KEY>& g) {
   }
   rep(i,0,n) par[i] = in[i][1];
   return {res, par};
-}
+} // tested with $V leq 2500, E=V^2$ (3.87 s)

@@ -1,12 +1,12 @@
 /// Source: https://github.com/bqi343/cp-notebook/blob/master/Implementations/content/data-structures/LeftistHeap.h
 /// Verification:
-///
-///
+/// https://open.kattis.com/submissions/12063799 (usato lazy ma non persistent)
+/// https://judge.yosupo.jp/submission/167533 (usato persistente ma non lazy)
 /* Persistent meldable heap. Time: $\mathcal{O}(\log N)$ per meld.
  * Memory: $\mathcal{O}(\log N)$ per meld if copy==true, else $\mathcal{O}(1)$.*/
 typedef array<ll,2> KEY; //array<ll,3> per directed mst
-typedef struct Heap* ph;
-struct Heap { // min heap
+typedef struct Heap* ph; //con copy=true diventa persistente
+struct Heap { // min heap wrt KEY
   ph l = nullptr, r = nullptr;
   int s = 0; KEY v; // s: path to leaf
   Heap(KEY _v):v(_v) {}
@@ -26,7 +26,7 @@ struct Heap { // min heap
     }
   }
   KEY top() { prop(); return v; }
-};
+};//$\mathcal{O}(n^2)$ meld,$n \leq 2500$->3.87 s|$\mathcal{O}(m)$ meld,$m \leq 3\cdot 10^5$->700 ms
 ph meld(ph p, ph q, bool copy = false) {
   if (!p || !q) return p?:q;
   p->prop(copy), q->prop(copy);

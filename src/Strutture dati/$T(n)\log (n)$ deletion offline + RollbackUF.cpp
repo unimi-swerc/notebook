@@ -4,14 +4,15 @@
 /// https://training.olinfo.it/#/task/ois_police7 (id: 807310)
 /// https://training.olinfo.it/#/task/ois_xortree2 (id: 949588)
 /// https://codeforces.com/contest/1814/submission/201244020
+/// https://codeforces.com/contest/1681/submission/229027300 (test del codice qua sotto, DSU compresa)
 /* For a commutative data structure supporting true $\mathcal{O}(T(n))$
  * insertion, support deletion in $\mathcal{O}(T(n)\log n)$ offline. */
 struct RollbackUF {
-  vi e; vector<pii> st;
+  vector<int> e; vector<pair<int,int>> st;
   RollbackUF(int n) : e(n, -1) {}
   int size(int x) { return -e[find(x)]; }
   int find(int x) { return e[x] < 0 ? x : find(e[x]); }
-  int time() { return sz(st); }
+  int time() { return st.size(); }
   void rollback(int t) {
     for(int i=time();i-->t;) e[st[i].first] = st[i].second;
     st.resize(t);
@@ -55,7 +56,7 @@ template<class E> struct query_tree{
     dfs(dfs, 0, 0, n);
   }
 };
-int main(){ //example
+int main(){ //esempio, con $n\leq 5\cdot 10^5$ impiega 1.3 s
   int n; cin >> n; // tested with $n\leq 2\cdot 10^5$ (873 ms)
   vector<vector<array<int, 2>>> edge(n);
   for(auto i = 0; i < n - 1; ++ i){

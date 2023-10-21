@@ -43,13 +43,11 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
     }
   };
   for (int v = 0; v < n; ++v) Internal::dfs1(v);
-  fill(vis, vis + n, 0);
-  int comp = 0;
+  fill(vis, vis + n, 0); int comp = 0;
   for (int i = n - 1; i >= 0; --i) {
     int v = order[i];
     if (vis[v]) continue;
-    ++comp;
-    Internal::dfs2(v, comp);
+    ++comp; Internal::dfs2(v, comp);
   }
   bool fail = false; vector<char> ans(n / 2);
   for (int v = 0; v < n; v += 2)
@@ -59,8 +57,7 @@ vector<char> twoSat(int n, vector<ipair> const& cc) {
       ans[v / 2] = (vis[v] < vis[v + 1]);
   if (fail) ans.clear();
   for (int i = 0; i < n; ++i) {
-    e[i].clear();
-    eb[i].clear();
+    e[i].clear(); eb[i].clear();
   }
   return ans;
 }
