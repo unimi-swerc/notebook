@@ -35,7 +35,7 @@ ph meld(ph p, ph q, bool copy = false) {
   P->r = meld(P->r,q);
   if (!P->l || P->l->s < P->r->s) swap(P->l,P->r);
   P->s = (P->r?P->r->s:0)+1; return P;
-}
+} //esempio d'uso: vedi directed MST
 ph ins(ph p, KEY v,bool copy = false) {
   if(p)p->prop(copy); return meld(p,new Heap(v),copy); }
 ph pop(ph p, bool copy = false) {
