@@ -13,15 +13,14 @@
 - [x] Operazioni sui cerchi (circocentro, intersezioni, tangenti)
 - [x] Closest pair
 - [x] Convex hull trick
-- [x] Convex hull (2D)
+- [x] Convex hull (2D) + rotating calipher per trovare i due punti più distanti
 - [x] Fast delaunay
 - [x] Slow delaunay
 - [x] Welzl (minimum enclosing circle)
 - [x] Poligon cut
 - [ ] Convex hull (3D)
-- [ ] (?) Voronoi
-- [ ] (?) Polygon union
-- [ ] (?) Rotating caliper
+- [ ] Voronoi
+- [ ] Polygon union
 
 ### 2. Grafi
 
@@ -30,6 +29,7 @@
 - [x] Bipartite matching
 - [x] Blossom (matching)
 - [x] Blossom pesato (matching pesato)
+- [x] Directed minimum spanning tree
 - [x] Dominator tree
 - [x] Edge coloring
 - [x] Eulerian path (su grafo diretto e non diretto)
@@ -54,7 +54,7 @@
 - [x] Fast subset convolution (or,and,xor)
 - [x] Ricorrenze lineari
 - [x] Matrice inversa (con modulo e senza modulo)
-- [X] Modular
+- [X] Modular (con modular sqrt)
 - [x] NTT
 - [x] Nimber product
 - [x] Operazioni sui polinomi (divisione, serie infinita di 1/p(x), valutazione, interpolazione)
@@ -86,12 +86,12 @@
 - [x] Line container
 - [x] Link-cut tree (normale, divino, modifica per path non commutativi)
 - [x] Mo queries (su array e su albero)
+- [x] Persisten lazy heap
 - [x] Segment tree beats
 - [x] Persistent segment tree sparso lazy
 - [x] Sparse table
 - [x] Treap (+ lazy propagation)
 - [ ] (?) Lower bound su fenwick
-- [ ] (?) KD-tree
 
 ### 6. Altro
 
@@ -109,6 +109,10 @@
 - [x] Dictionary of basic factors
 - [x] Fast input (per lettura interi)
 - [x] Floyd cycle detection
+- [x] KD-tree
+- [x] Line container deque
+- [x] Matroid intersection
+- [x] Matroid partition
 - [x] Pairing heap
 - [x] Sat (bruteforce O(2^variables*clauses))
 - [x] Scapegoat tree
