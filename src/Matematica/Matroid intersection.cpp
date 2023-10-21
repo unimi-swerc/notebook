@@ -24,8 +24,8 @@ template<class M1, class M2> struct MatroidIsect {
           return 1; }
       }
     }
-    return 0;
-  }
+    return 0;//$\mathcal{O}(GI^{1.5})$ calls to oracles, where $G$ is
+  } //size of ground set and $I$ is size of independent set
   MatroidIsect(int n, M1 m1, M2 m2):n(n), m1(m1), m2(m2) {
     iset.assign(n+1,0); iset[n] = 1;
     m1.clear(); m2.clear(); // greedily add to basis
