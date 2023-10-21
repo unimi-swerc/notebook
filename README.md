@@ -46,7 +46,7 @@
 ### 3. Matematica
 
 - [x] Berlekamp-Massey
-- [x] Determinante di matrice (con modulo e senza modulo)
+- [x] Determinante di matrice (con modulo)
 - [x] Dirichlet convolution trick
 - [x] Euclide esteso
 - [x] FFT
@@ -54,6 +54,7 @@
 - [x] Fast subset convolution (or,and,xor)
 - [x] Ricorrenze lineari
 - [x] Matrice inversa (con modulo e senza modulo)
+- [x] Matroid intersection
 - [X] Modular (con modular sqrt)
 - [x] NTT
 - [x] Nimber product
@@ -77,7 +78,7 @@
 
 ### 5. Strutture dati
 
-- [x] $T(n)\log(n)$ deletion offline
+- [x] $T(n)\log(n)$ deletion offline + RollbackUF
 - [x] Centroid decomposition
 - [x] Compressed BBST
 - [x] Fast hash table
@@ -106,12 +107,11 @@
 ### 7. Scarti
 
 - [x] Characteristic polynomial (of a matrix)
+- [x] Determinante di matrice senza modulo
 - [x] Dictionary of basic factors
 - [x] Fast input (per lettura interi)
 - [x] Floyd cycle detection
 - [x] KD-tree
-- [x] Line container deque
-- [x] Matroid intersection
 - [x] Matroid partition
 - [x] Pairing heap
 - [x] Sat (bruteforce O(2^variables*clauses))
@@ -137,11 +137,11 @@
 - [x] Max-flow min-cut theorem
 - [x] Konig theorem: max matching e min vertex cover (anche pesato) su grafo bipartito
 - [x] Hall theorem: matching perfetto su grafo bipartito
-- [x] Min/Max cost ma non per forza max flow
 - [x] Archi o nodi obbligati in un matching
 - [x] Max matching pesato e min matching pesato
-- [x] Max matching, in caso di parità scelgo min/max cost
 - [x] Erdős–Gallai theorem
+- [x] Max matching, in caso di parità scelgo min/max cost
+- [x] Min/Max cost ma non per forza max flow
 - [x] Number of spanning trees, Cayley's formula and labeled unrooted trees
 - [x] BEST theorem: number of eulerian circuits
 - [x] Dilworth theorem e duale: insieme parzialmente ordinati, cammini ricoprenti e anti-catene
