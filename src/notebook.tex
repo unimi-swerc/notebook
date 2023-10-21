@@ -33,6 +33,28 @@
 \newcommand{\codecpp}[2]{\inputminted[firstline=#2]{cpp}{'\detokenize{#1}'}}
 \newcommand{\codepy}[1]{\inputminted{python}{'\detokenize{#1}'}}
 
+% Copertina
+\newcommand{\maketeampage}{
+	\pagestyle{empty}
+	\setcounter{page}{0}
+	\begin{center}
+		\strut % Magic
+		\vspace{3cm}\\
+		\includegraphics[width=5cm]{unimi.png}\\
+		{\fontsize{25}{30}\selectfont Università degli Studi di Milano\\}
+		{\fontsize{60}{60}\selectfont LaStatale Blue\\}
+		\vspace{0.5cm}
+		{\huge Nicolas Albani, Alessandro Bortolin, Fabrizio Brioni\\}
+		\vfill
+		{\fontsize{21}{25}\selectfont Southwestern Europe Regional Contest 2023-2024}\\
+		\vspace{0.5cm}
+		{\huge 28 Gennaio 2024}\\
+		\vspace{1cm}
+	\end{center}
+	\clearpage
+	\pagestyle{fancy}
+}
+
 % Header/Footer
 \pagestyle{fancy}
 \renewcommand{\sectionmark}[1]{\markboth{\thesection.\ \MakeUppercase{#1}}{\thesection.\ \MakeUppercase{#1}}}
@@ -76,12 +98,12 @@
 \setcounter{tocdepth}{2} % table of content depth
 
 \begin{document}
+\maketeampage
 \begin{multicols*}{3}
 \markboth{0. INDICE}{0. INDICE}
 \maketitle
 \thispagestyle{fancy}
 \vspace{-1em}
-%\normalsize
 \renewcommand{\baselinestretch}{0.83}\normalsize
 
 % Table of contents
