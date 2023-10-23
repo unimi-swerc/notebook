@@ -132,7 +132,7 @@ struct segment_tree {
     if (l > R || r < L) {
       return 0;
     } else if (L <= l && r <= R) {
-      return tr[i].sum;//per il minimo/massimo probabilmente 
+      return tr[i].sum;//per il minimo/massimo probabilmente
     } else { //...basta usare i valori tr[i].mi/tr[i].mx
       push(i, l, r);
       return query(l,m, lc, L, R)+query(m+1,r, rc, L, R);

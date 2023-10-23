@@ -25,7 +25,7 @@ However, it would only make sense to transition to $\mathit{dp}(\mathit{total}-w
 \,
 
 \textbf{Dot product}: 
-$a\cdot b = |a| \cdot |b| \cos \theta = x_1 x_2 + y_1 y_2 + z_1 z_2$
+$$a\cdot b = |a| \cdot |b| \cos \theta = x_1 x_2 + y_1 y_2 + z_1 z_2$$
 
 \textbf{Cross product}:  
 $$|a\times b| = |a| \cdot |b| \sin \theta = (y_1 z_2 - z_1 y_2) + (z_1 x_2 - x_1 z_2) + (x_1 y_2 - y_1 x_2)$$ 
@@ -65,9 +65,10 @@ $P + (-Q)$ and $(0, 0)$.
 
 \subsubsection{Probability theory}
 Let $X$ be a discrete random variable with probability $p_X(x)$ of assuming the value $x$. Then $$\mu=\mathbb{E}(X)=\sum_xxp_X(x)$$ $$\sigma^2=V(X)=\mathbb{E}(X^2)-(\mathbb{E}(X))^2=\sum_x(x-\mathbb{E}(X))^2p_X(x)$$ If $X$ is instead continuous it will have a probability density function $f_X(x)$ and the sums above will instead be integrals with $p_X(x)$ replaced by $f_X(x)$.
-Moreover it holds $\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)$ for any (even dependent) $X,Y$.
-For independent $X$ and $Y$: $V(aX+bY) = a^2V(X)+b^2V(Y)$.
-For dependent $X$ and $Y$: $$V(X+Y) = V(X) + V(Y) + 2\mathit{Cov}(X,Y)$$ $$\mathit{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$$
+Moreover it holds: 
+$$\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y) \text{\ for any (even dependent) $X,Y$}$$
+$$V(aX+bY) = a^2V(X)+b^2V(Y) \text{\ for independent $X$ and $Y$}$$
+$$V(X+Y) = V(X) + V(Y) + 2\mathit{Cov}(X,Y) \text{\ for dependent $X$ and $Y$}$$ $$\mathit{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$$
 $$\mathit{Cov}(aX+b,Y) = a\mathit{Cov}(X,Y)$$ $$\mathit{Cov}(X+Y,Z) = \mathit{Cov}(X,Z)+\mathit{Cov}(Y,Z)$$
 
 \subsubsection{Note} La DP prova a pensarla sia in avanti che all’indietro, magari si semplifica qualcosa. (Es. i casi base se si va in avanti sono multipli, mentre

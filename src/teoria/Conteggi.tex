@@ -1,5 +1,5 @@
 \subsubsection{Numeri di Stirling del primo tipo}
-Numero di permutazioni di $n$ elementi con $k$ cicli. I punti fissi sono considerati come cicli di lunghezza 1.
+Numero di permutazioni di $n$ elementi con $k$ cicli. I punti fissi sono considerati come cicli lunghi 1.
 $$ \stirling{n}{k} = \stirling{n-1}{k-1} + (n-1)\stirling{n-1}{k}, \ \stirling{0}{0}=1, \ \stirling{n}{0}=\stirling{0}{n}=0$$
 %$$ c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1, \ c(n,0)=c(0,n)=0$$
 
@@ -8,7 +8,7 @@ Numero di modi per partizionare $n$ oggetti (diversi) in $k$ sottoinsiemi non vu
 $$ \Stirling{n}{k} = \Stirling{n-1}{k-1} + k\Stirling{n-1}{k}, \ \Stirling{0}{0}=1,\ \Stirling{n}{0}=\Stirling{0}{n}=0 $$
 
 \subsubsection{Derangement}
-Numero di permutazioni di $n$ elementi senza punti fissi: $$ D(n)=nD(n-1)+(-1)^n $$
+\# di permutazioni di $n$ elementi senza punti fissi: $$ D(n)=nD(n-1)+(-1)^n $$
 
 \subsubsection{Numeri di Catalan}
 Numero di alberi binari pieni (ogni nodo padre ha esattamente due figli) con $n$ nodi padre.
@@ -26,6 +26,6 @@ $$ C(n)=\binom{2n}{n}-\binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}{n} $$
 		 \[ g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)}. \]
 
 \subsubsection{Somma potenze quarte}
-$ 1^4+...+n^4=\frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} $
+$$ 1^4+...+n^4=\frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} $$
 
 \subsubsection{Euler's formula} $F+V-E=2$ (only for convex polyhedron).

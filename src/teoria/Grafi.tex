@@ -73,8 +73,8 @@ tutte le coppie di elementi sono  confrontabili tra loro.
 \textbf{Duale}: la cardinalità massima di una catena è uguale alla cardinalità del più piccolo partizionamento in anti-catene (qua 
 ovviamente non ha senso che due anti-catene abbiano elementi in comune, perchè se li hanno allora è possibile rimuovere tali elementi da uno dei due insiemi). 
 
-\textbf{Trovare il partizionamento minimo in catene} (ogni elemento appartiene a una sola catena) in un insieme parzialmente ordinato: basta creare per ogni elemento $x$ un nodo $x'$ e $x''$, dopodichè creare un arco $x'$<->$y''$ se e solo se $x>y$ e trovare il max matching. Se
-$x'$<->$y''$ appartiene al matching allora $x$ e $y$ sono nella stessa catena. 
+\textbf{Trovare il partizionamento minimo in catene} (ogni elemento appartiene a una sola catena) in un insieme parzialmente ordinato: basta creare per ogni elemento $x$ un nodo $x'$ e $x''$, dopodichè creare un arco $x' \leftrightarrow y''$ se e solo se $x>y$ e trovare il max matching. Se
+$x' \leftrightarrow y''$ appartiene al matching allora $x$ e $y$ sono nella stessa catena. 
 
 \textbf{Trovare il numero minimo di cammini ricoprenti} (possono avere nodi in comune, altrimenti non si può fare) in un dag: trasformo il dag in un insieme parzialmente ordinato aggiungendo gli archi per creare la transitività e poi faccio come prima, ricordandomi di aggiustare le catene che ottengo perchè potrebbero fare dei "salti".
 
