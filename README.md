@@ -54,7 +54,6 @@
 - [x] Fast subset convolution (or,and,xor)
 - [x] Ricorrenze lineari
 - [x] Matrice inversa (con modulo e senza modulo)
-- [x] Matroid intersection
 - [X] Modular (con modular sqrt)
 - [x] NTT
 - [x] Nimber product
@@ -62,6 +61,7 @@
 - [x] Gaussian elimination (linear solve con mod e senza mod)
 - [x] Teorema del resto cinese
 - [x] Euler’s totient function and linear factorization sieve
+- [x] Weighted matroid intersection
 - [ ] Fast matrix multiplication
 
 ### 4. Stringhe
@@ -113,6 +113,7 @@
 - [x] Floyd cycle detection
 - [x] KD-tree
 - [x] Matroid partition
+- [x] Matroid intersection (unweighted)
 - [x] Pairing heap
 - [x] Sat (bruteforce O(2^variables*clauses))
 - [x] Scapegoat tree
