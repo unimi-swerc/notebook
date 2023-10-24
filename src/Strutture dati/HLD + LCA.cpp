@@ -6,10 +6,11 @@
 /// https://judge.yosupo.jp/submission/85911
 /// https://codeforces.com/gym/101669/submission/179461930 (solo LCA)
 /// https://evaluator.hsin.hr/tasks/HONI222337skrivaca/ (submission 2, solo LCA)
+/// https://dmoj.ca/submission/5874311
 /* HLD 1-based (si supponga rt un segment
  * e ^ l'operazione di merge di due segmenti)
  * gli estremi di query e update del segment sono inclusi */
-const long long mod=998244353ll, MAXN=200005, LOGN=18;
+const long long MAXN=200005, LOGN=18;
 long long n,q; fun v[MAXN]; vector<int> grafo[MAXN];
 int par[MAXN][LOGN],prof[MAXN],siz[MAXN],in[MAXN];
 int out[MAXN],rin[MAXN],nex[MAXN],cont;
