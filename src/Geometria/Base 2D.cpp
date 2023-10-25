@@ -2,7 +2,7 @@
 /// Verification:
 /// https://judge.yosupo.jp/submission/140837 (Solo polar sort e cross)
 /// https://training.olinfo.it/#/task/pre_boi_cerchi (Solo polar sort, cross e perp, ID: 1025082)
-/// Guarda Convex huT per la verification di orient
+/// Guarda Convex hull per la verification di orient
 /// https://cses.fi/problemset/result/6102096/ (Point in Polygon)
 /// https://cses.fi/problemset/result/6102101/ (Polygon Area)
 /// https://codeforces.com/gym/102501/submission/206681789 (Polygon Area)
