@@ -90,10 +90,10 @@ struct CapacityScaling {//Tested with $M<10^3,U<10^9$(33 ms)
   }
 };
 /*CapacityScaling NS; NS.init(n);
-  for(int i=0;i<n;++i)cin>>NS.B[i];//vertex supply (in-out)
+  for(int i=0;i<n;++i)cin>>NS.B[i];//vertex supply (out-in)
   if (n == 0) { cout << 0 << endl; return 0; }
   for(int i = 0; i < m; ++i){//l,u,k,NS.b[i] anche negativi
-  cin >> a >> b >> l >> u >> k; lo[i] = l;
-  assert(2 * i == NS.ae(a, b, l, u, k));}
+  cin >> a >> b >> l >> u >> k; lo[i] = l; //arco i-esimo
+  assert(2 * i == NS.ae(a, b, l, u, k));}//(archi 0-based)
   auto cost = NS.solve(tmp); //tmp è falso se infeasible
-  NS.E[2 * i].flow + lo[i] = flusso arco i-esimo*/
+  NS.E[2 * i].flow + lo[i] = flusso arco i-esimo */
