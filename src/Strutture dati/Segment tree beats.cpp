@@ -2,6 +2,7 @@
 /// https://judge.yosupo.jp/submission/35587
 /// Verification:
 /// https://judge.yosupo.jp/submission/94863
+/// https://codeforces.com/gym/103438/submission/232475963
 /* 1-based. Estremi degli intervalli inclusi: [l,r]
  * 1 -> CHMIN, 2 -> CHMAX, 3 -> ADD. Time: $\mathcal{O}(\log{(N)})$
  * per query/update con $n,q \leq 2\cdot 10^5$ impiega 600 ms */
