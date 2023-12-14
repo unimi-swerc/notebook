@@ -1,6 +1,7 @@
 /// Source: Bortoz
 /// Verification:
 /// https://www.codechef.com/viewsolution/64779959
+/// https://contest.ucup.ac/submission/283618
 vector<int> z_function(string str) { // Time: $\mathcal{O}(N)$
   vector<int> ret(str.size()); int l=0, r=0;
   for (int i=1; i<str.size(); i++) {
