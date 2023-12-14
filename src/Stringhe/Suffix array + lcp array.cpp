@@ -9,6 +9,7 @@
 /// https://kilonova.ro/submissions/47310 (suffix nlogn)
 /// https://kilonova.ro/submissions/47312 (suffix lineare)
 /// https://codeforces.com/gym/104373/submission/220946482 (suffix lineare)
+/// https://contest.ucup.ac/submission/283618 (suffix nlogn)
 // build suffix array of $S_0,\cdots,S_{n-1}$
 struct SuffixArray { //tested with $n \leq 5\cdot 10^5$ (226 ms)
   string S; int N; vi sa, isa, lcp; //N=sz(S)+1=n+1
