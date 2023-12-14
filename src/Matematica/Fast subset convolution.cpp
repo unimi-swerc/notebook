@@ -15,12 +15,12 @@ void FST(vi& a, bool inv) {
         inv ? pii(v - u, u) : pii(v, u + v); // AND
         // inv ? pii(v, u - v) : pii(u + v, u); // OR
         // pii(u + v, u - v);                   // XOR
-    } //OR: $A'[j] = \sum_i A[i] I_{i \subseteq j}$, AND: $A'[j] = \sum_i A[i] I_{i \supseteq j}$, XOR: $A'[j] = \sum_i A[i] (-1) ^ {|i \cap j|}$
-  } //GCD: $A'[j] = \sum_i A[i] I_{j \mid i}$, LCM: $A'[j] = \sum_i A[i] I_{i \mid j}$
+    } //OR: $A'[j] = \sum_i A[i] I_{i \subseteq j}$, AND: $A'[j] = \sum_i A[i] I_{i \supseteq j}$
+  } //XOR: $A'[j] = \sum_i A[i] (-1) ^ {|i \cap j|}$ (FWHT)
   // if (inv) for (__int128& x : a) x /= sz(a); // XOR
-}
+} //CircConv mod n: $A'[j] = \sum_i A[i] (e^{\mathrm{i} \frac{2 \pi j}{n}}) ^ i$ (FFT)
 vi conv(vi a, vi b) { //tested with $a_i,b_i<10^9,N\leq 2^{20}$
   FST(a, 0); FST(b, 0);
   rep(i,0,sz(a)) a[i] *= b[i];
   FST(a, 1); return a;
-}
+} //GCD: $A'[j] = \sum_i A[i] I_{j \mid i}$, LCM: $A'[j] = \sum_i A[i] I_{i \mid j}$
