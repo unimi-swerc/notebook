@@ -19,7 +19,6 @@ jobs:
           latexmk_use_lualatex: true
           args: -pdf -shell-escape -file-line-error  -interaction=nonstopmode
           root_file: src/notebook.tex
-        continue-on-error: true
       - name: Upload notebook
         uses: actions/upload-artifact@v3
         with:
