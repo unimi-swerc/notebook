@@ -40,8 +40,8 @@ template<class F> int dfs(int at, int par, F& f) {
             for obtaining 2-vertex components */}
     }
   }
-  return top;
-}
+  return top;//idea per block cut tree: collego ogni
+} //nodo con un nodo che rappresenta la sua bicomp.
 template<class F> void bicomps(F f) { //0-based
   num.assign(sz(ed), 0);
   rep(i,0,sz(ed)) if (!num[i]) dfs(i, -1, f);
