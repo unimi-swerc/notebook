@@ -7,6 +7,7 @@
 /// https://atcoder.jp/contests/abc284/submissions/37859337
 /// tal_rotori
 /// https://contest.ucup.ac/submission/220720
+/// https://www.acmicpc.net/source/70649010
 // Polynomial hash for substrings with two bases
 mt19937 rng((uint64_t) chrono::duration_cast<chrono::
     nanoseconds>(chrono::high_resolution_clock::now()
