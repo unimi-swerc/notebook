@@ -7,6 +7,7 @@
 /// https://acm.timus.ru/problem.aspx?space=1&num=1909 (ID: 10289466, plane.proj(), plane.dist() e coords)
 /// https://osijek2023s-d8.eolymp.io/problems/4 (cross, dot, plane.side, creazione di piani)
 /// https://contest.ucup.ac/submission/196527 (dot, cross, norm, abs, creazione piani, plane.translate(), plane.side(), plane.dist())
+/// Advent of Code 2023 Day24 P2 (line3d, closestOnL1)
 struct p3 {
   T x,y,z;
   p3 operator+(p3 p) {return {x+p.x, y+p.y, z+p.z};}
@@ -63,9 +64,7 @@ struct coords {
   // From three points P,Q,R on the plane:
   // build an orthonormal 3D basis
   coords(p3 p, p3 q, p3 r) : o(p) {
-    dx = unit(q-p);
-    dz = unit(dx*(r-p));
-    dy = dz*dx;
+    dx = unit(q-p); dz = unit(dx*(r-p)); dy = dz*dx;
   }
   // From four points P,Q,R,S: take directions PQ, PR, PS
   // as is (represents a change of coordinate system)
@@ -74,3 +73,11 @@ struct coords {
   pt pos2d(p3 p) {return {(p-o)|dx, (p-o)|dy};}
   p3 pos3d(p3 p) {return {(p-o)|dx, (p-o)|dy, (p-o)|dz};}
 };
+struct line3d{ p3 d,o; line3d(p3 p, p3 q) : d(q-p), o(p) {}
+  line3d(plane p1, plane p2) { // From two planes p1, p2
+    d = p1.n*p2.n; o = (p2.n*p1.d - p1.n*p2.d)*d/norm(d);}
+  p3 inter(plane p) {return o - d*p.side(o)/(d|p.n);}
+};
+p3 closestOnL1(line3d l1, line3d l2) {
+  p3 n2 = l2.d*(l1.d*l2.d);
+  return l1.o + l1.d*((l2.o-l1.o)|n2)/(l1.d|n2); }
