@@ -3,6 +3,7 @@
 /// Verification:
 /// https://www.spoj.com/problems/ETF/ (id: 31464594) (totient fino a 10^6)
 /// https://www.codechef.com/viewsolution/97924273 (factorization sieve fino a 10^7)
+/// https://projecteuler.net/problem=869 (factorization sieve fino a 10^8 ma solo per cercare i primi)
 #define MAX 10000000
 bool pr[MAX];vector<int> phi(MAX),lp(MAX+1),primes;
 void totient() { //It took less than 0.5s with MAX=$10^7$
