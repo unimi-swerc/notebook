@@ -9,7 +9,7 @@
 ### 1. Geometria
 
 - [x] Geometria di base 2D (rotazioni, traslazioni, dot/cross product, area del poligono, punti all'interno del poligono, linee, segmenti, polar sort)
-- [x] Geometria di base 3D (punti, dot/cross product, piani, coordinate su un piano)
+- [x] Geometria di base 3D (punti, dot/cross product, piani, coordinate su un piano, rette)
 - [x] Operazioni sui cerchi (circocentro, intersezioni, tangenti)
 - [x] Closest pair
 - [x] Convex hull trick
@@ -18,6 +18,7 @@
 - [x] Slow delaunay
 - [x] Welzl (minimum enclosing circle)
 - [x] Poligon cut
+- [x] Minkowski sum
 - [ ] Convex hull (3D)
 - [ ] Voronoi
 - [ ] Polygon union
@@ -155,7 +156,6 @@
 - [x] Prodotto scalare e vettoriale
 - [x] Numeri primi grandi
 - [x] Rango matrice
-- [x] Minkowski sum
 - [x] Pythagorean triples
 - [x] Teoria della probabilità (valore atteso, varianza, covarianza)
 - [x] Note
