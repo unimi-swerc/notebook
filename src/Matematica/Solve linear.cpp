@@ -5,6 +5,7 @@
 /// https://judge.yosupo.jp/submission/139293 (modular)
 /// https://dmoj.ca/submission/5535996 (modular)
 /// https://dmoj.ca/submission/5536025 (modular)
+/// https://contest.ucup.ac/submission/297686 (double)
 /* Solves $Ax = b$. If there are multiple solutions,
  * an arbitrary one is returned.
  * Returns rank, or -1 if no solutions.
