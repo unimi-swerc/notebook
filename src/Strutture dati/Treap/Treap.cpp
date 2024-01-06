@@ -5,6 +5,7 @@
 /// https://codeforces.com/gym/418635/submission/187058661
 /// https://evaluator.hsin.hr/events/ceoi22_2mirror/tasks/SC2022CEOI22measures/ (submission 5)
 /// https://www.spoj.com/problems/CERC07S/ (id: 30636184 senza get_pos e 30636194 con get_pos)
+/// http://www.usaco.org/index.php?page=viewproblem2&cpid=1357 (con get_pos)
 mt19937 rng(time(nullptr));
 // Time: randomized $\mathcal{O}(\log{N})$
 // per $\approx 1.2\cdot 10^6$ split/merge impiega 1.2 sec
