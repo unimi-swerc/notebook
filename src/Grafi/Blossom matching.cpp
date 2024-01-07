@@ -9,7 +9,7 @@ struct EdmondsStruct { // Complexity: $\mathcal{O}(VE)$?
   vector <int> conn[maxn]; queue <int> q;
   void add(int u, int v) { // 1-based
     conn[u].push_back(v), conn[v].push_back(u);
-  }
+  } // nota: u != v (no self-loop)
   // total number of nodes
   void init(int _n) {
     n = _n, t = 0;
