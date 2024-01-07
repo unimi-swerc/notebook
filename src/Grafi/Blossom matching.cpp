@@ -2,6 +2,7 @@
 /// https://github.com/dariost/swerc/blob/master/src/Graphs/edmonds_blossom.hpp
 /// Verification:
 /// https://judge.yosupo.jp/submission/86633
+/// https://projecteuler.net/problem=871 (solo su meduse ma vabbè)
 const int maxn = 505; //with $N\leq 500$ run in 8 ms
 struct EdmondsStruct { // Complexity: $\mathcal{O}(VE)$?
   int vis[maxn], par[maxn], orig[maxn];
