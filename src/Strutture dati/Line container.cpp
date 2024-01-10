@@ -4,6 +4,7 @@
 /// https://judge.yosupo.jp/submission/86692
 /// https://kilonova.ro/submissions/32073
 /// https://codeforces.com/contest/1866/submission/221701386
+/// https://qoj.ac/submission/302289
 /* Container where you can add lines of the form $kx+m$,
  * and query maximum values at points x. Time: $\mathcal{O}(\log N)$ */
 struct Line { // tested with $N,Q\leq 2\cdot 10^5$ (296 ms)
