@@ -4,6 +4,7 @@
 /// https://codeforces.com/contest/342/submission/206408466
 /// https://judge.yosupo.jp/submission/140347
 /// https://judge.yosupo.jp/submission/140409
+/// https://qoj.ac/submission/302411
 const int MN = 1e5+10, INF = 0x3f3f3f3f;
 int N, M, s[MN], m[MN][2], t, b, d;
 bool r[MN], red[MN];vector<int> a[MN], v[MN];
@@ -38,9 +39,9 @@ void centroid(int n=1){ //1-based
   for(auto x:a[n])
     if(!r[x]){
       t=n, b=v[n].size(), d=1;
-      dfs2(x, n); //aggiorno i g[]
       v[n].push_back(INF);
-    }
+      dfs2(x, n); //aggiorno i g[], se...
+    } //... vuoi anche v[n].back()
   r[n]=1;
   for(auto x:a[n])
     if(!r[x])
