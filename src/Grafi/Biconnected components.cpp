@@ -4,6 +4,7 @@
 /// https://judge.yosupo.jp/submission/110010
 /// https://evaluator.hsin.hr/tasks/HONI222337skrivaca/ (submission 2)
 /// https://kilonova.ro/submissions/154619
+/// https://qoj.ac/submission/304390
 /* Finds all biconnected components in an undirected graph,
  * and runs a callback for the edges in each. In a
  * biconnected component there are at least two distinct
