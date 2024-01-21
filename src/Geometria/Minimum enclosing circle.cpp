@@ -2,6 +2,7 @@
 /// Verification:
 /// https://www.spoj.com/problems/QCJ4/ (ID: 31063280)
 /// https://www.spoj.com/problems/ALIENS/ (ID: 31064280)
+/// https://contest.ucup.ac/submission/310110
 /* Welzl's algorithm: minimum enclosing circle in expected
  * linear time. If there are any duplicate points in the
  * input, be sure to remove them first. */
