@@ -4,6 +4,7 @@
 /// https://www.acmicpc.net/source/56913786 (google code jam 2022)
 /// https://open.kattis.com/submissions/10161695
 /// https://codeforces.com/gym/103640/submission/190868345
+/// https://codeforces.com/contest/1510/submission/243053287
 /* Description: Given array of (possibly negative) costs
  * to complete each of $N$ (1-indexed) jobs with each of $M$
  * workers ($N\leq M$), finds min cost to complete all jobs
