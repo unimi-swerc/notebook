@@ -93,7 +93,7 @@
 - [x] Persistent segment tree sparso lazy
 - [x] Sparse table
 - [x] Treap (+ lazy propagation)
-- [ ] (?) Lower bound su fenwick
+- [ ] Lower bound su fenwick
 
 ### 6. Altro
 
