@@ -9,6 +9,7 @@
 /// https://contest.ucup.ac/submission/220720
 /// https://www.acmicpc.net/source/70649010
 /// ois carry
+/// https://codeforces.com/contest/1923/submission/248548243
 // Polynomial hash for substrings with two bases
 mt19937 rng((uint64_t) chrono::duration_cast<chrono::
     nanoseconds>(chrono::high_resolution_clock::now()
