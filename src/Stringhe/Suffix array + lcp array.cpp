@@ -10,6 +10,7 @@
 /// https://kilonova.ro/submissions/47312 (suffix lineare)
 /// https://codeforces.com/gym/104373/submission/220946482 (suffix lineare)
 /// https://contest.ucup.ac/submission/283618 (suffix nlogn)
+/// https://qoj.ac/submission/349845 (suffix nlogn)
 // build suffix array of $S_0,\cdots,S_{n-1}$
 struct SuffixArray { //tested with $n \leq 5\cdot 10^5$ (226 ms)
   string S; int N; vi sa, isa, lcp; //N=sz(S)+1=n+1
@@ -22,7 +23,7 @@ sa=sa_is(s,27);isa=vi(N);FOR(i,0,N)isa[sa[i]]=i;*/genLcp();}
     FOR(i,1,N) { int a = sa[i-1], b = sa[i];
       isa[b] = i > 1 && S[a] == S[b] ? isa[a] : i; }
     for (int len = 1; len < N; len *= 2) { // currently
-      // sorted by first len chars
+      // sorted by first len chars (a-z, A-z, spaces)
       vi s(sa), is(isa), pos(N); iota(all(pos),0);
       each(t,s){
         int T=t-len;if(T>=0)sa[pos[isa[T]]++]=T;
