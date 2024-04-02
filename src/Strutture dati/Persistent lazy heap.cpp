@@ -6,9 +6,9 @@
 /* Persistent meldable heap. Time: $\mathcal{O}(\log N)$ per meld.
  * Memory: $\mathcal{O}(\log N)$ per meld if copy==true, else $\mathcal{O}(1)$.*/
 typedef array<ll,2> KEY; //array<ll,3> per directed mst
-typedef shared_ptr<struct Heap> ph; //oppure struct Heap* ph;
+typedef shared_ptr<struct Heap> ph; //oppure struct Heap* ph
 template<class... Args> //con copy=true diventa persistente
-static ph make_ph(Args&&... args){ //utile con la persistenza
+static ph make_ph(Args&&... args){ //utile con persistenza
     return make_shared<Heap>(forward<Args>(args)...);
 } //altrimenti metti new Heap(forward<Args>(args)...);
 struct Heap { // min heap wrt KEY
@@ -32,9 +32,9 @@ struct Heap { // min heap wrt KEY
   }
   KEY top() { prop(); return v; }
 };//$\mathcal{O}(n^2)$ meld,$n \leq 2500$->4.0 s|$\mathcal{O}(m)$ meld,$m \leq 3\cdot 10^5$->750 ms
-ph meld(ph p, ph q, bool copy = false) { //i meld con $n \leq 2500$ sono...
-  if (!p || !q) return p?:q; //non persistenti e fatti con Heap*
-  p->prop(copy), q->prop(copy);
+ph meld(ph p, ph q, bool copy = false) { //con $n \leq 2500$...
+  if (!p || !q) return p?:q; //l'Heap è non persistente...
+  p->prop(copy), q->prop(copy);//e usa ph = struct Heap*
   if (p->v > q->v) swap(p,q);
   ph P = (copy ? make_ph(*p) : p);
   P->r = meld(P->r,q);
