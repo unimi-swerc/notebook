@@ -7,6 +7,7 @@
 /// https://codeforces.com/gym/101669/submission/179461930 (solo LCA)
 /// https://evaluator.hsin.hr/tasks/HONI222337skrivaca/ (submission 2, solo LCA)
 /// https://dmoj.ca/submission/5874311
+/// https://training.olinfo.it/#/task/cioccolatini/submissions (id: 1197919,path_query è modificato, non ci sono update)
 /* HLD 1-based (si supponga rt un segment
  * e ^ l'operazione di merge di due segmenti)
  * gli estremi di query e update del segment sono inclusi */
