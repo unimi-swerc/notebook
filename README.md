@@ -88,7 +88,7 @@
 - [x] Line container
 - [x] Link-cut tree (normale, divino, modifica per path non commutativi)
 - [x] Mo queries (su array e su albero)
-- [x] Persisten lazy heap
+- [x] Persistent lazy heap
 - [x] Segment tree beats
 - [x] Persistent segment tree sparso lazy
 - [x] Sparse table
