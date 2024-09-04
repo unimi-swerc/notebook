@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Compile notebook
         uses: xu-cheng/latex-action@v3
         with:
@@ -20,7 +20,7 @@ jobs:
           args: -pdf -shell-escape -file-line-error  -interaction=nonstopmode
           root_file: src/notebook.tex
       - name: Upload notebook
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: swerc
           path: notebook.pdf
