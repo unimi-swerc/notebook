@@ -14,6 +14,7 @@
 /// https://codeforces.com/gym/103438/submission/232199554
 /// https://contest.ucup.ac/submission/289822
 /// https://qoj.ac/submission/353293
+/// https://contest.ucup.ac/contest/1903/problem/9692
 // 0-based, with $N\leq 5000, M\leq 30000$ run in 0.19 sec (F=ll)
 //$\mathcal{O}(N^2M)$, con grafi bipartiti $N\leq 10^5,M\leq 10^5$ (0.77 sec)
 using pi = pair<int,int>;
