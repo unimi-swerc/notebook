@@ -1,4 +1,5 @@
 # SWERC cheat sheet
+Per compilare: `latexmk -shell-escape notebook.tex`
 
 ## TODO:
 
