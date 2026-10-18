@@ -1,6 +1,7 @@
 /// Source: Own (MrBrionix)
 /// Verification:
 /// https://atcoder.jp/contests/agc056/submissions/40918831
+/// https://atcoder.jp/contests/arc232/submissions/80184578
 long long n,m,t,dist[MAXN],padre[MAXN];
 vector<pair<int,int>> grafo[MAXN]; vector<int> nod,g[MAXN];
 void dfs(int nodo){ //tested with $n,m\leq 10^6$ (900 ms)
