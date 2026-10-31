@@ -4,7 +4,7 @@
 /// https://www.hackerrank.com/contests/alten-coding-challenge/challenges/approvazione/submissions/code/1338547243
 vector<pt> hull, vecs;
 // Add line k*x+b, k deve essere crescente
-void add_line(ll k, ll b) { //ammortized $\mathcal{O}(n)$
+void add_line(ll k, ll b) { //ammortized $\mathcal{O}(1)$
   pt nw = {k, b}; //rappresento la retta come un punto...
   while(!vecs.empty()&&dot(vecs.back(),nw-hull.back())<0){
     hull.pop_back();
