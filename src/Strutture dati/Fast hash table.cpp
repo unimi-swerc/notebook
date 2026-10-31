@@ -7,6 +7,7 @@
 /// https://itacpc22.kattis.com/submissions/10162289
 /// https://codeforces.com/gym/101964/submission/187851301
 /// https://judge.yosupo.jp/submission/140347
+/// https://atcoder.jp/contests/abc482/submissions/80531301
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
 struct custom_hash {
